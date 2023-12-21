@@ -49,3 +49,7 @@ const { title } = Astro.props;
 			monospace;
 	}
 </style>
+<script type="module">
+	import { injectSpeedInsights } from '@vercel/speed-insights';
+	injectSpeedInsights({});
+</script>
