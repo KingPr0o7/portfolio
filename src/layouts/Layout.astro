@@ -4,10 +4,11 @@ interface Props {
 	description: string;
 }
 
-import '../sass/global.sass';
+import { ViewTransitions } from 'astro:transitions';
+import '../layouts/Layout.sass';
+import Navbar from '../components/Navbar.astro';
 
-const { title } = Astro.props;
-const { description } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,10 +20,12 @@ const { description } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
+		<Navbar />
 		<main>
-			<section>
+			<section transition:animate="slide">
 				<slot />
 			</section>
 		</main>
