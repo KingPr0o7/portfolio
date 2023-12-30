@@ -1,0 +1,321 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../images/branding/ncp_icon_white.png"
+import About_Icon from "../images/icons/about.svg"
+import Project_Icon from "../images/icons/project.svg"
+import Contact_Icon from "../images/icons/contact.svg";
+import Blog_Icon from "../images/icons/blog.svg";
+---
+
+<nav class="navbar" data-navlist="semi" transition:persist>
+	<div class="navbar-container">
+		<div class="navbar-left">
+			<a href="./">
+				<Image src={Logo} alt="Nathan Parker's (N) Logo" width={48} height={48} />
+			</a>
+		</div>
+		<div class="navbar-middle">
+			<a class="navbar-link" href="./">
+				<Image src={Logo} class="navbar-image" alt="Nathan Parker's N Logo" width={32} height={32} />
+				<p class="navbar-link-text">Home</p>
+			</a>
+			<a class="navbar-link" href="/about">
+				<Image src={About_Icon} class="navbar-image" alt="About Page Icon (Person Outline)" width={32} height={32} />
+				<p class="navbar-link-text">About</p>
+			</a>
+			<a class="navbar-link" href="/projects">
+				<Image src={Project_Icon} class="navbar-image" alt="Projects Page Icon (Book with Bookmark)" width={32} height={32} />
+				<p class="navbar-link-text">Projects</p>
+			</a>
+			<a class="navbar-link" href="/blogs">
+				<p class="navbar-link-text">Blogs</p>
+			</a>
+
+			<div class="navbar-link" id="mobile-hamburger-parent" tabindex="0">
+				<span class="mobile-hamburger" data-state="closed">
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</span>
+				<p class="navbar-link-text">More</p>
+			</div>
+		</div>
+		<div class="navbar-right">
+			<a class="button" href="/contact">Contact</a>
+		</div>
+	</div>
+</nav>
+
+<nav class="mobile-navlist">
+	<a class="navbar-link" href="./contact.html">
+		<Image src={Contact_Icon} class="navbar-image" alt="Contact Me Page Icon (Person Outline With Lines)" width={32} height={32} />
+		<p class="navbar-link-text">Contact</p>
+	</a>
+
+	<a class="navbar-link" href="./blogs.html">
+		<Image src={Blog_Icon} class="navbar-image" alt="Blogs Page Icon (Newspaper)" width={32} height={32} />
+		<p class="navbar-link-text">Blogs</p>
+	</a>	
+</nav>
+
+<style>
+.navbar {
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+	/* Remove blur when navlist is open */
+	.navbar[data-navlist="true"] {
+		backdrop-filter: blur(0px);
+		-webkit-backdrop-filter: blur(0px);		
+	}
+
+	.navbar-container {
+		display: flex;
+		align-items: center;	
+		justify-content: space-between;	
+		width: var(--max-width);
+		height: 100%;
+		padding: 0 50px;
+		max-width: var(--max-width);
+	}
+
+		.navbar-middle {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			list-style-type: none;
+			font-size: clamp(1.2rem, 2vw, 1.5rem);
+			height: 100%;
+			width: fit-content;
+		}
+
+			.navbar-link { 
+				position: relative;
+				padding: 0 40px;
+				display: flex;
+				align-items: center;				
+				text-decoration: none; 
+				height: 100%;
+				cursor: pointer;
+			}
+
+				.navbar-link[data-toggled="true"] > .navbar-link-text { color: var(--accent); }
+				.navbar-link[data-toggled="true"] > .navbar-image { filter: var(--accent-filter); }
+
+				.navbar-link:nth-child(1) { display: none; } /* Navlist Home Link */
+				.navbar-link:nth-child(5) { display: none; } /* Hamburger Menu */
+
+				.navbar-link:hover > .navbar-link-text:not(#mobile-hamburger-parent > .navbar-link-text):not(.navbar-link[href='./'] > .navbar-link-text), 
+				.navbar-link:focus > .navbar-link-text:not(#mobile-hamburger-parent > .navbar-link-text):not(.navbar-link[href='./'] > .navbar-link-text) { 
+					color: var(--accent); 
+				}
+				
+					.navbar-link-text { font-size: clamp(1rem, 2vw, 1.5rem); }
+
+					.navbar-image {
+						width: 32px;
+						height: 32px;
+					}
+
+				/* Navbar link selector - Credit to: Kevin Powell (Credits Page) */
+				.navbar-middle::after {
+					position: absolute;
+					content: "";
+					bottom: 0;
+					left: 0;
+					right: 0;
+					height: 1px;
+					scale: var(--_width, 0) 1;
+					translate: var(--_left, 0px) 0;
+					transform-origin: left;
+					background: var(--accent);
+					transition: scale 500ms, translate 500ms;
+					transition-delay: 100ms;
+				}
+
+			.mobile-hamburger {
+				display: none;
+				padding-top: 2px;
+				height: 32px;
+				width: 32px;
+				flex-direction: column;
+				justify-content: space-between;
+				animation: appear 2.2s ease;		
+				gap: 12px;		
+			}
+				
+				.bar {
+					width: 100%;
+					height: 2px;
+					border-radius: var(--main-border-radius);
+					background-color: white;
+					transition: all 0.9s;					
+				}
+				
+					/* Hamburger Menu Animation */
+					.mobile-hamburger[data-state="open"] > .bar:nth-child(1) {
+						transform: rotate(-45deg) translate(-10px, 10px);
+						transition: all 0.9s;
+					}
+				
+					.mobile-hamburger[data-state="open"] > .bar:nth-child(2) {
+						transform: rotate(45deg);
+						transition: all 0.9s;
+					}
+				
+					.mobile-hamburger[data-state="open"] > .bar:nth-child(3) {
+						opacity: 0;
+						transition: opacity 0.9s;
+					}
+				
+						.mobile-hamburger[data-state="open"], .mobile-hamburger[data-state="closed"] .bar:nth-child(3) {
+							opacity: 1;
+							transition: opacity 0.9s;
+						}
+
+  		/* Navbar Line */
+		nav::after {
+			background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%,rgba(255, 255, 255, 0) 100%);
+			bottom: 0;
+			content: "";
+			height: 2px;
+			position: absolute;
+			width: 100%;
+			max-width: var(--max-width);	
+			transition: height 250ms ease;
+		}
+
+		/* Hides navbar line when navlist is open */
+		.navbar[data-navlist="true"]::after { height: 0px; }
+
+.mobile-navlist { 
+	padding-bottom: 70px;
+	position: fixed;
+	z-index: 9;
+	width: 100%;
+	height: 300px;
+	top: 1000vh;
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	transition: top 1s ease;
+}
+		
+	/* Animates the navlist downwards instead of just disappearing */
+	nav[data-navlist="false"] ~ .mobile-navlist { top: calc(200dvh - 300px); }
+
+@media (min-width: 1000px) {
+	.navbar-image { display: none; }
+}
+
+@media (max-width: 1000px) {
+	/* Navbar */
+	.navbar { top: calc(100dvh - 70px); } /* Moves navbar to bottom of dvh (Dynamic Viewport Height - Safari Toolbar) */
+
+		.navbar::after { top: 0; }
+
+		.navbar-container {
+			padding: 0;
+			width: 100%;
+		}
+
+			.navbar-left { display: none; }
+
+			.navbar-middle {
+				justify-content: space-around;
+				width: 100%;
+				gap: 0;
+			}
+
+				/* Switching to image based navbar-links */
+				.navbar-link {
+					flex-direction: column;
+					justify-content: center;
+					gap: 5px;
+				}
+
+				.navbar-link:nth-child(1) {display: flex;} /* Displays Home Link */
+				.navbar-link:nth-child(4) {display: none;} /* Hides Contact Button Link */
+				.navbar-link:nth-child(5) {display: flex;} /* Displays Hamburger Menu */
+
+					.navbar-image {
+						width: 24px;
+						height: 24px;
+					}
+
+				.navbar-middle::after { top: 1px; } /* Moves navbar line to top due to navbar being on the bottom */
+
+				.mobile-hamburger {
+					display: flex;
+					opacity: 1;
+					width: 24px;
+					height: 24px;
+					gap: 8px;
+				}
+		
+					.mobile-hamburger[data-state="open"] > .bar:nth-child(1) {
+						transform: rotate(-45deg) translate(-7px, 7px);
+						transition: all 0.9s;
+					}
+
+			.navbar-right { display: none; }		
+
+	/* Removes blur when navlist is open */
+	.navbar[data-navlist="true"] { animation: remove-navbar-bg-blur 0.4s ease; }
+
+	/* Enables + Animates the navlist */
+	.navbar[data-navlist="true"] ~ .mobile-navlist {
+		display: flex;
+		align-items: flex-start;
+		justify-content: center;
+		flex-direction: column;
+		top: calc(100dvh - 300px);
+		animation: navlist-appear 0.4s ease;
+	}
+
+		/* Readjusts navbar line to be at the top of the navlist */
+		.mobile-navlist::before {
+			position: absolute;
+			content: "";
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: radial-gradient(50% 100% at 50% 100%,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 100%);
+		}
+
+			.mobile-navlist > .navbar-link {
+				justify-content: flex-end;
+				flex-direction: row;
+				width: 100%;
+			}
+}
+
+@media (max-width: 500px) {
+	.navbar-container { padding: 0; }
+	.navbar-link { padding: 25px; }
+}
+
+@media (max-width: 380px) {
+	.navbar-middle > .navbar-link:nth-child(3) {display: none;} /* Hides Projects Link */
+}
+
+@keyframes remove-navbar-bg-blur {
+	from { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+	to { backdrop-filter: blur(0px); -webkit-backdrop-filter: blur(0px); }
+}
+
+@keyframes navlist-appear {
+	from { top: calc(200dvh - 300px);}
+	to { top: calc(100dvh - 300px);}
+}	
+</style>

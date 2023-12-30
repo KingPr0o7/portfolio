@@ -1,0 +1,29 @@
+@import '../config.css';
+
+main {
+	display: grid;
+	grid-template-columns: /* Credit to: Kevin Powell (Credits Page) */
+		[full-start] minmax(25px, 1fr) [content-start] minmax(0, var(--max-width)) [content-end] minmax(25px, 1fr) [full-end];
+	padding-top: 70px;
+	min-height: 100vh;
+	width: 100%;
+	place-content: center;
+}
+
+	main > * { grid-column: content; }
+
+	main[data-state="padded"] { padding-top: 95px; }
+
+	section { max-width: var(--max-width); }
+
+h1 {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+@media (max-width: 1000px) {
+	/* Removes top padding due to navbar moving to bottom of vh */
+	main, main[data-state="padded"] { padding-top: 0px;}
+}

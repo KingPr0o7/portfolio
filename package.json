@@ -14,7 +14,6 @@
     "@astrojs/vercel": "^6.1.0",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
-    "astro": "^4.0.7",
-    "sass": "^1.69.5"
+    "astro": "^4.0.7"
   }
 }

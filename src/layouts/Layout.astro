@@ -5,8 +5,8 @@ interface Props {
 }
 
 import { ViewTransitions } from 'astro:transitions';
-import '../layouts/Layout.sass';
-import Navbar from '../components/Navbar.astro';
+import './Layout.css';
+import Nav from '../components/Nav.astro';
 
 const { title, description } = Astro.props;
 ---
@@ -23,7 +23,7 @@ const { title, description } = Astro.props;
 		<ViewTransitions />
 	</head>
 	<body>
-		<Navbar />
+		<Nav />
 		<main>
 			<section transition:animate="slide">
 				<slot />
@@ -32,6 +32,14 @@ const { title, description } = Astro.props;
 	</body>
 </html>
 <script>
+	import '../nav.js';
+
 	import { injectSpeedInsights } from '@vercel/speed-insights';
-	injectSpeedInsights({});
+	try {
+		injectSpeedInsights({});
+	} catch (error) { // Will remove when Vercel fixes this :/
+		if (!error.message.includes('VERCEL_ANALYTICS_ID not found')) {
+			throw error;
+		}
+	}
 </script>
