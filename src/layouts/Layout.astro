@@ -11,7 +11,7 @@ import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 
 const { title, description, image } = Astro.props;
-const cover = `/covers/${image}`;
+const cover = `${Astro.url}covers/${image}`;
 const url = 'ncp.dev';
 const handle = '@KingPr0o7';
 ---
@@ -62,7 +62,6 @@ const handle = '@KingPr0o7';
 		<main>
 			<section transition:animate="slide">
 				<slot />
-				<h1>{cover}</h1>
 			</section>
 		</main>
 		<Footer />
