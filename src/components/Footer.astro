@@ -1,0 +1,289 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../images/branding/logo.png"
+import Discord from "../images/logos/discord.svg"
+import GitHub from "../images/logos/github.svg"
+import LinkedIn from "../images/logos/linkedin.svg"
+import Twitter from "../images/logos/x.svg"
+
+const date = new Date();
+const year = date.getFullYear();
+
+let url = Astro.url.pathname === '/';
+---
+
+<footer>
+	{url && 
+		<div class="footer-resume">
+			<h2 class="footer-resume-attention">Wanna cut to the chase?</h2>
+			<a class="button" href="" target="_blank">View My Resume</a>
+		</div>
+	}
+
+	<div class="footer-inner">
+		<div class="footer-left">
+			<div class="footer-left-top">
+				<a href="./">
+					<Image src={Logo} class="footer-logo" alt="Nathan Parker's Full Logo (N Nathan Parker)" width={400} height={100} />
+				</a>
+				<p class="footer-desc">A software developer working towards his dreams — to make big things happen.</p>
+			</div>
+			<p class="footer-copyright">&#169; {year} Nathan Parker. All rights reserved.</p>
+		</div>
+
+		<div class="footer-sections">
+			<div class="footer-section">
+				<h2 class="footer-section-header">Pages</h2>
+				<a class="footer-link" href="./about.html">About</a>
+				<a class="footer-link" href="./projects.html">Projects</a>
+				<a class="footer-link" href="./blogs.html">Blogs</a>
+				<a class="footer-link" href="./contact.html">Contact</a>
+			</div>
+
+			<div class="footer-section">
+				<h2 class="footer-section-header">Other</h2>
+				<a class="footer-link" href="">Credits</a>
+			</div>
+
+			<div class="footer-section">
+				<h2 class="footer-section-header">My Socials</h2>
+				<div class="footer-socials">
+					<a class="footer-social" href="https://www.linkedin.com/in/nathanparker07/">
+						<Image src={LinkedIn} class="footer-social-logo" alt="LinkedIn's Logo" width={32} height={32} />
+						<p class="footer-social-name">LinkedIn</p>
+					</a>
+		
+					<a class="footer-social" href="https://discord.gg/ksW8rAcU6t">
+						<Image src={Discord} class="footer-social-logo" alt="Discord's Logo" width={32} height={32} />
+						<p class="footer-social-name">Discord</p>
+					</a>
+		
+					<a class="footer-social" href="https://github.com/KingPr0o7">
+						<Image src={GitHub} class="footer-social-logo" alt="GitHub's Logo" width={32} height={32} />
+						<p class="footer-social-name">GitHub</p>
+					</a>
+		
+					<a class="footer-social" href="https://twitter.com/KingPr0o7">
+						<Image src={Twitter} class="footer-social-logo" alt="Twitter's (X's) Logo" width={32} height={32} />
+						<p class="footer-social-name">Twitter</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<style>
+footer {
+	position: relative;
+	margin-top: 100px;
+	gap: 50px;
+	padding: 25px 0;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	height: fit-content;
+	background-color: var(--gray);
+	border-radius: var(--secondary-border-radius) var(--secondary-border-radius) 0 0;
+}
+
+	footer:has(.footer-resume) { 
+		padding-top: 100px; 
+		margin-top: 150px;
+	}
+
+	.footer-resume {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		padding: 25px;
+		top: 0px;
+		transform: translate(0%, -50%);
+		width: 55%;
+		height: 100px;
+		background-color: var(--secondary);
+		border-radius: var(--secondary-border-radius);
+	}
+
+		.footer-resume-attention {
+			font-size: clamp(1.5rem, 2vw, 2.3rem);
+		}
+
+		.footer-resume .button {
+			background: none;
+			border: 2px solid var(--text);
+		}
+
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		height: 100%;
+		width: 100%;
+		max-width: var(--max-width);
+	}
+
+	.footer-left {
+		width: 425px;
+		height: 250px;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		gap: 12.5px;
+	}
+
+		.footer-logo {
+			width: 400px;
+			height: 100px;	
+		}
+
+		.footer-desc, .footer-copyright {
+			font-size: clamp(1.2rem, 1.5vw, 1.3rem);
+			line-height: 1.8rem;
+		}
+
+
+	.footer-socials {
+		display: flex;
+		align-items: baseline;
+		flex-direction: column;
+		gap: 12.5px;
+	}
+
+		.footer-social {
+			display: flex;
+			align-items: center;
+			text-decoration: none;
+			justify-content: center;
+			gap: 12.5px;
+		}
+
+			.footer-social:hover > .footer-social-logo,
+			.footer-social:focus > .footer-social-logo { 
+				filter: var(--accent-filter); 
+			}
+
+			.footer-social:hover > .footer-social-name,
+			.footer-social:focus > .footer-social-name { 
+				text-decoration-line: underline;
+				-webkit-text-decoration-line: underline;
+				text-decoration-color: var(--accent);
+				text-decoration-thickness: 0.15em;
+				-webkit-text-decoration-color: var(--accent);
+			}
+
+		.footer-social-logo {
+			width: 32px;
+			height: 32px;
+		}
+
+	.footer-sections {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		gap: 100px;
+	}
+
+	.footer-section {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		gap: 12.5px;
+	}
+
+		.footer-link, .footer-social-name {
+			text-decoration: none;
+			font-size: 1.2rem;
+			line-height: clamp(1rem, 2vw, 2.2rem);
+		}
+
+		.footer-link:hover {
+			text-decoration-line: underline;
+			-webkit-text-decoration-line: underline;
+			text-decoration-color: var(--accent);
+			text-decoration-thickness: 0.15em;
+			-webkit-text-decoration-color: var(--accent);
+		}
+		
+@media (max-width: 1000px) {
+	/* Footer */
+	.footer-resume { width: 90%; }
+
+	.footer-inner {
+		flex-direction: column;
+		gap: 50px;
+		padding-bottom: 70px;
+	}
+
+		.footer-left { 
+			padding: 0 25px;
+			max-width: 100%;
+			height: fit-content; 
+		}
+
+			.footer-left-top {
+				display: flex;
+				flex-direction: column;
+				gap: 12.5px;
+			}
+
+			.footer-logo { 
+				max-width: 100%; 
+				height: auto;
+			}
+
+			.footer-desc { text-align: center; }
+			.footer-copyright { text-align: center;}
+		
+		.footer-sections { 
+			align-items: baseline;
+			flex-wrap: wrap;
+		}
+
+			.footer-section { gap: 25px; }
+}
+
+@media (max-width: 600px) {
+	footer:has(.footer-resume) { padding-top: 125px; }
+
+	.footer-resume { 
+		flex-direction: column; 
+		justify-content: center;
+		gap: 25px;
+		height: fit-content;
+		text-align: center;
+	}
+}
+
+@media (max-width: 500px) {
+	.footer-section:nth-child(3) > .footer-section-header { text-align: center; }
+
+		.footer-socials { flex-direction: row; }
+
+			.footer-social-logo {
+				width: 48px;
+				height: 48px;
+			}
+
+			.footer-social-name { display: none; }	
+}
+
+@media (max-width: 350px) {
+	.footer-sections { 
+		flex-direction: column; 
+		align-items: center;
+		text-align: center;
+	}
+
+	.footer-section:nth-child(3) > .footer-section-header { display: block; }
+
+		.footer-socials { flex-direction: column; }
+
+			.footer-social-logo {
+				width: 32px;
+				height: 32px;
+			}	
+
+			.footer-social-name { display: block; }
+}
+</style>

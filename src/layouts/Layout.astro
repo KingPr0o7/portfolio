@@ -6,6 +6,7 @@ interface Props {
 
 import { ViewTransitions } from 'astro:transitions';
 import './Layout.css';
+import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
 
 const { title, description } = Astro.props;
@@ -29,6 +30,7 @@ const { title, description } = Astro.props;
 				<slot />
 			</section>
 		</main>
+		<Footer />
 	</body>
 </html>
 <script>
