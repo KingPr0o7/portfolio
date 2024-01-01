@@ -6,6 +6,7 @@ interface Props {
 }
 
 import { ViewTransitions } from 'astro:transitions';
+import SpeedInsights from '@vercel/speed-insights/astro';
 import './Layout.css';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
@@ -54,15 +55,25 @@ const handle = '@KingPr0o7';
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 		<meta name="theme-color" content="#10100f">
 		<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#084c9a">
+
+		<!-- Astro -->
 		<meta name="generator" content={Astro.generator} />
 		<ViewTransitions />
+
+		<script is:inline>
+			function speedInsightsBeforeSend(data){
+			  console.log("Speed Insights before send", data)
+			  return data;
+			}
+		</script>
+	  
+		<SpeedInsights />
 	</head>
 	<body>
 		<Nav />
 		<main>
 			<section transition:animate="slide">
 				<slot />
-				<h1>{cover}</h1>
 			</section>
 		</main>
 		<Footer />
@@ -71,12 +82,12 @@ const handle = '@KingPr0o7';
 <script>
 	import '../nav.js';
 
-	import { injectSpeedInsights } from '@vercel/speed-insights';
-	try {
-		injectSpeedInsights({});
-	} catch (error) { // Will remove when Vercel fixes this :/
-		if (!error.message.includes('VERCEL_ANALYTICS_ID not found')) {
-			throw error;
-		}
-	}
+	// import { injectSpeedInsights } from '@vercel/speed-insights';
+	// try {
+	// 	injectSpeedInsights({});
+	// } catch (error) { Will remove when Vercel fixes this :/
+	// 	if (!error.message.includes('VERCEL_ANALYTICS_ID not found')) {
+	// 		throw error;
+	// 	}
+	// }
 </script>
