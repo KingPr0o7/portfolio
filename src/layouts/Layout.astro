@@ -25,7 +25,7 @@ const handle = '@KingPr0o7';
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<meta name=robots content="index,follow">
+		<meta name="robots" content="index,follow">
 
 		<!-- Favicons -->
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
@@ -49,6 +49,7 @@ const handle = '@KingPr0o7';
 		<meta property="og:locale" content="en_GB">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content={url}>
+		<meta property="og:site_name" content="Nathan Parker">
 
 		<!-- Other -->
 		<meta name="apple-mobile-web-app-capable" content="yes">
@@ -79,15 +80,4 @@ const handle = '@KingPr0o7';
 		<Footer />
 	</body>
 </html>
-<script>
-	import '../nav.js';
-
-	// import { injectSpeedInsights } from '@vercel/speed-insights';
-	// try {
-	// 	injectSpeedInsights({});
-	// } catch (error) { Will remove when Vercel fixes this :/
-	// 	if (!error.message.includes('VERCEL_ANALYTICS_ID not found')) {
-	// 		throw error;
-	// 	}
-	// }
-</script>
+<script> import '../nav.js'; </script>

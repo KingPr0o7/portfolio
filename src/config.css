@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap");
+
 :root {
 	--text: #e3e3e3;
 	--text-secondary: #b9b9b9; 
@@ -33,6 +35,28 @@
 			min-height: 100vh;
 		}
 
+.image-component {
+	position: relative;
+	max-width: 450px;
+	height: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	border-radius: var(--secondary-border-radius);
+}
+		
+	.image-component[data-type="intro"] { max-width: clamp(250px, 35vw, 650px); }
+		
+	/* Used to preserve border-radius on image */ 
+	.image-component::after { 
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;	
+	}
+
 .button {
 	border: none;
 	border-radius: var(--main-border-radius);
@@ -46,3 +70,8 @@
 }
 
 	.button:hover { background-color: var(--primary-hover); }
+
+.accent {
+	color: var(--accent);
+	text-shadow: 0 0 50px var(--accent);
+}

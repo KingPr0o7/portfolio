@@ -1,7 +1,334 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Me from '../images/myself/me-no-bg.png';
+import Verified from '../images/icons/verified.svg';
+import Degree from '../images/icons/degree.svg';
+import Service from '../images/icons/service.svg';
+import Shades from '../images/myself/me-in-suit.png';
 ---
 
 <Layout title="Nathan Parker" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
-	<h1>💫 ncp.dev is being redesigned! 💫</h1>
+	<section id="intro">
+		<div id="intro-text">
+			<span id="intro-title">A Software Developer</span>
+			<h1 id="intro-header">WORKING TOWARDS<br>BUILDING YOUR <span class="accent">DREAMS</span></h1> 
+		</div>
+		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" title="Picture of Nathan Parker During High School Homecoming (Crowned)" width={650} height={650} />
+	</section>
+	
+	<section id="insights">
+		<div id="claims">
+			<div class="claim">
+				<div class="claim-top">
+					<Image src={Verified} class="claim-icon" alt="Verified Checkmark Icon" width={40} height={40} />
+					<h2 class="claim-header">Devotion To Perfection</h2>
+				</div>
+				<p class="claim-text">All projects are like glass; therefore, everything I make is made with attention to detail to minimize the chances of it shattering.</p>
+			</div>
+
+			<div class="claim">
+				<div class="claim-top">
+					<Image src={Degree} class="claim-icon" alt="Graduation Cap (Education) Icon" width={40} height={40} />
+					<h2 class="claim-header">Pursuit of Knowledge</h2>
+				</div>
+				<p class="claim-text">Software development is my dream career field, and I value every assignment to further my knowledge and qualifications.</p>
+			</div>
+
+			<div class="claim">
+				<div class="claim-top">
+					<Image src={Service} class="claim-icon" alt="Heart With Hands Icon" width={40} height={40} />
+					<h2 class="claim-header">Everyone Involved</h2>
+				</div>
+				<p class="claim-text">When building a dream, no one should be left behind. Thus, in all my projects, everyone is incorporated to assemble their part of the success.</p>
+			</div>
+		</div>
+
+		<div id="explainer">
+			<div id="explainer-left">
+				<span id="explainer-title">I'm Nathan Parker a Software Application Developer.</span>
+				<p id="explainer-desc">I develop a wide variety of computer software with the user in mind.</p>
+				<ul id="explainer-examples">
+					<li class="explainer-example">Chrome extensions</li>
+					<li class="explainer-example">Small video games</li>
+					<li class="explainer-example">Internal Scripts</li>
+					<li class="explainer-example">Websites</li>
+				</ul>
+			</div>
+			<Image src={Shades} class="image-component" alt="Nathan Parker in a Suit with Green Foliage Behind Him" title="Nathan Parker in a Suit with Green Foliage Behind Him" width={500} height={500} data-type="intro" />
+		</div>
+	</section>
 </Layout>
+<style>
+#intro {
+	height: 100%;
+	max-height: calc(100vh - 70px);
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: column;
+	gap: 10px;
+}
+
+	#intro-text {
+		position: relative;
+		top: 60px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+	}
+
+		#intro-title {
+			text-align: center;
+			width: 100%;
+			font-size: clamp(1rem, 4vw, 3.5rem);
+			font-style: italic;
+			color: var(--text-secondary);
+			font-weight: 200;
+		}
+		
+		#intro-header {
+			font-size: clamp(1.3rem, 5vw, 5rem);
+			width: 100%;
+			text-align: center;
+		}
+
+	#intro-image {
+		position: relative;
+		min-height: 350px;
+		height: clamp(350px, 65vw, 650px);
+		max-height: 650px;
+		-o-object-fit: contain;
+		object-fit: contain;
+		width: 100%;
+		mask: linear-gradient(var(--background), 80%, transparent);
+	}
+
+	/* Points that reflect who I am */
+	#insights {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-direction: column;
+		max-height: 100%;
+		gap: 75px;
+		width: 100%;
+	}
+	
+		#claims {
+			padding-top: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			width: 100%;
+			gap: 50px;
+		}
+	
+			.claim {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				height: 150px;
+				width: 400px;
+			}
+	
+				.claim-top {
+					display: flex;
+					align-items: center;
+					gap: 15px;
+				}
+	
+					.claim-icon {
+						width: 40px;
+						height: 40px;
+					}
+	
+					.claim-header { font-size: clamp(1.2rem, 1.5vw, 1.5rem); }
+				
+				.claim-text {
+					font-size: clamp(0.8rem, 1.5vw, 1rem);
+					line-height: 1.5rem;
+				}
+	
+	/* "Explainer" Section Showing Off Myself (Title, Short Desc, Examples of What I do) */
+	#explainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		width: 100%;
+	}
+	
+		#explainer-left {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 25px;
+			height: 100%;
+			width: 50%;
+		}
+	
+			#explainer-title {
+				font-size: clamp(1.3rem, 2.4vw, 2.8rem);
+				font-weight: bold;
+				width: 95%;
+			}
+	
+			#explainer-desc {
+				font-size: clamp(1rem, 1.5vw, 1.5rem);
+				line-height: clamp(1.2rem, 1.5vw, 1.5rem);
+				width: 75%;
+			}
+	
+			#explainer-examples {
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				width: 80%;
+				margin-left: 25px;
+			}
+	
+				.explainer-example {
+					font-size: clamp(1rem, 1.5vw, 1.5rem);
+					line-height: clamp(1rem, 1.5vw, 1.5rem);
+				}
+				
+		#explainer-image {
+			width: 100%;
+			object-fit: contain;
+			border-radius: var(--main-border-radius);
+			position: relative;
+			min-height: 250px;
+			height: clamp(250px, 30vw, 500px);
+			max-height: 500px;
+		}
+		
+@media (max-width: 1200px) {
+	#claims { padding: 50px 25px 0 25px; }
+}
+
+@media (max-width: 1000px) {
+	#intro {
+		padding-top: 25px;
+		flex-direction: column-reverse;
+		justify-content: flex-end;
+		gap: 25px;
+		height: fit-content;
+	}
+
+		/* Overlapping text onto myself */
+		#intro-text {
+			top: -90px;
+			z-index: 2;
+		}
+
+		#intro-header { font-size: clamp(1.3rem, 6.4vw, 5rem); }
+		#intro-image { height: clamp(350px, 100vw, 650px); }
+
+	/* Insights */
+
+	#claims {
+		flex-wrap: wrap;
+		position: relative;
+		top: -100px;
+		flex-direction: row;
+		justify-items: center;
+		gap: 25px;
+		padding: 50px 0 0 0;
+	}
+
+		.claim {
+			width: 400px;
+			height: fit-content;
+		}
+
+	#explainer-image { border-radius: var(--secondary-border-radius); }
+
+	/* About Page */
+
+	#about-section {
+		width: 100%;
+		padding-top: 25px;
+		gap: 25px;
+		flex-direction: column-reverse;
+		justify-content: space-evenly;
+	}
+
+		#about-left { width: 100%; }
+			#about-header { text-align: center; }
+			#about-image { border-radius: var(--secondary-border-radius); }	
+}
+
+@media (max-width: 750px) {
+	#explainer {
+		flex-direction: column-reverse;
+		justify-content: center;
+		align-items: center;
+		gap: 50px;
+	}
+
+		#explainer-left {
+			justify-content: flex-start;
+			align-items: center;
+			width: 100%;
+			gap: 40px;
+		}
+
+			#explainer-title { 
+				font-size: clamp(1.2rem, 4vw, 2rem);
+				width: 90%; 
+				text-align: center;
+			}
+
+			#explainer-desc { 
+				width: 80%; 
+				text-align: center;
+				font-size: clamp(1rem, 3vw, 2rem);
+				line-height: clamp(2rem, 2vw, 2.2rem);
+			}
+			
+			#explainer-examples { 
+				margin-left: 0; 
+				list-style-type: none;
+			}
+
+				#explainer-examples > li { 
+					width: 100%;
+					text-align: center;
+					font-size: clamp(1rem, 4vw, 2rem);
+				}
+
+					#explainer-examples > li::after {
+						content: "";
+						display: block;
+						width: 100%;
+						height: 2px;
+						border-radius: var(--main-border-radius);
+						background-color: var(--gray);
+						margin: 20px 0;
+					}
+
+					#explainer-examples > li:last-child::after { display: none; } /* Removes weird line at the end */
+
+	#explainer-image { height: clamp(250px, 100vw, 500px); }	
+}
+
+@media (max-width: 380px) {
+	#explainer-examples, #explainer-header, #explainer-desc { width: 100%; }
+}
+
+@media (min-height: 1300px) {
+	#claims { display: flex; }
+
+	#intro-section {
+		height: 65vh;
+		min-height: 65vh;
+		padding-top: 0px;
+		min-height: fit-content;
+		height: fit-content;
+	}
+
+	#intro { justify-content: space-around; }
+}
+</style>
