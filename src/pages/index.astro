@@ -102,7 +102,6 @@ import Shades from '../images/myself/me-in-suit.png';
 		max-height: 650px;
 		-o-object-fit: contain;
 		object-fit: contain;
-		width: 100%;
 		mask: linear-gradient(var(--background), 80%, transparent);
 	}
 
@@ -224,7 +223,10 @@ import Shades from '../images/myself/me-in-suit.png';
 		}
 
 		#intro-header { font-size: clamp(1.3rem, 6.4vw, 5rem); }
-		#intro-image { height: clamp(350px, 100vw, 650px); }
+		#intro-image { 
+			width: 100%;
+			height: clamp(350px, 100vw, 650px); 
+		}
 
 	/* Insights */
 

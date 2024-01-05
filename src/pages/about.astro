@@ -1,7 +1,87 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from "astro:assets";
+import Me_Suited from '../images/myself/me-in-suit.png';
 ---
 
 <Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
-	<h1>💫 About Page 💫</h1>
+	<section id="about-section">
+		<div id="about-left">
+			<h1 id="about-header">Hello! I'm Nathan Parker,</h1>
+			<p class="about-text">An <b>undergraduate</b> at <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program, currently specializing in <i>web, game, and database technologies</i>. And <b>constantly</b> building new technological projects from <i>websites, games, or Minecraft servers</i>.</p>
+
+			<p class="about-text">My <b>love</b> of technology derived in mid-2012 when my father introduced me to game consoles like the <i>Nintendo Entertainment System, GameCube, and the Wii</i>. Then, after a few years, I moved on to Windows 7 laptops and a range of Apple devices around 2015. Always constantly <i>tinkering, improving, creating, <b>or</b> finding vulnerabilities in schools' technological infrastructure</i> 😅.</p>
+
+			<p class="about-text"><i>In 2018</i>, I first found my love of programming by joining my local <a class="link" href="https://scratch.mit.edu/">Scratch</a> club at my local library. I built many small games and enjoyed seeing something come to life just with a few blocks. From then on, I learned more programming via Minecraft server development with <a class="link" href="https://github.com/SkriptLang/Skript">SkriptLang</a> and website development via high school Computer Science courses. Nowadays, I'm learning more advanced programming with <i>Python, JavaScript, and soon-to-be C#</i>.</p>
+		</div>
+		<div id="about-right">
+			<Image src={Me_Suited} id="about-image" alt="Images of Nathan Parker, including: His brothers and himself playing the NES (Super Mario Brothers) back in 2013, Him in a suit with green foliage behind him, and him playing a game of VTOL VR in a fighter jet" width={500} height={500}/>
+		</div>
+	</section>
 </Layout>
+<style>
+#about-section {
+	height: fit-content;
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+	#about-header { font-size: clamp(1.3rem, 2.8vw, 3rem); }
+
+	/* Description of myself */
+	#about-left {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 1rem;
+		width: 50%;
+		height: 100%;
+	}
+
+		.about-text {
+			font-size: clamp(1rem, 1.5vw, 1.4rem);
+			line-height: 2rem;
+			text-indent: 2rem;
+		}
+
+	/* Image of myself */
+	#about-right {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
+	}
+
+		#about-image {
+			width: clamp(250px, 35vw, 500px);
+			height: clamp(250px, 35vw, 500px);
+			max-height: 500px;
+			border-radius: var(--main-border-radius);
+			animation: image-change 60s ease-in infinite;
+		}	
+
+@media (max-width: 1000px) {
+	#about-section {
+		width: 100%;
+		padding-top: 25px;
+		gap: 25px;
+		flex-direction: column-reverse;
+		justify-content: space-evenly;
+	}
+
+		#about-left { width: 100%; }
+			#about-header { text-align: center; }
+			#about-image { border-radius: var(--secondary-border-radius); }
+}
+
+@keyframes image-change {
+	0%   { content: url("../images/myself/me-in-suit.png");       }
+	25%  { content: url("../images/myself/super-mario-bros.png"); }
+	50%  { content: url("../images/myself/vtol-vr-selfie.png");   }
+	100% { content: url("../images/myself/me-in-suit.png");       }
+}
+</style>
