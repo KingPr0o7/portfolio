@@ -60,6 +60,7 @@ const fade = {
 
 import { ViewTransitions } from 'astro:transitions';
 let animation = Astro.url.pathname == `/test` ? fade : slide;
+import '../config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Footer from '../components/Footer.astro';
 import Nav from '../components/Nav.astro';
@@ -146,8 +147,6 @@ const handle = '@KingPr0o7';
 </script>
 
 <style>
-@import '../config.css';
-
 main {
 	display: grid;
 	grid-template-columns: /* Credit to: Kevin Powell (Credits Page) */
