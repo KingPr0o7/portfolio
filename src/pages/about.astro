@@ -1,7 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 import Me_Suited from '../images/myself/me-in-suit.png';
+import Super_Mario_Bros from '../images/myself/super-mario-bros.png';
+import VTOL_VR_Selfie from '../images/myself/vtol-vr-selfie.png';
+
+const Suited = await getImage({src: Me_Suited, format: 'webp'});
+const Mario = await getImage({src: Super_Mario_Bros, format: 'webp'});
+const VTOL = await getImage({src: VTOL_VR_Selfie, format: 'webp'});
 ---
 
 <Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
@@ -79,9 +86,9 @@ import Me_Suited from '../images/myself/me-in-suit.png';
 }
 
 @keyframes image-change {
-	0%   { content: url("../images/myself/me-in-suit.png");       }
-	25%  { content: url("../images/myself/super-mario-bros.png"); }
-	50%  { content: url("../images/myself/vtol-vr-selfie.png");   }
-	100% { content: url("../images/myself/me-in-suit.png");       }
+	0%   { content: url(${Suited.src}); }
+	25%  { content: url(${Mario.src});  }
+	50%  { content: url(${VTOL.src});   }
+	100% { content: url(${Suited.src}); }
 }
 </style>
