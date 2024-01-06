@@ -22,9 +22,9 @@ import Me_Suited from '@public/me-in-suit.png';
 </Layout>
 <style>
 #about-section {
-	height: fit-content;
+	max-height: fit-content;
 	position: relative;
-	width: 100%;
+	min-width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -67,7 +67,6 @@ import Me_Suited from '@public/me-in-suit.png';
 
 @media (max-width: 1000px) {
 	#about-section {
-		width: 100%;
 		padding-top: 25px;
 		gap: 25px;
 		flex-direction: column-reverse;
