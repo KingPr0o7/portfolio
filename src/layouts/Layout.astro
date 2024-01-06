@@ -59,7 +59,8 @@ const fade = {
 };
 
 import { ViewTransitions } from 'astro:transitions';
-let animation = Astro.url.pathname == `/test` ? fade : slide;
+const pathname = Astro.url.pathname.replace(/\/$/, "");
+let animation = pathname == `/test` ? fade : slide;
 import '../config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Footer from '../components/Footer.astro';
@@ -116,7 +117,7 @@ const handle = '@KingPr0o7';
 		<ViewTransitions fallback="swap" />
 
 		<script is:inline>
-			function speedInsightsBeforeSend(data){
+			function speedInsightsBeforeSend(data) {
 			  console.log("Speed Insights before send", data)
 			  return data;
 			}
