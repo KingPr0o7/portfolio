@@ -1,12 +1,12 @@
 import { defineConfig } from 'astro/config';
-import vercelStatic from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel/serverless';
 import metaTags from "astro-meta-tags";
 
 // https://astro.build/config
 export default defineConfig({
-	output: 'static',
+	output: 'server',
 	site: 'https://portfolio-ncp.vercel.app/',
-	adapter: vercelStatic({
+	adapter: vercel({
 		webAnalytics: {
 			enabled: true
 		},
