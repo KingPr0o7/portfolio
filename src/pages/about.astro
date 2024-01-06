@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
 
-import Layout from '../layouts/Layout.astro';
-import Me_Suited from '../images/myself/me-in-suit.png';
+import Layout from '@layouts/Layout.astro';
+import Me_Suited from '@public/me-in-suit.png';
 ---
 
 <Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
@@ -80,8 +80,8 @@ import Me_Suited from '../images/myself/me-in-suit.png';
 }
 
 @keyframes image-change {
-	25% { content: url('/src/images/myself/super-mario-bros.png'); }
-	75% { content: url('/src/images/myself/vtol-vr-selfie.png'); }
-	100% { content: url('/src/images/myself/me-in-suit.png'); }
+	25% { content: url('/super-mario-bros.png'); }
+	75% { content: url('/vtol-vr-selfie.png'); }
+	100% { content: url('/me-in-suit.png'); }
 }
 </style>

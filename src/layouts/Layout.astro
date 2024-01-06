@@ -61,10 +61,10 @@ const fade = {
 import { ViewTransitions } from 'astro:transitions';
 const pathname = Astro.url.pathname.replace(/\/$/, "");
 let animation = pathname == `/test` ? fade : slide;
-import '../config.css';
+import '@src/config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
-import Footer from '../components/Footer.astro';
-import Nav from '../components/Nav.astro';
+import Footer from '@components/Footer.astro';
+import Nav from '@components/Nav.astro';
 
 const { title, description, image } = Astro.props;
 const cover = `${Astro.site}covers/${image}`;
