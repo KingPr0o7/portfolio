@@ -1,4 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap');
+/* Rubik 600 - Latin */
+@font-face {
+	font-family: 'Rubik';
+	src: url('/fonts/rubik-v28-latin-regular.woff2') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Rubik - Latin */
+@font-face {
+	font-family: 'Rubik';
+	src: url('/fonts/rubik-v28-latin-600.woff2') format('woff');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
 
 :root {
 	--text: #e3e3e3;
