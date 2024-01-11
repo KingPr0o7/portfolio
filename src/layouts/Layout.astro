@@ -67,6 +67,7 @@ import '@src/config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
+import { join } from 'node:path';
 
 const { title, description, image, section_class } = Astro.props;
 const cover = `${Astro.site}covers/${image}`;
@@ -123,12 +124,12 @@ const handle = '@KingPr0o7';
 						{
 							style: 'normal',
 							weight: '400',
-							path: './public/fonts/rubik.ttf'
+							path: join(process.cwd(), 'public', 'fonts', 'rubik.ttf')
 						},
 						{
 							style: 'medium',
 							weight: '600',
-							path: './public/fonts/rubik-600.ttf'
+							path: join(process.cwd(), 'public', 'fonts', 'rubik-600.ttf')
 						},
 					],
 						preload: true,
