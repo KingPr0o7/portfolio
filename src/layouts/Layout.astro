@@ -3,6 +3,7 @@ interface Props {
 	title: string;
 	description: string;
 	image: string;
+	section_class?: string;
 }
 
 const slideRight = {
@@ -67,7 +68,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
 
-const { title, description, image } = Astro.props;
+const { title, description, image, section_class } = Astro.props;
 const cover = `${Astro.site}covers/${image}`;
 const url = 'ncp.dev';
 const handle = '@KingPr0o7';
@@ -154,7 +155,7 @@ const handle = '@KingPr0o7';
 	<body>
 		<Nav />
 		<main transition:animate={animation}>
-			<section>
+			<section class={section_class}>
 				<slot />
 			</section>
 		</main>
@@ -189,6 +190,16 @@ main {
 	main[data-state="padded"] { padding-top: 95px; }
 
 	section { max-width: var(--max-width); }
+
+		.flexed {
+			min-height: 100vh;
+			height: fit-content;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 25px;
+			justify-content: space-around;
+		}
 
 @media (max-width: 1000px) {
 	/* Removes top padding due to navbar moving to bottom of vh */

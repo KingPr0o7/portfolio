@@ -1,38 +1,85 @@
 ---
 import { Image } from "astro:assets";
 
+const language_size = 20;
+
 import Layout from '@layouts/Layout.astro';
 import Me_Suited from '@public/me-in-suit.png';
+import School from '@icons/school.svg';
+import Ivy_Tech from '@logos/ivytech.png';
+import HTML from '@logos/html.svg';
+import CSS from '@logos/css.svg';
+import JavaScript from '@logos/javascript.svg';
+import Python from '@logos/python.svg';
+import CSharp from '@logos/csharp.svg';
+import JSON from '@logos/json.svg';
+import SQL from '@logos/sql.svg';
+import PHP from '@logos/php.svg';
+import GitHub from '@logos/github-xl.svg';
 ---
 
-<Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
-	<section id="about-section">
-		<div id="about-left">
-			<h1 id="about-header">Hello! I'm Nathan Parker,</h1>
+<Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class="flexed">
+	<section id="background">
+		<div id="background-left">
+			<h1 id="background-header">Hello! I'm Nathan Parker,</h1>
 			<p class="about-text">An <b>undergraduate</b> at <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program, currently specializing in <i>web, game, and database technologies</i>. And <b>constantly</b> building new technological projects from <i>websites, games, or Minecraft servers</i>.</p>
 
-			<p class="about-text">My <b>love</b> of technology derived in mid-2012 when my father introduced me to game consoles like the <i>Nintendo Entertainment System, GameCube, and the Wii</i>. Then, after a few years, I moved on to Windows 7 laptops and a range of Apple devices around 2015. Always constantly <i>tinkering, improving, creating, <b>or</b> finding vulnerabilities in schools' technological infrastructure</i> 😅.</p>
+			<p class="about-text">My <b>love</b> of technology derived in mid-language_size12 when my father introduced me to game consoles like the <i>Nintendo Entertainment System, GameCube, and the Wii</i>. Then, after a few years, I moved on to Windows 7 laptops and a range of Apple devices around language_size15. Always constantly <i>tinkering, improving, creating, <b>or</b> finding vulnerabilities in schools' technological infrastructure</i> 😅.</p>
 
-			<p class="about-text"><i>In 2018</i>, I first found my love of programming by joining my local <a class="link" href="https://scratch.mit.edu/">Scratch</a> club at my local library. I built many small games and enjoyed seeing something come to life just with a few blocks. From then on, I learned more programming via Minecraft server development with <a class="link" href="https://github.com/SkriptLang/Skript">SkriptLang</a> and website development via high school Computer Science courses. Nowadays, I'm learning more advanced programming with <i>Python, JavaScript, and soon-to-be C#</i>.</p>
+			<p class="about-text"><i>In language_size18</i>, I first found my love of programming by joining my local <a class="link" href="https://scratch.mit.edu/">Scratch</a> club at my local library. I built many small games and enjoyed seeing something come to life just with a few blocks. From then on, I learned more programming via Minecraft server development with <a class="link" href="https://github.com/SkriptLang/Skript">SkriptLang</a> and website development via high school Computer Science courses. Nowadays, I'm learning more advanced programming with <i>Python, JavaScript, and soon-to-be C#</i>.</p>
 		</div>
-		<div id="about-right">
-			<Image src={Me_Suited} id="about-image" alt="Images of Nathan Parker, including: His brothers and himself playing the NES (Super Mario Brothers) back in 2013, Him in a suit with green foliage behind him, and him playing a game of VTOL VR in a fighter jet" width={500} height={500} loading="eager" />
+		<div id="background-right">
+			<Image src={Me_Suited} id="background-image" alt="Images of Nathan Parker, including: His brothers and himself playing the NES (Super Mario Brothers) back in language_size13, Him in a suit with green foliage behind him, and him playing a game of VTOL VR in a fighter jet" width={500} height={500} loading="eager" />
+		</div>
+	</section>
+	<section id="education">
+		<h2 id="education-header">The Pursuit of Education</h2>
+		<p id="education-text">I'm always looking for ways to learn and retain information for my dream, and currently, I've been doing that from my school's pathway of Software Development. It has allowed me to take college-level classes to further my dream: </p>
+		<div id="schools">
+			<div class="school">
+				<div class="school-header">
+					<Image src={School} alt="..." width={32} height={32} />
+					<div class="school-info">
+						<h3 class="school-name">Public High School<span class="school-languages"><Image src={HTML} alt="HTML Language Logo" width={language_size} height={language_size}/> <Image src={CSS} alt="CSS Language Logo" width={language_size} height={language_size}/> <Image src={JavaScript} alt="JavaScript Language Logo" width={language_size} height={language_size}/> <Image src={Python} alt="Python Language Logo" width={language_size} height={language_size}/></span></h3>
+						<p class="school-location">2021-23 • General Education Degree • Software Development</p>
+					</div>
+				</div>
+				<p class="school-insight">I'm currently taking <b>college-level</b> classes in <i>Software Development</i> at my local <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program. I'm learning <i>Python, HTML, CSS, and soon-to-be C#</i> to further my dream of becoming a <b>Software Developer</b>.</p>
+				<p class="school-classes">Computer Science I • Computer Science II</p>
+			</div>
+			<div class="school">
+				<div class="school-header">
+					<Image src={Ivy_Tech} alt="..." width={32} height={32} />
+					<div class="school-info">
+						<h3 class="school-name">Ivy Tech Community College<span class="school-languages"><Image src={HTML} alt="HTML Language Logo" width={language_size} height={language_size}/> <Image src={CSS} alt="CSS Language Logo" width={language_size} height={language_size}/> <Image src={JavaScript} alt="JavaScript Language Logo" width={language_size} height={language_size}/> <Image src={PHP} alt="PHP Language Logo" width={language_size} height={language_size}/> <Image src={JSON} alt="JSON Language Logo" width={language_size} height={language_size}/> <Image src={SQL} alt="SQL Language Logo" width={language_size} height={language_size}/> <Image src={Python} alt="Python Language Logo" width={language_size} height={language_size}/> <Image src={CSharp} alt="C# Language Logo" width={language_size} height={language_size}/> <Image src={GitHub} alt="GitHub's Logo" width={language_size} height={language_size}/></span></h3>
+						<p class="school-location">2023-25 • Certificate • Software Application Development</p>
+					</div>
+				</div>
+				<p class="school-insight">I'm currently taking <b>college-level</b> classes in <i>Software Development</i> at my local <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program. I'm learning <i>Python, HTML, CSS, and soon-to-be C#</i> to further my dream of becoming a <b>Software Developer</b>.</p>
+				<p class="school-classes">Computing Logic • Web Dev • Intro to Software Dev • Database Design & Mgmt • Software Dev via C# • Intro to Game Dev • Web Application Dev</p>
+			</div>
 		</div>
 	</section>
 </Layout>
 <style>
-#about-section {
-	max-height: 750px;
+.about-text, #education-text {
+	font-size: clamp(1rem, 1.5vw, 1.4rem);
+	line-height: 2rem;
+	text-indent: 2rem;
+}
+#background {
+	max-height: fit-content;
 	min-width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	height: 80vh;
 }
 
-	#about-header { font-size: clamp(1.3rem, 2.8vw, 3rem); }
+	#background-header { font-size: clamp(1.3rem, 2.8vw, 3rem); }
 
 	/* Description of myself */
-	#about-left {
+	#background-left {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -40,39 +87,104 @@ import Me_Suited from '@public/me-in-suit.png';
 		width: 50%;
 	}
 
-		.about-text {
-			font-size: clamp(1rem, 1.5vw, 1.4rem);
-			line-height: 2rem;
-			text-indent: 2rem;
-		}
-
 	/* Image of myself */
-	#about-right {
+	#background-right {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 	}
 
-		#about-image {
+		#background-image {
 			width: clamp(250px, 35vw, 500px);
 			height: clamp(250px, 35vw, 500px);
 			max-height: 500px;
 			border-radius: var(--main-border-radius);
 			animation: image-change 60s ease-in infinite;
-		}	
+		}
+		
+#education {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	gap: 25px;
+}
+
+	#education-header { 
+		font-size: clamp(1.3rem, 2.8vw, 3rem); 
+		width: 80%; 
+		text-align: center;
+	}
+
+		#education-header::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: var(--gray);
+			margin-top: 10px;
+		}
+
+		#education-text {
+			text-indent: 0;
+			text-align: center;
+			width: 80%;
+		}
+
+		#schools {
+			display: flex;
+			flex-direction: column;
+			gap: 25px;
+			width: 60%;
+		}
+
+			.school {
+				display: flex;
+				flex-direction: column;
+				gap: 12.5px;
+				padding: 25px;
+				border: 2px solid var(--gray);
+				border-radius: var(--secondary-border-radius);
+			}
+			
+				.school-header {
+					display: flex;
+					align-items: center;
+					gap: 25px;
+				}
+			
+					.school-info {
+						display: flex;
+						flex-direction: column;
+					}
+				
+					.school-name {
+						display: flex;
+						align-items: center;,
+						gap: 12.5px
+					}
+				
+						.school-languages {
+							display: flex;
+							align-items: center;
+							gap: 5px;
+						}
+					
+				.school-insight { font-size: 1.2rem; }
+				.school-classes { text-align: center; }
 
 @media (max-width: 1000px) {
-	#about-section {
+	#background {
 		padding-top: 25px;
 		gap: 25px;
 		flex-direction: column-reverse;
 		justify-content: space-evenly;
 	}
 
-		#about-left { min-width: 100%; }
-			#about-header { text-align: center; }
-			#about-image { border-radius: var(--secondary-border-radius); }
+		#background-left { min-width: 100%; }
+			#background-header { text-align: center; }
+			#background-image { border-radius: var(--secondary-border-radius); }
 }
 
 @keyframes image-change {
