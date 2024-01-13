@@ -1,21 +1,13 @@
 ---
 import { Image } from "astro:assets";
-
-const language_size = 20;
+import FAQ from "@components/FAQ.astro";
+import Question from "@components/FAQ-question.astro";
 
 import Layout from '@layouts/Layout.astro';
 import Me_Suited from '@public/me-in-suit.png';
 import School from '@icons/school.svg';
 import Ivy_Tech from '@logos/ivytech.png';
-import HTML from '@logos/html.svg';
-import CSS from '@logos/css.svg';
-import JavaScript from '@logos/javascript.svg';
-import Python from '@logos/python.svg';
-import CSharp from '@logos/csharp.svg';
-import JSON from '@logos/json.svg';
-import SQL from '@logos/sql.svg';
-import PHP from '@logos/php.svg';
-import GitHub from '@logos/github-xl.svg';
+import IU from '@logos/iu.png';
 ---
 
 <Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class="flexed">
@@ -24,56 +16,90 @@ import GitHub from '@logos/github-xl.svg';
 			<h1 id="background-header">Hello! I'm Nathan Parker,</h1>
 			<p class="about-text">An <b>undergraduate</b> at <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program, currently specializing in <i>web, game, and database technologies</i>. And <b>constantly</b> building new technological projects from <i>websites, games, or Minecraft servers</i>.</p>
 
-			<p class="about-text">My <b>love</b> of technology derived in mid-language_size12 when my father introduced me to game consoles like the <i>Nintendo Entertainment System, GameCube, and the Wii</i>. Then, after a few years, I moved on to Windows 7 laptops and a range of Apple devices around language_size15. Always constantly <i>tinkering, improving, creating, <b>or</b> finding vulnerabilities in schools' technological infrastructure</i> 😅.</p>
+			<p class="about-text">My <b>love</b> of technology derived in mid-2012 when my father introduced me to game consoles like the <i>Nintendo Entertainment System, GameCube, and the Wii</i>. Then, after a few years, I moved on to Windows 7 laptops and a range of Apple devices around 2015. Always constantly <i>tinkering, improving, creating, <b>or</b> finding vulnerabilities in schools' technological infrastructure</i> 😅.</p>
 
-			<p class="about-text"><i>In language_size18</i>, I first found my love of programming by joining my local <a class="link" href="https://scratch.mit.edu/">Scratch</a> club at my local library. I built many small games and enjoyed seeing something come to life just with a few blocks. From then on, I learned more programming via Minecraft server development with <a class="link" href="https://github.com/SkriptLang/Skript">SkriptLang</a> and website development via high school Computer Science courses. Nowadays, I'm learning more advanced programming with <i>Python, JavaScript, and soon-to-be C#</i>.</p>
+			<p class="about-text"><i>In 2018</i>, I first found my love of programming by joining my local <a class="link" href="https://scratch.mit.edu/">Scratch</a> club at my local library. I built many small games and enjoyed seeing something come to life just with a few blocks. From then on, I learned more programming via Minecraft server development with <a class="link" href="https://github.com/SkriptLang/Skript">SkriptLang</a> and website development via high school Computer Science courses. Nowadays, I'm learning more advanced programming with <i>Python, JavaScript, and soon-to-be C#</i>.</p>
 		</div>
 		<div id="background-right">
 			<Image src={Me_Suited} id="background-image" alt="Images of Nathan Parker, including: His brothers and himself playing the NES (Super Mario Brothers) back in language_size13, Him in a suit with green foliage behind him, and him playing a game of VTOL VR in a fighter jet" width={500} height={500} loading="eager" />
 		</div>
 	</section>
 	<section id="education">
-		<h2 id="education-header">The Pursuit of Education</h2>
-		<p id="education-text">I'm always looking for ways to learn and retain information for my dream, and currently, I've been doing that from my school's pathway of Software Development. It has allowed me to take college-level classes to further my dream: </p>
+		<h2 class="about-header">The Pursuit of Education</h2>
+		<p class="about-text eighty-width">I'm always looking for ways to learn and retain information for my dream, and currently, I've been doing that from my school's pathway of Software Development. It has allowed me to take college-level classes to further my dream: </p>
 		<div id="schools">
 			<div class="school">
 				<div class="school-header">
-					<Image src={School} alt="..." width={32} height={32} />
+					<Image src={School} class="school-logo" alt="General icon/outline of a school building" width={32} height={32} />
 					<div class="school-info">
-						<h3 class="school-name">Public High School<span class="school-languages"><Image src={HTML} alt="HTML Language Logo" width={language_size} height={language_size}/> <Image src={CSS} alt="CSS Language Logo" width={language_size} height={language_size}/> <Image src={JavaScript} alt="JavaScript Language Logo" width={language_size} height={language_size}/> <Image src={Python} alt="Python Language Logo" width={language_size} height={language_size}/></span></h3>
-						<p class="school-location">2021-23 • General Education Degree • Software Development</p>
+						<h3 class="school-name">Public High School</h3>
+						<p class="school-details">2021-23 • General Education Degree • Software Development</p>
 					</div>
 				</div>
-				<p class="school-insight">I'm currently taking <b>college-level</b> classes in <i>Software Development</i> at my local <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program. I'm learning <i>Python, HTML, CSS, and soon-to-be C#</i> to further my dream of becoming a <b>Software Developer</b>.</p>
-				<p class="school-classes">Computer Science I • Computer Science II</p>
+				<p class="school-insight">The pivotal <b>commitment</b> to computational studies enabled me to <i>write <b>and</b> study</i> programming concepts. The classes only <i>contained the basics</i> but hooked and propelled me for success and dedication towards the <b>ever-growing</b> field.</p>
 			</div>
 			<div class="school">
 				<div class="school-header">
-					<Image src={Ivy_Tech} alt="..." width={32} height={32} />
+					<Image src={Ivy_Tech} class="school-logo" alt="Ivy Tech's Community College Logo" width={32} height={32} />
 					<div class="school-info">
-						<h3 class="school-name">Ivy Tech Community College<span class="school-languages"><Image src={HTML} alt="HTML Language Logo" width={language_size} height={language_size}/> <Image src={CSS} alt="CSS Language Logo" width={language_size} height={language_size}/> <Image src={JavaScript} alt="JavaScript Language Logo" width={language_size} height={language_size}/> <Image src={PHP} alt="PHP Language Logo" width={language_size} height={language_size}/> <Image src={JSON} alt="JSON Language Logo" width={language_size} height={language_size}/> <Image src={SQL} alt="SQL Language Logo" width={language_size} height={language_size}/> <Image src={Python} alt="Python Language Logo" width={language_size} height={language_size}/> <Image src={CSharp} alt="C# Language Logo" width={language_size} height={language_size}/> <Image src={GitHub} alt="GitHub's Logo" width={language_size} height={language_size}/></span></h3>
-						<p class="school-location">2023-25 • Certificate • Software Application Development</p>
+						<h3 class="school-name">Ivy Tech Community College</h3>
+						<p class="school-details">2023-25 • Certificate • Software Application Development</p>
 					</div>
 				</div>
-				<p class="school-insight">I'm currently taking <b>college-level</b> classes in <i>Software Development</i> at my local <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program. I'm learning <i>Python, HTML, CSS, and soon-to-be C#</i> to further my dream of becoming a <b>Software Developer</b>.</p>
-				<p class="school-classes">Computing Logic • Web Dev • Intro to Software Dev • Database Design & Mgmt • Software Dev via C# • Intro to Game Dev • Web Application Dev</p>
+				<p class="school-insight">Since my high school doesn't offer classes above <b>Computer Science II</b>, we resort to <b>my savor Ivy Tech</b>. Taking and <b>accelerating</b> computational concepts to the <b><i>professional level</i></b> — whilst gaining more recognition for my work.</p>
+			</div>
+			<div class="school">
+				<div class="school-header">
+					<Image src={IU} class="school-logo" alt="Indiana Univeristy's Logo" width={32} height={32} />
+					<div class="school-info">
+						<h3 class="school-name">Indiana University</h3>
+						<p class="school-details">Dream College • Doctorate • Computer Science</p>
+					</div>
+				</div>
+				<p class="school-insight">For my <b>dream school</b>, I would love to go to IU's <i>Luddy School of Informatics, Computing, and Engineering</i> to study <b>Computer Science</b>, to <b><i>excel</i></b> my knowledge base of fundamentals, and build my <b><i>dreams</i></b>.</p>
 			</div>
 		</div>
 	</section>
+	<section id="online-life">
+		<h2 class="about-header">Frequently Asked Questions</h2>
+		<FAQ>
+			<Question question="What's this site's purpose?">
+				<p slot="answer" class="answer-text">This site's purpose is like my own little GitHub — not meant to be taken seriously. In an ideal world, first would come my resume, then my site to show all my work and passion for what I do. My site is thousands of hours of research, building, testing, and failing to make something, even if it gets no public interaction. I'm not here for views — I'm here to make something.</p>
+			</Question>
+			<Question question="What is the meaning/origin of 'KingPr0o7?'">
+				<p slot="answer" class="answer-text">KingPr0o7, pronounced — / <a href="http://ipa-reader.xyz/?text=k%C9%AA%C5%8Bpro%CA%8A%20o%CA%8A%20%CB%88s%C9%9Bv%C9%99n&voice=Joey" class="link">kɪŋproʊ oʊ ˈsɛvən</a> / was a handle for my Fortnite account back on May 26, 2018, and became my go-to handle for the internet. I wanted it to start with "King," then my father added "Pro" because he thought it would suit and sound pretty nice. The rest was because "KingPro" was taken, so extras were added: birth year and variation to get a unique one. I find it funny when streamers stop for a second to process how to go about its pronunciation and often say "King Pr- Zero Oh Seven," but other than that, my handle has no hidden meaning unless added otherwise.</p>
+			</Question>
+			<Question question="Who inspires you?">
+				<p slot="answer" class="answer-text">Other than the people I see most often, like <i>my teachers and parents</i>, the one person who always seems to <b>inspire</b> me is an <i>online streamer and content creator</i>, <a href="https://twitter.com/t3dotgg" class="link">@Theo</a>. Aside from the common ground of programming, he has, <b><i>time and time again</i></b>, inspired me to keep working hard <b>while</b> showing the vast world I have been trying to get into. He has also <b>built</b> a like-minded community that has sustained to keep me <b>loving</b> what I do. <br><br>Other people that inspire me: <a href="https://twitter.com/ThePrimeagen" class="link">@ThePrimeagen</a>, <a href="https://twitter.com/juxtopposed" class="link">@juxtopposed</a>, <a href="https://twitter.com/MKBHD" class="link">@MKBHD</a>, <a href="https://twitter.com/fireship_dev" class="link">@fireship_dev</a>, and <b>more</b>...</p>
+			</Question>
+			<Question question="Your writing — why so advanced?">
+				<p slot="answer" class="answer-text">My writing is "advanced" because of the countless English papers and classes that I've taken. As thus such, I've developed to write how I would as an English paper, in most cases, even tweeting. I also try to improve my vocabulary whenever I can to further my writing. It's just something I enjoy doing and continue to this day. </p>
+			</Question>
+		</FAQ>
+	</section>
 </Layout>
 <style>
-.about-text, #education-text {
+.about-text {
 	font-size: clamp(1rem, 1.5vw, 1.4rem);
 	line-height: 2rem;
 	text-indent: 2rem;
 }
-#background {
-	max-height: fit-content;
+
+	.eighty-width { width: 80%; }
+
+.about-header { 
+	font-size: clamp(1.3rem, 2.8vw, 3rem); 
+	width: 80%; 
+	text-align: center;
+}
+
+#background, #online-life {
 	min-width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 80vh;
+	height: fit-content;
+	padding: 50px 0;
 }
 
 	#background-header { font-size: clamp(1.3rem, 2.8vw, 3rem); }
@@ -103,7 +129,7 @@ import GitHub from '@logos/github-xl.svg';
 			animation: image-change 60s ease-in infinite;
 		}
 		
-#education {
+#education, #online-life {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -111,26 +137,11 @@ import GitHub from '@logos/github-xl.svg';
 	gap: 25px;
 }
 
-	#education-header { 
-		font-size: clamp(1.3rem, 2.8vw, 3rem); 
-		width: 80%; 
+	#education-text {
+		text-indent: 0;
 		text-align: center;
+		width: 80%;
 	}
-
-		#education-header::after {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 2px;
-			background-color: var(--gray);
-			margin-top: 10px;
-		}
-
-		#education-text {
-			text-indent: 0;
-			text-align: center;
-			width: 80%;
-		}
 
 		#schools {
 			display: flex;
@@ -157,26 +168,25 @@ import GitHub from '@logos/github-xl.svg';
 					.school-info {
 						display: flex;
 						flex-direction: column;
+						gap: 8.3px;
 					}
 				
 					.school-name {
 						display: flex;
-						align-items: center;,
-						gap: 12.5px
+						align-items: center;
+						gap: 12.5px;
 					}
-				
-						.school-languages {
-							display: flex;
-							align-items: center;
-							gap: 5px;
-						}
 					
-				.school-insight { font-size: 1.2rem; }
-				.school-classes { text-align: center; }
+				.school-insight { 
+					font-size: clamp(1rem, 2vw, 1.2rem); 
+					line-height: 1.5rem;
+					word-wrap: break-word;
+					hyphens: auto;
+				}
 
 @media (max-width: 1000px) {
 	#background {
-		padding-top: 25px;
+		padding: 25px 0 0 0;
 		gap: 25px;
 		flex-direction: column-reverse;
 		justify-content: space-evenly;
@@ -185,6 +195,24 @@ import GitHub from '@logos/github-xl.svg';
 		#background-left { min-width: 100%; }
 			#background-header { text-align: center; }
 			#background-image { border-radius: var(--secondary-border-radius); }
+
+	#education {
+		width: 100%;
+		padding: 25px 0;
+	}
+		#education-header { width: 100%; }
+		#education-text { width: 100%; }
+		#schools { width: 100%; }
+}
+
+@media (max-width: 450px) {
+	.school-header { flex-direction: column; }
+	.school-name, .school-details { 
+		text-align: center; 
+		justify-content: center; 
+	}
+	.school-logo { width: 64px; height: 64px;}
+
 }
 
 @keyframes image-change {

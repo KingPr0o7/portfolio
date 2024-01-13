@@ -1,0 +1,81 @@
+<div id="faq">
+	<slot />
+</div>
+
+<style is:global>
+#faq {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	gap: 25px;
+	width: 100%;
+}
+
+	.question { width: 80%; }
+
+		.question::after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: var(--gray);
+			margin-top: -10px;
+		}
+
+		.question-toggle {
+			font-size: clamp(0.9rem, 2vw, 1.9rem);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			font-weight: 600;
+			border: none;
+			padding: 10px 25px;
+			cursor: pointer;
+			background: none;
+			width: 100%;
+		}
+
+			.question-arrow { transition: transform 0.4s ease-in; }
+			.question.active .question-arrow { transform: rotate(180deg); }
+
+				.answer {
+					padding: 0 25px 20px 50px;
+					max-height: 0;
+					overflow: hidden;
+					transition: max-height 0.4s ease-in;
+				}
+
+					.question.active > .answer { 
+						max-height: 1000px;
+					}
+
+					.answer-text { 
+						font-size: clamp(1rem, 1.5vw, 1.4rem);
+						padding-top: 1rem;
+						text-indent: 0; 
+						line-height: 2rem;
+					}
+
+					.answer.show { display: block; }	
+
+@media (max-width: 600px) {
+	.question { width: 100%; }
+		.question-toggle { 
+			text-align: left; 
+			padding: 10px 0;
+		}
+
+		.answer { padding: 0 25px 20px 10px; }
+}
+
+</style>
+<script is:inline>
+	const questions = document.querySelectorAll('.question-toggle');
+
+	questions.forEach((question) => {
+		question.addEventListener('click', () => {
+			question.parentElement.classList.toggle('active');
+		});
+	});
+</script>
