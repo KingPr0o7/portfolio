@@ -1,0 +1,94 @@
+---
+interface Props {
+	link: string;
+	thumbnail: string;
+	thumbnail_alt: string
+	title: string;
+}
+
+import { Image } from "astro:assets";
+const { link, thumbnail, thumbnail_alt, title } = Astro.props;
+---
+
+<a href={link} class="blog-link">
+	<article class="blog">
+		<Image src={thumbnail} class="blog-thumbnail" alt={thumbnail_alt} width={400} height={200}/>
+		<h2 class="blog-embed-title">{title}</h2>
+	</article>
+</a>
+
+<style>
+	.blog {
+		display: flex;
+		align-items: center;
+		flex-direction: column;	
+		gap: 25px;
+		width: 400px;	
+		padding: 0 10px 10px 10px;
+		border-radius: var(--secondary-border-radius);
+	}
+
+		.blog:hover, .blog:focus {
+			background-color: var(--gray);
+			cursor: pointer;
+		}
+
+		.blog-link { text-decoration: none; }
+
+		.blog-thumbnail {
+			width: 400px;
+			height: 200px;
+			background-color: var(--gray);
+			border-radius: var(--secondary-border-radius);
+		}
+
+		.blog-embed-title {
+			font-size: clamp(1.3rem, 2.8vw, 1.8rem);
+			width: 100%;
+			word-wrap: break-word;
+		}	
+
+@media (max-width: 1000px) {
+	.blog { width: 100%; }
+
+		.blog-embed-title { text-align: center; }
+
+		.blog-thumbnail {
+			width: 500px;
+			height: 250px;
+		}	
+}
+
+@media (max-width: 600px) {
+	.blog-embed-title { 
+		width: 80%; 
+		padding: 0 25px;
+	}
+	
+	.blog-thumbnail {
+		width: 420px;
+		height: 210px;
+	}
+}
+
+@media (max-width: 500px) {
+	.blog-thumbnail {
+		width: 350px;
+		height: 175px;
+	}
+}
+
+@media (max-width: 400px) {
+	.blog-thumbnail {
+		width: 300px;
+		height: 150px;
+	}
+}
+
+@media (max-width: 350px) {
+	.blog-thumbnail {
+		width: 250px;
+		height: 125px;
+	}
+}
+</style>

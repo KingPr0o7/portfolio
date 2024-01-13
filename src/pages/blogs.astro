@@ -1,7 +1,33 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import BlogPost from '@components/Blog-post.astro';
+import BlogBanner from '@components/Blog-banner.astro';
+import Test from '@public/covers/test.webp';
 ---
 
 <Layout title="Blogs" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
-	<h1>💫 Blogs Page 💫</h1>
+	<div id="blogs-section">
+		<div id="blogs">
+			<BlogBanner link='/test' thumbnail={Test.src} thumbnail_alt='...' title='YYoo it is king here today' info="FEATURED" date="Dec 10, 2023"/>
+			<BlogPost link='/test' thumbnail={Test.src} thumbnail_alt=".." title='s' />
+			<BlogPost link='/test' thumbnail={Test.src} thumbnail_alt=".." title='s' />
+			<BlogPost link='/test' thumbnail={Test.src} thumbnail_alt=".." title='s' />
+		</div>
+	</div>
 </Layout>
+<style is:global>
+#blogs {
+	padding-top: 50px;
+	display: flex;
+	align-items: baseline;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 50px;
+}
+
+@media (max-width: 1000px) {
+	section { padding: 0; grid-column: full !important; }
+
+		#blogs { padding: 50px 0 0 0; }
+}
+</style>

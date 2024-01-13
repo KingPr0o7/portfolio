@@ -1,0 +1,94 @@
+---
+interface Props {
+	link: string;
+	thumbnail: string;
+	thumbnail_alt: string
+	title: string;
+	info?: string;
+	date: string;
+	centered?: string;
+}
+
+import { Image } from "astro:assets";
+const { link, thumbnail, thumbnail_alt, title, info, date, centered } = Astro.props;
+---
+
+<article class="blog-image-wrapper">
+	<Image src={thumbnail} class="blog-image" alt={thumbnail_alt} width={1600} height={500} data-state={centered} />
+	<div class="blog-info-wrapper">
+		<span class="blog-info">{info ? `${info} • ` : ''}{date}</span>
+		<h1 class="blog-title">{title}</h1>
+		<a class="button" href={link}>Read More</a>
+	</div>
+</article>
+
+<style>
+.blog-image-wrapper {
+	padding: 0 50px;
+	position: relative;
+	width: 100%;
+}
+	
+	.blog-image {
+		width: 100%;
+		height: 500px;
+		background-position: center;
+		border-radius: var(--secondary-border-radius);
+		-webkit-mask: linear-gradient(-90deg, var(--background), 30%, transparent);
+		mask: linear-gradient(-90deg, var(--background), 30%, transparent);
+		object-fit: cover;
+	}
+	
+		.blog-image[data-state="centered"] {
+			-webkit-mask: linear-gradient(0deg, var(--background), 20%, transparent);
+			mask: linear-gradient(0deg, var(--background), 20%, transparent);
+		}
+	
+	.blog-info-wrapper {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		top: 50%;
+		gap: 20px;
+		height: 100%;
+		width: 50%;
+		transform: translateY(-50%);
+		padding: 50px; 
+	}
+	
+		.blog-info-wrapper[data-state="centered"] {
+			align-items: center;
+			left: 0;
+			width: 100%;
+			flex-direction: column-reverse;
+		}
+	
+		.blog-info {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: clamp(0.9rem, 1.5vw, 1.3rem);
+		}
+	
+	.blog-title { font-size: clamp(1.3rem, 2.8vw, 3rem); }
+
+@media (max-width: 1000px) {
+	.blog-image-wrapper { padding: 0; width: 100%; }
+
+		.blog-image { 
+			border-radius: 0 0 var(--secondary-border-radius) var(--secondary-border-radius); 
+			-webkit-mask: linear-gradient(0deg, var(--background), 20%, transparent);
+			mask: linear-gradient(0deg, var(--background), 20%, transparent);
+		}
+
+			.blog-info-wrapper {
+				width: 100%;
+				padding: 0;
+				align-items: center;
+				text-align: center;
+			}
+
+				.blog-title { width: 80%; }	
+}
+</style>
