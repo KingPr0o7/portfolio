@@ -4,6 +4,7 @@ interface Props {
 	description: string;
 	image: string;
 	section_class?: string;
+	data_state?: string;
 }
 
 const slideRight = {
@@ -69,7 +70,7 @@ import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
 import { join } from 'node:path';
 
-const { title, description, image, section_class } = Astro.props;
+const { title, description, image, section_class, data_state } = Astro.props;
 const cover = `${Astro.site}covers/${image}`;
 const url = 'ncp.dev';
 const handle = '@KingPr0o7';
@@ -155,7 +156,7 @@ const handle = '@KingPr0o7';
 	</head>
 	<body>
 		<Nav />
-		<main transition:animate={animation}>
+		<main transition:animate={animation} data-state={data_state}>
 			<section class={section_class}>
 				<slot />
 			</section>
@@ -204,7 +205,7 @@ main {
 
 @media (max-width: 1000px) {
 	/* Removes top padding due to navbar moving to bottom of vh */
-	main, main[data-state="padded"] { padding-top: 0px;}
+	main, main[data-state="padded"] { padding-top: 0px; }
 }
 
 @keyframes slideInFromRight {

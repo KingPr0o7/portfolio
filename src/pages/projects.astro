@@ -1,7 +1,160 @@
 ---
+import { Image } from "astro:assets";
 import Layout from '@layouts/Layout.astro';
+import React from '@logos/react.svg';
+import JavaScript from '@logos/javascript.svg';
+import SASS from '@logos/sass.svg';
+import Python from '@logos/python.svg';
+import YouTubePlus from '@images/youtube-plus.png';
+import ComboMenu from '@images/combo-menu.png';
 ---
 
-<Layout title="Projects" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
-	<h1>💫 Projects Page 💫</h1>
+<Layout title="Projects" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" data_state="padded">
+	<section id="projects">
+		<div class="project">
+			<Image src={YouTubePlus} class="project-image" alt="Logo of the YouTube+ Extension with red grid lines behind it" width={400} height={400} />
+			<div class="project-info">
+				<h2 class="project-name">YouTube+</h2>
+				<div class="project-languages">
+					<div class="project-language">
+						<Image src={React} class="project-language-logo" alt="React.js's Logo" width={400} height={400} />
+						<p class="project-language-name">React.js</p>
+					</div>
+					<div class="project-language">
+						<Image src={JavaScript} class="project-language-logo" alt="React.js's Logo" width={32} height={32} />
+						<p class="project-language-name">JavaScript</p>
+					</div>
+					<div class="project-language">
+						<Image src={SASS} class="project-language-logo" alt="SASS'S Logo" width={32} height={32} />
+						<p class="project-language-name">SASS</p>
+					</div>
+				</div>
+				<p class="project-desc">YouTube+ is an upcoming Chrome extension that aims to fix your YouTube experience. An example of this is bringing back the beloved dislikes so you can better judge the videos you watch. On top of that, this Chrome extension will offer all of this for free and open source.</p>
+				<a class="button project-button" href="https://github.com/YouTube-Plus?view_as=public" target="_blank">GitHub</a>
+			</div>
+		</div>
+
+		<div class="project">
+			<Image src={ComboMenu} class="project-image" alt="Picture of working Combo Menu Web Application Program styled as a online Web Chatting Application" width={400} height={400} />
+			<div class="project-info">
+				<h2 class="project-name">Combo Menu</h2>
+				<div class="project-languages">
+					<div class="project-language">
+						<Image src={Python} class="project-language-logo" alt="Python's Logo" width={32} height={32} />
+						<p class="project-language-name">Python</p>
+					</div>
+					<div class="project-language">
+						<Image src={JavaScript} class="project-language-logo" alt="JavaScript's Logo" width={32} height={32} />
+						<p class="project-language-name">JavaScript</p>
+					</div>
+					<div class="project-language">
+						<Image src={SASS} class="project-language-logo" alt="SASS'S Logo" width={32} height={32} />
+						<p class="project-language-name">SASS</p>
+					</div>
+				</div>
+				<p class="project-desc">A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly.</p>
+				<a class="button project-button" href="https://github.com/KingPr0o7/Combo-Menu" target="_blank">GitHub</a>
+			</div>
+		</div>
+	</section>
 </Layout>
+<style>
+#projects {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 50px;
+}
+
+	.project {
+		display: flex;
+		align-items: center;
+		gap: 25px;
+		max-width: fit-content;
+	}
+
+		.project-image {
+			width: 400px;
+			height: 400px;
+			background-color: var(--gray);
+			border-radius: var(--secondary-border-radius);
+		}
+
+		.project-info {
+			display: flex;
+			flex-direction: column;
+			gap: 25px;
+			max-height: 400px;
+			max-width: 500px;
+		}
+
+			.project-name { font-size: clamp(1.3rem, 10vw, 3rem); }
+
+			.project-languages {
+				display: flex;
+				gap: 12.5px;
+			}
+
+				.project-language {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					flex-wrap: wrap;
+					gap: 12.5px;
+					padding: 12.5px;
+					border-radius: var(--secondary-border-radius);
+					background-color: var(--gray);
+				}
+
+					.project-language-logo {
+						width: 32px;
+						height: 32px;
+						border-radius: var(--secondary-border-radius);
+					}
+
+			.project-desc {
+				font-size: 1.1rem;
+				line-height: 2rem;
+			}
+
+@media (max-width: 1000px) {
+	#projects { padding-top: 25px; }
+
+		.project {
+			flex-direction: column;
+			width: 100%;
+			max-width: 100%;
+			height: fit-content;
+		}
+
+			.project-image {
+				width: 400px;
+				height: 400px;
+			}
+
+			.project-button { width: 50%; }
+
+			.project-info, .project-languages {
+				max-width: 95%;
+				max-height: fit-content;
+				text-align: center;
+				align-items: center;
+			}
+}
+
+@media (max-width: 500px) {
+	#projects { padding: 0px; grid-column: full; }
+
+		.project-image {
+			width: 100%;
+			height: auto;
+		}
+
+			.project-info {
+				padding: 0 25px;
+			}
+
+			.project-button { width: 100%; }	
+}
+</style>
