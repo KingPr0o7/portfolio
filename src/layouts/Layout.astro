@@ -57,6 +57,7 @@ const animation = {
 };
 
 import { ViewTransitions } from 'astro:transitions';
+import { adapter } from 'astro-vtbot/animations/animation-style';
 import { AstroFont } from "astro-font";
 import '@src/config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -150,7 +151,7 @@ const handle = '@KingPr0o7';
 	</head>
 	<body>
 		<Nav />
-		<main transition:animate={animation} data-state={data_state}>
+		<main transition:animate={adapter(animation)} data-state={data_state}>
 			<section class={section_class}>
 				<slot />
 			</section>
