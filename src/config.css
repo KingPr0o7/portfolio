@@ -75,7 +75,7 @@
 	animation: glow_appear 1s 2.25s ease-in-out forwards;
 }
 
-.link {
+.link, .blog-content a {
 	text-decoration-line: underline;
 	-webkit-text-decoration-line: underline;
 	text-decoration-color: var(--accent);

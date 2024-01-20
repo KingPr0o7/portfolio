@@ -47,92 +47,16 @@ import Blog_Icon from "@images/icons/blog.svg";
 </nav>
 
 <nav class="mobile-navlist">
-	<a class="navbar-link" href="./contact.html">
+	<a class="navbar-link" href="/contact">
 		<Image src={Contact_Icon} class="navbar-image" alt="Contact Me Page Icon (Person Outline With Lines)" width={32} height={32} />
 		<p class="navbar-link-text">Contact</p>
 	</a>
 
-	<a class="navbar-link" href="./blogs.html">
+	<a class="navbar-link" href="/blogs">
 		<Image src={Blog_Icon} class="navbar-image" alt="Blogs Page Icon (Newspaper)" width={32} height={32} />
 		<p class="navbar-link-text">Blogs</p>
 	</a>	
 </nav>
-
-<script is:inline>
-	const navbar = document.querySelector(".navbar");
-	const hamburger_parent = document.getElementById('mobile-hamburger-parent');
-	const hamburger = document.querySelector('.mobile-hamburger');
-	const navbar_middle = document.querySelector(".navbar-middle");
-	const navbar_middle_left = -475;
-	const navbar_middle_right = 1000;
-	const navbar_middle_width = 0;
-	
-	function changeNav(state) {
-		let is_open = state === "true";
-		
-		hamburger.setAttribute('data-state', is_open ? "open" : "closed");
-		navbar.setAttribute('data-navlist', is_open ? "true" : "false");
-	}
-	
-	function set_navbar_middle(left, width) {
-		navbar_middle.style.setProperty("--_left", left + "px");
-		navbar_middle.style.setProperty("--_width", width);
-	}
-	
-	function switchTab(event) {
-		let newTab = event.target;
-		newTab.tagName != "A" ? newTab = newTab.parentElement : null;
-		document.querySelectorAll(".navbar-link").forEach((tab) => tab.removeAttribute("data-toggled", "true"));
-	
-		if (newTab.id === "mobile-hamburger-parent") {
-			newTab.removeAttribute("data-toggled", "true");
-		} else {
-			newTab.setAttribute("data-toggled", "true");
-			let newTabWidth = newTab.offsetWidth / navbar_middle.offsetWidth;
-			set_navbar_middle(newTab.offsetLeft, newTabWidth);
-		}
-	}
-	
-	window.addEventListener('resize', () => {
-		if (document.querySelector(".navbar-link[data-toggled='true']")) {
-			switchTab({target: document.querySelector(".navbar-link[data-toggled='true']")})
-		}
-	});
-	
-	if (hamburger_parent) {
-		hamburger_parent.addEventListener('click', () => hamburger.getAttribute('data-state') === "closed" ? changeNav("true") : changeNav("false"));
-		hamburger_parent.addEventListener('keydown', function(event) {
-			if (event.key === 'Enter') {
-				hamburger.getAttribute("data-state") === "closed" ? changeNav("true") : changeNav("false");
-			}
-		});
-	}
-	
-	document.addEventListener('astro:page-load', (e) => {
-		let pathname = location.pathname;
-		set_navbar_middle(navbar_middle_left, navbar_middle_width);
-		let paths = ["/about", "/projects", "/blogs"];
-		!paths.includes(pathname) ? document.querySelectorAll('.navbar-link').forEach(el => el.removeAttribute('data-toggled')) : null;
-		let toggled_tab = document.querySelector(".navbar-link[data-toggled='true']");
-	
-		if ((pathname === "/" || pathname === "/contact")) {
-			toggled_tab ? toggled_tab.removeAttribute("data-toggled", "true") : null;
-			if (pathname === "/contact") {
-				set_navbar_middle(navbar_middle_right, navbar_middle_width);
-			} else {
-				set_navbar_middle(navbar_middle_left, navbar_middle_width);
-			}
-		} else if (paths.includes(pathname)) {
-			switchTab({target: document.querySelector(`.navbar-link[href='${pathname}']`)});
-		}
-	
-		navbar.setAttribute('data-navlist', "false");
-		hamburger_parent.setAttribute('data-state', "closed");
-		hamburger.setAttribute('data-state', "closed");
-	
-	}, { once: false });	
-</script>
-
 <style>
 .navbar {
 	position: fixed;
@@ -172,6 +96,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 			font-size: clamp(1.2rem, 2vw, 1.5rem);
 			height: 100%;
 			width: fit-content;
+			overflow: visible;
 		}
 
 			.navbar-link { 
@@ -195,7 +120,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 					color: var(--accent); 
 				}
 				
-					.navbar-link-text { font-size: clamp(1rem, 2vw, 1.5rem); }
+					.navbar-link-text { font-size: clamp(1rem, 2vw, 1.5rem); width: fit-content; }
 
 					.navbar-image {
 						width: 32px;
@@ -258,17 +183,33 @@ import Blog_Icon from "@images/icons/blog.svg";
 							transition: opacity 0.9s;
 						}
 
-  		/* Navbar Line */
-		nav::after {
-			background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%,rgba(255, 255, 255, 0) 100%);
-			bottom: 0;
-			content: "";
-			height: 2px;
+		.navbar-container::after {
 			position: absolute;
-			width: 100%;
-			max-width: var(--max-width);	
-			transition: height 250ms ease;
+			content: "";
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			scale: var(--_width, 0) 1;
+			translate: var(--_left, 0px) 0;
+			transform-origin: left;
+			background: var(--accent);
+			transition: scale 500ms, translate 500ms;
 		}
+
+			.navbar[data-navlist="true"] .navbar-container::after { height: 0px; }
+
+  	/* Navbar Line */
+	nav::after {
+		background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%,rgba(255, 255, 255, 0) 100%);
+		bottom: 0;
+		content: "";
+		height: 2px;
+		position: absolute;
+		width: 100%;
+		max-width: var(--max-width);	
+		transition: height 250ms ease;
+	}
 
 		/* Hides navbar line when navlist is open */
 		.navbar[data-navlist="true"]::after { height: 0px; }
@@ -284,7 +225,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 	-webkit-backdrop-filter: blur(10px);
 	transition: top 1s ease;
 }
-		
+
 	/* Animates the navlist downwards instead of just disappearing */
 	nav[data-navlist="false"] ~ .mobile-navlist { top: calc(200dvh - 300px); }
 
@@ -303,6 +244,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 			width: 100%;
 		}
 
+			.navbar-container::after { top: 0; }
 			.navbar-left { display: none; }
 
 			.navbar-middle {
@@ -351,7 +293,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 	.navbar[data-navlist="true"] ~ .mobile-navlist {
 		display: flex;
 		align-items: flex-start;
-		justify-content: center;
+		justify-content: flex-end;
 		flex-direction: column;
 		top: calc(100dvh - 300px);
 		animation: navlist-appear 0.4s ease;
@@ -367,12 +309,14 @@ import Blog_Icon from "@images/icons/blog.svg";
 			height: 1px;
 			background: radial-gradient(50% 100% at 50% 100%,rgba(255,255,255,.12) 0%,rgba(255,255,255,0) 100%);
 		}
+	
+		.mobile-navlist > .navbar-link {
+			display: flex;
+			justify-content: flex-end;
+			flex-direction: row;
+			width: 100%;
+		}
 
-			.mobile-navlist > .navbar-link {
-				justify-content: flex-end;
-				flex-direction: row;
-				width: 100%;
-			}
 }
 
 @media (max-width: 500px) {
@@ -394,3 +338,95 @@ import Blog_Icon from "@images/icons/blog.svg";
 	to { top: calc(100dvh - 300px);}
 }	
 </style>
+<script is:inline>
+	const navbar = document.querySelector(".navbar");
+	const navbar_container = document.querySelector(".navbar-container");
+	const hamburger_parent = document.getElementById('mobile-hamburger-parent');
+	const hamburger = document.querySelector('.mobile-hamburger');
+	const navbar_middle = document.querySelector(".navbar-middle");
+	const navbar_middle_left = -475;
+	const navbar_middle_right = 1000;
+	const navbar_middle_width = 0;
+	
+	function changeNav(state) {
+		let is_open = state === "true";
+		
+		hamburger.setAttribute('data-state', is_open ? "open" : "closed");
+		navbar.setAttribute('data-navlist', is_open ? "true" : "false");
+	}
+	
+	function set_navbar_middle(left, width) {
+		navbar_middle.style.setProperty("--_left", left + "px");
+		navbar_middle.style.setProperty("--_width", width);
+	}
+	
+	function switchTab(event) {
+		let newTab = event.target;
+		newTab.tagName != "A" ? newTab = newTab.parentElement : null;
+		document.querySelectorAll(".navbar-link").forEach((tab) => tab.removeAttribute("data-toggled", "true"));
+	
+		if (newTab.id === "mobile-hamburger-parent") {
+			newTab.removeAttribute("data-toggled", "true");
+		} else {
+			newTab.setAttribute("data-toggled", "true");
+			let newTabWidth = newTab.offsetWidth / navbar_middle.offsetWidth;
+			set_navbar_middle(newTab.offsetLeft, newTabWidth);
+		}
+	}
+	
+	window.addEventListener('resize', () => {
+		if (document.querySelector(".navbar-link[data-toggled='true']")) {
+			switchTab({target: document.querySelector(".navbar-link[data-toggled='true']")})
+		}
+	});
+	
+	function scrollProgress() {
+		const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+		const height = document.documentElement.scrollHeight - document.documentElement.clientHeight - document.querySelector("footer").clientHeight;
+		const scrolled = (winScroll / height) * 100;
+		let halfScrolled = scrolled / 2;
+		navbar_container.style.setProperty("--_left", (50 - halfScrolled) * (window.innerWidth / document.documentElement.clientWidth) + "%");
+		navbar_container.style.setProperty("--_width", scrolled * (window.innerWidth / document.documentElement.clientWidth) + "%");
+	}
+
+	if (hamburger_parent) {
+		hamburger_parent.addEventListener('click', () => hamburger.getAttribute('data-state') === "closed" ? changeNav("true") : changeNav("false"));
+		hamburger_parent.addEventListener('keydown', function(event) {
+			if (event.key === 'Enter') {
+				hamburger.getAttribute("data-state") === "closed" ? changeNav("true") : changeNav("false");
+			}
+		});
+	}
+	
+	document.addEventListener('astro:page-load', () => {
+		let pathname = location.pathname;
+		set_navbar_middle(navbar_middle_left, navbar_middle_width);
+		let paths = ["/about", "/projects", "/blogs"];
+		!paths.includes(pathname) ? document.querySelectorAll('.navbar-link').forEach(el => el.removeAttribute('data-toggled')) : null;
+		let toggled_tab = document.querySelector(".navbar-link[data-toggled='true']");
+	
+		if ((pathname === "/" || pathname === "/contact")) {
+			toggled_tab ? toggled_tab.removeAttribute("data-toggled", "true") : null;
+			if (pathname === "/contact") {
+				set_navbar_middle(navbar_middle_right, navbar_middle_width);
+			} else {
+				set_navbar_middle(navbar_middle_left, navbar_middle_width);
+			}
+		} else if (paths.includes(pathname)) {
+			switchTab({target: document.querySelector(`.navbar-link[href='${pathname}']`)});
+		}
+	
+		navbar.setAttribute('data-navlist', "false");
+		hamburger_parent.setAttribute('data-state', "closed");
+		hamburger.setAttribute('data-state', "closed");
+	
+		navbar_container.style.setProperty("--_left", 0 + "%");
+		navbar_container.style.setProperty("--_width", 0 + "%");
+
+	}, { once: false });	
+
+	window.onscroll = function() { 
+		let pathname = window.location.pathname;
+		pathname.startsWith("/blog/") ? scrollProgress() : null;
+	};
+</script>

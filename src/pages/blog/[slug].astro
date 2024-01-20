@@ -1,0 +1,161 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Layout.astro';
+import BlogBanner from '@components/Blog-banner.astro'
+
+export async function getStaticPaths() {
+	const blogs = await getCollection('blog');
+	return blogs.map(blog => ({
+		params: { slug: blog.slug }, props: { blog }
+	}))
+}
+
+const { blog } = Astro.props;
+const { Content } = await blog.render();
+---
+<Layout title={blog.data.title} description={blog.data.description} image={blog.data.thumbnail} data_state='padded' section_class='blog-viewer'>
+	<BlogBanner thumbnail={blog.data.thumbnail} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} date={blog.data.date} centered='true' />
+	<div class="blog-content">
+		<Content />
+	</div>
+</Layout>
+<style is:inline>
+.blog-viewer {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	gap: 50px;
+}
+
+	.blog-content {
+		width: 60vw;
+		display: flex;
+		gap: 25px;
+		flex-direction: column;
+	}
+
+		/* Emphasizes the first letter of the blog */ 
+		.blog-content > p:nth-child(1)::first-letter { 
+			float: left;
+			color: var(--accent);
+			padding: 25px;
+			font-size: clamp(1.4rem, 25vw, 6rem); 
+		}
+
+			.blog-content > h2 { font-size: clamp(1.3rem, 2.8vw, 2.5rem); }
+
+				/* Gray line that appears under the subheading (Looks dope) */
+				.blog-content > h2::after {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 2px;
+					border-radius: var(--main-border-radius);
+					background-color: var(--gray);
+					margin: 10px 0;
+				}
+
+	p {
+		width: 100%;
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
+		line-height: clamp(1rem, 9vw, 2.2rem);
+	}
+
+	/* Used for images */
+	.blog-figure {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 25px;
+	}
+
+		.blog-figure-caption {
+			font-size: clamp(1rem, 1.5vw, 1.3rem);
+			text-align: center;
+			font-style: italic;
+		}
+
+	ol, ul {
+		margin-left: 50px;
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
+		line-height: clamp(1rem, 9vw, 2.2rem);
+	}
+
+		li { margin-bottom: 10px; }
+
+	.blog-note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 25px;
+		gap: 25px;
+		width: 100%;
+		background-color: var(--gray);
+		border-radius: var(--secondary-border-radius);
+	}
+
+		.blog-note-content {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+			.blog-note-title {
+				font-size: clamp(1rem, 1.5vw, 2rem);
+				font-weight: bold;	
+			}
+
+			.blog-note-text {
+				font-size: clamp(1rem, 1.5vw, 1.3rem);
+				line-height: clamp(1rem, 1.5vw, 2rem);
+			}	
+
+@media (max-width: 1000px) {
+	.blog-image-wrapper { padding: 0;}
+
+		.blog-image { 
+			border-radius: 0 0 var(--secondary-border-radius) var(--secondary-border-radius); 
+			-webkit-mask: linear-gradient(0deg, var(--background), 20%, transparent);
+			mask: linear-gradient(0deg, var(--background), 20%, transparent);
+		}
+
+		.blog-info-wrapper {
+			width: 100%;
+			padding: 0;
+			align-items: center;
+			text-align: center;
+		}
+
+		.blog-title { width: 80%; }
+
+	#blogs { padding: 50px 0 0 0; }
+
+		.blog { width: 100%; }
+
+		.blog-embed-title { text-align: center; }
+
+		.blog-thumbnail {
+			width: 500px;
+			height: 250px;
+		}
+	
+	/* Blog Viewer */
+
+	.blog-viewer {
+		padding: 0;
+		grid-column: full;
+	}
+
+		.blog-content {
+			width: 100%;
+			padding: 0 25px;
+		}
+
+	.blog-image-wrapper { width: 100%; }
+	.blog-list { margin-left: 25px; }
+		
+}
+</style>

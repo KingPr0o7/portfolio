@@ -37,11 +37,6 @@ const slideLeft = {
   }
 };
 
-const slide = {
-  forwards: slideRight,
-  backwards: slideLeft,
-};
-
 const fading = {
   old: {
     name: 'fadeOut',
@@ -55,14 +50,13 @@ const fading = {
   }
 };
 
-const fade = {
-  forwards: fading,
-  backwards: fading,
+const animation = {
+  forward: slideRight,
+  backward: slideLeft,
+  fade: fading 
 };
 
 import { ViewTransitions } from 'astro:transitions';
-const pathname = Astro.url.pathname.replace(/\/$/, "");
-let animation = pathname == `/test` ? fade : slide;
 import { AstroFont } from "astro-font";
 import '@src/config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -172,7 +166,8 @@ const handle = '@KingPr0o7';
 		let currentPageIndex = pageOrder.indexOf(e.to.pathname);
 		let previousPageIndex = pageOrder.indexOf(e.from.pathname);
 
-		currentPageIndex < previousPageIndex ? e.direction = 'back' : e.direction = 'forward';
+		currentPageIndex < previousPageIndex ? e.direction = 'backward' : e.direction = 'forward';
+		currentPageIndex === -1 || previousPageIndex === -1 ? e.direction = 'fade' : 'forward';
 	});
 </script>
 
@@ -206,6 +201,7 @@ main {
 @media (max-width: 1000px) {
 	/* Removes top padding due to navbar moving to bottom of vh */
 	main, main[data-state="padded"] { padding-top: 0px; }
+	.blogs-section, .blog-viewer { padding: 0; grid-column: full !important;}
 }
 
 @keyframes slideInFromRight {

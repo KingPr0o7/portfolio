@@ -1,6 +1,6 @@
 ---
 interface Props {
-	link: string;
+	link?: string;
 	thumbnail: string;
 	thumbnail_alt: string
 	title: string;
@@ -14,11 +14,11 @@ const { link, thumbnail, thumbnail_alt, title, info, date, centered } = Astro.pr
 ---
 
 <article class="blog-image-wrapper">
-	<Image src={thumbnail} class="blog-image" alt={thumbnail_alt} width={1600} height={500} data-state={centered} />
-	<div class="blog-info-wrapper">
+	<Image src={thumbnail} class="blog-image" alt={thumbnail_alt} width={1600} height={500} data-centered={centered} loading="eager" />
+	<div class="blog-info-wrapper" data-centered={centered}>
 		<span class="blog-info">{info ? `${info} • ` : ''}{date}</span>
 		<h1 class="blog-title">{title}</h1>
-		<a class="button" href={link}>Read More</a>
+		{!centered && <a class="button" href={link}>Read More</a>}
 	</div>
 </article>
 
@@ -39,7 +39,7 @@ const { link, thumbnail, thumbnail_alt, title, info, date, centered } = Astro.pr
 		object-fit: cover;
 	}
 	
-		.blog-image[data-state="centered"] {
+		.blog-image[data-centered="true"] {
 			-webkit-mask: linear-gradient(0deg, var(--background), 20%, transparent);
 			mask: linear-gradient(0deg, var(--background), 20%, transparent);
 		}
@@ -57,7 +57,7 @@ const { link, thumbnail, thumbnail_alt, title, info, date, centered } = Astro.pr
 		padding: 50px; 
 	}
 	
-		.blog-info-wrapper[data-state="centered"] {
+		.blog-info-wrapper[data-centered="true"] {
 			align-items: center;
 			left: 0;
 			width: 100%;
