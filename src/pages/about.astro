@@ -26,7 +26,7 @@ import IU from '@logos/iu.png';
 	</section>
 	<section id="education">
 		<h2 class="about-header">The Pursuit of Education</h2>
-		<p class="about-text eighty-width">I'm always looking for ways to learn and retain information for my dream, and currently, I've been doing that from my school's pathway of Software Development. It has allowed me to take college-level classes to further my dream: </p>
+		<p class="about-text var-width">I'm always looking for ways to learn and retain information for my dream, and currently, I've been doing that from my school's pathway of Software Development. It has allowed me to take college-level classes to further my dream: </p>
 		<div id="schools">
 			<div class="school">
 				<div class="school-header">
@@ -85,7 +85,7 @@ import IU from '@logos/iu.png';
 	text-indent: 2rem;
 }
 
-	.eighty-width { width: 80%; }
+	.var-width { width: 80%; }
 
 .about-header { 
 	font-size: clamp(1.3rem, 2.8vw, 3rem); 
@@ -186,6 +186,8 @@ import IU from '@logos/iu.png';
 				}
 
 @media (max-width: 1000px) {
+	.var-width { width: 100%; }
+
 	#background {
 		padding: 25px 0 0 0;
 		gap: 25px;

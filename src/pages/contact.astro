@@ -1,7 +1,262 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import LinkedIn from '@logos/linkedin.svg';
+import Discord from '@logos/discord.svg';
+import GitHub from '@logos/github.svg';
+import Twitter from '@logos/x.svg';
 ---
 
 <Layout title="Contact" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
-	<h1>💫 Contact Page 💫</h1>
+	<div id="contact-section">
+		<div id="contact-left">
+			<h1 id="contact-attention">LET'S TALK</h1>
+			<p id="contact-description">I'm always open to new opportunities and collaborations. Feel free to reach out to me!</p>			
+			<div id="contact-socials">
+				<a class="contact-social" href="https://www.linkedin.com/in/nathanparker07/">
+					<Image src={LinkedIn} class="contact-social-logo" alt="LinkedIn's Logo" width={48} height={48} />
+					<p class="contact-social-name">@nathanparker07</p>
+				</a>
+	
+				<a class="contact-social" href="https://discord.gg/ksW8rAcU6t">
+					<Image src={Discord} class="contact-social-logo" alt="Discord's Logo" width={48} height={48} />
+					<p class="contact-social-name">@kingpr0o7</p>
+				</a>
+	
+				<a class="contact-social" href="https://github.com/KingPr0o7">
+					<Image src={GitHub} class="contact-social-logo" alt="GitHub's Logo" width={48} height={48} />
+					<p class="contact-social-name">@kingpr0o7</p>
+				</a>
+	
+				<a class="contact-social" href="https://twitter.com/KingPr0o7">
+					<Image src={Twitter} class="contact-social-logo" alt="Twitter's (X's) Logo" width={48} height={48} />
+					<p class="contact-social-name">@kingpr0o7</p>
+				</a>
+			</div>
+		</div>
+		<div id="contact-divider"></div>
+		<div id="contact-right">
+			<form id="contact-form" onsubmit="return false">
+				<div class="contact-input">
+					<label class="form-label" for="contact-name">What's your name?</label>
+					<input class="form-textfield" id="contact-name" type="text" placeholder="Name" required maxlength="40" autocomplete="off">
+				</div>
+
+				<div class="contact-input">
+					<label class="form-label" for="contact-email">Your current email?</label>
+					<input class="form-textfield" id="contact-email" type="text" placeholder="Email" required maxlength="50" autocomplete="off">
+				</div>
+
+				<div class="contact-input">
+					<label class="form-label" for="contact-message">Tell me your thoughts!</label>
+					<textarea class="form-textarea" id="contact-message" required></textarea>
+				</div>
+
+				<button class="button form-submit" id="contact-submit">Submit</button>
+			</form>
+		</div>
+	</div>
 </Layout>
+<style>
+#contact-section {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: row;
+	gap: 25px;
+}
+
+	/* Attention Getter + Socials */
+	#contact-left {
+		width: clamp(300px, 40vw, 650px);
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+	}
+
+		#contact-attention { font-size: clamp(1.3rem, 5vw, 7rem); }
+
+		#contact-description {
+			font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+			line-height: clamp(1rem, 2vw, 2.3rem);
+		}
+
+		#contact-socials {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr); 
+			gap: 25px
+		}
+		
+			.contact-social {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-self: center;
+				gap: 25px;
+				width: 300px;
+				text-decoration: none;
+			}
+		
+				.contact-social-logo {
+					background-color: var(--secondary);
+					border-radius: var(--secondary-border-radius);
+					outline: 5px solid var(--secondary);
+					width: 48px;
+					height: 48px;
+				}
+		
+				.contact-social-name { font-size: clamp(0.8rem, 1.7vw, 1.5rem); }
+
+	/* Line only visible on desktop to divide socials from form */
+	#contact-divider {
+		min-width: 2px;
+		height: 600px;
+		border-radius: var(--main-border-radius);
+		background-color: var(--gray);
+		content: "";
+	}		
+
+	/* Email Form */
+	#contact-right { width: clamp(300px, 40vw, 650px); }
+
+		#contact-form {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			gap: 25px;
+			height: 100%;
+			min-height: 100%;
+			width: 100%;
+		}
+
+			.contact-input {
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+			}
+
+				.form-label { font-size: clamp(1rem, 1.5vw, 1.3rem); }
+
+				.form-textfield, .form-textfield:focus {
+					position: relative;
+					height: 50px;
+					border-radius: var(--secondary-border-radius);
+					outline: 2px solid var(--gray);
+					border: none;
+					background: none;
+					padding: 0 15px;
+					font-size: clamp(1rem, 1.5vw, 1.3rem);
+				}
+
+					/* When form input is invalid or required */
+					.form-textfield:focus:invalid {
+						color: red;
+						outline: 2px solid red;
+					}
+
+				.form-textarea {
+					position: relative;
+					height: 150px;
+					border-radius: var(--secondary-border-radius);
+					outline: 2px solid var(--gray);
+					width: 100%;
+					resize: none;
+					border: none;
+					background: none;
+					padding: 15px 15px;
+					font-size: clamp(1rem, 1.5vw, 1.3rem);		
+				}
+
+					/* When form textarea is invalid or required */
+					.form-textarea:focus:invalid {
+						color: red;
+						outline: 2px solid red;
+					}
+				
+				.form-submit { width: 100%; }	
+
+/* Sizes down socials because of huge size */
+@media (max-width: 1300px) {
+	#contact-socials { gap: 25px; }
+		.contact-social { width: 275px; }
+
+		.contact-social-logo {
+			width: 32px;
+			height: 32px;
+		}
+}
+
+@media (max-width: 1200px) {
+	#contact-socials { gap: 30px; }
+		.contact-social { width: 200px; }
+
+		.contact-social-logo {
+			width: 32px;
+			height: 32px;
+		}
+}
+
+@media (max-width: 1000px) {
+	#contact-section {
+		justify-content: space-evenly;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+		#contact-attention { font-size: clamp(1.3rem, 13vw, 5.5rem); }
+
+	#contact-left {
+		width: 100%;
+		align-items: center;
+		text-align: center;
+	}
+
+		#contact-description { width: 50%; }
+
+	#contact-divider { display: none; }
+
+	#contact-right { width: 80%; }
+
+		#contact-socials {
+			display: flex;
+			align-items: center;
+			justify-content: space-evenly;
+			width: 100%;
+		}
+
+			.contact-social {
+				width: 48px;
+				justify-content: center;
+			}
+
+			.contact-social-logo {
+				width: 48px;
+				height: 48px;
+			}
+
+			.contact-social-name { display: none; }	
+}
+
+/* Other sizing adjustments */
+@media (max-width: 600px) {
+	#contact-description { width: 100%; }
+}
+
+@media (max-width: 500px) {
+	#contact-right { width: 100%; }
+	.contact-social { width: 32px; }
+	.contact-social-logo {
+		width: 32px;
+		height: 32px;
+	}
+}
+
+@media (max-width: 350px) {
+	.contact-social { width: 28px; }
+	.contact-social-logo {
+		width: 28px;
+		height: 28px;
+	}
+}
+</style>
