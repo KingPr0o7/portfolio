@@ -5,7 +5,7 @@ const EmailForm = () => {
 	const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const formData = new FormData(e.currentTarget);
-		const { name, email } = Object.fromEntries(formData);
+		const { name, email, input } = Object.fromEntries(formData);
 
 		const html = render(<Email name={name as string} />, {
 			pretty: true,
@@ -24,8 +24,8 @@ const EmailForm = () => {
 
 				body: JSON.stringify({
 					from: 'nathan@ncp.dev',
-					to: email,
-					subject: `Hello, ${name}`,
+					to: [email, 'nathan@ncp.dev'],
+					subject: `I'll be in touch, ${name}!`,
 					html: html,
 					text: text,
 				})
@@ -52,7 +52,7 @@ const EmailForm = () => {
 
 			<div className="contact-input">
 				<label className="form-label">Tell me your thoughts!</label>
-				<textarea className="form-textarea" id="contact-message" required></textarea>
+				<textarea className="form-textarea" id="contact-message" name="input" required></textarea>
 			</div>
 
 			<button className="button form-submit" id="contact-submit">Submit</button>
