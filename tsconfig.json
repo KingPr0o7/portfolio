@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "baseUrl": "D:/All/=Nathan Parker=/GitHub/portfolio",
+    "baseUrl": "./",
     "paths": {
       "@src/*": [
         "src/*"
