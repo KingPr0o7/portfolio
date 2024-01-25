@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import EmailForm from '@src/components/Email-form';
 import LinkedIn from '@logos/linkedin.svg';
 import Discord from '@logos/discord.svg';
 import GitHub from '@logos/github.svg';
@@ -36,7 +37,8 @@ import Twitter from '@logos/x.svg';
 		</div>
 		<div id="contact-divider"></div>
 		<div id="contact-right">
-			<form id="contact-form" onsubmit="return false">
+			<EmailForm client:load/>
+			<!-- <form id="contact-form" onsubmit="return false">
 				<div class="contact-input">
 					<label class="form-label" for="contact-name">What's your name?</label>
 					<input class="form-textfield" id="contact-name" type="text" placeholder="Name" required maxlength="40" autocomplete="off">
@@ -53,11 +55,11 @@ import Twitter from '@logos/x.svg';
 				</div>
 
 				<button class="button form-submit" id="contact-submit">Submit</button>
-			</form>
+			</form> -->
 		</div>
 	</div>
 </Layout>
-<style>
+<style is:inline>
 #contact-section {
 	width: 100%;
 	display: flex;
@@ -260,3 +262,31 @@ import Twitter from '@logos/x.svg';
 	}
 }
 </style>
+<!-- <script>
+	const emailButton = document.getElementById("contact-submit");
+
+	emailButton.addEventListener("click", async() => {
+		try {
+			const response = await fetch("/api/email.json", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json"
+				},
+
+				body: JSON.stringify({
+					from: 'nathan@ncp.dev',
+					to: 'nathan@ncp.dev',
+					subject: 'Hello from Astro!',
+					html: '<h1>Hello from Astro!</h1>',
+					text: 'Hello from Astro!',
+				})
+			})	
+			
+			const data = await response.json();
+			console.log(data);
+
+		} catch(e) {
+			console.log(e);
+		}
+	});
+</script> -->
