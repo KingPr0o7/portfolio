@@ -18,7 +18,7 @@ interface EmailProps {
 	input?: string;
 }
 	
-const baseUrl = import.meta.env.BASE_URL ? `https://${import.meta.env.BASE_URL}` : "";
+const baseUrl = import.meta.env.VERCEL_URL ? `https://${import.meta.env.VERCEL_URL}` : "";
 const date = new Date();
 const year = date.getFullYear();
 	
