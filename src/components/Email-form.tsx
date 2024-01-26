@@ -10,11 +10,11 @@ const EmailForm = () => {
 		const contact_email = document.getElementById("contact-email") as HTMLInputElement;
 		const contact_message = document.getElementById("contact-message") as HTMLInputElement;
 
-		const html = render(<Email name={name as string} />, {
+		const html = render(<Email name={name as string} input={input as string} />, {
 			pretty: true,
 		})
 
-		const text = render(<Email name={name as string} />, {
+		const text = render(<Email name={name as string} input={input as string} />, {
 			plainText: true,
 		})
 
@@ -36,7 +36,7 @@ const EmailForm = () => {
 			
 			const data = await response.json();
 			console.log(
-				'%cSuccess (200)! Your email has been sent:',
+				'%cYour email has been sent (200 - Resend): ',
 				`background: #03a80c; color: #fff; padding: 4px; border-radius: 2px;`,
 				data
 			);
@@ -46,7 +46,7 @@ const EmailForm = () => {
 			contact_message.value = "";
 		} catch (error) {
 			console.error(
-				'%cFailed (500). Resend Error Log:',
+				'%cInternal Server Error (500 - Resend):',
 				`background: #c22408; color: #fff; padding: 4px; border-radius: 2px;`,
 				error
 			);			
@@ -74,10 +74,12 @@ const EmailForm = () => {
 			input.setCustomValidity('Please enter a valid email address (username@domain.TLD).');
 		}
 
-		if (domainEmail.test(input.value)) {
-			input.setCustomValidity('Don\'t use my email address, silly!');
-		}
-		input.reportValidity();		
+		if (location.hostname !== "localhost") {
+			if (domainEmail.test(input.value)) {
+				input.setCustomValidity('Don\'t use my email address, silly!');
+			}
+			input.reportValidity();	
+		}	
 	}
 
 	return (

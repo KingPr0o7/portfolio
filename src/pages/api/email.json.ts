@@ -3,7 +3,6 @@ import { Resend } from "resend"
 
 const resend = new Resend(import.meta.env.RESEND_KEY)
 
-// Outputs: /builtwith.json
 export const POST: APIRoute = async({params, request}) => {
 	const body = await request.json()
 	const { to, from, html, subject, text } = body;
@@ -32,7 +31,7 @@ export const POST: APIRoute = async({params, request}) => {
 				status: 200,
 				statusText: 'OK',
 			}
-		);
+		);	
 	} else {
 		return new Response(
 			JSON.stringify({
@@ -44,11 +43,4 @@ export const POST: APIRoute = async({params, request}) => {
 			}
 		);
 	}
-
-	return new Response(
-	  JSON.stringify({
-		name: 'Astro',
-		url: 'https://astro.build/'
-	  })
-	)
   }
