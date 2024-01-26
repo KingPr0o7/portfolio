@@ -49,33 +49,39 @@ export const Email = ({ name, input }: EmailProps) => {
 						<Text style={paragraph}>I take all contacts with <b>utmost attentiveness</b>, and you'll <i>most likely</i> get a response from me (<b>nathan@ncp.dev</b>) within a few hours. Don't worry about spelling or simple grammatical mistakes; however, if you want to add more, <b>feel free to reply</b>!</Text>
 						<Text style={paragraph}>If you don't receive a response <b><i>within one week</i></b>, you've either been <b>ignored</b> (<i>content is <b>repugnant</b></i>), I'm taking a <b>break/vacation</b>, or your reply is <b>behind many others</b>. </Text>
 					</Section>
-				</Container>
 
-				<Section style={footer}>
+					{/* <Section style={sectionsBorders}>
+						<Row>
+							<Column style={footerBorder} />
+						</Row>
+					</Section> */}
+			
+					<Section style={footer}>
 						<Row>
 							<Column style={socials}>
 								<Link style={link} href="https://twitter.com/KingPr0o7">
-									<Img src={`${baseUrl}/email/x.svg`} />
+									<Img width={32} height={32} src={`${baseUrl}/email/x.png`} />
 								</Link>
 								<Link style={link} href="https://github.com/KingPr0o7">
-									<Img src={`${baseUrl}/email/github.svg`} />
+									<Img width={32} height={32} src={`${baseUrl}/email/github.png`} />
 								</Link>
 								<Link style={link} href="https://discord.gg/ksW8rAcU6t">
-									<Img src={`${baseUrl}/email/discord.svg`} />
+									<Img width={32} height={32} src={`${baseUrl}/email/discord.png`} />
 								</Link>
 								<Link style={link} href="https://www.linkedin.com/in/nathanparker07/">
-								<Img src={`${baseUrl}/email/linkedin.svg`} />
+								<Img width={32} height={32} src={`${baseUrl}/email/linkedin.png`} />
 								</Link>
 							</Column>
 						</Row>
 						<Row>
-							<Text style={{ textAlign: "center", color: "#706a7b" }}>
+							<Text style={{ textAlign: "center" }}>
 								Copyright {year} Nathan Parker. All Rights Reserved <br />
 								Powered by: <Link style={link} href="https://resend.com/home">Resend</Link>, <Link style={link} href="https://react.email/">React Email</Link>, and the <Link style={link} href="https://demo.react.email/preview/twitch-reset-password.tsx?view=desktop">Modified Twitch Template</Link> <br />
 								A software developer working towards his dreams -- to make big things happen.
 							</Text>
 						</Row>
-				</Section>
+					</Section>
+				</Container>
 			</Body>
 		</Html>
 	);
@@ -86,15 +92,14 @@ export default Email;
 const fontFamily = "Rubik,HelveticaNeue,Helvetica,Arial,sans-serif";
 	
 const main = {
-	backgroundColor: "#efeef1",
 	fontFamily,
+	margin: '0px'
 };
 
 	const container = {
 		maxWidth: "580px",
-		margin: "30px auto",
 		backgroundColor: "#ffffff",
-		borderRadius: "10px",
+		borderRadius: "0 0 10px 10px",
 		boxShadow: "0 0 10px rgba(0,0,0,0.15)",
 	};
 
@@ -102,6 +107,8 @@ const main = {
 			display: "flex",
 			justifyContent: "center",
 			alignItems: "center",
+			alignContent: "center",
+			align: "center",
 			padding: 20,
 		};
 
@@ -114,6 +121,11 @@ const main = {
 				borderBottom: "1px solid rgb(238,238,238)",
 				width: "249px",
 			};
+
+				const footerBorder = {
+					borderBottom: "1px solid rgb(238,238,238)",
+					width: "580px",
+				};
 
 				const sectionCenter = {
 					borderBottom: "1px solid #378CE1",
@@ -141,6 +153,8 @@ const main = {
 		maxWidth: "580px",
 		margin: "0 auto",
 		padding: 10,
+		backgroundColor: "#f5f5f5",
+		borderRadius: "10px",
 	};
 
 		const socials = {
