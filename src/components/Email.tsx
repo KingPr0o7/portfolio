@@ -30,7 +30,7 @@ export const Email = ({ name, input }: EmailProps) => {
 			<Body style={main}>
 				<Container style={container}>
 					<Section style={logo}>
-						<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "auto" }} />
+						<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "0 auto" }} />
 					</Section>
 
 					<Section style={sectionsBorders}>
@@ -59,16 +59,16 @@ export const Email = ({ name, input }: EmailProps) => {
 					<Section style={footer}>
 						<Row>
 							<Column style={socials}>
-								<Link href="https://twitter.com/KingPr0o7">
+								<Link href="https://twitter.com/KingPr0o7" style={social_link}>
 									<Img width={32} height={32} src={`${baseUrl}/email/x.png`} />
 								</Link>
-								<Link  href="https://github.com/KingPr0o7">
+								<Link  href="https://github.com/KingPr0o7" style={social_link}>
 									<Img width={32} height={32} src={`${baseUrl}/email/github.png`} />
 								</Link>
-								<Link href="https://discord.gg/ksW8rAcU6t">
+								<Link href="https://discord.gg/ksW8rAcU6t" style={social_link}>
 									<Img width={32} height={32} src={`${baseUrl}/email/discord.png`} />
 								</Link>
-								<Link href="https://www.linkedin.com/in/nathanparker07/">
+								<Link href="https://www.linkedin.com/in/nathanparker07/" style={social_link}>
 								<Img width={32} height={32} src={`${baseUrl}/email/linkedin.png`} />
 								</Link>
 							</Column>
@@ -102,7 +102,7 @@ const main = {
 
 		const logo = {
 			width: "580px",
-			padding: 20,
+			padding: "20px 100px 20px 100px",
 		};
 
 		const sectionsBorders = {
@@ -144,7 +144,6 @@ const main = {
 	
 	const footer = {
 		maxWidth: "580px",
-		margin: "0 auto",
 		padding: 10,
 		borderRadius: "10px",
 	};
@@ -152,10 +151,13 @@ const main = {
 		const socials = {
 			display: "flex",
 			width: "fit-content",
-			margin: "auto",
-			gap: "45px"
+			margin: "0px 136px",
 		}	
 	
+			const social_link = {
+				padding: "0px 20px 0px 20px",
+			};
+
 const link = {
 	textDecoration: "underline",
 };
