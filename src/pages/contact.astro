@@ -80,7 +80,7 @@ import Twitter from '@logos/x.svg';
 		#contact-attention { font-size: clamp(1.3rem, 5vw, 7rem); }
 
 		#contact-description {
-			font-size: clamp(0.9rem, 1.5vw, 1.5rem);
+			font-size: clamp(1rem, 1.5vw, 1.5rem);
 			line-height: clamp(1rem, 2vw, 2.3rem);
 		}
 
@@ -139,6 +139,11 @@ import Twitter from '@logos/x.svg';
 			}
 
 				.form-label { font-size: clamp(1rem, 1.5vw, 1.3rem); }
+
+				.form-star {
+					color: red;
+					font-size: clamp(1rem, 1.5vw, 1.3rem);
+				}
 
 				.form-textfield, .form-textfield:focus {
 					position: relative;
@@ -201,9 +206,10 @@ import Twitter from '@logos/x.svg';
 
 @media (max-width: 1000px) {
 	#contact-section {
-		justify-content: space-evenly;
+		justify-content: center;
 		flex-direction: column;
 		min-height: 100vh;
+		gap: 50px;
 	}
 
 		#contact-attention { font-size: clamp(1.3rem, 13vw, 5.5rem); }

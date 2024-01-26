@@ -26,7 +26,7 @@ export const Email = ({ name, input }: EmailProps) => {
 	return (
 		<Html>
 			<Head />
-			<Preview>You updated the password for your Twitch account</Preview>
+			<Preview>{name}, your thoughts have been delivered to Nathan Parker!</Preview>
 			<Body style={main}>
 				<Container style={container}>
 					<Section style={logo}>
@@ -132,7 +132,7 @@ const main = {
 				const user_text = {
 					lineHeight: 1.5,
 					fontSize: 14,
-					border: "1px solid #000000",
+					border: "2px solid #084c9a",
 					padding: 10,
 					borderRadius: "10px",
 				}
