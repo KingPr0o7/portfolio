@@ -30,7 +30,7 @@ export const Email = ({ name, input }: EmailProps) => {
 			<Body style={main}>
 				<Container style={container}>
 					<Section style={logo}>
-						<Img width={300} src={`${baseUrl}/email/logo.png`} />
+						<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "auto" }} />
 					</Section>
 
 					<Section style={sectionsBorders}>
@@ -49,26 +49,26 @@ export const Email = ({ name, input }: EmailProps) => {
 						<Text style={paragraph}>I take all contacts with <b>utmost attentiveness</b>, and you'll <i>most likely</i> get a response from me (<b>nathan@ncp.dev</b>) within a few hours. Don't worry about spelling or simple grammatical mistakes; however, if you want to add more, <b>feel free to reply</b>!</Text>
 						<Text style={paragraph}>If you don't receive a response <b><i>within one week</i></b>, you've either been <b>ignored</b> (<i>content is <b>repugnant</b></i>), I'm taking a <b>break/vacation</b>, or your reply is <b>behind many others</b>. </Text>
 					</Section>
-
-					{/* <Section style={sectionsBorders}>
+			
+					<Section style={sectionsBorders}>
 						<Row>
 							<Column style={footerBorder} />
 						</Row>
-					</Section> */}
-			
+					</Section>
+
 					<Section style={footer}>
 						<Row>
 							<Column style={socials}>
-								<Link style={link} href="https://twitter.com/KingPr0o7">
+								<Link href="https://twitter.com/KingPr0o7">
 									<Img width={32} height={32} src={`${baseUrl}/email/x.png`} />
 								</Link>
-								<Link style={link} href="https://github.com/KingPr0o7">
+								<Link  href="https://github.com/KingPr0o7">
 									<Img width={32} height={32} src={`${baseUrl}/email/github.png`} />
 								</Link>
-								<Link style={link} href="https://discord.gg/ksW8rAcU6t">
+								<Link href="https://discord.gg/ksW8rAcU6t">
 									<Img width={32} height={32} src={`${baseUrl}/email/discord.png`} />
 								</Link>
-								<Link style={link} href="https://www.linkedin.com/in/nathanparker07/">
+								<Link href="https://www.linkedin.com/in/nathanparker07/">
 								<Img width={32} height={32} src={`${baseUrl}/email/linkedin.png`} />
 								</Link>
 							</Column>
@@ -98,17 +98,10 @@ const main = {
 
 	const container = {
 		maxWidth: "580px",
-		backgroundColor: "#ffffff",
-		borderRadius: "0 0 10px 10px",
-		boxShadow: "0 0 10px rgba(0,0,0,0.15)",
 	};
 
 		const logo = {
-			display: "flex",
-			justifyContent: "center",
-			alignItems: "center",
-			alignContent: "center",
-			align: "center",
+			width: "580px",
 			padding: 20,
 		};
 
@@ -119,21 +112,21 @@ const main = {
 
 			const sectionBorder = {
 				borderBottom: "1px solid rgb(238,238,238)",
-				width: "249px",
+				width: "100px",
 			};
-
-				const footerBorder = {
-					borderBottom: "1px solid rgb(238,238,238)",
-					width: "580px",
-				};
 
 				const sectionCenter = {
 					borderBottom: "1px solid #378CE1",
 					width: "540px",
 				};
 
+			const footerBorder = {
+				borderBottom: "1px solid rgb(238,238,238)",
+				width: "580px",
+			};
+
 		const content = {
-			padding: "5px 20px 10px 20px",
+			padding: "5px 15px 10px 15px",
 		};
 
 			const paragraph = {
@@ -153,15 +146,14 @@ const main = {
 		maxWidth: "580px",
 		margin: "0 auto",
 		padding: 10,
-		backgroundColor: "#f5f5f5",
 		borderRadius: "10px",
 	};
 
 		const socials = {
 			display: "flex",
-			justifyContent: "center",
-			gap: 25,
-			alignItems: "center",
+			width: "fit-content",
+			margin: "auto",
+			gap: "45px"
 		}	
 	
 const link = {
