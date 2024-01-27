@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import EmailForm from '@src/components/Email-form';
+import EmailSubmit from '@src/components/Email-submit';
 import LinkedIn from '@logos/linkedin.svg';
 import Discord from '@logos/discord.svg';
 import GitHub from '@logos/github.svg';
@@ -37,7 +37,24 @@ import Twitter from '@logos/x.svg';
 		</div>
 		<div id="contact-divider"></div>
 		<div id="contact-right">
-			<EmailForm client:idle />
+			<form id="contact-form">
+				<div class="contact-input">
+					<label class="form-label">What's your name? <span class="form-star">*</span></label>
+					<input class="form-textfield" id="contact-name" type="text" placeholder="Officer K" name="name" required />
+				</div>
+	
+				<div class="contact-input">
+					<label class="form-label">Your current email? <span class="form-star">*</span></label>
+					<input class="form-textfield" id="contact-email" type="text" placeholder="KD6-3.7@lapd.gov" name="email" required />
+				</div>
+	
+				<div class="contact-input">
+					<label class="form-label">Tell me your thoughts! <span class="form-star">*</span></label>
+					<textarea class="form-textarea" id="contact-message" name="input" required placeholder='"And blood-black nothingness began to spin — a system of cells interlinked within, cells interlinked within cells interlinked, within one stem. — And dreadfully distinct, against the dark, a tall white fountain played." - Vladimir Nabokov, Pale Fire qtd. in Blade Runner 2049'></textarea>
+				</div>
+	
+				<EmailSubmit client:idle />
+			</form>			
 		</div>
 	</div>
 </Layout>
@@ -250,3 +267,39 @@ import Twitter from '@logos/x.svg';
 	}
 }
 </style>
+<script is:inline>
+	const form = document.getElementById("contact-form");
+	const name = document.getElementById("contact-name");
+	const email = document.getElementById("contact-email");
+
+	form.addEventListener("submit", (e) => {
+		e.preventDefault();
+	});
+
+	name.addEventListener("input", () => {
+ 		let regex = /^[a-zA-Z- ]+$/;
+ 		if (regex.test(name.value)) {
+			name.setCustomValidity('');
+ 		} else {
+			name.setCustomValidity('Name cannot have special characters, numbers, or be empty.');
+ 		}
+ 		name.reportValidity();		
+	});
+
+	email.addEventListener("input", () => {
+ 		let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ 		let domainEmail = /^nathan(\+[a-zA-Z0-9]+)?@ncp\.dev$/;
+ 		if (regex.test(email.value)) {
+ 			email.setCustomValidity('');
+ 		} else {
+			email.setCustomValidity('Please enter a valid email address (username@domain.tld).');
+ 		}
+
+ 		if (location.hostname !== "localhost") {
+ 			if (domainEmail.test(email.value)) {
+				email.setCustomValidity('Don\'t use my email address, silly!');
+ 			}
+ 		}
+		email.reportValidity();	
+	});
+</script>
