@@ -26,12 +26,14 @@ export const Email = ({ name, input }: EmailProps) => {
 	return (
 		<Html>
 			<Head />
-			<Preview>{name}, your thoughts have been delivered to Nathan Parker!</Preview>
+			<Preview>Your thoughts have been delivered to Nathan Parker!</Preview>
 			<Body style={main}>
 				<Container style={container}>
-					<Section style={logo}>
-						<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "0 auto" }} />
-					</Section>
+					<Row>
+						<Column style={logo}>
+							<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "0px auto" }} />
+						</Column>
+					</Row>
 
 					<Section style={sectionsBorders}>
 						<Row>
@@ -76,7 +78,6 @@ export const Email = ({ name, input }: EmailProps) => {
 						<Row>
 							<Text style={{ textAlign: "center" }}>
 								Copyright {year} Nathan Parker. All Rights Reserved <br />
-								Powered by: <Link style={link} href="https://resend.com/home">Resend</Link>, <Link style={link} href="https://react.email/">React Email</Link>, and the <Link style={link} href="https://demo.react.email/preview/twitch-reset-password.tsx?view=desktop">Modified Twitch Template</Link> <br />
 								A software developer working towards his dreams -- to make big things happen.
 							</Text>
 						</Row>
@@ -93,7 +94,8 @@ const fontFamily = "Rubik,HelveticaNeue,Helvetica,Arial,sans-serif";
 	
 const main = {
 	fontFamily,
-	margin: '0px'
+	margin: '0px',
+	backgroundColor: "#FFFFFF",
 };
 
 	const container = {
@@ -101,8 +103,8 @@ const main = {
 	};
 
 		const logo = {
-			width: "580px",
-			padding: "20px 100px 20px 100px",
+			paddingTop: "20px",
+			paddingBottom: "20px",
 		};
 
 		const sectionsBorders = {
@@ -112,7 +114,7 @@ const main = {
 
 			const sectionBorder = {
 				borderBottom: "1px solid rgb(238,238,238)",
-				width: "100px",
+				width: "40px",
 			};
 
 				const sectionCenter = {
@@ -131,7 +133,8 @@ const main = {
 
 			const paragraph = {
 				lineHeight: 1.5,
-				fontSize: 14
+				fontSize: 14,
+				color: "#000000",
 			};
 
 				const user_text = {
@@ -140,10 +143,10 @@ const main = {
 					border: "2px solid #084c9a",
 					padding: 10,
 					borderRadius: "10px",
+					color: "#000000",
 				}
 	
 	const footer = {
-		maxWidth: "580px",
 		padding: 10,
 		borderRadius: "10px",
 	};
@@ -151,11 +154,11 @@ const main = {
 		const socials = {
 			display: "flex",
 			width: "fit-content",
-			margin: "0px 136px",
+			margin: "0px auto",
 		}	
 	
 			const social_link = {
-				padding: "0px 20px 0px 20px",
+				padding: "0px 15px 0px 15px",
 			};
 
 const link = {

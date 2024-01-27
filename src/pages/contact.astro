@@ -37,25 +37,7 @@ import Twitter from '@logos/x.svg';
 		</div>
 		<div id="contact-divider"></div>
 		<div id="contact-right">
-			<EmailForm client:load/>
-			<!-- <form id="contact-form" onsubmit="return false">
-				<div class="contact-input">
-					<label class="form-label" for="contact-name">What's your name?</label>
-					<input class="form-textfield" id="contact-name" type="text" placeholder="Name" required maxlength="40" autocomplete="off">
-				</div>
-
-				<div class="contact-input">
-					<label class="form-label" for="contact-email">Your current email?</label>
-					<input class="form-textfield" id="contact-email" type="text" placeholder="Email" required maxlength="50" autocomplete="off">
-				</div>
-
-				<div class="contact-input">
-					<label class="form-label" for="contact-message">Tell me your thoughts!</label>
-					<textarea class="form-textarea" id="contact-message" required></textarea>
-				</div>
-
-				<button class="button form-submit" id="contact-submit">Submit</button>
-			</form> -->
+			<EmailForm client:idle />
 		</div>
 	</div>
 </Layout>
