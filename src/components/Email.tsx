@@ -31,7 +31,9 @@ export const Email = ({ name, input }: EmailProps) => {
 				<Container style={container}>
 					<Row>
 						<Column style={logo}>
-							<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "0px auto" }} />
+							<Link href={baseUrl}>
+								<Img width={300} src={`${baseUrl}/email/logo.png`} style={{ margin: "0px auto" }} />
+							</Link>
 						</Column>
 					</Row>
 
