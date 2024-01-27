@@ -7,7 +7,7 @@ import vtbot from "astro-vtbot";
 
 
 export default defineConfig({
-  output: 'server',
+  output: 'hybrid',
   site: 'https://portfolio-ncp.vercel.app',
   adapter: vercel({
     webAnalytics: {
