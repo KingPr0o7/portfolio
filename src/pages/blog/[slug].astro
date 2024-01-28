@@ -14,7 +14,7 @@ const { blog } = Astro.props;
 const { Content } = await blog.render();
 ---
 <Layout title={blog.data.title} description={blog.data.description} image={blog.data.thumbnail} data_state='padded' section_class='blog-viewer'>
-	<BlogBanner thumbnail={blog.data.thumbnail} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} date={blog.data.date} centered='true' />
+	<BlogBanner thumbnail={blog.data.thumbnail} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} tone={blog.data.tone} date={blog.data.date} centered='true' />
 	<div class="blog-content">
 		<Content />
 	</div>
