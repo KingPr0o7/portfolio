@@ -13,14 +13,13 @@ const blogs = await getCollection('blog');
 		<div id="blogs">
 			<BlogBanner link='/test' thumbnail={Test.src} thumbnail_alt='...' title='YYoo it is king here today' tone="Test" date="December 10, 2023"/>
 			{blogs.map(blog => (
-				<BlogPost link={`/blog/${blog.slug}`} thumbnail={blog.data.thumbnail} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
+				<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
 			))}
 		</div>
 	</div>
 </Layout>
 <style>
 #blogs {
-	padding-top: 25px;
 	display: flex;
 	align-items: baseline;
 	justify-content: center;

@@ -130,7 +130,7 @@ import IU from '@logos/iu.png';
 			animation: image-change 60s ease-in infinite;
 		}
 		
-#education, #online-life {
+#education {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -146,9 +146,8 @@ import IU from '@logos/iu.png';
 
 		#schools {
 			display: flex;
-			flex-direction: column;
 			gap: 25px;
-			width: 60%;
+			width: 90%;
 		}
 
 			.school {
@@ -184,6 +183,21 @@ import IU from '@logos/iu.png';
 					word-wrap: break-word;
 					hyphens: auto;
 				}
+
+#online-life {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	gap: 25px;	
+}
+
+@media (max-width: 1300px) {
+	#schools {
+		width: 60%;
+		flex-direction: column;
+	}
+}
 
 @media (max-width: 1000px) {
 	.var-width { width: 100%; }

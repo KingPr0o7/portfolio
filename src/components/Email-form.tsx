@@ -85,17 +85,17 @@ const EmailForm = () => {
 	return (
 		<form id="contact-form" onSubmit={handleSubmit}>
 			<div className="contact-input">
-				<label className="form-label">What's your name?</label>
+				<label className="form-label">What's your name? <span className="form-star">*</span></label>
 				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder="Name" name="name" required />
 			</div>
 
 			<div className="contact-input">
-				<label className="form-label">Your current email?</label>
+				<label className="form-label">Your current email? <span className="form-star">*</span></label>
 				<input className="form-textfield" onInput={handleEmail} id="contact-email" type="text" placeholder="Email" name="email" required />
 			</div>
 
 			<div className="contact-input">
-				<label className="form-label">Tell me your thoughts!</label>
+				<label className="form-label">Tell me your thoughts! <span className="form-star">*</span></label>
 				<textarea className="form-textarea" id="contact-message" name="input" required></textarea>
 			</div>
 
