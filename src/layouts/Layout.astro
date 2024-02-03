@@ -189,7 +189,7 @@ main {
 
 	section { max-width: var(--max-width); }
 
-		.flexed {
+		.flexed, .unrestricted {
 			min-height: 100vh;
 			height: fit-content;
 			display: flex;
@@ -197,6 +197,10 @@ main {
 			align-items: center;
 			gap: 25px;
 			justify-content: space-around;
+		}
+
+		.unrestricted {
+			justify-content: flex-start;
 		}
 
 @media (max-width: 1000px) {

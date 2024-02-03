@@ -10,8 +10,20 @@ import Ivy_Tech from '@logos/ivytech.png';
 import IU from '@logos/iu.png';
 ---
 
-<Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class="flexed">
-	<section id="background">
+<Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class="unrestricted" data_state="padded">
+	<div id="prologue">
+		<h1 id="prologue-quote">I'm <b>Nathan Parker</b>, an <b>aspiring developer</b> <br id="prologue-quote-break"> working to make <i>big things</i> <b>happen</b>.</h1>
+		<div id="prologue-images">
+			<div class="prologue-image"></div>
+			<div class="prologue-image"></div>
+			<div class="prologue-image"></div>
+			<div class="prologue-image"></div>
+			<div class="prologue-image"></div>
+		</div>
+		<p class="prologue-text">As a student and individual on a continuous journey of curiosity (especially within computational computing), I'm the type of person with a drive to constantly learn from the world around me. With any bit of leisure time, I'll most likely allocate it towards school work and programming my future. I'm your typical computer geek with a sweet spot for making things work for other people; the feeling of satisfaction of solving people's issues within technology skyrockets above anything else. So much so, that I quit playing baseball and dedicated my time to creating things with code. Nowadays, even video games have faded from my activities, to be transferred into writing websites.</p>
+		<p class="prologue-text">To fulfill my love for computers, I accepted a pathway in “Software Development” that targeted and deepened my passion in pursuing the field as a dream job. But, I didn't randomly say one day “oh I'm going to do that” — a series of events had to occur before that conclusion was made back in 2020. That's where my father comes into the story, starting me off with consoles he grew up with and allowing me to explore and expand my curiosity as I grew. Below is a timeline of my exploration through computers, concepts, and love for learning.</p>
+	</div>
+	<!-- <section id="background">
 		<div id="background-left">
 			<h1 id="background-header">Hello! I'm Nathan Parker,</h1>
 			<p class="about-text">An <b>undergraduate</b> at <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program, currently specializing in <i>web, game, and database technologies</i>. And <b>constantly</b> building new technological projects from <i>websites, games, or Minecraft servers</i>.</p>
@@ -76,13 +88,94 @@ import IU from '@logos/iu.png';
 				<p slot="answer" class="answer-text">My writing is "advanced" because of the countless English papers and classes that I've taken. As thus such, I've developed to write how I would as an English paper, in most cases, even tweeting. I also try to improve my vocabulary whenever I can to further my writing. It's just something I enjoy doing and continue to this day. </p>
 			</Question>
 		</FAQ>
-	</section>
+	</section> -->
 </Layout>
+
+<style>
+	#prologue {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		height: 100%;
+		width: 100%;
+		gap: 50px;
+	}
+
+		#prologue-quote {
+			padding: 25px;
+			font-weight: normal;
+			text-align: center;
+			font-size: clamp(1rem, 4vw, 3.5rem);
+			width: 100%;
+		}
+
+		#prologue-images {
+			display: flex;
+			align-items: center;
+			gap: 50px;
+			height: min-content;
+		}
+
+			.prologue-image {
+				width: 200px;
+				height: 400px;
+				border-radius: var(--secondary-border-radius);
+				background-color: var(--gray);
+				overflow: hidden;
+				box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.6);
+			}
+
+			.prologue-image:nth-child(odd) { margin-bottom: 50px; }
+
+		.prologue-text {
+    		font-size: clamp(1rem, 1.5vw, 1.8rem);
+    		line-height: clamp(1.8rem, 9vw, 2.5rem);
+			width: 75%;
+		}
+
+@media (max-width: 1280px) {
+	#prologue-images { gap: 50px; padding-bottom: 0; }
+	.prologue-image { width: 150px; height: 300px; }
+	.prologue-text { width: 90%; }
+}
+
+@media (max-width: 1000px) {
+	#prologue-images { gap: 25px; }
+	#prologue-quote { padding: 25px 0 25px 0; }
+	.prologue-image { width: 150px; height: 300px; }
+	.prologue-text { width: 100%; }
+}
+
+@media (max-width: 900px) {
+	.prologue-image:nth-child(1), .prologue-image:nth-child(5) { display: none; }
+}
+
+@media (max-width: 550px) {
+	#prologue-quote-break { display: none; }
+	.prologue-image:nth-child(odd) { margin-bottom: 0px; }
+	.prologue-image:nth-child(1) {display: flex;}
+	.prologue-image:nth-child(2), .prologue-image:nth-child(3), .prologue-image:nth-child(4) { display: none; }
+	.prologue-image { width: 400px; height: 450px; }
+}
+
+@media (max-width: 450px) {
+	.prologue-image { width: 350px; height: 400px; }
+}
+
+@media (max-width: 375px) {
+	.prologue-image { width: 300px; height: 400px; }
+}
+
+@media (max-width: 330px) {
+	.prologue-image { width: 250px; height: 350px; }
+}
+</style>
+
 <style>
 .about-text {
-	font-size: clamp(1rem, 1.5vw, 1.4rem);
-	line-height: 2rem;
-	text-indent: 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.8rem);
+    line-height: clamp(1rem, 9vw, 2.5rem);
+	width: 75%;
 }
 
 	.var-width { width: 80%; }
@@ -146,8 +239,9 @@ import IU from '@logos/iu.png';
 
 		#schools {
 			display: flex;
+			flex-direction: column;
 			gap: 25px;
-			width: 90%;
+			width: 70%;
 		}
 
 			.school {
