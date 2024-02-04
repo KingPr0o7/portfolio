@@ -1,7 +1,161 @@
+---
+import { Image } from "astro:assets";
+import TimelineMoment from "./Timeline-moment.astro";
+import NES from "@public/super-mario-bros.png";
+---
+
+
 <div id="timeline">
 	<div id="timespan">
-		<div class="moment">
-			<span class="date">2012</span>
+		<TimelineMoment date="2012" />
+		<div class="moment-line"></div>
+		<TimelineMoment date="2015" />
+		<div class="moment-line"></div>
+		<TimelineMoment date="2018" />
+		<div class="moment-line"></div>
+		<TimelineMoment date="2021" />
+		<div class="moment-line"></div>
+		<TimelineMoment date="2023" />
+	</div>
+	<div id="moment-container">
+		<div class="moment-in-time" id="moment-2012">
+			<div class="moment-wrapper">
+				<h2 class="moment-title">The Start For a Foever Love</h2>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+			</div>
+			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+		</div>
+
+		<div class="moment-in-time" id="moment-2015">
+			<div class="moment-wrapper">
+				<h2 class="moment-title">I use Windows btw</h2>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+			</div>
+			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+		</div>
+
+		<div class="moment-in-time" id="moment-2015">
+			<div class="moment-wrapper">
+				<h2 class="moment-title">2018</h2>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+			</div>
+			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+		</div>
+
+		<div class="moment-in-time" id="moment-2015">
+			<div class="moment-wrapper">
+				<h2 class="moment-title">2021</h2>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+			</div>
+			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+		</div>
+
+		<div class="moment-in-time" id="moment-2015">
+			<div class="moment-wrapper">
+				<h2 class="moment-title">2023</h2>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+			</div>
+			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
 		</div>
 	</div>
 </div>
+<style>
+	#timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 50px;
+		width: 75%;
+		overflow: hidden;
+	}
+
+	#timespan {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		gap: 25px;
+	}
+
+		.moment-line {
+			content: " ";
+			width: 100px;
+			height: 2px;
+			background: linear-gradient(to right, var(--primary) 50%, transparent 50%), var(--gray);
+    		background-size: 200% 100%;
+    		background-position: right;
+    		transition: background-position 700ms ease-in-out;
+		}	
+
+			.moment-line-active { background-position: left; }
+
+	#moment-container {
+		display: flex;
+		width: 100%;
+		gap: 25px;
+		overflow: hidden;
+	}
+
+	.moment-in-time {
+    	display: flex;
+    	justify-content: center;
+    	align-items: center;
+    	padding: 25px;
+    	width: 100%;
+		flex-shrink: 0;
+    	height: 350px;
+    	border-radius: var(--secondary-border-radius);
+    	background-color: var(--gray);
+    	overflow: hidden;
+    	box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.6);
+    	gap: 25px;
+    	border-radius: var(--secondary-border-radius);
+	}
+
+		.moment-desc {
+			font-size: 1.25rem;
+			line-height: 1.5;
+		}
+
+		.moment-title {
+			font-size: 2rem;
+			font-weight: 600;
+			margin-bottom: 25px;
+		}
+
+		.moment-image {
+			border-radius: var(--secondary-border-radius);
+		}
+</style>
+<script is:inline>
+	const moment_container = document.getElementById('moment-container');
+	const moment_in_time = Array.from(document.querySelectorAll('.moment-in-time'));
+	const moments = Array.from(document.querySelectorAll('.moment'));
+	const time = Array.from(document.querySelectorAll('.moment-line'));	
+
+	moments[0].classList.add('moment-active');
+
+	moments.forEach((moment, index) => {
+		moment.addEventListener('click', () => {
+			moments.forEach((el) => {
+				el.classList.remove('moment-active');
+			});
+
+			time.forEach((line) => {
+				line.classList.remove('moment-line-active');
+			});
+
+			moment.classList.add('moment-active');
+
+			let index = moments.findIndex((el) => el.classList.contains('moment-active'));
+
+			moment_container.scrollTo({
+				left: moment_in_time[0].clientWidth * index + 25 * index,
+				behavior: 'smooth'
+			});
+
+			time.slice(0, index).forEach((line) => {
+				line.classList.add('moment-line-active');
+			});
+		});
+	});
+</script>
