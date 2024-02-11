@@ -1,7 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import TimelineMoment from "./Timeline-moment.astro";
-import NES from "@public/super-mario-bros.png";
+import NES from "@personal/super-mario-bros.png";
+import PC_Mirroring from "@personal/city-car-driving.png";
+import Space_Invaders from "@personal/space-invaders.png";
+import Ninja_and_King from "@personal/ninja-and-king.png";
+import First_Site from "@personal/first-site.png";
 ---
 
 
@@ -20,42 +24,42 @@ import NES from "@public/super-mario-bros.png";
 	<div id="moment-container">
 		<div class="moment-in-time" id="moment-2012">
 			<div class="moment-wrapper">
-				<h2 class="moment-title">The Start For a Foever Love</h2>
-				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+				<h2 class="moment-title">The Super Mario Effect</h2>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his <i>first-ever console</i>, the <b>Nintendo Entertainment System</b> (NES). In which I experienced what Mark Rober coined, “<a class="link" href="https://youtu.be/9vJRopau0g0?si=xLdkqZC8wTyGMRA-&t=218">The Super Mario Effect</a>” starting a <b>chain reaction</b> for the <b>love of gaming</b> <i>and</i> the <b>growth of technology</b>. Going from the NES, GameCube, Wii, and then the Xbox 360. <i>Always</i> fine-tuning my mistakes to beat my brothers in Mario Kart Double Dash or save the Princess Peach from Bowser (<i>again</i>).</p>
 			</div>
-			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+			<Image class="moment-image" src={NES} alt="Me (Nathan) in the middle playing Super Mario Bros, with my brothers on the left (Gavin) and right (Kai)" width="300" height="300" />
 		</div>
 
 		<div class="moment-in-time" id="moment-2015">
 			<div class="moment-wrapper">
-				<h2 class="moment-title">I use Windows btw</h2>
-				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+				<h2 class="moment-title">Appreciation of Technology</h2>
+				<p class="moment-desc">For my 8th birthday, I was given my mother's old laptop that was used to propel her education during college. At the time, I was really inspired and admired the film Back To The Future II, and watched many YouTube videos about the car and film. So my father installed a fresh copy of the game City Car Driving Home Edition. Even going as far as downloading the modded Back To The Future cars for me to smack them into a concrete wall at 88 MPH (no, I didn't travel back in time — unfortunately). From this point forward, I always found ways to tweak and enhance my experience with these devices, and enjoyed every single second.</p>
 			</div>
-			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+			<Image class="moment-image" id="moment-images-2015" src={PC_Mirroring} alt="A series of images showing me using a Windows 7 laptop to mirror a game to the TV" width="300" height="300" />
 		</div>
 
-		<div class="moment-in-time" id="moment-2015">
+		<div class="moment-in-time" id="moment-2018">
 			<div class="moment-wrapper">
-				<h2 class="moment-title">2018</h2>
-				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+				<h2 class="moment-title">The Spark for Programming</h2>
+				<p class="moment-desc">In the spring months of 2018, I joined a local programming club at my library that taught an online programming language called Scratch. The day it started, sometime in early March, when I first connected the event block to the sprite's say block — something clicked. The sight of seeing something come to life from joining two blocks together left me in awe and permanently stained a desire to keep creating things, especially for others. From that day onwards, I've dedicated my passion towards the creation and maintenance of computer software.</p>
 			</div>
-			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+			<Image class="moment-image" src={Space_Invaders} alt="My first ever coding game, Space 'Exvaders' (I couldn't spell lol)" width="300" height="300" />
 		</div>
 
-		<div class="moment-in-time" id="moment-2015">
+		<div class="moment-in-time" id="moment-2021">
 			<div class="moment-wrapper">
-				<h2 class="moment-title">2021</h2>
-				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+				<h2 class="moment-title">Acceleration of Passions</h2>
+				<p class="moment-desc">To enhance on the monumental interest arising from Scratch, my friend, @NotNinjaTalon, introduced me to the world of Minehut's server platform. I and Talon, decided to pull the trigger and dedicate our summers making two semi-successful servers called IslandNSky and Premiums; gaining each around 75 concurrent players daily at their peaks. Once school started back up, I made the pivotal leap towards my education by accepting the “Software Development” pathway at my high school. Learning high-level programming from HTML, CSS, JS, and Python; creating and maintaining projects to present to my class for all to enjoy.</p>
 			</div>
-			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+			<Image class="moment-image" id="moment-images-2021" src={Ninja_and_King} alt="A series of images showing, Minecraft server development (Premiums), my first HTML document, my first website, and my first game (Not stolen haha)" width="300" height="300" />
 		</div>
 
-		<div class="moment-in-time" id="moment-2015">
+		<div class="moment-in-time" id="moment-2023">
 			<div class="moment-wrapper">
-				<h2 class="moment-title">2023</h2>
-				<p class="moment-desc">The start of my love for technology started when my father introduced me to his first-ever console, the Nintendo Entertainment System (NES). In which I experienced what Mark Rober coined, “The Super Mario Effect” starting a chain reaction for the love of gaming and the growth of technology. Going from the NES, GameCube, Wii, and then the Xbox 360. Learning and strengthening my skills along the way to become the best in the family.</p>
+				<h2 class="moment-title">Building Knowledge</h2>
+				<p class="moment-desc">After completing most of Computer Science II in high school, I decided I wanted to go back and tune my web development skills from 2021 and 2022. And as thus such, I started development on this site (with a lot of prototyping) throughout the whole year. However, and thankfully, my high school had nothing beyond Computer Science II, which to continue the pathway led to Ivy Tech being the next place for my studies. They're a community college in Indiana, and happened to start with Website Development — which was perfect for my situation and lead me to the advancement of my website making skills! </p>
 			</div>
-			<Image class="moment-image" src={NES} alt="Nintendo Entertainment System" width="300" height="300" />
+			<Image class="moment-image" id="moment-images-2023" src={First_Site} alt="A series of images showing, my revisting web dev, a vex robot I programmed, my first portfolio site, a computer science project (Combo Menu), and YouTube Plus, a work in progress extension. " width="300" height="300" />
 		</div>
 	</div>
 </div>
@@ -74,11 +78,12 @@ import NES from "@public/super-mario-bros.png";
 		align-items: center;
 		width: 100%;
 		gap: 25px;
+		overflow: auto;
 	}
 
 		.moment-line {
 			content: " ";
-			width: 100px;
+			min-width: 100px;
 			height: 2px;
 			background: linear-gradient(to right, var(--primary) 50%, transparent 50%), var(--gray);
     		background-size: 200% 100%;
@@ -90,6 +95,7 @@ import NES from "@public/super-mario-bros.png";
 
 	#moment-container {
 		display: flex;
+		align-items: center;
 		width: 100%;
 		gap: 25px;
 		overflow: hidden;
@@ -112,21 +118,92 @@ import NES from "@public/super-mario-bros.png";
 	}
 
 		.moment-desc {
-			font-size: 1.25rem;
+			font-size: clamp(0.9rem, 1.4vw, 1.25rem);
 			line-height: 1.5;
 		}
 
 		.moment-title {
-			font-size: 2rem;
+			font-size: clamp(1.5rem, 2vw, 2rem);
 			font-weight: 600;
 			margin-bottom: 25px;
 		}
 
+		.moment-image { border-radius: var(--secondary-border-radius); }
+
+			#moment-images-2015 { animation: twenty-fifteen-images 25s infinite; }
+			#moment-images-2021 { animation: twenty-one-images 25s infinite; }
+			#moment-images-2023 { animation: twenty-three-images 25s infinite; }
+
+@media (max-width: 1300px) {
+	#timeline { width: 80%; }
+	.moment-line { min-width: 60px; }
+}
+
+@media (max-width: 1000px) {
+	#timeline { gap: 25px; }
+	#timespan { 
+		justify-content: flex-start;
+	}
+	.moment-line { min-width: 50px; }
+
+	.moment-in-time {
+		flex-direction: column-reverse;
+		height: 100%;
+		text-align: center;
+	}
+
 		.moment-image {
-			border-radius: var(--secondary-border-radius);
+			width: 400px;
+			height: 400px;
 		}
+}
+
+@media (max-width: 700px) {
+	.moment-image {
+		width: 300px;
+		height: 300px;
+	}
+}
+
+@media (max-width: 500px) {
+	#timeline { width: 100%; }
+	.moment-in-time { padding: 15px; }
+	.moment-title { font-size: 1.5rem; }
+	.moment-desc { font-size: 1rem; }
+	.moment-image { width: 250px; height: 250px; }	
+}
+
+@media (max-width: 350px) {
+	.moment-image {
+		width: 200px;
+		height: 200px;
+	}
+}
+
+@keyframes twenty-fifteen-images {
+	50% { content: url('/personal/me-mirroring-pc.png');}
+	100% { content: url('/personal/city-car-driving.png'); }
+}
+
+@keyframes twenty-one-images {
+	20% { content: url('/personal/ninja-and-king.png'); }
+	40% { content: url('/personal/king-premiums.png'); }
+	60% { content: url('/personal/first-html.png'); }
+	80% { content: url('/personal/mcds-project.png'); }
+	100% { content: url('/personal/smbs-project.png'); }
+}
+
+@keyframes twenty-three-images {
+	20% { content: url('/personal/first-site.png'); }
+	40% { content: url('/personal/vex-robot.png'); }
+	60% { content: url('/personal/first-portfolio.png'); }
+	80% { content: url('/personal/combo-menu-site.png'); }
+	100% { content: url('/personal/youtube-plus-demo.png'); }
+}
+
 </style>
 <script is:inline>
+	const timespan = document.getElementById('timespan');
 	const moment_container = document.getElementById('moment-container');
 	const moment_in_time = Array.from(document.querySelectorAll('.moment-in-time'));
 	const moments = Array.from(document.querySelectorAll('.moment'));
@@ -134,7 +211,7 @@ import NES from "@public/super-mario-bros.png";
 
 	moments[0].classList.add('moment-active');
 
-	moments.forEach((moment, index) => {
+	moments.forEach((moment) => {
 		moment.addEventListener('click', () => {
 			moments.forEach((el) => {
 				el.classList.remove('moment-active');
@@ -158,4 +235,8 @@ import NES from "@public/super-mario-bros.png";
 			});
 		});
 	});
+
+	window.addEventListener('resize', () => {
+		document.querySelector('.moment-active').click();
+	});	
 </script>
