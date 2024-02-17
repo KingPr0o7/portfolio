@@ -1,4 +1,5 @@
 <div id="faq">
+	<h2 id="faq-header">Frequently Asked Questions</h2>
 	<slot />
 </div>
 
@@ -11,6 +12,12 @@
 	gap: 25px;
 	width: 100%;
 }
+
+	#faq-header {
+		font-size: clamp(1.3rem, 2.8vw, 3rem); 
+		width: 80%; 
+		text-align: center;
+	}
 
 	.question { width: 80%; }
 
@@ -60,6 +67,7 @@
 					.answer.show { display: block; }	
 
 @media (max-width: 600px) {
+	#faq-header { width: 100%; }
 	.question { width: 100%; }
 		.question-toggle { 
 			text-align: left; 

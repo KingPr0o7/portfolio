@@ -4,80 +4,50 @@ import FAQ from "@components/FAQ.astro";
 import Question from "@components/FAQ-question.astro";
 
 import Timeline from "@components/Timeline.astro";
+import Me_Windy from "@personal/me-windy.png";
+import Hope_Squad_Homecoming from "@personal/hopesquad-homecoming.png";
+import Super_Mario_Bros from "@personal/super-mario-bros-cropped.png";
+import Shades from "@personal/suit-cropped.png";
+import City_Car_Driving from "@personal/city-car-driving-cropped.png";
+import Homecoming_Car from "@personal/homecoming-car.png";
+import Cruise from "@personal/cruise.png";
+import Ninja_and_King from "@personal/ninja-and-king-cropped.png";
 
 import Layout from '@layouts/Layout.astro';
-import Me_Suited from '@public/me-in-suit.png';
-import School from '@icons/school.svg';
-import Ivy_Tech from '@logos/ivytech.png';
-import IU from '@logos/iu.png';
 ---
 
-<Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class="unrestricted" data_state="padded">
-	<div id="prologue">
+<Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class='about-section' data_state="padded">
+	<div id="prologue" class="full">
 		<h1 id="prologue-quote">I'm <b>Nathan Parker</b>, an <b>aspiring developer</b> <br id="prologue-quote-break"> working to make <i>big things</i> <b>happen</b>.</h1>
 		<div id="prologue-images">
-			<div class="prologue-image"></div>
-			<div class="prologue-image"></div>
-			<div class="prologue-image"></div>
-			<div class="prologue-image"></div>
-			<div class="prologue-image"></div>
+			<div id="prologue-scroller">
+				<Image src={Me_Windy} class="prologue-image" alt="Nathan Parker with Windy (Nathan's Cat) on his first portfolio release" width={250} height={400} />
+				<Image src={Hope_Squad_Homecoming} class="prologue-image" alt="Nathan Parker during homecoming representing his Hope Squad" width={250} height={400} />
+				<Image src={Super_Mario_Bros} class="prologue-image" alt="Nathan Parker in the middle playing Super Mario Bros, with my brothers on the left (Gavin) and right (Kai)" width={250} height={400} />
+				<Image src={Shades} class="prologue-image" alt="Nathan Parker during his Junior Year homecoming canidate" width={250} height={400} />
+				<Image src={City_Car_Driving} class="prologue-image" alt="Nathan Parker mirroring a game to his TV via his Windows 7 laptop" width={250} height={400} />
+				<Image src={Cruise} class="prologue-image" alt="Nathan Parker on his cruise to Jamica" width={250} height={400} />
+				<Image src={Ninja_and_King} class="prologue-image" alt="Nathan Parker on a Minecraft Server with Ninja_Talon" width={250} height={400} />
+				<Image src={Homecoming_Car} class="prologue-image" alt="Nathan Parker during his Junior Year riding in the homecoming parade" width={250} height={400} />
+			
+				<Image src={Me_Windy} class="prologue-image" alt="Nathan Parker with Windy (Nathan's Cat) on his first portfolio release" width={250} height={400} />
+				<Image src={Hope_Squad_Homecoming} class="prologue-image" alt="Nathan Parker during homecoming representing his Hope Squad" width={250} height={400} />
+				<Image src={Super_Mario_Bros} class="prologue-image" alt="Nathan Parker in the middle playing Super Mario Bros, with my brothers on the left (Gavin) and right (Kai)" width={250} height={400} />
+				<Image src={Shades} class="prologue-image" alt="Nathan Parker during his Junior Year homecoming canidate" width={250} height={400} />
+				<Image src={City_Car_Driving} class="prologue-image" alt="Nathan Parker mirroring a game to his TV via his Windows 7 laptop" width={250} height={400} />
+				<Image src={Cruise} class="prologue-image" alt="Nathan Parker on his cruise to Jamica" width={250} height={400} />
+				<Image src={Ninja_and_King} class="prologue-image" alt="Nathan Parker on a Minecraft Server with Ninja_Talon" width={250} height={400} />
+				<Image src={Homecoming_Car} class="prologue-image" alt="Nathan Parker during his Junior Year riding in the homecoming parade" width={250} height={400} />			
+			</div>
 		</div>
-		<p class="prologue-text">As a student and individual on a continuous journey of curiosity (especially within computational computing), I'm the type of person with a drive to constantly learn from the world around me. With any bit of leisure time, I'll most likely allocate it towards school work and programming my future. I'm your typical computer geek with a sweet spot for making things work for other people; the feeling of satisfaction of solving people's issues within technology skyrockets above anything else. So much so, that I quit playing baseball and dedicated my time to creating things with code. Nowadays, even video games have faded from my activities, to be transferred into writing websites.</p>
-		<p class="prologue-text">To fulfill my love for computers, I accepted a pathway in “Software Development” that targeted and deepened my passion in pursuing the field as a dream job. But, I didn't randomly say one day “oh I'm going to do that” — a series of events had to occur before that conclusion was made back in 2020. That's where my father comes into the story, starting me off with consoles he grew up with and allowing me to explore and expand my curiosity as I grew. Below is a timeline of my exploration through computers, concepts, and love for learning.</p>
-		<Timeline />
-		<p class="prologue-text">To fulfill my love for computers, I accepted a pathway in “Software Development” that targeted and deepened my passion in pursuing the field as a dream job. But, I didn't randomly say one day “oh I'm going to do that” — a series of events had to occur before that conclusion was made back in 2020. That's where my father comes into the story, starting me off with consoles he grew up with and allowing me to explore and expand my curiosity as I grew. Below is a timeline of my exploration through computers, concepts, and love for learning.</p>
 	</div>
-	<!-- <section id="background">
-		<div id="background-left">
-			<h1 id="background-header">Hello! I'm Nathan Parker,</h1>
-			<p class="about-text">An <b>undergraduate</b> at <a class="link" href="https://www.ivytech.edu/about-ivy-tech/">Ivy Tech</a> via my high school's early college program, currently specializing in <i>web, game, and database technologies</i>. And <b>constantly</b> building new technological projects from <i>websites, games, or Minecraft servers</i>.</p>
 
-			<p class="about-text">My <b>love</b> of technology derived in mid-2012 when my father introduced me to game consoles like the <i>Nintendo Entertainment System, GameCube, and the Wii</i>. Then, after a few years, I moved on to Windows 7 laptops and a range of Apple devices around 2015. Always constantly <i>tinkering, improving, creating, <b>or</b> finding vulnerabilities in schools' technological infrastructure</i> 😅.</p>
+	<p class="about-text">As a student and individual on a continuous journey of curiosity (especially within computational computing), I'm the type of person with a drive to constantly learn from the world around me. With any bit of leisure time, I'll most likely allocate it towards school work and programming my future. I'm your typical computer geek with a sweet spot for making things work for other people; the feeling of satisfaction of solving people's issues within technology skyrockets above anything else. So much so, that I quit playing baseball and dedicated my time to creating things with code. Nowadays, even video games have faded from my activities, to be transferred into writing websites.</p>
+	<p class="about-text">To fulfill my love for computers, I accepted a pathway in “Software Development” that targeted and deepened my passion in pursuing the field as a dream job. But, I didn't randomly say one day “oh I'm going to do that” — a series of events had to occur before that conclusion was made back in 2020. That's where my father comes into the story, starting me off with consoles he grew up with and allowing me to explore and expand my curiosity as I grew. Below is a timeline of my exploration through computers, concepts, and love for learning.</p>
+	<Timeline />
+	<p class="about-text">Upon building such software, there is a lot that goes into the process. Even with small-scoped projects, I can never find the “good enough” balance to satisfy my wants for my users and myself. This is apparent when I look back on old software that I write, and is almost like the driving force towards the projects/software that I build. Even with teachers reiterating the fact, “you have to accept when a project is good enough, and just satisfies the needs required” is a common saying I can't seem to settle with. Another thing is the acceptance of failure, every time I tackle a new project, I'm always going into the depths of the unknown. Failure is a key part of what I do, and learning how to tackle, accept, and learn from such failures is what drives me into loving software development.</p>	
 
-			<p class="about-text"><i>In 2018</i>, I first found my love of programming by joining my local <a class="link" href="https://scratch.mit.edu/">Scratch</a> club at my local library. I built many small games and enjoyed seeing something come to life just with a few blocks. From then on, I learned more programming via Minecraft server development with <a class="link" href="https://github.com/SkriptLang/Skript">SkriptLang</a> and website development via high school Computer Science courses. Nowadays, I'm learning more advanced programming with <i>Python, JavaScript, and soon-to-be C#</i>.</p>
-		</div>
-		<div id="background-right">
-			<Image src={Me_Suited} id="background-image" alt="Images of Nathan Parker, including: His brothers and himself playing the NES (Super Mario Brothers) back in language_size13, Him in a suit with green foliage behind him, and him playing a game of VTOL VR in a fighter jet" width={500} height={500} loading="eager" />
-		</div>
-	</section>
-	<section id="education">
-		<h2 class="about-header">The Pursuit of Education</h2>
-		<p class="about-text var-width">I'm always looking for ways to learn and retain information for my dream, and currently, I've been doing that from my school's pathway of Software Development. It has allowed me to take college-level classes to further my dream: </p>
-		<div id="schools">
-			<div class="school">
-				<div class="school-header">
-					<Image src={School} class="school-logo" alt="General icon/outline of a school building" width={32} height={32} />
-					<div class="school-info">
-						<h3 class="school-name">Public High School</h3>
-						<p class="school-details">2021-23 • General Education Degree • Software Development</p>
-					</div>
-				</div>
-				<p class="school-insight">The pivotal <b>commitment</b> to computational studies enabled me to <i>write <b>and</b> study</i> programming concepts. The classes only <i>contained the basics</i> but hooked and propelled me for success and dedication towards the <b>ever-growing</b> field.</p>
-			</div>
-			<div class="school">
-				<div class="school-header">
-					<Image src={Ivy_Tech} class="school-logo" alt="Ivy Tech's Community College Logo" width={32} height={32} />
-					<div class="school-info">
-						<h3 class="school-name">Ivy Tech Community College</h3>
-						<p class="school-details">2023-25 • Certificate • Software Application Development</p>
-					</div>
-				</div>
-				<p class="school-insight">Since my high school doesn't offer classes above <b>Computer Science II</b>, we resort to <b>my savor Ivy Tech</b>. Taking and <b>accelerating</b> computational concepts to the <b><i>professional level</i></b> — whilst gaining more recognition for my work.</p>
-			</div>
-			<div class="school">
-				<div class="school-header">
-					<Image src={IU} class="school-logo" alt="Indiana Univeristy's Logo" width={32} height={32} />
-					<div class="school-info">
-						<h3 class="school-name">Indiana University</h3>
-						<p class="school-details">Dream College • Doctorate • Computer Science</p>
-					</div>
-				</div>
-				<p class="school-insight">For my <b>dream school</b>, I would love to go to IU's <i>Luddy School of Informatics, Computing, and Engineering</i> to study <b>Computer Science</b>, to <b><i>excel</i></b> my knowledge base of fundamentals, and build my <b><i>dreams</i></b>.</p>
-			</div>
-		</div>
-	</section>
 	<section id="online-life">
-		<h2 class="about-header">Frequently Asked Questions</h2>
 		<FAQ>
 			<Question question="What's this site's purpose?">
 				<p slot="answer" class="answer-text">This site's purpose is like my own little GitHub — not meant to be taken seriously. In an ideal world, first would come my resume, then my site to show all my work and passion for what I do. My site is thousands of hours of research, building, testing, and failing to make something, even if it gets no public interaction. I'm not here for views — I'm here to make something.</p>
@@ -88,11 +58,8 @@ import IU from '@logos/iu.png';
 			<Question question="Who inspires you?">
 				<p slot="answer" class="answer-text">Other than the people I see most often, like <i>my teachers and parents</i>, the one person who always seems to <b>inspire</b> me is an <i>online streamer and content creator</i>, <a href="https://twitter.com/t3dotgg" class="link">@Theo</a>. Aside from the common ground of programming, he has, <b><i>time and time again</i></b>, inspired me to keep working hard <b>while</b> showing the vast world I have been trying to get into. He has also <b>built</b> a like-minded community that has sustained to keep me <b>loving</b> what I do. <br><br>Other people that inspire me: <a href="https://twitter.com/ThePrimeagen" class="link">@ThePrimeagen</a>, <a href="https://twitter.com/juxtopposed" class="link">@juxtopposed</a>, <a href="https://twitter.com/MKBHD" class="link">@MKBHD</a>, <a href="https://twitter.com/fireship_dev" class="link">@fireship_dev</a>, and <b>more</b>...</p>
 			</Question>
-			<Question question="Your writing — why so advanced?">
-				<p slot="answer" class="answer-text">My writing is "advanced" because of the countless English papers and classes that I've taken. As thus such, I've developed to write how I would as an English paper, in most cases, even tweeting. I also try to improve my vocabulary whenever I can to further my writing. It's just something I enjoy doing and continue to this day. </p>
-			</Question>
 		</FAQ>
-	</section> -->
+	</section>
 </Layout>
 
 <style>
@@ -100,7 +67,6 @@ import IU from '@logos/iu.png';
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-		height: 100%;
 		width: 100%;
 		gap: 50px;
 	}
@@ -117,80 +83,72 @@ import IU from '@logos/iu.png';
 			display: flex;
 			align-items: center;
 			gap: 50px;
+			width: 100%;
+			max-width: 1450px;
+			overflow: hidden;
 			height: min-content;
 		}
 
+			#prologue-scroller {
+				display: flex;
+				align-items: center;
+				gap: 50px;
+				width: 100%;
+				animation: prologue-image-scroll 60s linear infinite;
+			}
+
 			.prologue-image {
-				width: 200px;
+				width: 250px;
 				height: 400px;
 				border-radius: var(--secondary-border-radius);
 				background-color: var(--gray);
-				overflow: hidden;
 				box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.6);
 			}
 
 			.prologue-image:nth-child(odd) { margin-bottom: 50px; }
 
-		.prologue-text {
-    		font-size: clamp(1rem, 1.5vw, 1.8rem);
-    		line-height: clamp(1.8rem, 9vw, 2.5rem);
-			width: 75%;
-		}
+.about-text {
+	font-size: clamp(1rem, 1.5vw, 1.8rem);
+	line-height: clamp(1.8rem, 9vw, 2.5rem);
+	width: 75%;
+}
 
-@media (max-width: 1280px) {
-	#prologue-images { gap: 50px; padding-bottom: 0; }
-	.prologue-image { width: 150px; height: 300px; }
+@keyframes prologue-image-scroll {
+	0% { transform: translateX(0); }
+	50% { transform: translateX(-100%); }
+}
+
+@media (max-width: 1500px) {
+	#prologue-images { gap: 25px; }
+	.prologue-image { width: 200px; height: 350px; }
+}
+
+@media (max-width: 1200px) {
+	#prologue-images { padding-bottom: 0; }
 	.prologue-text { width: 90%; }
 }
 
 @media (max-width: 1000px) {
 	#prologue-images { gap: 25px; }
-	#prologue-quote { padding: 25px 0 25px 0; }
-	.prologue-image { width: 150px; height: 300px; }
-	.prologue-text { width: 100%; }
+	#prologue-quote { padding: 25px; }
+	.about-text { width: 100%; }
 }
 
 @media (max-width: 900px) {
-	.prologue-image:nth-child(1), .prologue-image:nth-child(5) { display: none; }
+	.prologue-image { width: 200px; height: 350px; }
 }
 
-@media (max-width: 550px) {
+@media (max-width: 700px) {
 	#prologue-quote-break { display: none; }
+	#prologue-scroller { animation: prologue-image-scroll 30s linear infinite; }
 	.prologue-image:nth-child(odd) { margin-bottom: 0px; }
 	.prologue-image:nth-child(1) {display: flex;}
-	.prologue-image:nth-child(2), .prologue-image:nth-child(3), .prologue-image:nth-child(4) { display: none; }
-	.prologue-image { width: 400px; height: 450px; }
-}
-
-@media (max-width: 450px) {
-	.prologue-image { width: 350px; height: 400px; }
-}
-
-@media (max-width: 375px) {
-	.prologue-image { width: 300px; height: 400px; }
-}
-
-@media (max-width: 330px) {
-	.prologue-image { width: 250px; height: 350px; }
+	.prologue-image { width: 200px; height: 350px; }
 }
 </style>
 
 <style>
-.about-text {
-    font-size: clamp(1rem, 1.5vw, 1.8rem);
-    line-height: clamp(1rem, 9vw, 2.5rem);
-	width: 75%;
-}
-
-	.var-width { width: 80%; }
-
-.about-header { 
-	font-size: clamp(1.3rem, 2.8vw, 3rem); 
-	width: 80%; 
-	text-align: center;
-}
-
-#background, #online-life {
+#online-life {
 	min-width: 100%;
 	display: flex;
 	justify-content: space-around;
@@ -200,87 +158,6 @@ import IU from '@logos/iu.png';
 }
 
 	#online-life { padding: 50px 0 0 0; }
-	#background-header { font-size: clamp(1.3rem, 2.8vw, 3rem); }
-
-	/* Description of myself */
-	#background-left {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		gap: 1rem;
-		width: 50%;
-	}
-
-	/* Image of myself */
-	#background-right {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-		#background-image {
-			width: clamp(250px, 35vw, 500px);
-			height: clamp(250px, 35vw, 500px);
-			max-height: 500px;
-			border-radius: var(--main-border-radius);
-			animation: image-change 60s ease-in infinite;
-		}
-		
-#education {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: column;
-	gap: 25px;
-}
-
-	#education-text {
-		text-indent: 0;
-		text-align: center;
-		width: 80%;
-	}
-
-		#schools {
-			display: flex;
-			flex-direction: column;
-			gap: 25px;
-			width: 70%;
-		}
-
-			.school {
-				display: flex;
-				flex-direction: column;
-				gap: 12.5px;
-				padding: 25px;
-				border: 2px solid var(--gray);
-				border-radius: var(--secondary-border-radius);
-			}
-			
-				.school-header {
-					display: flex;
-					align-items: center;
-					gap: 25px;
-				}
-			
-					.school-info {
-						display: flex;
-						flex-direction: column;
-						gap: 8.3px;
-					}
-				
-					.school-name {
-						display: flex;
-						align-items: center;
-						gap: 12.5px;
-					}
-					
-				.school-insight { 
-					font-size: clamp(1rem, 2vw, 1.2rem); 
-					line-height: 1.5rem;
-					word-wrap: break-word;
-					hyphens: auto;
-				}
 
 #online-life {
 	display: flex;
@@ -288,51 +165,5 @@ import IU from '@logos/iu.png';
 	align-items: center;
 	flex-direction: column;
 	gap: 25px;	
-}
-
-@media (max-width: 1300px) {
-	#schools {
-		width: 60%;
-		flex-direction: column;
-	}
-}
-
-@media (max-width: 1000px) {
-	.var-width { width: 100%; }
-
-	#background {
-		padding: 25px 0 0 0;
-		gap: 25px;
-		flex-direction: column-reverse;
-		justify-content: space-evenly;
-	}
-
-		#background-left { min-width: 100%; }
-			#background-header { text-align: center; }
-			#background-image { border-radius: var(--secondary-border-radius); }
-
-	#education {
-		width: 100%;
-		padding: 25px 0;
-	}
-		#education-header { width: 100%; }
-		#education-text { width: 100%; }
-		#schools { width: 100%; }
-}
-
-@media (max-width: 450px) {
-	.school-header { flex-direction: column; }
-	.school-name, .school-details { 
-		text-align: center; 
-		justify-content: center; 
-	}
-	.school-logo { width: 64px; height: 64px;}
-
-}
-
-@keyframes image-change {
-	25% { content: url('/super-mario-bros.png'); }
-	75% { content: url('/vtol-vr-selfie.png'); }
-	100% { content: url('/me-in-suit.png'); }
 }
 </style>

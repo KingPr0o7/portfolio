@@ -172,7 +172,7 @@ const handle = '@KingPr0o7';
 	});
 </script>
 
-<style>
+<style is:inline>
 main {
 	display: grid;
 	grid-template-columns: /* Credit to: Kevin Powell (Credits Page) */
@@ -199,14 +199,22 @@ main {
 			justify-content: space-around;
 		}
 
-		.unrestricted {
-			justify-content: flex-start;
+		.about-section, .unrestricted { justify-content: flex-start; }
+
+		.about-section {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			gap: 50px;
 		}
 
 @media (max-width: 1000px) {
-	/* Removes top padding due to navbar moving to bottom of vh */
-	main, main[data-state="padded"] { padding-top: 0px; }
+	main, main[data-state="padded"] { padding-top: 0px; } /* Removes top padding due to navbar moving to bottom of vh */
 	.blogs-section, .blog-viewer { padding: 0; grid-column: full !important;}
+	.about-section { grid-column: full !important; }
+		.about-section > *:not(#prologue) { padding: 0 25px }
+
 }
 
 @keyframes slideInFromRight {
