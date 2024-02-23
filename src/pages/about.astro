@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Layout from '@layouts/Layout.astro';
 import FAQ from "@components/FAQ.astro";
 import Question from "@components/FAQ-question.astro";
 
@@ -13,7 +14,11 @@ import Homecoming_Car from "@personal/homecoming-car.png";
 import Cruise from "@personal/cruise.png";
 import Ninja_and_King from "@personal/ninja-and-king-cropped.png";
 
-import Layout from '@layouts/Layout.astro';
+import School from "@logos/tigers.svg";
+import Vincennes from "@logos/vincennes.svg";
+import IvyTech from "@logos/ivytech.svg";
+import IU from "@logos/iu.svg";
+import Degree from "@icons/degree.svg";
 ---
 
 <Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class='about-section' data_state="padded">
@@ -42,42 +47,75 @@ import Layout from '@layouts/Layout.astro';
 		</div>
 	</div>
 
-	<p class="about-text">As a student and individual on a continuous journey of curiosity (especially within computational computing), I'm the type of person with a drive to constantly learn from the world around me. With any bit of leisure time, I'll most likely allocate it towards school work and programming my future. I'm your typical computer geek with a sweet spot for making things work for other people; the feeling of satisfaction of solving people's issues within technology skyrockets above anything else. So much so, that I quit playing baseball and dedicated my time to creating things with code. Nowadays, even video games have faded from my activities, to be transferred into writing websites.</p>
-	<p class="about-text">To fulfill my love for computers, I accepted a pathway in “Software Development” that targeted and deepened my passion in pursuing the field as a dream job. But, I didn't randomly say one day “oh I'm going to do that” — a series of events had to occur before that conclusion was made back in 2020. That's where my father comes into the story, starting me off with consoles he grew up with and allowing me to explore and expand my curiosity as I grew. Below is a timeline of my exploration through computers, concepts, and love for learning.</p>
+	<p class="about-text">As a student and individual on a continuous journey of curiosity (especially within computational computing), I'm the type of person with a drive to constantly learn from the world around me. With any bit of leisure time, I'll most likely allocate it towards school work and programming my future. I'm your typical computer geek with a passion for making things work for other people; seeing those people enjoy the end-product fuels this intense passion. So much so, that I quit playing baseball and dedicated my time to creating things with code. Nowadays, even video games have faded from my activities, to be transferred into learning and writing better programs.</p>
+	<p class="about-text">To fulfill my love for computers, I accepted a pathway in “Software Development” that targeted and deepened my passion in pursuing the field as a dream job. But, I didn't randomly say one day “oh I'm going to do that” — a series of events had to occur before that conclusion was made back in 2021. That's where my father comes into the story, starting me off with consoles he grew up with and allowing me to explore and expand my curiosity as I grew: </p>
 	<Timeline />
 	<p class="about-text">Upon building such software, there is a lot that goes into the process. Even with small-scoped projects, I can never find the “good enough” balance to satisfy my wants for my users and myself. This is apparent when I look back on old software that I write, and is almost like the driving force towards the projects/software that I build. Even with teachers reiterating the fact, “you have to accept when a project is good enough, and just satisfies the needs required” is a common saying I can't seem to settle with. Another thing is the acceptance of failure, every time I tackle a new project, I'm always going into the depths of the unknown. Failure is a key part of what I do, and learning how to tackle, accept, and learn from such failures is what drives me into loving software development.</p>	
+	<p class="about-text">Now, some developers go the self-taught route (usually because of a multitude of reasons) but I'm someone who loves the aspect of learning in a classroom environment with comprehensible projects to present my understanding and knowledge building. I know that's not every course is structured as so; however, I'm committed to going to a four-year-college to study a branch of computer science, these are the scholarly steps I've taken: </p>
 
-	<section id="online-life">
-		<FAQ>
-			<Question question="What's this site's purpose?">
-				<p slot="answer" class="answer-text">This site's purpose is like my own little GitHub — not meant to be taken seriously. In an ideal world, first would come my resume, then my site to show all my work and passion for what I do. My site is thousands of hours of research, building, testing, and failing to make something, even if it gets no public interaction. I'm not here for views — I'm here to make something.</p>
-			</Question>
-			<Question question="What is the meaning/origin of 'KingPr0o7?'">
-				<p slot="answer" class="answer-text">KingPr0o7, pronounced — / <a href="http://ipa-reader.xyz/?text=k%C9%AA%C5%8Bpro%CA%8A%20o%CA%8A%20%CB%88s%C9%9Bv%C9%99n&voice=Joey" class="link">kɪŋproʊ oʊ ˈsɛvən</a> / was a handle for my Fortnite account back on May 26, 2018, and became my go-to handle for the internet. I wanted it to start with "King," then my father added "Pro" because he thought it would suit and sound pretty nice. The rest was because "KingPro" was taken, so extras were added: birth year and variation to get a unique one. I find it funny when streamers stop for a second to process how to go about its pronunciation and often say "King Pr- Zero Oh Seven," but other than that, my handle has no hidden meaning unless added otherwise.</p>
-			</Question>
-			<Question question="Who inspires you?">
-				<p slot="answer" class="answer-text">Other than the people I see most often, like <i>my teachers and parents</i>, the one person who always seems to <b>inspire</b> me is an <i>online streamer and content creator</i>, <a href="https://twitter.com/t3dotgg" class="link">@Theo</a>. Aside from the common ground of programming, he has, <b><i>time and time again</i></b>, inspired me to keep working hard <b>while</b> showing the vast world I have been trying to get into. He has also <b>built</b> a like-minded community that has sustained to keep me <b>loving</b> what I do. <br><br>Other people that inspire me: <a href="https://twitter.com/ThePrimeagen" class="link">@ThePrimeagen</a>, <a href="https://twitter.com/juxtopposed" class="link">@juxtopposed</a>, <a href="https://twitter.com/MKBHD" class="link">@MKBHD</a>, <a href="https://twitter.com/fireship_dev" class="link">@fireship_dev</a>, and <b>more</b>...</p>
-			</Question>
-		</FAQ>
-	</section>
+	<div id="schools">
+		<div class="school">
+			<Image src={School} alt="School Icon" width={124} height={124} />
+			<div class="school-rundown">
+				<h2 class="school-name">Public High School</h2>
+				<p class="school-desc">As a <b>passionate</b> high school student, I've wanted to get the <b><i>most out of my experience</i></b> via the Software Development pathway. As such, in <b>2025</b> I'll graduate with an <a class="link" href="https://www.in.gov/doe/files/core-40-and-honors-diploma-summary-class-2016-updated-june-2018.pdf">Indiana College Core 40 with Academic Honors</a>, a <b><i>~</i>4.15 GPA</b>, placing around <b>top 15 in my class</b> of 179 (<i>top 8%</i>).</p>
+			</div>
+		</div>
+		
+		<div class="school">
+			<Image src={Vincennes} alt="School Icon" width={124} height={124} />
+			<div class="school-rundown">
+				<h2 class="school-name">Vincennes University</h2>
+				<p class="school-desc">To <b>power</b> the <a class="link" href="https://www.in.gov/doe/files/core-40-and-honors-diploma-summary-class-2016-updated-june-2018.pdf">Indiana College Core 40 with Academic Honors</a>, I took advanced classes like English 101-2, Speech 143, Art 110, Spanish I-III, and Biology 101L. With the <b><i>main goal</i></b> of <b>strengthening</b> the <b><i>foundational concepts</i></b> for my future and preparing myself for other four-year colleges across Indiana when I graduate.</p>
+			</div>
+		</div>
+
+		<div class="school">
+			<Image src={IvyTech} alt="Ivy Tech" width={124} height={124} />
+			<div class="school-rundown">
+				<h2 class="school-name">Ivy Tech Community College</h2>
+				<p class="school-desc">Regarding the <b><i>continuation</i></b> of the Software Development pathway, Ivy Tech <b>powers</b> my junior and senior years with <i>college experience and knowledge</i>. Letting me take classes like SDEV 153 ➔ SDEV 255, DBMS 110, and SDEV 148 ➔ SDEV 248. Ivy Tech provides <i>so much</i> for me, and <i>as such</i>, I've <b>committed</b> to getting an <a class="link" href="https://catalog.ivytech.edu/preview_program.php?7&poid=5876#">AS in Software Development</a> by <b>2025</b>.</p>
+			</div>
+		</div>
+		
+		<div class="school">
+			<Image src={IU} alt="School Icon" width={124} height={124} />
+			<div class="school-rundown">
+				<h2 class="school-name">Indiana University Bloomington</h2>
+				<p class="school-desc">For my <b>dream</b> college, the Department of Computer Science within Indiana University's <a class="link" href="https://luddy.indiana.edu/index.html?_gl=1*h0p486*_ga*MTc1ODkzMzQyNC4xNzA4NTc0MDQ5*_ga_61CH0D2DQW*MTcwODY0OTU5MC41LjEuMTcwODY0OTU5NS41NS4wLjA.">Luddy School of Informatics, Computing, and Engineering</a> <i>piqued my interest</i> for the next place of <b>advancement</b> in my education. <b>Especially</b> with their scope of their <a class="link" href="https://cs.indiana.edu/programs/phd-computer-science.html">Ph.D. in Computer Science</a> with <b><i>specializations</i></b> in Software Engineering; <b>perfect</b> for <b>expanding</b> my scope in the realm of <i>computational computing</i> for <i>decades to come</i>.</p>
+			</div>
+		</div>		
+	</div>
+
+	<FAQ>
+		<Question question="What's this site's purpose?">
+			<p slot="answer" class="answer-text">This site's purpose is like my own little GitHub — not meant to be taken seriously. In an ideal world, first would come my resume, then my site to show all my work and passion for what I do. My site is thousands of hours of research, building, testing, and failing to make something, even if it gets no public interaction. I'm not here for views — I'm here to make something.</p>
+		</Question>
+		<Question question="What is the meaning/origin of 'KingPr0o7?'">
+			<p slot="answer" class="answer-text">KingPr0o7, pronounced — / <a href="http://ipa-reader.xyz/?text=k%C9%AA%C5%8Bpro%CA%8A%20o%CA%8A%20%CB%88s%C9%9Bv%C9%99n&voice=Joey" class="link">kɪŋproʊ oʊ ˈsɛvən</a> / was a handle for my Fortnite account back on May 26, 2018, and became my go-to handle for the internet. I wanted it to start with "King," then my father added "Pro" because he thought it would suit and sound pretty nice. The rest was because "KingPro" was taken, so extras were added: birth year and variation to get a unique one. I find it funny when streamers stop for a second to process how to go about its pronunciation and often say "King Pr- Zero Oh Seven," but other than that, my handle has no hidden meaning unless added otherwise.</p>
+		</Question>
+		<Question question="Who inspires you?">
+			<p slot="answer" class="answer-text">Other than the people I see most often, like <i>my teachers and parents</i>, the one person who always seems to <b>inspire</b> me is an <i>online streamer and content creator</i>, <a href="https://twitter.com/t3dotgg" class="link">@Theo</a>. Aside from the common ground of programming, he has, <b><i>time and time again</i></b>, inspired me to keep working hard <b>while</b> showing the vast world I have been trying to get into. He has also <b>built</b> a like-minded community that has sustained to keep me <b>loving</b> what I do. <br><br>Other people that inspire me: <a href="https://twitter.com/ThePrimeagen" class="link">@ThePrimeagen</a>, <a href="https://twitter.com/juxtopposed" class="link">@juxtopposed</a>, <a href="https://twitter.com/MKBHD" class="link">@MKBHD</a>, <a href="https://twitter.com/fireship_dev" class="link">@fireship_dev</a>, and <b>more</b>...</p>
+		</Question>
+	</FAQ>
 </Layout>
 
 <style>
-	#prologue {
-		display: flex;
-		align-items: center;
-		flex-direction: column;
-		width: 100%;
-		gap: 50px;
-	}
+#prologue {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	gap: 50px;
+}
 
-		#prologue-quote {
-			padding: 25px;
-			font-weight: normal;
-			text-align: center;
-			font-size: clamp(1rem, 4vw, 3.5rem);
-			width: 100%;
-		}
+	#prologue-quote {
+		padding: 25px;
+		font-weight: normal;
+		text-align: center;
+		font-size: clamp(1rem, 4vw, 3.5rem);
+		width: 100%;
+	}
 
 		#prologue-images {
 			display: flex;
@@ -113,6 +151,33 @@ import Layout from '@layouts/Layout.astro';
 	width: 75%;
 }
 
+#schools {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	gap: 50px;
+	width: 75%;
+}
+
+	.school {
+		display: flex;
+		align-items: center;
+		gap: 50px;
+	}
+
+		.school-rundown {
+			display: flex;
+			flex-direction: column;
+			gap: 12.5px;
+		}
+
+			.school-name { font-size: clamp(1.5rem, 2vw, 2.5rem); }
+
+			.school-desc {
+				font-size: clamp(1rem, 1.5vw, 1.8rem);
+				line-height: clamp(1.8rem, 9vw, 2.5rem);
+			}
+
 @keyframes prologue-image-scroll {
 	0% { transform: translateX(0); }
 	50% { transform: translateX(-100%); }
@@ -131,7 +196,7 @@ import Layout from '@layouts/Layout.astro';
 @media (max-width: 1000px) {
 	#prologue-images { gap: 25px; }
 	#prologue-quote { padding: 25px; }
-	.about-text { width: 100%; }
+	.about-text, #schools { width: 100%; }
 }
 
 @media (max-width: 900px) {
@@ -144,26 +209,11 @@ import Layout from '@layouts/Layout.astro';
 	.prologue-image:nth-child(odd) { margin-bottom: 0px; }
 	.prologue-image:nth-child(1) {display: flex;}
 	.prologue-image { width: 200px; height: 350px; }
-}
-</style>
 
-<style>
-#online-life {
-	min-width: 100%;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	height: fit-content;
-	padding: 50px 0;
-}
-
-	#online-life { padding: 50px 0 0 0; }
-
-#online-life {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	flex-direction: column;
-	gap: 25px;	
+	.school {
+		flex-direction: column;
+		text-align: center;
+		gap: 25px;
+	}
 }
 </style>

@@ -86,17 +86,17 @@ const EmailForm = () => {
 		<form id="contact-form" onSubmit={handleSubmit}>
 			<div className="contact-input">
 				<label className="form-label">What's your name? <span className="form-star">*</span></label>
-				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder="Name" name="name" required />
+				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder="Officer K" name="name" required />
 			</div>
 
 			<div className="contact-input">
 				<label className="form-label">Your current email? <span className="form-star">*</span></label>
-				<input className="form-textfield" onInput={handleEmail} id="contact-email" type="text" placeholder="Email" name="email" required />
+				<input className="form-textfield" onInput={handleEmail} id="contact-email" type="text" placeholder="KD6-3.7@lapd.gov" name="email" required />
 			</div>
 
 			<div className="contact-input">
 				<label className="form-label">Tell me your thoughts! <span className="form-star">*</span></label>
-				<textarea className="form-textarea" id="contact-message" name="input" required></textarea>
+				<textarea className="form-textarea" id="contact-message" name="input" placeholder='"And blood-black nothingness began to spin -- a system of cells interlinked within, cells interlinked within cells interlinked, within one stem. -- And dreadfully distinct, against the dark, a tall white fountain played." - Vladimir Nabokov, Pale Fire qtd. in Blade Runner 2049' required></textarea>
 			</div>
 
 			<button className="button form-submit" id="contact-submit">Submit</button>
