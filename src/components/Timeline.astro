@@ -1,26 +1,74 @@
 ---
 import { Image } from "astro:assets";
-import TimelineMoment from "./Timeline-moment.astro";
 import NES from "@personal/super-mario-bros.png";
 import PC_Mirroring from "@personal/city-car-driving.png";
 import Space_Invaders from "@personal/space-invaders.png";
 import Ninja_and_King from "@personal/ninja-and-king.png";
 import First_Site from "@personal/first-site.png";
+
+import Arrow_Left from "@icons/arrow-left.svg";
+import Arrow_Right from "@icons/arrow-right.svg";
 ---
 
 
 <div id="timeline">
 	<div id="timespan">
-		<TimelineMoment date="2012" />
+		<button class="moment">
+			<div class="moment-year">
+				<p>2012</p>
+				<div class="moment-circle"></div>
+			</div>
+		</button>
+
 		<div class="moment-line"></div>
-		<TimelineMoment date="2015" />
+
+		<button class="moment">
+			<div class="moment-year">
+				<p>2015</p>
+				<div class="moment-circle"></div>
+			</div>
+		</button>
+
 		<div class="moment-line"></div>
-		<TimelineMoment date="2018" />
+
+		<button class="moment">
+			<div class="moment-year">
+				<p>2018</p>
+				<div class="moment-circle"></div>
+			</div>
+		</button>
+
 		<div class="moment-line"></div>
-		<TimelineMoment date="2021" />
+
+		<button class="moment">
+			<div class="moment-year">
+				<p>2021</p>
+				<div class="moment-circle"></div>
+			</div>
+		</button>
+
 		<div class="moment-line"></div>
-		<TimelineMoment date="2023" />
+
+		<button class="moment">
+			<div class="moment-year">
+				<p>2023</p>
+				<div class="moment-circle"></div>
+			</div>
+		</button>
 	</div>
+
+	<div id="mobile-timespan">
+		<button class="timespan-control" id="timespan-back"><Image src={Arrow_Left} alt="Arrow Left" width={32} height={32} /></button>
+		<span id="timespan-years">
+			<p class="timespan-year">2012</p>
+			<p class="timespan-year">2015</p>
+			<p class="timespan-year">2018</p>
+			<p class="timespan-year">2021</p>
+			<p class="timespan-year">2023</p>
+		</span>
+		<button class="timespan-control" id="timespan-forward"><Image src={Arrow_Right} alt="Arrow Right" width={32} height={32} /></button>
+	</div>
+
 	<div id="moment-container">
 		<div class="moment-in-time" id="moment-2012">
 			<div class="moment-wrapper">
@@ -64,22 +112,68 @@ import First_Site from "@personal/first-site.png";
 	</div>
 </div>
 <style>
-	#timeline {
-		display: flex;
-		flex-direction: column;
-		gap: 50px;
-		width: 75%;
-		overflow: hidden;
-	}
+#timeline {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	width: 75%;
+	overflow: hidden;
+}
 
+	/* Enable the below comments to fix the outline error if people want it, you're welcome future Nathan :) */
 	#timespan {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		width: 100%;
 		gap: 25px;
+		/* padding: 6px; */
+		/* overflow: auto; */
 		overflow: auto;
 	}
+
+		.moment {
+			background: none;
+			border: none;
+			cursor: pointer;
+			height: 64px;
+			width: 64px;
+		}
+
+			.moment-year {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 10px;
+				align-items: center;
+				font-size: 1.5rem;
+				font-weight: bold;
+			}
+
+				.moment-circle {
+					position: relative;
+					width: 16px;
+					height: 16px;
+					outline-offset: 4px;
+					outline: 2px solid var(--gray);
+					border-radius: 50%;
+				}	
+
+					.moment-circle::before {
+    					content: "";
+    					position: absolute;
+    					top: 0;
+    					left: 0;
+    					width: 100%;
+    					height: 100%;
+    					border-radius: 50%;
+    					background-color: var(--accent);
+    					transform: scale(0);
+    					transition: transform 700ms;
+					}		
+				
+						.moment-active .moment-circle::before { transform: scale(1); }
+
 
 		.moment-line {
 			content: " ";
@@ -93,6 +187,37 @@ import First_Site from "@personal/first-site.png";
 
 			.moment-line-active { background-position: left; }
 
+	#mobile-timespan { 
+		display: none; 
+		align-items: center;
+		justify-content: center;
+		gap: 25px;
+	}
+
+		#timespan-years { 
+			display: flex;
+			width: fit-content;
+			align-items: center;
+			overflow: hidden;
+		}
+
+			.timespan-year {
+				font-size: clamp(2.5rem, 8vw, 4rem); 
+				font-weight: 600;
+				width: 100%;
+				flex-shrink: 0;
+				text-align: center;
+			}
+
+		.timespan-control {
+			background-color: var(--primary);
+			border: none;
+			border-radius: var(--secondary-border-radius);
+			padding: 10px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+
 	#moment-container {
 		display: flex;
 		align-items: center;
@@ -101,38 +226,38 @@ import First_Site from "@personal/first-site.png";
 		overflow: hidden;
 	}
 
-	.moment-in-time {
-    	display: flex;
-    	justify-content: center;
-    	align-items: center;
-    	padding: 25px;
-    	width: 100%;
-		flex-shrink: 0;
-    	height: fit-content;
-    	border-radius: var(--secondary-border-radius);
-    	background-color: var(--gray);
-    	overflow: hidden;
-    	box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.6);
-    	gap: 25px;
-    	border-radius: var(--secondary-border-radius);
-	}
-
-		.moment-desc {
-			font-size: clamp(0.9rem, 1.4vw, 1.25rem);
-			line-height: 1.5;
+		.moment-in-time {
+    		display: flex;
+    		justify-content: center;
+    		align-items: center;
+    		padding: 25px;
+    		width: 100%;
+			flex-shrink: 0;
+    		height: 100%;
+    		border-radius: var(--secondary-border-radius);
+    		background-color: var(--gray);
+    		overflow: hidden;
+    		box-shadow: 0px 8px 16px -8px rgba(0, 0, 0, 0.6);
+    		gap: 25px;
+    		border-radius: var(--secondary-border-radius);
 		}
 
-		.moment-title {
-			font-size: clamp(1.5rem, 2vw, 2rem);
-			font-weight: 600;
-			margin-bottom: 25px;
-		}
+			.moment-title {
+				font-size: clamp(1.5rem, 2vw, 2rem);
+				font-weight: 600;
+				margin-bottom: 25px;
+			}
 
-		.moment-image { border-radius: var(--secondary-border-radius); }
+			.moment-desc {
+				font-size: clamp(0.9rem, 1.4vw, 1.25rem);
+				line-height: 1.5;
+			}
 
-			#moment-images-2015 { animation: twenty-fifteen-images 25s infinite; }
-			#moment-images-2021 { animation: twenty-one-images 25s infinite; }
-			#moment-images-2023 { animation: twenty-three-images 25s infinite; }
+				.moment-image { border-radius: var(--secondary-border-radius); }
+
+					#moment-images-2015 { animation: twenty-fifteen-images 25s infinite; }
+					#moment-images-2021 { animation: twenty-one-images 25s infinite; }
+					#moment-images-2023 { animation: twenty-three-images 25s infinite; }
 
 @media (max-width: 1300px) {
 	#timeline { width: 80%; }
@@ -157,6 +282,11 @@ import First_Site from "@personal/first-site.png";
 		}
 }
 
+@media (max-width: 930px) {
+	#timespan { display: none; }
+	#mobile-timespan { display: flex; }
+}
+
 @media (max-width: 700px) {
 	.moment-image {
 		width: 300px;
@@ -177,6 +307,8 @@ import First_Site from "@personal/first-site.png";
 		width: 200px;
 		height: 200px;
 	}
+
+	.timespan-control { padding: 5px; }
 }
 
 @keyframes twenty-fifteen-images {
@@ -202,40 +334,90 @@ import First_Site from "@personal/first-site.png";
 
 </style>
 <script is:inline>
-	const timespan = document.getElementById('timespan');
-	const moment_container = document.getElementById('moment-container');
-	const moment_in_time = Array.from(document.querySelectorAll('.moment-in-time'));
+	// Desktop Timeline
 	const moments = Array.from(document.querySelectorAll('.moment'));
 	const time = Array.from(document.querySelectorAll('.moment-line'));	
 
+	// Mobile Timeline
+	const mobile_timeline = document.getElementById('timespan-years');
+	const timespan_forward = document.getElementById('timespan-forward');
+	const timespan_back = document.getElementById('timespan-back');
+	
+	const moment_container = document.getElementById('moment-container');
+	const moment_in_time = Array.from(document.querySelectorAll('.moment-in-time'));
+
+	// Set the first moment to active (2012)
 	moments[0].classList.add('moment-active');
+
+	// Remove the tabindex from the links (so the carousel doesn't scroll) in the moments except the first one
+	// You're welcome screen readers / VIM / die-hard keyboard users :)
+	for (let i = 1; i < moment_in_time.length; i++) {
+		moment_in_time[i].querySelectorAll('.link').forEach((link) => {
+			link.tabIndex = -1;
+		});
+	}
+
+	function toggle_links(index, state) {
+		moment_in_time[index].querySelectorAll('.link').forEach((link) => {
+			link.tabIndex = state;
+		});
+	}
 
 	moments.forEach((moment) => {
 		moment.addEventListener('click', () => {
-			moments.forEach((el) => {
-				el.classList.remove('moment-active');
-			});
+			// Deactivate links and remove timeline classes
+			toggle_links(moments.findIndex((el) => el.classList.contains('moment-active')), -1);
+			moments.forEach((el) => { el.classList.remove('moment-active'); });
+			time.forEach((line) => { line.classList.remove('moment-line-active'); });
 
-			time.forEach((line) => {
-				line.classList.remove('moment-line-active');
-			});
-
+			// Activate links, add timeline classes, and scroll to next moment
 			moment.classList.add('moment-active');
-
 			let index = moments.findIndex((el) => el.classList.contains('moment-active'));
+
+			toggle_links(index, 0);
 
 			moment_container.scrollTo({
 				left: moment_in_time[0].clientWidth * index + 25 * index,
 				behavior: 'smooth'
 			});
 
-			time.slice(0, index).forEach((line) => {
-				line.classList.add('moment-line-active');
-			});
+			time.slice(0, index).forEach((line) => { line.classList.add('moment-line-active'); });
 		});
 	});
 
+	// Mobile Timeline Control Handler
+	function space_time_jumper(direction) {
+		let index = moments.findIndex((el) => el.classList.contains('moment-active'));
+		let newIndex = direction === 'forward' ? index + 1 : index - 1;
+
+		if (newIndex >= 0 && newIndex < moments.length) {
+			moments[index].classList.remove('moment-active');
+			moments[newIndex].classList.add('moment-active');
+
+			moment_container.scrollTo({
+				left: moment_in_time[0].clientWidth * newIndex + 25 * newIndex,
+				behavior: 'smooth'
+			});
+
+			let scrollDirection = direction === 'forward' ? 1 : -1;
+			mobile_timeline.scrollTo({
+				left: mobile_timeline.scrollLeft + scrollDirection * mobile_timeline.children[newIndex].clientWidth,
+				behavior: 'smooth'
+			});
+		}
+	}
+
+	timespan_back.addEventListener('click', () => space_time_jumper('back'));
+	timespan_forward.addEventListener('click', () => space_time_jumper('forward'));
+
+	// In the rare case someone resizes the window, ensure the active moment is still in view
 	window.addEventListener('resize', () => {
+		let index = moments.findIndex((el) => el.classList.contains('moment-active'));
 		document.querySelector('.moment-active').click();
+
+		mobile_timeline.children[index].scrollIntoView({
+			behavior: 'smooth',
+			block: 'center'
+		})
 	});	
 </script>
