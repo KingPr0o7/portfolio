@@ -335,16 +335,16 @@ import Arrow_Right from "@icons/arrow-right.svg";
 </style>
 <script is:inline>
 	// Desktop Timeline
-	const moments = Array.from(document.querySelectorAll('.moment'));
-	const time = Array.from(document.querySelectorAll('.moment-line'));	
+	var moments = Array.from(document.querySelectorAll('.moment'));
+	var time = Array.from(document.querySelectorAll('.moment-line'));	
 
 	// Mobile Timeline
-	const mobile_timeline = document.getElementById('timespan-years');
-	const timespan_forward = document.getElementById('timespan-forward');
-	const timespan_back = document.getElementById('timespan-back');
+	var mobile_timeline = document.getElementById('timespan-years');
+	var timespan_forward = document.getElementById('timespan-forward');
+	var timespan_back = document.getElementById('timespan-back');
 	
-	const moment_container = document.getElementById('moment-container');
-	const moment_in_time = Array.from(document.querySelectorAll('.moment-in-time'));
+	var moment_container = document.getElementById('moment-container');
+	var moment_in_time = Array.from(document.querySelectorAll('.moment-in-time'));
 
 	// Set the first moment to active (2012)
 	moments[0].classList.add('moment-active');

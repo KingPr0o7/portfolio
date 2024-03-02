@@ -54,7 +54,7 @@
 				}
 
 					.question.active > .answer { 
-						max-height: 840px;
+						max-height: 1000px;
 					}
 
 					.answer-text { 
@@ -79,11 +79,27 @@
 
 </style>
 <script is:inline>
-	const questions = document.querySelectorAll('.question-toggle');
+	document.addEventListener('astro:page-load', () => {
+		const questions = document.querySelectorAll('.question-toggle');
+		const answers = document.querySelectorAll('.answer');
 
-	questions.forEach((question) => {
-		question.addEventListener('click', () => {
-			question.parentElement.classList.toggle('active');
+		// Just for you keyboard users❣️ :) 
+
+		answers.forEach((answer) => {
+			answer.querySelectorAll('.link').forEach((link) => {
+				link.tabIndex = -1;
+			});
 		});
-	});
+
+		questions.forEach((question) => {
+			question.addEventListener('click', () => {
+				question.parentElement.classList.toggle('active');
+				let index = Array.from(questions).indexOf(question);
+
+				answers[index].querySelectorAll('.link').forEach((link) => {
+					link.tabIndex = question.parentElement.classList.contains('active') ? 0 : -1;
+				});
+			});
+		});
+	}, { once: true });
 </script>
