@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Layout from '@layouts/Layout.astro';
+import Redirect from '@icons/redirect.svg';
+import GitHub from '@logos/github.svg';
 import React from '@logos/react.svg';
 import JavaScript from '@logos/javascript.svg';
 import SASS from '@logos/sass.svg';
@@ -12,48 +14,45 @@ import ComboMenu from '@images/combo-menu.png';
 <Layout title="Projects" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" data_state="padded">
 	<section id="projects">
 		<div class="project">
-			<Image src={YouTubePlus} class="project-image" alt="Logo of the YouTube+ Extension with red grid lines behind it" width={400} height={400} />
+			<iframe class="project-image" width="560" height="315" src="https://www.youtube-nocookie.com/embed/Qe5WT22-AO8?si=ZcDBFAQMLqUubSjP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 			<div class="project-info">
 				<h2 class="project-name">YouTube+</h2>
-				<div class="project-languages">
-					<div class="project-language">
-						<Image src={React} class="project-language-logo" alt="React.js's Logo" width={400} height={400} />
-						<p class="project-language-name">React.js</p>
-					</div>
-					<div class="project-language">
-						<Image src={JavaScript} class="project-language-logo" alt="React.js's Logo" width={32} height={32} />
-						<p class="project-language-name">JavaScript</p>
-					</div>
-					<div class="project-language">
-						<Image src={SASS} class="project-language-logo" alt="SASS'S Logo" width={32} height={32} />
-						<p class="project-language-name">SASS</p>
-					</div>
-				</div>
 				<p class="project-desc">YouTube+ is an upcoming Chrome extension that aims to fix your YouTube experience. An example of this is bringing back the beloved dislikes so you can better judge the videos you watch. On top of that, this Chrome extension will offer all of this for free and open source.</p>
-				<a class="button project-button" href="https://github.com/YouTube-Plus?view_as=public" target="_blank">GitHub</a>
+				
+				<div id="project-redirects">
+					<a class="project-redirect">
+						<Image src={Redirect} class="project-redirect-image" alt="test"/>
+						<p class="project-redirect-text">Live Demo</p>
+					</a>
+					
+					<div class="project-seperator"></div>
+
+					<a class="project-redirect">
+						<Image src={GitHub} class="project-redirect-image" alt="test"/>
+						<p class="project-redirect-text">View Code</p>
+					</a>
+				</div>	
 			</div>
 		</div>
 
 		<div class="project">
-			<Image src={ComboMenu} class="project-image" alt="Picture of working Combo Menu Web Application Program styled as a online Web Chatting Application" width={400} height={400} />
+			<iframe class="project-image" width="700" height="400" src="https://www.youtube-nocookie.com/embed/wL8DVHuWI7Y?si=fPMotqO7pSD2IRao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen />		
 			<div class="project-info">
 				<h2 class="project-name">Combo Menu</h2>
-				<div class="project-languages">
-					<div class="project-language">
-						<Image src={Python} class="project-language-logo" alt="Python's Logo" width={32} height={32} />
-						<p class="project-language-name">Python</p>
-					</div>
-					<div class="project-language">
-						<Image src={JavaScript} class="project-language-logo" alt="JavaScript's Logo" width={32} height={32} />
-						<p class="project-language-name">JavaScript</p>
-					</div>
-					<div class="project-language">
-						<Image src={SASS} class="project-language-logo" alt="SASS'S Logo" width={32} height={32} />
-						<p class="project-language-name">SASS</p>
-					</div>
-				</div>
 				<p class="project-desc">A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly.</p>
-				<a class="button project-button" href="https://github.com/KingPr0o7/Combo-Menu" target="_blank">GitHub</a>
+				<div id="project-redirects">
+					<a class="project-redirect" tabindex="1">
+						<Image src={Redirect} class="project-redirect-image" alt="test"/>
+						<p class="project-redirect-text">Live Demo</p>
+					</a>
+					
+					<div class="project-seperator"></div>
+
+					<a class="project-redirect" tabindex="1">
+						<Image src={GitHub} class="project-redirect-image" alt="test"/>
+						<p class="project-redirect-text">View Code</p>
+					</a>
+				</div>					
 			</div>
 		</div>
 	</section>
@@ -74,12 +73,54 @@ import ComboMenu from '@images/combo-menu.png';
 		max-width: fit-content;
 	}
 
+		.project:nth-child(2n) { flex-direction: row-reverse; }
+		/* .project:nth-child(1) .project-name, .project-desc { text-align: right; } */
+
 		.project-image {
-			width: 400px;
+			width: 700px;
 			height: 400px;
 			background-color: var(--gray);
 			border-radius: var(--secondary-border-radius);
 		}
+
+			#project-redirects {
+				border-radius: var(--secondary-border-radius);
+				height: fit-content;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 25px;
+			}
+
+				.project-redirect {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 12.5px;
+				}
+
+					.project-redirect:hover > .project-redirect-image,
+					.project-redirect:focus > .project-redirect-image { 
+						filter: var(--accent-filter); 
+					}
+				
+					.project-redirect:hover > .project-redirect-text,
+					.project-redirect:focus > .project-redirect-text {
+						color: var(--accent);
+					}
+
+					.project-redirect-image {
+						width: 48px;
+						height: 48px;
+					}
+
+				.project-seperator {
+					width: 3px;
+					height: 50px;
+					background-color: var(--gray);
+					border-radius: var(--secondary-border-radius);
+				}
 
 		.project-info {
 			display: flex;
@@ -87,7 +128,10 @@ import ComboMenu from '@images/combo-menu.png';
 			gap: 25px;
 			max-height: 400px;
 			max-width: 500px;
+			/* max-width: 50%; */
 		}
+
+			.project-info > * { width: 100%; text-align: center; }
 
 			.project-name { font-size: clamp(1.3rem, 10vw, 3rem); }
 
@@ -122,15 +166,25 @@ import ComboMenu from '@images/combo-menu.png';
 	#projects { padding-top: 25px; }
 
 		.project {
-			flex-direction: column;
+			flex-direction: column !important;
 			width: 100%;
 			max-width: 100%;
 			height: fit-content;
 		}
 
+			.project::after {
+				content: "";
+				width: 100%;
+				height: 3px;
+				background-color: var(--gray);
+				border-radius: var(--secondary-border-radius);
+			}
+
+				.project:last-child::after { display: none; }
+
 			.project-image {
-				width: 400px;
-				height: 400px;
+				width: 100%;
+				height: 50vh;
 			}
 
 			.project-button { width: 50%; }
@@ -141,20 +195,37 @@ import ComboMenu from '@images/combo-menu.png';
 				text-align: center;
 				align-items: center;
 			}
+
+				.project-redirect-image {
+					width: 48px;
+					height: 48px;
+				}
 }
 
 @media (max-width: 500px) {
-	#projects { padding: 0px; grid-column: full; }
+	#projects { grid-column: full; }
 
-		.project-image {
-			width: 100%;
-			height: auto;
-		}
+		.project-image { height: 30vh; }
 
 			.project-info {
-				padding: 0 25px;
+				padding: 0;
 			}
 
 			.project-button { width: 100%; }	
+}
+
+@media (max-width: 400px) {
+	#project-redirects { flex-direction: column; }
+
+		.project-redirect {
+			width: 100%;
+			padding: 8.25px;
+			border-radius: var(--secondary-border-radius);
+			background-color: var(--primary);			
+		}
+
+			.project-redirect:last-child { background-color: var(--secondary);}
+
+		.project-seperator { display: none; }
 }
 </style>
