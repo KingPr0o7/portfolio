@@ -10,14 +10,14 @@ interface Props {
 const slideRight = {
   old: {
     name: 'slideOutToLeft',
-    duration: '0.7s',
-    easing: 'linear',
+    duration: '0.65s',
+    easing: 'ease',
     fillMode: 'backwards',
   },
   new: {
     name: 'slideInFromRight',
-    duration: '0.7s',
-    easing: 'linear',
+    duration: '0.65s',
+    easing: 'ease',
     fillMode: 'forwards',
   }
 };
@@ -25,14 +25,14 @@ const slideRight = {
 const slideLeft = {
   old: {
     name: 'slideOutToRight',
-    duration: '0.7s',
-    easing: 'linear',
+    duration: '0.65s',
+    easing: 'ease',
     fillMode: 'backwards',
   },
   new: {
     name: 'slideInFromLeft',
-    duration: '0.7s',
-    easing: 'linear',
+    duration: '0.65s',
+    easing: 'ease',
     fillMode: 'forwards',
   }
 };
@@ -41,12 +41,12 @@ const fading = {
   old: {
     name: 'fadeOut',
     duration: '0.4s',
-    easing: 'linear',
+    easing: 'ease',
   },
   new: {
     name: 'fadeIn',
     duration: '0.4s',
-    easing: 'linear',
+    easing: 'ease',
   }
 };
 
@@ -63,6 +63,7 @@ import '@src/config.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import Footer from '@components/Footer.astro';
 import Nav from '@components/Nav.astro';
+import PageOffset from 'astro-vtbot/components/PageOffset.astro';
 import { join } from 'node:path';
 
 const { title, description, image, section_class, data_state } = Astro.props;
@@ -139,6 +140,7 @@ const handle = '@KingPr0o7';
 		<!-- Astro -->
 		<meta name="generator" content={Astro.generator} />
 		<ViewTransitions fallback="swap" />
+		<PageOffset name="main" />
 
 		<script is:inline>
 			function speedInsightsBeforeSend(data) {
@@ -151,7 +153,7 @@ const handle = '@KingPr0o7';
 	</head>
 	<body>
 		<Nav />
-		<main transition:animate={adapter(animation)} data-state={data_state}>
+		<main transition:animate={adapter(animation)} data-state={data_state} transition:name="main">
 			<section class={section_class}>
 				<slot />
 			</section>
@@ -215,6 +217,10 @@ main {
 	.about-section { grid-column: full !important; }
 		.about-section > *:not(#prologue) { padding: 0 25px }
 
+}
+
+@media (min-height: 2000px) {
+	main { place-content: start; }
 }
 
 @keyframes slideInFromRight {

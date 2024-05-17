@@ -2,10 +2,7 @@
 import Layout from '@layouts/Layout.astro';
 import { Image } from "astro:assets";
 import Me from '@personal/me-no-bg.png';
-import Verified from '@images/icons/verified.svg';
-import Degree from '@images/icons/degree.svg';
-import Service from '@images/icons/service.svg';
-import Shades from '@personal/me-in-suit.png';
+import ShowcaseProject from '@src/components/Showcase-project.astro';
 ---
 
 <Layout title="Nathan Parker" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
@@ -17,52 +14,30 @@ import Shades from '@personal/me-in-suit.png';
 		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" title="Picture of Nathan Parker During High School Homecoming (Crowned)" width={750} height={750} loading="eager" />
 	</section>
 	
-	<section id="insights">
-		<div id="claims">
-			<div class="claim">
-				<div class="claim-top">
-					<Image src={Verified} class="claim-icon" alt="Verified Checkmark Icon" width={40} height={40} />
-					<h2 class="claim-header">Devotion To Perfection</h2>
-				</div>
-				<p class="claim-text">All projects are like glass; therefore, everything I make is made with attention to detail to minimize the chances of it shattering.</p>
-			</div>
-
-			<div class="claim">
-				<div class="claim-top">
-					<Image src={Degree} class="claim-icon" alt="Graduation degree (Education) Icon" width={40} height={40} />
-					<h2 class="claim-header">Pursuit of Knowledge</h2>
-				</div>
-				<p class="claim-text">Software development is my dream career field, and I value every assignment to further my knowledge and qualifications.</p>
-			</div>
-
-			<div class="claim">
-				<div class="claim-top">
-					<Image src={Service} class="claim-icon" alt="Heart With Hands Icon" width={40} height={40} />
-					<h2 class="claim-header">Everyone Involved</h2>
-				</div>
-				<p class="claim-text">When building a dream, no one should be left behind. Thus, in all my projects, everyone is incorporated to assemble their part of the success.</p>
-			</div>
-		</div>
-
-		<div id="explainer">
-			<div id="explainer-left">
-				<span id="explainer-title">I'm Nathan Parker a Software Application Developer.</span>
-				<p id="explainer-desc">I develop a wide variety of computer software with the user in mind.</p>
-				<ul id="explainer-examples">
-					<li class="explainer-example">Chrome extensions</li>
-					<li class="explainer-example">Small video games</li>
-					<li class="explainer-example">Internal Scripts</li>
-					<li class="explainer-example">Websites</li>
-				</ul>
-			</div>
-			<Image src={Shades} class="image-component" alt="Nathan Parker in a Suit with Green Foliage Behind Him" title="Nathan Parker in a Suit with Green Foliage Behind Him" width={500} height={500} data-type="intro" />
-		</div>
+	<section id="shimmering-projects">
+		<h2 id="shimmering-projects-title">What Do I Have to Prove My Efforts?</h2>
+		<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", title="The Combo Menu Project" github_link="https://github.com/KingPr0o7/Combo-Menu" />
 	</section>
 </Layout>
 <style>
+
+#shimmering-projects {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 50px 0;
+	gap: 50px;
+}
+
+	#shimmering-projects-title {
+		font-size: clamp(1.3rem, 2.4vw, 2.8rem);
+		font-weight: bold;
+	}
+
 #intro {
-	height: 100%;
-	max-height: calc(100vh - 70px);
+	height: 100vh;
+	max-height: calc(1080px - 70px);
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -73,6 +48,7 @@ import Shades from '@personal/me-in-suit.png';
 	#intro-text {
 		position: relative;
 		top: 60px;
+		top: clamp(30px, 5vh, 60px);
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -202,7 +178,9 @@ import Shades from '@personal/me-in-suit.png';
 			height: clamp(250px, 30vw, 500px);
 			max-height: 500px;
 		}
-		
+
+	
+
 @media (max-width: 1200px) {
 	#claims { padding: 50px 25px 0 25px; }
 }
@@ -334,3 +312,206 @@ import Shades from '@personal/me-in-suit.png';
 	#intro { justify-content: space-around; }
 }
 </style>
+<style is:global>
+	#projects {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 50px;
+	}
+	
+		.project {
+			display: flex;
+			align-items: center;
+			gap: 25px;
+			max-width: fit-content;
+		}
+	
+			.project:nth-child(even) { flex-direction: row-reverse; }
+	
+			.project-image {
+				width: 700px;
+				height: 400px;
+				background-color: var(--gray);
+				border-radius: var(--secondary-border-radius);
+			}
+	
+				#project-redirects {
+					border-radius: var(--secondary-border-radius);
+					height: fit-content;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					gap: 25px;
+				}
+	
+					.project-redirect {
+						cursor: pointer;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						gap: 12.5px;
+						text-decoration: none;
+					}
+	
+						.project-redirect:hover > .project-redirect-image,
+						.project-redirect:focus > .project-redirect-image { 
+							filter: var(--accent-filter); 
+						}
+					
+						.project-redirect:hover > .project-redirect-text,
+						.project-redirect:focus > .project-redirect-text {
+							color: var(--accent);
+						}
+	
+						.project-redirect-image {
+							width: 48px;
+							height: 48px;
+						}
+	
+					.project-seperator {
+						width: 3px;
+						height: 50px;
+						background-color: var(--gray);
+						border-radius: var(--secondary-border-radius);
+					}
+	
+			.project-info {
+				display: flex;
+				flex-direction: column;
+				gap: 25px;
+				max-height: 400px;
+				max-width: 500px;
+				/* max-width: 50%; */
+			}
+	
+				.project-info > * { width: 100%; text-align: center; }
+	
+				.project-name { font-size: clamp(1.3rem, 10vw, 3rem); }
+	
+				.project-languages {
+					display: flex;
+					gap: 12.5px;
+				}
+	
+					.project-language {
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						flex-wrap: wrap;
+						gap: 12.5px;
+						padding: 12.5px;
+						border-radius: var(--secondary-border-radius);
+						background-color: var(--gray);
+					}
+	
+						.project-language-logo {
+							width: 32px;
+							height: 32px;
+							border-radius: var(--secondary-border-radius);
+						}
+	
+				.project-desc {
+					font-size: 1.1rem;
+					line-height: 2rem;
+				}
+	
+	@media (max-width: 1200px) {
+		.project-image {
+			width: 623px;
+			height: 356px;
+		}
+	}
+	
+	@media (max-width: 1100px) {
+		.project-image {
+			width: 575px;
+			height: 328px;
+		}
+	}
+	
+	@media (max-width: 1000px) {
+		#projects { padding-top: 25px; }
+	
+			.project {
+				flex-direction: column !important;
+				width: 100%;
+				max-width: 100%;
+				height: fit-content;
+			}
+	
+				.project::after {
+					content: "";
+					width: 100%;
+					height: 3px;
+					background-color: var(--gray);
+					border-radius: var(--secondary-border-radius);
+				}
+	
+					.project:last-child::after { display: none; }
+	
+				.project-image {
+					width: 100%;
+					height: auto;
+				}
+	
+				.embed-container {
+					position: relative;
+					width: 100%;
+					padding-bottom: 56.25%; /* for 16:9 aspect ratio */
+					height: 0;
+				}
+	
+					.embed-container > .project-image {
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						left: 0;
+						top: 0;
+					}
+	
+	
+				.project-button { width: 50%; }
+	
+				.project-info, .project-languages {
+					max-width: 95%;
+					max-height: fit-content;
+					text-align: center;
+					align-items: center;
+				}
+	
+					.project-redirect-image {
+						width: 48px;
+						height: 48px;
+					}
+	}
+	
+	@media (max-width: 500px) {
+		#projects { grid-column: full; }
+	
+			/* .project-image { height: 30vh; } */
+	
+				.project-info {
+					padding: 0;
+				}
+	
+				.project-button { width: 100%; }	
+	}
+	
+	@media (max-width: 400px) {
+		#project-redirects { flex-direction: column; }
+	
+			.project-redirect {
+				width: 100%;
+				padding: 8.25px;
+				border-radius: var(--secondary-border-radius);
+				background-color: var(--primary);			
+			}
+	
+				.project-redirect:last-child { background-color: var(--secondary);}
+	
+			.project-seperator { display: none; }
+	}
+	</style>
+	

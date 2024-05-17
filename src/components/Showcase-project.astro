@@ -1,0 +1,216 @@
+---
+interface Props {
+	video_link: string;
+	title: string;
+	github_link: string;
+}
+
+import { Image } from "astro:assets";
+import GitHub from '@logos/github.svg';
+const { video_link, title, github_link} = Astro.props;
+---
+
+<div class="project">
+	<div class="embed-container">
+		<iframe class="project-image" width="700" height="400" src={video_link} title={title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+	</div>
+	<div class="project-info">
+		<h2 class="project-name">Combo Menu</h2>
+		<p class="project-desc">A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly.</p>
+		<div id="project-redirects">
+			<a class="project-redirect" tabindex="1" href={github_link} target="_blank">
+				<Image src={GitHub} class="project-redirect-image" alt="test"/>
+				<p class="project-redirect-text">View Code</p>
+			</a>
+		</div>					
+	</div>
+</div>
+
+<style>
+.project {
+	display: flex;
+	align-items: center;
+	gap: 25px;
+	max-width: fit-content;
+}
+
+	.project:nth-child(even) { flex-direction: row-reverse; }
+
+	.project-image {
+		width: 700px;
+		height: 400px;
+		background-color: var(--gray);
+		border-radius: var(--secondary-border-radius);
+	}
+
+		#project-redirects {
+			border-radius: var(--secondary-border-radius);
+			height: fit-content;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 25px;
+		}
+
+			.project-redirect {
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 12.5px;
+				text-decoration: none;
+			}
+
+				.project-redirect:hover > .project-redirect-image,
+				.project-redirect:focus > .project-redirect-image { 
+					filter: var(--accent-filter); 
+				}
+				
+				.project-redirect:hover > .project-redirect-text,
+				.project-redirect:focus > .project-redirect-text {
+					color: var(--accent);
+				}
+
+				.project-redirect-image {
+					width: 48px;
+					height: 48px;
+				}
+
+			.project-seperator {
+				width: 3px;
+				height: 50px;
+				background-color: var(--gray);
+				border-radius: var(--secondary-border-radius);
+			}
+
+	.project-info {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+		max-height: 400px;
+		max-width: 500px;
+		/* max-width: 50%; */
+	}
+
+		.project-info > * { width: 100%; text-align: center; }
+
+		.project-name { font-size: clamp(1.3rem, 10vw, 3rem); }
+
+		.project-languages {
+			display: flex;
+			gap: 12.5px;
+		}
+
+			.project-language {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-wrap: wrap;
+				gap: 12.5px;
+				padding: 12.5px;
+				border-radius: var(--secondary-border-radius);
+				background-color: var(--gray);
+			}
+
+				.project-language-logo {
+					width: 32px;
+					height: 32px;
+					border-radius: var(--secondary-border-radius);
+				}
+
+		.project-desc {
+			font-size: 1.1rem;
+			line-height: 2rem;
+		}
+
+@media (max-width: 1200px) {
+	.project-image {
+		width: 623px;
+		height: 356px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.project-image {
+		width: 575px;
+		height: 328px;
+	}
+}	
+
+@media (max-width: 1000px) {
+	.project {
+		flex-direction: column !important;
+		width: 100%;
+		max-width: 100%;
+		height: fit-content;
+	}
+
+		.project::after {
+			content: "";
+			width: 100%;
+			height: 3px;
+			background-color: var(--gray);
+			border-radius: var(--secondary-border-radius);
+		}
+
+			.project:last-child::after { display: none; }
+
+		.project-image {
+			width: 100%;
+			height: auto;
+		}
+
+		.embed-container {
+		    position: relative;
+		    width: 100%;
+		    padding-bottom: 56.25%; /* for 16:9 aspect ratio */
+		    height: 0;
+		}
+
+			.embed-container > .project-image {
+			    position: absolute;
+			    width: 100%;
+			    height: 100%;
+			    left: 0;
+			    top: 0;
+			}
+
+
+		.project-button { width: 50%; }
+
+		.project-info, .project-languages {
+			max-width: 95%;
+			max-height: fit-content;
+			text-align: center;
+			align-items: center;
+		}
+
+			.project-redirect-image {
+				width: 48px;
+				height: 48px;
+			}
+}
+
+@media (max-width: 500px) {
+	.project-info {
+		padding: 0;
+	}
+
+		.project-button { width: 100%; }	
+}
+
+@media (max-width: 400px) {
+	#project-redirects { flex-direction: column; }
+
+		.project-redirect {
+			width: 100%;
+			padding: 8.25px;
+			border-radius: var(--secondary-border-radius);
+			background-color: var(--primary);			
+		}
+
+			.project-redirect:last-child { background-color: var(--secondary);}
+
+		.project-seperator { display: none; }
+}
+</style>

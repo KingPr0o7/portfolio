@@ -139,7 +139,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 					translate: var(--_left, 0px) 0;
 					transform-origin: left;
 					background: var(--accent);
-					transition: scale 500ms, translate 500ms;
+					transition: scale 450ms, translate 450ms; /* Control the speed of the underline */
 					transition-delay: 100ms;
 				}
 
@@ -404,7 +404,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 		let paths = ["/about", "/projects", "/blogs"];
 		!paths.includes(pathname) ? document.querySelectorAll('.navbar-link').forEach(el => el.removeAttribute('data-toggled')) : null;
 		let toggled_tab = document.querySelector(".navbar-link[data-toggled='true']");
-	
+
 		if ((pathname === "/" || pathname === "/contact")) {
 			toggled_tab ? toggled_tab.removeAttribute("data-toggled", "true") : null;
 			if (pathname === "/contact") {
