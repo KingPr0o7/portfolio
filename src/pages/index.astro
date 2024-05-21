@@ -14,27 +14,16 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" title="Picture of Nathan Parker During High School Homecoming (Crowned)" width={750} height={750} loading="eager" />
 	</section>
 	
-	<section id="shimmering-projects">
-		<h2 id="shimmering-projects-title">What Do I Have to Prove My Efforts?</h2>
-		<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", title="The Combo Menu Project" github_link="https://github.com/KingPr0o7/Combo-Menu" />
+	<section id="showcase-projects">
+		<h2 id="showcase-projects-title">What Do I Have to Prove My Efforts?</h2>
+		<ShowcaseProject video_link="https://www.youtube.com/embed/Ou4IJQcHsRI?si=CbqDt75V0rENLho_&amp;start=923", video_title="Stoichify — The Stoichiometry Solver", project_title="Stoichify", project_desc="A Python-powered GUI application designed to solve stoichiometric equations, by breaking down each step as you would write them on a piece of paper. Stoichify is open-source and aimed at chemistry students and teachers to learn and better their experience with the daunting complexity of stoichiometry." github_link="https://github.com/KingPr0o7/Stoichify" />
+		<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", video_title="The Combo Menu Project", project_title="Combo Menu", project_desc="A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly." github_link="https://github.com/KingPr0o7/Combo-Menu" />
+		<a href="/projects">
+			<button id="projects-button" class="button">View More Projects</button>
+		</a>
 	</section>
 </Layout>
 <style>
-
-#shimmering-projects {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 50px 0;
-	gap: 50px;
-}
-
-	#shimmering-projects-title {
-		font-size: clamp(1.3rem, 2.4vw, 2.8rem);
-		font-weight: bold;
-	}
-
 #intro {
 	height: 100vh;
 	max-height: calc(1080px - 70px);
@@ -127,57 +116,20 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 					line-height: 1.5rem;
 				}
 	
-	/* "Explainer" Section Showing Off Myself (Title, Short Desc, Examples of What I do) */
-	#explainer {
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		width: 100%;
+#showcase-projects {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 50px 0;
+	gap: 50px;
+}
+
+	#showcase-projects-title {
+		font-size: clamp(1.4rem, 2.4vw, 2.8rem);
+		font-weight: bold;
+		text-align: center;
 	}
-	
-		#explainer-left {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			gap: 25px;
-			height: 100%;
-			width: 50%;
-		}
-	
-			#explainer-title {
-				font-size: clamp(1.3rem, 2.4vw, 2.8rem);
-				font-weight: bold;
-				width: 95%;
-			}
-	
-			#explainer-desc {
-				font-size: clamp(1rem, 1.5vw, 1.5rem);
-				line-height: clamp(1.2rem, 1.5vw, 1.5rem);
-				width: 75%;
-			}
-	
-			#explainer-examples {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-				width: 80%;
-				margin-left: 25px;
-			}
-	
-				.explainer-example {
-					font-size: clamp(1rem, 1.5vw, 1.5rem);
-					line-height: clamp(1rem, 1.5vw, 1.5rem);
-				}
-				
-		#explainer-image {
-			width: 100%;
-			object-fit: contain;
-			border-radius: var(--main-border-radius);
-			position: relative;
-			min-height: 250px;
-			height: clamp(250px, 30vw, 500px);
-			max-height: 500px;
-		}
 
 	
 
@@ -206,38 +158,11 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 			height: clamp(350px, 100vw, 650px); 
 		}
 
-	/* Insights */
-
-	#claims {
-		flex-wrap: wrap;
+	#showcase-projects {
+		padding: 0;
 		position: relative;
-		top: -100px;
-		flex-direction: row;
-		justify-items: center;
-		gap: 25px;
-		padding: 50px 0 0 0;
+		top: -50px;
 	}
-
-		.claim {
-			width: 400px;
-			height: fit-content;
-		}
-
-	#explainer-image { border-radius: var(--secondary-border-radius); }
-
-	/* About Page */
-
-	#about-section {
-		width: 100%;
-		padding-top: 25px;
-		gap: 25px;
-		flex-direction: column-reverse;
-		justify-content: space-evenly;
-	}
-
-		#about-left { width: 100%; }
-			#about-header { text-align: center; }
-			#about-image { border-radius: var(--secondary-border-radius); }	
 }
 
 @media (max-width: 850px) {

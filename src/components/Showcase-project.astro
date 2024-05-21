@@ -1,25 +1,27 @@
 ---
 interface Props {
 	video_link: string;
-	title: string;
+	video_title: string;
+	project_title: string;
+	project_desc: string;
 	github_link: string;
 }
 
 import { Image } from "astro:assets";
 import GitHub from '@logos/github.svg';
-const { video_link, title, github_link} = Astro.props;
+const { video_link, video_title, project_title, project_desc, github_link} = Astro.props;
 ---
 
 <div class="project">
 	<div class="embed-container">
-		<iframe class="project-image" width="700" height="400" src={video_link} title={title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+		<iframe class="project-image" width="700" height="400" src={video_link} title={video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 	</div>
 	<div class="project-info">
-		<h2 class="project-name">Combo Menu</h2>
-		<p class="project-desc">A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly.</p>
+		<h2 class="project-name">{project_title}</h2>
+		<p class="project-desc">{project_desc}</p>
 		<div id="project-redirects">
 			<a class="project-redirect" tabindex="1" href={github_link} target="_blank">
-				<Image src={GitHub} class="project-redirect-image" alt="test"/>
+				<Image src={GitHub} class="project-redirect-image" alt="GitHub Logo for Redirect to Project"/>
 				<p class="project-redirect-text">View Code</p>
 			</a>
 		</div>					
@@ -204,12 +206,9 @@ const { video_link, title, github_link} = Astro.props;
 
 		.project-redirect {
 			width: 100%;
-			padding: 8.25px;
-			border-radius: var(--secondary-border-radius);
-			background-color: var(--primary);			
+			border-radius: var(--main-border-radius);
+			background-color: var(--primary) !important;			
 		}
-
-			.project-redirect:last-child { background-color: var(--secondary);}
 
 		.project-seperator { display: none; }
 }
