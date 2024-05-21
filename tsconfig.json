@@ -5,8 +5,8 @@
     "paths": {
       "@src/*": [ "src/*" ],
       "@public/*": [ "public/*" ],
-	  "@personal/*": [ "public/personal/*" ],
       "@images/*": [ "src/images/*" ],
+	  "@personal/*": [ "src/images/personal/*" ],
       "@icons/*": [ "src/images/icons/*" ],
       "@logos/*": [ "src/images/logos/*" ],
       "@components/*": [ "src/components/*" ],
