@@ -1,7 +1,12 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Image } from "astro:assets";
+import Button from '@src/components/Button.astro';
+
 import Me from '@personal/me-no-bg.png';
+import Sunset_Cruise from "@personal/sunset-cruise.png";
+import Shades from "@personal/suit-cropped.png";
+import Amber_Cove from "@personal/amber-cove.png";
 import ShowcaseProject from '@src/components/Showcase-project.astro';
 ---
 
@@ -11,16 +16,27 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 			<span id="intro-title">A Software Developer</span>
 			<h1 id="intro-header">WORKING TOWARDS<br>BUILDING YOUR <span class="accent">DREAMS</span></h1> 
 		</div>
-		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" title="Picture of Nathan Parker During High School Homecoming (Crowned)" width={750} height={750} loading="eager" />
+		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" width={750} height={750} loading="eager" />
 	</section>
 	
 	<section id="showcase-projects">
 		<h2 id="showcase-projects-title">What Do I Have to Prove My Efforts?</h2>
 		<ShowcaseProject video_link="https://www.youtube.com/embed/Ou4IJQcHsRI?si=CbqDt75V0rENLho_&amp;start=923", video_title="Stoichify — The Stoichiometry Solver", project_title="Stoichify", project_desc="A Python-powered GUI application designed to solve stoichiometric equations, by breaking down each step as you would write them on a piece of paper. Stoichify is open-source and aimed at chemistry students and teachers to learn and better their experience with the daunting complexity of stoichiometry." github_link="https://github.com/KingPr0o7/Stoichify" />
 		<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", video_title="The Combo Menu Project", project_title="Combo Menu", project_desc="A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly." github_link="https://github.com/KingPr0o7/Combo-Menu" />
-		<a href="/projects">
-			<button id="projects-button" class="button">View More Projects</button>
-		</a>
+		<Button link="/projects" text="View All Projects" size={50}>
+	</section>
+
+	<section id="insight">
+		<div id="insight-left">
+			<h2 id="insight-title">So, Who Am I?</h2>
+			<p id="insight-desc">I am Nathan Parker, <i>commonly referred to as</i> KingPr0o7 on the World Wide Web. I'm the type of person that absolutely <b>loves</b> to tinker with the modern world of technology, and constantly trying to make the <b>next big thing</b>. </p>
+			<Button link="/about" text="Read The Whole Story" size={50}>
+		</div>
+		<div id="insight-right">
+			<Image src={Shades} class="insight-image" id="shades-image" alt="Nathan Parker during his Junior Year homecoming canidate" width={250} height={400} />
+			<Image src={Sunset_Cruise} class="insight-image" id="sunset-image" alt="Nathan Parker in the middle of the Bahamas during a sunset." width={250} height={400} />
+			<Image src={Amber_Cove} class="insight-image" id="amber-image" alt="Nathan Parker with the backdrop of Amber Cove." width={250} height={400} />
+		</div>
 	</section>
 </Layout>
 <style>
@@ -69,52 +85,6 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 		object-fit: contain;
 		mask: linear-gradient(var(--background), 80%, transparent);
 	}
-
-	/* Points that reflect who I am */
-	#insights {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-direction: column;
-		max-height: 100%;
-		gap: 75px;
-		width: 100%;
-	}
-	
-		#claims {
-			padding-top: 50px;
-			display: flex;
-			align-items: center;
-			justify-content: space-evenly;
-			width: 100%;
-			gap: 50px;
-		}
-	
-			.claim {
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-				height: 150px;
-				width: 400px;
-			}
-	
-				.claim-top {
-					display: flex;
-					align-items: center;
-					gap: 15px;
-				}
-	
-					.claim-icon {
-						width: 40px;
-						height: 40px;
-					}
-	
-					.claim-header { font-size: clamp(1.2rem, 1.5vw, 1.5rem); }
-				
-				.claim-text {
-					font-size: clamp(0.8rem, 1.5vw, 1rem);
-					line-height: 1.5rem;
-				}
 	
 #showcase-projects {
 	display: flex;
@@ -126,15 +96,60 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 }
 
 	#showcase-projects-title {
-		font-size: clamp(1.4rem, 2.4vw, 2.8rem);
+		font-size: clamp(1.4rem, 3vw, 2.8rem);
 		font-weight: bold;
 		text-align: center;
 	}
 
-	
+#insight {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 75px 0;
+}
 
-@media (max-width: 1200px) {
-	#claims { padding: 50px 25px 0 25px; }
+	#insight-left {
+		display: flex;
+		flex-direction: column;
+		gap: 25px;
+		width: 45%;
+	}
+
+		#insight-title { font-size: clamp(1.4rem, 3vw, 3.5rem) }
+		#insight-desc { font-size: clamp(1rem, 1.8vw, 1.8rem) }
+
+	#insight-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40%;
+	}
+
+		#shades-image { transform: rotate(-15deg) translateX(85px) translateY(35px) scale(0.80); }
+
+		#sunset-image {
+			z-index: 2;
+			transform: scale(1);
+			box-shadow: 20px 20px 27.5px rgba(0, 0, 0, 0.50);
+		}
+
+		#amber-image { transform: rotate(15deg) translateX(-85px) translateY(35px) scale(0.80) }
+
+@media (max-width: 1300px) {
+	#intro-section {
+		height: 65vh;
+		min-height: 65vh;
+		padding-top: 0px;
+		min-height: fit-content;
+		height: fit-content;
+	}
+
+	#intro { justify-content: space-around; }
+
+		.insight-image {
+			width: 200px;
+			height: 320px;
+		}
 }
 
 @media (max-width: 1000px) {
@@ -163,280 +178,44 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 		position: relative;
 		top: -50px;
 	}
-}
 
-@media (max-width: 850px) {
-	#explainer {
+		#showcase-projects-title { padding: 25px 0; }
+
+	#insight {
 		flex-direction: column-reverse;
-		justify-content: center;
-		align-items: center;
 		gap: 50px;
 	}
 
-		#explainer-left {
-			justify-content: flex-start;
-			align-items: center;
-			width: 100%;
-			gap: 40px;
-		}
-
-			#explainer-title { 
-				font-size: clamp(1.2rem, 4vw, 2rem);
-				width: 90%; 
-				text-align: center;
-			}
-
-			#explainer-desc { 
-				width: 80%; 
-				text-align: center;
-				font-size: clamp(1rem, 3vw, 2rem);
-				line-height: clamp(2rem, 2vw, 2.2rem);
-			}
-			
-			#explainer-examples { 
-				margin-left: 0; 
-				list-style-type: none;
-			}
-
-				#explainer-examples > li { 
-					width: 100%;
-					text-align: center;
-					font-size: clamp(1rem, 4vw, 2rem);
-				}
-
-					#explainer-examples > li::after {
-						content: "";
-						display: block;
-						width: 100%;
-						height: 2px;
-						border-radius: var(--main-border-radius);
-						background-color: var(--gray);
-						margin: 20px 0;
-					}
-
-					#explainer-examples > li:last-child::after { display: none; } /* Removes weird line at the end */
-
-	#explainer-image { height: clamp(250px, 100vw, 500px); }	
-}
-
-@media (max-width: 380px) {
-	#explainer-examples, #explainer-header, #explainer-desc { width: 100%; }
-}
-
-@media (min-height: 1300px) {
-	#claims { display: flex; }
-
-	#intro-section {
-		height: 65vh;
-		min-height: 65vh;
-		padding-top: 0px;
-		min-height: fit-content;
-		height: fit-content;
+	#insight-left {
+		width: 80%;
+		align-items: center;
 	}
 
-	#intro { justify-content: space-around; }
+		#insight-desc { text-align: center }
+}
+
+@media (max-width: 500px) {
+	.insight-image {
+		width: 175px;
+		height: 280px;
+	}
+}
+
+@media (max-width: 400px) {
+	.insight-image {
+		width: 150px;
+		height: 240px;
+	}
+
+	#insight-left {
+		width: 100%;
+	}
+}
+
+@media (max-width: 300px) {
+	.insight-image {
+		width: 125px;
+		height: 200px;
+	}
 }
 </style>
-<style is:global>
-	#projects {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		gap: 50px;
-	}
-	
-		.project {
-			display: flex;
-			align-items: center;
-			gap: 25px;
-			max-width: fit-content;
-		}
-	
-			.project:nth-child(even) { flex-direction: row-reverse; }
-	
-			.project-image {
-				width: 700px;
-				height: 400px;
-				background-color: var(--gray);
-				border-radius: var(--secondary-border-radius);
-			}
-	
-				#project-redirects {
-					border-radius: var(--secondary-border-radius);
-					height: fit-content;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					gap: 25px;
-				}
-	
-					.project-redirect {
-						cursor: pointer;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						gap: 12.5px;
-						text-decoration: none;
-					}
-	
-						.project-redirect:hover > .project-redirect-image,
-						.project-redirect:focus > .project-redirect-image { 
-							filter: var(--accent-filter); 
-						}
-					
-						.project-redirect:hover > .project-redirect-text,
-						.project-redirect:focus > .project-redirect-text {
-							color: var(--accent);
-						}
-	
-						.project-redirect-image {
-							width: 48px;
-							height: 48px;
-						}
-	
-					.project-seperator {
-						width: 3px;
-						height: 50px;
-						background-color: var(--gray);
-						border-radius: var(--secondary-border-radius);
-					}
-	
-			.project-info {
-				display: flex;
-				flex-direction: column;
-				gap: 25px;
-				max-height: 400px;
-				max-width: 500px;
-				/* max-width: 50%; */
-			}
-	
-				.project-info > * { width: 100%; text-align: center; }
-	
-				.project-name { font-size: clamp(1.3rem, 10vw, 3rem); }
-	
-				.project-languages {
-					display: flex;
-					gap: 12.5px;
-				}
-	
-					.project-language {
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						flex-wrap: wrap;
-						gap: 12.5px;
-						padding: 12.5px;
-						border-radius: var(--secondary-border-radius);
-						background-color: var(--gray);
-					}
-	
-						.project-language-logo {
-							width: 32px;
-							height: 32px;
-							border-radius: var(--secondary-border-radius);
-						}
-	
-				.project-desc {
-					font-size: 1.1rem;
-					line-height: 2rem;
-				}
-	
-	@media (max-width: 1200px) {
-		.project-image {
-			width: 623px;
-			height: 356px;
-		}
-	}
-	
-	@media (max-width: 1100px) {
-		.project-image {
-			width: 575px;
-			height: 328px;
-		}
-	}
-	
-	@media (max-width: 1000px) {
-		#projects { padding-top: 25px; }
-	
-			.project {
-				flex-direction: column !important;
-				width: 100%;
-				max-width: 100%;
-				height: fit-content;
-			}
-	
-				.project::after {
-					content: "";
-					width: 100%;
-					height: 3px;
-					background-color: var(--gray);
-					border-radius: var(--secondary-border-radius);
-				}
-	
-					.project:last-child::after { display: none; }
-	
-				.project-image {
-					width: 100%;
-					height: auto;
-				}
-	
-				.embed-container {
-					position: relative;
-					width: 100%;
-					padding-bottom: 56.25%; /* for 16:9 aspect ratio */
-					height: 0;
-				}
-	
-					.embed-container > .project-image {
-						position: absolute;
-						width: 100%;
-						height: 100%;
-						left: 0;
-						top: 0;
-					}
-	
-	
-				.project-button { width: 50%; }
-	
-				.project-info, .project-languages {
-					max-width: 95%;
-					max-height: fit-content;
-					text-align: center;
-					align-items: center;
-				}
-	
-					.project-redirect-image {
-						width: 48px;
-						height: 48px;
-					}
-	}
-	
-	@media (max-width: 500px) {
-		#projects { grid-column: full; }
-	
-			/* .project-image { height: 30vh; } */
-	
-				.project-info {
-					padding: 0;
-				}
-	
-				.project-button { width: 100%; }	
-	}
-	
-	@media (max-width: 400px) {
-		#project-redirects { flex-direction: column; }
-	
-			.project-redirect {
-				width: 100%;
-				padding: 8.25px;
-				border-radius: var(--secondary-border-radius);
-				background-color: var(--primary);			
-			}
-	
-				.project-redirect:last-child { background-color: var(--secondary);}
-	
-			.project-seperator { display: none; }
-	}
-	</style>
-	

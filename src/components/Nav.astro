@@ -1,5 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import Button from "./Button.astro";
+
 import Logo from "@images/branding/ncp_icon_white.png"
 import About_Icon from "@images/icons/about.svg"
 import Project_Icon from "@images/icons/project.svg"
@@ -41,8 +43,8 @@ import Blog_Icon from "@images/icons/blog.svg";
 			</div>
 		</div>
 		<div class="navbar-right">
-			<a class="button" href="/contact">Contact</a>
-		</div>
+			<Button link="/contact" text="Contact" size={20} />
+		</div> 
 	</div>
 </nav>
 
@@ -97,6 +99,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 			height: 100%;
 			width: fit-content;
 			overflow: visible;
+			padding-left: 48px;
 		}
 
 			.navbar-link { 
@@ -250,6 +253,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 			.navbar-middle {
 				justify-content: space-around;
 				width: 100%;
+				padding-left: 0;
 				gap: 0;
 			}
 

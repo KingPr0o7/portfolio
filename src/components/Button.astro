@@ -1,0 +1,30 @@
+---
+interface Props {
+	link: string;
+	text: string;
+	size: number;
+}
+
+const { link, text, size } = Astro.props;
+const padding_size = `${size}px`
+---
+
+<a href={link}>
+	<button class="button">{text}</button>
+</a>
+
+<style define:vars={{ padding_size }}>
+	.button {
+		border: none;
+		border-radius: var(--main-border-radius);
+		padding: 10px var(--padding_size);
+		background-color: var(--primary);
+		color: var(--text);
+		font-size: clamp(1rem, 2vw, 1.2rem);
+		cursor: pointer;
+		text-decoration: none;
+		width: fit-content;
+	}
+
+		.button:hover { background-color: var(--primary-hover); }	
+</style>
