@@ -5,11 +5,13 @@ interface Props {
 	project_title: string;
 	project_desc: string;
 	github_link: string;
+	website_link?: string;
 }
 
 import { Image } from "astro:assets";
 import GitHub from '@logos/github.svg';
-const { video_link, video_title, project_title, project_desc, github_link} = Astro.props;
+import Redirect from '@icons/redirect.svg';
+const { video_link, video_title, project_title, project_desc, github_link, website_link } = Astro.props;
 ---
 
 <div class="project">
@@ -20,6 +22,12 @@ const { video_link, video_title, project_title, project_desc, github_link} = Ast
 		<h2 class="project-name">{project_title}</h2>
 		<p class="project-desc">{project_desc}</p>
 		<div id="project-redirects">
+			{website_link && (
+				<a class="project-redirect" tabindex="2" href={website_link} target="_blank">
+					<Image src={Redirect} class="project-redirect-image" alt="Redirect Icon to Project"/>
+					<p class="project-redirect-text">Live Preview</p>
+				</a>
+			)}
 			<a class="project-redirect" tabindex="1" href={github_link} target="_blank">
 				<Image src={GitHub} class="project-redirect-image" alt="GitHub Logo for Redirect to Project"/>
 				<p class="project-redirect-text">View Code</p>
