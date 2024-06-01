@@ -38,8 +38,58 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 			<Image src={Amber_Cove} class="insight-image" id="amber-image" alt="Nathan Parker with the backdrop of Amber Cove." width={250} height={400} />
 		</div>
 	</section>
+
+	<section id="quotes">
+		<h2 id="showcase-projects-title">How Are My Efforts Perceived?</h2>
+		<div id="quotes-wrapper">
+			<div class="quote">
+				<p>"Nathan is a very talented developer who has a passion for learning and creating. He is always looking for ways to improve his skills and is a great team player. I would highly recommend him for any project."</p>
+				<span><b>John Doe</b>, CEO of Example Company</span>
+			</div>
+		</div>
+	</section>
 </Layout>
 <style>
+#quotes {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 50px 0;
+	gap: 50px;
+}
+
+	#quotes-title {
+		font-size: clamp(1.4rem, 3vw, 2.8rem);
+		font-weight: bold;
+		text-align: center;
+	}
+
+	#quotes-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 25px;
+	}
+
+		.quote {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 10px;
+			padding: 25px;
+			outline: 2px solid var(--gray);
+			border-radius: var(--secondary-border-radius);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+			width: 100%;
+			max-width: 900px;
+		}
+
+			.quote p { font-size: clamp(1rem, 2vw, 1.8rem) }
+			.quote span { font-size: clamp(0.8rem, 1.6vw, 1.4rem) }
+
 #intro {
 	height: 100vh;
 	max-height: calc(1080px - 70px);
@@ -105,7 +155,7 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	padding: 75px 0;
+	padding: 50px 0;
 }
 
 	#insight-left {
