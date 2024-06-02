@@ -57,6 +57,7 @@ const animation = {
 };
 
 import { ViewTransitions } from 'astro:transitions';
+import BrakePad from 'astro-vtbot/components/BrakePad.astro'
 import { adapter } from 'astro-vtbot/animations/animation-style';
 import { AstroFont } from "astro-font";
 import '@src/config.css';
@@ -140,6 +141,7 @@ const handle = '@KingPr0o7';
 		<!-- Astro -->
 		<meta name="generator" content={Astro.generator} />
 		<ViewTransitions fallback="swap" />
+		<BrakePad duration={10000}/>
 		<PageOffset name="main" />
 
 		<script is:inline>
@@ -170,11 +172,16 @@ const handle = '@KingPr0o7';
 		let previousPageIndex = pageOrder.indexOf(e.from.pathname);
 
 		currentPageIndex < previousPageIndex ? e.direction = 'backward' : e.direction = 'forward';
+		sessionStorage.setItem('direction', e.direction);
 		currentPageIndex === -1 || previousPageIndex === -1 ? e.direction = 'fade' : 'forward';
 	});
 </script>
-
 <style is:inline>
+/* Sorry Martin! */
+#vtbot-loading-indicator {
+	display: none;
+}
+
 main {
 	display: grid;
 	grid-template-columns: /* Credit to: Kevin Powell (Credits Page) */
