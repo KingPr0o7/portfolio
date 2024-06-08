@@ -1,19 +1,20 @@
 {
-  "extends": "astro/tsconfigs/base",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@src/*": [ "src/*" ],
-      "@public/*": [ "public/*" ],
-      "@images/*": [ "src/images/*" ],
-	  "@personal/*": [ "src/images/personal/*" ],
-      "@icons/*": [ "src/images/icons/*" ],
-      "@logos/*": [ "src/images/logos/*" ],
-      "@components/*": [ "src/components/*" ],
-      "@layouts/*": [ "src/layouts/*" ],
-      "@pages/*": [ "src/pages/*" ]
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+	"extends": "astro/tsconfigs/base",
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"@src/*": [ "src/*" ],
+			"@public/*": [ "public/*" ],
+			"@images/*": [ "src/images/*" ],
+			"@personal/*": [ "src/images/personal/*" ],
+			"@people/*": [ "src/images/people/*" ],
+			"@icons/*": [ "src/images/icons/*" ],
+			"@logos/*": [ "src/images/logos/*" ],
+			"@components/*": [ "src/components/*" ],
+			"@layouts/*": [ "src/layouts/*" ],
+			"@pages/*": [ "src/pages/*" ]
+		},
+	"jsx": "react-jsx",
+	"jsxImportSource": "react"
+	}
 }

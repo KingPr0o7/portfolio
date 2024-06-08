@@ -4,10 +4,13 @@ import { Image } from "astro:assets";
 import Button from '@src/components/Button.astro';
 
 import Me from '@personal/me-no-bg.png';
+import Ryan from "@people/ryan_russell.png";
+import Talon from "@people/talon_nicholson.png";
 import Sunset_Cruise from "@personal/sunset-cruise.png";
 import Shades from "@personal/suit-cropped.png";
 import Amber_Cove from "@personal/amber-cove.png";
 import ShowcaseProject from '@src/components/Showcase-project.astro';
+import Quote from '@src/components/Quote.astro';
 ---
 
 <Layout title="Nathan Parker" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp">
@@ -19,11 +22,13 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" width={750} height={750} loading="eager" />
 	</section>
 	
-	<section id="showcase-projects">
-		<h2 id="showcase-projects-title">What Do I Have to Prove My Efforts?</h2>
-		<ShowcaseProject video_link="https://www.youtube.com/embed/Ou4IJQcHsRI?si=CbqDt75V0rENLho_&amp;start=923", video_title="Stoichify — The Stoichiometry Solver", project_title="Stoichify", project_desc="A Python-powered GUI application designed to solve stoichiometric equations, by breaking down each step as you would write them on a piece of paper. Stoichify is open-source and aimed at chemistry students and teachers to learn and better their experience with the daunting complexity of stoichiometry." github_link="https://github.com/KingPr0o7/Stoichify" />
-		<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", video_title="The Combo Menu Project", project_title="Combo Menu", project_desc="A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly." website_link="https://combo-menu.vercel.app/" github_link="https://github.com/KingPr0o7/Combo-Menu" />
-		<Button link="/projects" text="View All Projects" size={50}>
+	<section id="projects-showcase">
+		<h2 id="projects-showcase-title">What Do I Have to Prove My Efforts?</h2>
+		<div id="projects">
+			<ShowcaseProject video_link="https://www.youtube.com/embed/Ou4IJQcHsRI?si=CbqDt75V0rENLho_&amp;start=923", video_title="Stoichify — The Stoichiometry Solver", project_title="Stoichify", project_desc="A Python-powered GUI application designed to solve stoichiometric equations, by breaking down each step as you would write them on a piece of paper. Stoichify is open-source and aimed at chemistry students and teachers to learn and better their experience with the daunting complexity of stoichiometry." github_link="https://github.com/KingPr0o7/Stoichify" />
+			<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", video_title="The Combo Menu Project", project_title="Combo Menu", project_desc="A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly." website_link="https://combo-menu.vercel.app/" github_link="https://github.com/KingPr0o7/Combo-Menu" />
+			<Button link="/projects" text="View All Projects" size={50}>
+		</div>
 	</section>
 
 	<section id="insight">
@@ -39,57 +44,15 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 		</div>
 	</section>
 
-	<section id="quotes">
-		<h2 id="showcase-projects-title">How Are My Efforts Perceived?</h2>
-		<div id="quotes-wrapper">
-			<div class="quote">
-				<p>"Nathan is a very talented developer who has a passion for learning and creating. He is always looking for ways to improve his skills and is a great team player. I would highly recommend him for any project."</p>
-				<span><b>John Doe</b>, CEO of Example Company</span>
-			</div>
+	<section id="testimonials">
+		<h2 id="testimonials-header">How Are My Efforts Perceived?</h2>
+		<div id="quotes">
+			<Quote portrait={Ryan} name="S. Ryan Russell" top_credientials="Master of Information Technology" quote="Nathan is one of the hardest working and creative software development students that I have seen. His computing logic, database, website and software development projects were always a magnitude higher than required for the courses, but still worked and looked professional to boot. I look forward to his eventual successful software startup someday." />
+			<Quote portrait={Talon} name="Talon Nicholson" top_credientials="Former Colleague" quote="As a former colleague, and a long-standing personal acquaintance, I can confidently say that Nathan doesn't just code applications, but crafts experiences. If you're seeking a developer who can combine technical expertise with visionary thinking, you've found your guy!" />
 		</div>
 	</section>
 </Layout>
 <style>
-#quotes {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 50px 0;
-	gap: 50px;
-}
-
-	#quotes-title {
-		font-size: clamp(1.4rem, 3vw, 2.8rem);
-		font-weight: bold;
-		text-align: center;
-	}
-
-	#quotes-wrapper {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		gap: 25px;
-	}
-
-		.quote {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			gap: 10px;
-			padding: 25px;
-			outline: 2px solid var(--gray);
-			border-radius: var(--secondary-border-radius);
-			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
-			width: 100%;
-			max-width: 900px;
-		}
-
-			.quote p { font-size: clamp(1rem, 2vw, 1.8rem) }
-			.quote span { font-size: clamp(0.8rem, 1.6vw, 1.4rem) }
-
 #intro {
 	height: 100vh;
 	max-height: calc(1080px - 70px);
@@ -135,20 +98,20 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 		object-fit: contain;
 		mask: linear-gradient(var(--background), 80%, transparent);
 	}
-	
-#showcase-projects {
+
+#projects {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 50px 0;
 	gap: 50px;
 }
 
-	#showcase-projects-title {
+	#projects-showcase-title {
 		font-size: clamp(1.4rem, 3vw, 2.8rem);
 		font-weight: bold;
 		text-align: center;
+		padding: 50px 0;
 	}
 
 #insight {
@@ -185,6 +148,21 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 
 		#amber-image { transform: rotate(15deg) translateX(-85px) translateY(35px) scale(0.80) }
 
+#quotes {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 50px;
+}
+
+	#testimonials-header {
+		font-size: clamp(1.4rem, 3vw, 2.8rem);
+		font-weight: bold;
+		text-align: center;
+		padding: 50px 0;
+	}
+
 @media (max-width: 1300px) {
 	#intro-section {
 		height: 65vh;
@@ -203,6 +181,11 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 }
 
 @media (max-width: 1000px) {
+	#projects-showcase, #insight, #testimonials {
+		position: relative;
+		top: -100px;	
+	}
+
 	#intro {
 		padding-top: 25px;
 		flex-direction: column-reverse;
@@ -242,6 +225,10 @@ import ShowcaseProject from '@src/components/Showcase-project.astro';
 	}
 
 		#insight-desc { text-align: center }
+
+	#testimonials-header {
+		padding: 25px 0
+	}
 }
 
 @media (max-width: 500px) {

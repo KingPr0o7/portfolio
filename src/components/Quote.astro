@@ -1,0 +1,194 @@
+---
+interface Props {
+  portrait: ImageMetadata;
+  name: string;
+  top_credientials: string;
+  quote: string;
+}
+
+const { portrait, name, top_credientials, quote } = Astro.props;
+
+import { Image } from "astro:assets";
+---
+
+<div class="quote">
+	<div class="quote-person-wrapper">
+		<Image src={portrait} class="quote-person" alt={name} width={256} height={256} />	
+		<span class="quoation-mark">❞</span>
+		<span class="quote-author-alt"><b>{name}</b>, {top_credientials}</span>
+	</div>
+	<div class="quote-bubble">
+		<p class="quote-author"><b>{name}</b>, {top_credientials}</p>
+		<p class="quote-text">{quote}</p>
+	</div>
+</div>
+
+<style>
+.quote {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: 50px;
+	min-height: 300px;
+}
+
+	.quote-person-wrapper { position: relative; }
+
+		.quote-author-alt { display: none; }
+
+		.quote-person,
+		.quoation-mark {
+			margin-top: 15px;
+		}
+
+		.quote-person { 
+			border-radius: 50%; 
+			width: 256px;
+			height: 256px;
+		}
+
+		.quoation-mark {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 50px;
+			height: 50px;
+			padding: 30px;
+			top: 0;
+			right: 0;
+			font-size: 1.5rem;
+			background-color: var(--secondary);
+			border-radius: var(--main-border-radius);
+		}
+
+	.quote-bubble {
+		display: flex;
+		flex-direction: column;
+		gap: 12.5px;
+	}
+
+		.quote-author {
+			font-size: clamp(1rem, 2.4vw, 1.5rem);
+			padding: 0 12.5px;
+		}
+
+		.quote-text {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 10px;
+			padding: 25px;
+			background-color: var(--secondary);
+			border-radius: var(--secondary-border-radius);
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+			width: 100%;
+			max-width: 1000px;
+			font-size: clamp(1rem, 2vw, 1.8rem);
+		}
+
+			.quote-text::before {
+				content: ' ';
+				position: absolute;
+				width: 0;
+				height: 0;
+				left: -25px;
+				right: auto;
+				top: 0;
+				bottom: auto;
+				border: 25px solid;
+				border-color: var(--secondary) transparent transparent transparent;
+			}
+
+@media (max-width: 1300px) {
+	.quote {
+		align-items: flex-start;
+		min-height: fit-content;
+	}
+
+	.quote-person, 
+	.quoation-mark {
+		margin-top: 25px;
+	}
+
+	.quote-person {
+		width: 150px;
+		height: 150px;
+	}
+
+	.quoation-mark {
+		width: 40px;
+		height: 40px;
+		padding: 20px;
+		font-size: 1.25rem;
+	}
+}
+
+@media (max-width: 700px) {
+	.quote {
+		flex-direction: column-reverse;
+		gap: 25px;
+	}
+
+	.quote-person-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 25px;
+	}
+
+	.quote-author-alt {
+		display: inline !important;
+	}
+
+	.quote-author {
+		display: none;
+	}
+
+	.quote-person {
+		width: 72px;
+		height: 72px;
+		margin-top: 0;
+	}
+
+	.quoation-mark {
+		margin-top: 0;
+		left: calc(40px + 12.5px);
+		width: 24px;
+		height: 24px;
+		padding: 12.5px;
+		font-size: 1rem;
+	}
+
+	.quote-bubble {
+		flex-direction: column-reverse;
+	}
+
+		.quote-text::before {
+			border: 20px solid;
+			left: 70px;
+			top: calc(100% - 20px);
+			border-color: transparent transparent transparent var(--secondary);
+		}
+}
+
+@media (max-width: 400px) {
+	.quote-person {
+		width: 48px;
+		height: 48px;
+	}
+
+	.quoation-mark {
+		left: 35px;	
+		width: 24px;
+		height: 24px;
+		padding: 10px;
+	}
+
+	.quote-text::before {
+		left: 50px;
+	}
+}
+
+</style>
