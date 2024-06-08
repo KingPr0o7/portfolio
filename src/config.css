@@ -75,14 +75,6 @@
 	animation: glow_appear 1s 2.25s ease-in-out forwards;
 }
 
-.link, .blog-content a {
-	text-decoration-line: underline;
-	-webkit-text-decoration-line: underline;
-	text-decoration-color: var(--accent);
-	text-decoration-thickness: 0.15em;
-	-webkit-text-decoration-color: var(--accent);
-}
-
 @keyframes glow_appear {
 	0% { text-shadow: 0 0 0px var(--accent); }
 	100% { text-shadow: 0 0 50px var(--accent); }	

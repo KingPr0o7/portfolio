@@ -1,0 +1,20 @@
+---
+interface Props {
+	href: string;
+	text: string;
+}
+
+const { href, text } = Astro.props;
+---
+
+<a class="link" href={href}>{text}</a>
+
+<style>
+.link, .blog-content a {
+	text-decoration-line: underline;
+	-webkit-text-decoration-line: underline;
+	text-decoration-color: var(--accent);
+	text-decoration-thickness: 0.15em;
+	-webkit-text-decoration-color: var(--accent);
+}
+</style>
