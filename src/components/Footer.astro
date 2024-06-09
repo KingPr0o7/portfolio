@@ -8,18 +8,9 @@ import Twitter from "@images/logos/x.svg"
 
 const date = new Date();
 const year = date.getFullYear();
-
-let url = Astro.url.pathname === '/';
 ---
 
 <footer>
-	{url && 
-		<div class="footer-resume">
-			<h2 class="footer-resume-attention">Wanna cut to the chase?</h2>
-			<a class="button" href="" target="_blank">View My Resume</a>
-		</div>
-	}
-
 	<div class="footer-inner">
 		<div class="footer-left">
 			<div class="footer-left-top">
@@ -43,6 +34,7 @@ let url = Astro.url.pathname === '/';
 			<div class="footer-section">
 				<h2 class="footer-section-header">Other</h2>
 				<a class="footer-link" href="/test">Credits</a>
+				<a class="footer-link" href="/test">Privacy</a>
 			</div>
 
 			<div class="footer-section">
@@ -82,37 +74,20 @@ footer {
 	align-items: center;
 	flex-direction: column;
 	height: fit-content;
-	background-color: var(--gray);
+	/* background-color: var(--gray); */
 	border-radius: var(--secondary-border-radius) var(--secondary-border-radius) 0 0;
 }
 
-	footer:has(.footer-resume) { 
-		padding-top: 100px; 
-		margin-top: 150px;
-	}
-
-	.footer-resume {
+	footer::before {
+		background: radial-gradient(50% 100% at 50% 100%, var(--gray) 50%, var(--background) 120%); /* Change from transparent to var(--background) to change loading indicator disappearing behavior*/
+		top: 0;
+		content: "";
+		height: 2px;
 		position: absolute;
-		display: flex;
-		align-items: center;
-		justify-content: space-around;
-		padding: 25px;
-		top: 0px;
-		transform: translate(0%, -50%);
-		width: 55%;
-		height: 100px;
-		background-color: var(--secondary);
-		border-radius: var(--secondary-border-radius);
+		width: 100%;
+		max-width: var(--max-width);    
+		transition: height 250ms ease;
 	}
-
-		.footer-resume-attention {
-			font-size: clamp(1.5rem, 2vw, 2.3rem);
-		}
-
-		.footer-resume .button {
-			background: none;
-			border: 2px solid var(--text);
-		}
 
 	.footer-inner {
 		display: flex;
@@ -207,8 +182,6 @@ footer {
 		
 @media (max-width: 1000px) {
 	/* Footer */
-	.footer-resume { width: 90%; }
-
 	.footer-inner {
 		flex-direction: column;
 		gap: 50px;
@@ -240,19 +213,8 @@ footer {
 			flex-wrap: wrap;
 		}
 
-			.footer-section { gap: 25px; }
-}
-
-@media (max-width: 600px) {
-	footer:has(.footer-resume) { padding-top: 125px; }
-
-	.footer-resume { 
-		flex-direction: column; 
-		justify-content: center;
-		gap: 25px;
-		height: fit-content;
-		text-align: center;
-	}
+			.footer-section { gap: 50px; }
+			.footer-socials { gap: 50px; }
 }
 
 @media (max-width: 500px) {

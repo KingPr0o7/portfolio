@@ -188,6 +188,7 @@ import EmailForm from '@src/components/Email-form';
 
 @media (max-width: 1000px) {
 	#contact-section {
+		padding-bottom: 25px;
 		justify-content: center;
 		flex-direction: column;
 		min-height: 100vh;
@@ -207,6 +208,7 @@ import EmailForm from '@src/components/Email-form';
 	#contact-divider { display: none; }
 
 	#contact-right { width: 80%; }
+		/* #contact-form { gap: 30px; } */
 
 		#contact-socials {
 			display: flex;
@@ -229,6 +231,10 @@ import EmailForm from '@src/components/Email-form';
 }
 
 /* Other sizing adjustments */
+@media (max-height: 800px) {
+	#contact-section { padding-top: 25px; }
+}
+
 @media (max-width: 600px) {
 	#contact-description { width: 100%; }
 }

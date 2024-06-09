@@ -69,8 +69,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 	align-items: center;
 	width: 100%;
 	height: 70px;
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
+	background-color: var(--background);
 }
 
 	/* Remove blur when navlist is open */
@@ -220,7 +219,7 @@ import Blog_Icon from "@images/icons/blog.svg";
 
   	/* Navbar Line */
 	nav::after {
-		background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%, transparent 100%); /* Change from transparent to var(--background) to change loading indicator disappearing behavior*/
+		background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%, var(--background) 100%); /* Change from transparent to var(--background) to change loading indicator disappearing behavior*/
 		bottom: 0;
 		content: "";
 		height: 2px;
@@ -262,6 +261,10 @@ import Blog_Icon from "@images/icons/blog.svg";
 			padding: 0;
 			width: 100%;
 		}
+
+			nav::after {
+				background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%, var(--gray) 100%) !important;
+			}
 
 			.navbar-container::after { top: 0; }
 			.navbar-left { display: none; }

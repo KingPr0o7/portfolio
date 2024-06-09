@@ -186,12 +186,13 @@ const { video_link, video_title, project_title, project_desc, github_link, websi
 
 		.project-button { width: 50%; }
 
-		.project-info, .project-languages {
+		.project-info {
 			max-width: 95%;
 			max-height: fit-content;
-			text-align: center;
 			align-items: center;
 		}
+
+			.project-info > * { width: 100%; text-align: left; }
 
 			.project-redirect-image {
 				width: 48px;
@@ -213,7 +214,7 @@ const { video_link, video_title, project_title, project_desc, github_link, websi
 		.project-redirect {
 			width: 100%;
 			border-radius: var(--main-border-radius);
-			background-color: var(--primary) !important;			
+			background-color: var(--secondary) !important;			
 		}
 
 		.project-seperator { display: none; }
