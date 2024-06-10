@@ -86,7 +86,7 @@ const EmailForm = () => {
 		<form id="contact-form" onSubmit={handleSubmit}>
 			<div className="contact-input">
 				<label className="form-label">What's your name? <span className="form-star">*</span></label>
-				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder="Officer K" name="name" required />
+				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder='Officer K, "Joe"' name="name" required />
 			</div>
 
 			<div className="contact-input">

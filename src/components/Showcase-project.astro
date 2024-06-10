@@ -9,8 +9,7 @@ interface Props {
 }
 
 import { Image } from "astro:assets";
-import GitHub from '@logos/github.svg';
-import Redirect from '@icons/redirect.svg';
+import { Icon } from 'astro-icon/components'
 const { video_link, video_title, project_title, project_desc, github_link, website_link } = Astro.props;
 ---
 
@@ -24,12 +23,12 @@ const { video_link, video_title, project_title, project_desc, github_link, websi
 		<div id="project-redirects">
 			{website_link && (
 				<a class="project-redirect" tabindex="2" href={website_link} target="_blank">
-					<Image src={Redirect} class="project-redirect-image" alt="Redirect Icon to Project"/>
+					<Icon name="redirect" class="project-redirect-image" />
 					<p class="project-redirect-text">Live Preview</p>
 				</a>
 			)}
 			<a class="project-redirect" tabindex="1" href={github_link} target="_blank">
-				<Image src={GitHub} class="project-redirect-image" alt="GitHub Logo for Redirect to Project"/>
+				<Icon name="github" class="project-redirect-image" />
 				<p class="project-redirect-text">View Code</p>
 			</a>
 		</div>					
@@ -73,7 +72,7 @@ const { video_link, video_title, project_title, project_desc, github_link, websi
 
 				.project-redirect:hover > .project-redirect-image,
 				.project-redirect:focus > .project-redirect-image { 
-					filter: var(--accent-filter); 
+					color: var(--accent); 
 				}
 				
 				.project-redirect:hover > .project-redirect-text,

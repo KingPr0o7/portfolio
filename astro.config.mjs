@@ -5,6 +5,8 @@ import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import vtbot from "astro-vtbot";
 
+import icon from "astro-icon";
+
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
@@ -21,7 +23,9 @@ export default defineConfig({
     },
     imageService: true
   }),
-  integrations: [metaTags(), mdx(), vtbot(), react()],
+  integrations: [metaTags(), mdx(), vtbot(), react(), icon({
+	iconDir: "src/images/icons",
+  })],
   build: {
     trailingSlash: 'never'
   }

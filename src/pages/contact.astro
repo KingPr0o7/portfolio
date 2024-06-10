@@ -1,10 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
-import LinkedIn from '@logos/linkedin.svg';
-import Discord from '@logos/discord.svg';
-import GitHub from '@logos/github.svg';
-import Twitter from '@logos/x.svg';
+import { Icon } from 'astro-icon/components';
 import EmailForm from '@src/components/Email-form';
 ---
 
@@ -15,22 +12,22 @@ import EmailForm from '@src/components/Email-form';
 			<p id="contact-description">I'm always open to new opportunities and collaborations. Feel free to reach out to me!</p>			
 			<div id="contact-socials">
 				<a class="contact-social" href="https://www.linkedin.com/in/nathanparker07/">
-					<Image src={LinkedIn} class="contact-social-logo" alt="LinkedIn's Logo" width={48} height={48} />
+					<Icon name="linkedin" class="contact-social-logo" width={48} height={48} />
 					<p class="contact-social-name">@nathanparker07</p>
 				</a>
 	
 				<a class="contact-social" href="https://discord.gg/ksW8rAcU6t">
-					<Image src={Discord} class="contact-social-logo" alt="Discord's Logo" width={48} height={48} />
+					<Icon name="discord" class="contact-social-logo" width={48} height={48} />
 					<p class="contact-social-name">@kingpr0o7</p>
 				</a>
 	
 				<a class="contact-social" href="https://github.com/KingPr0o7">
-					<Image src={GitHub} class="contact-social-logo" alt="GitHub's Logo" width={48} height={48} />
+					<Icon name="github" class="contact-social-logo" width={48} height={48} />
 					<p class="contact-social-name">@kingpr0o7</p>
 				</a>
 	
 				<a class="contact-social" href="https://twitter.com/KingPr0o7">
-					<Image src={Twitter} class="contact-social-logo" alt="Twitter's (X's) Logo" width={48} height={48} />
+					<Icon name="twitter" class="contact-social-logo" width={48} height={48} />
 					<p class="contact-social-name">@kingpr0o7</p>
 				</a>
 			</div>
@@ -88,6 +85,7 @@ import EmailForm from '@src/components/Email-form';
 					outline: 5px solid var(--secondary);
 					width: 48px;
 					height: 48px;
+					color: var(--text);
 				}
 		
 				.contact-social-name { font-size: clamp(0.8rem, 1.7vw, 1.5rem); }

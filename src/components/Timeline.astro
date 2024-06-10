@@ -12,60 +12,52 @@ import Arrow_Right from "@icons/arrow-right.svg";
 
 
 <div id="timeline">
-	<div id="timespan">
-		<button class="moment">
-			<div class="moment-year">
-				<p>2012</p>
-				<div class="moment-circle"></div>
-			</div>
-		</button>
-
-		<div class="moment-line"></div>
-
-		<button class="moment">
-			<div class="moment-year">
-				<p>2015</p>
-				<div class="moment-circle"></div>
-			</div>
-		</button>
-
-		<div class="moment-line"></div>
-
-		<button class="moment">
-			<div class="moment-year">
-				<p>2018</p>
-				<div class="moment-circle"></div>
-			</div>
-		</button>
-
-		<div class="moment-line"></div>
-
-		<button class="moment">
-			<div class="moment-year">
-				<p>2021</p>
-				<div class="moment-circle"></div>
-			</div>
-		</button>
-
-		<div class="moment-line"></div>
-
-		<button class="moment">
-			<div class="moment-year">
-				<p>2023</p>
-				<div class="moment-circle"></div>
-			</div>
-		</button>
-	</div>
-
-	<div id="mobile-timespan">
+	<div id="timespan-wrapper">
 		<button class="timespan-control" id="timespan-back"><Image src={Arrow_Left} alt="Arrow Left" width={32} height={32} /></button>
-		<span id="timespan-years">
-			<p class="timespan-year">2012</p>
-			<p class="timespan-year">2015</p>
-			<p class="timespan-year">2018</p>
-			<p class="timespan-year">2021</p>
-			<p class="timespan-year">2023</p>
-		</span>
+		<div id="timespan">
+			<button class="moment">
+				<div class="moment-year">
+					<p>2012</p>
+					<div class="moment-circle"></div>
+				</div>
+			</button>
+	
+			<div class="moment-line"></div>
+	
+			<button class="moment">
+				<div class="moment-year">
+					<p>2015</p>
+					<div class="moment-circle"></div>
+				</div>
+			</button>
+	
+			<div class="moment-line"></div>
+	
+			<button class="moment">
+				<div class="moment-year">
+					<p>2018</p>
+					<div class="moment-circle"></div>
+				</div>
+			</button>
+	
+			<div class="moment-line"></div>
+	
+			<button class="moment">
+				<div class="moment-year">
+					<p>2021</p>
+					<div class="moment-circle"></div>
+				</div>
+			</button>
+	
+			<div class="moment-line"></div>
+	
+			<button class="moment">
+				<div class="moment-year">
+					<p>2023</p>
+					<div class="moment-circle"></div>
+				</div>
+			</button>
+		</div>
 		<button class="timespan-control" id="timespan-forward"><Image src={Arrow_Right} alt="Arrow Right" width={32} height={32} /></button>
 	</div>
 
@@ -120,96 +112,15 @@ import Arrow_Right from "@icons/arrow-right.svg";
 	overflow: hidden;
 }
 
-	/* Enable the below comments to fix the outline error if people want it, you're welcome future Nathan :) */
-	#timespan {
+	#timespan-wrapper {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		gap: 25px;
-		/* padding: 6px; */
-		/* overflow: auto; */
-		overflow: auto;
-	}
-
-		.moment {
-			background: none;
-			border: none;
-			cursor: pointer;
-			height: 64px;
-			width: 64px;
-		}
-
-			.moment-year {
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-				gap: 10px;
-				align-items: center;
-				font-size: 1.5rem;
-				font-weight: bold;
-			}
-
-				.moment-circle {
-					position: relative;
-					width: 16px;
-					height: 16px;
-					outline-offset: 4px;
-					outline: 2px solid var(--gray);
-					border-radius: 50%;
-				}	
-
-					.moment-circle::before {
-    					content: "";
-    					position: absolute;
-    					top: 0;
-    					left: 0;
-    					width: 100%;
-    					height: 100%;
-    					border-radius: 50%;
-    					background-color: var(--accent);
-    					transform: scale(0);
-    					transition: transform 700ms;
-					}		
-				
-						.moment-active .moment-circle::before { transform: scale(1); }
-
-
-		.moment-line {
-			content: " ";
-			min-width: 100px;
-			height: 2px;
-			background: linear-gradient(to right, var(--primary) 50%, transparent 50%), var(--gray);
-    		background-size: 200% 100%;
-    		background-position: right;
-    		transition: background-position 700ms ease-in-out;
-		}	
-
-			.moment-line-active { background-position: left; }
-
-	#mobile-timespan { 
-		display: none; 
 		align-items: center;
 		justify-content: center;
-		gap: 25px;
+		gap: 50px;
 	}
-
-		#timespan-years { 
-			display: flex;
-			width: fit-content;
-			align-items: center;
-			overflow: hidden;
-		}
-
-			.timespan-year {
-				font-size: clamp(2.5rem, 8vw, 4rem); 
-				font-weight: 600;
-				width: 100%;
-				flex-shrink: 0;
-				text-align: center;
-			}
 
 		.timespan-control {
+			display: none;
 			background-color: var(--primary);
 			border: none;
 			border-radius: var(--secondary-border-radius);
@@ -217,6 +128,73 @@ import Arrow_Right from "@icons/arrow-right.svg";
 			cursor: pointer;
 			transition: background-color 0.3s ease;
 		}
+
+	/* Enable the below comments to fix the outline error if people want it, you're welcome future Nathan :) */
+		#timespan {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			gap: 25px;
+			/* padding: 6px; */
+			/* overflow: auto; */
+			overflow: auto;
+		}
+
+			.moment {
+				background: none;
+				border: none;
+				cursor: pointer;
+				height: 64px;
+				width: 64px;
+			}
+
+				.moment-year {
+					height: 100%;
+					display: flex;
+					flex-direction: column;
+					gap: 10px;
+					align-items: center;
+					font-size: 1.5rem;
+					font-weight: bold;
+				}
+
+					.moment-circle {
+						position: relative;
+						width: 16px;
+						height: 16px;
+						outline-offset: 4px;
+						outline: 2px solid var(--gray);
+						border-radius: 50%;
+					}	
+
+						.moment-circle::before {
+    						content: "";
+    						position: absolute;
+    						top: 0;
+    						left: 0;
+    						width: 100%;
+    						height: 100%;
+    						border-radius: 50%;
+    						background-color: var(--accent);
+    						transform: scale(0);
+    						transition: transform 700ms;
+						}		
+					
+							.moment-active .moment-circle::before { transform: scale(1); }
+
+
+			.moment-line {
+				content: " ";
+				min-width: 100px;
+				height: 2px;
+				background: linear-gradient(to right, var(--primary) 50%, transparent 50%), var(--gray);
+    			background-size: 200% 100%;
+    			background-position: right;
+    			transition: background-position 700ms ease-in-out;
+			}	
+
+				.moment-line-active { background-position: left; }
 
 	#moment-container {
 		display: flex;
@@ -266,10 +244,13 @@ import Arrow_Right from "@icons/arrow-right.svg";
 
 @media (max-width: 1000px) {
 	#timeline { gap: 25px; }
+	.timespan-control { display: block; }
+
 	#timespan { 
+		padding: 0 auto;
 		justify-content: flex-start;
 	}
-	.moment-line { min-width: 50px; }
+	.moment-line { min-width: 200px; }
 
 	.moment-in-time {
 		flex-direction: column-reverse;
@@ -282,10 +263,6 @@ import Arrow_Right from "@icons/arrow-right.svg";
 		}
 }
 
-@media (max-width: 930px) {
-	#timespan { display: none; }
-	#mobile-timespan { display: flex; }
-}
 
 @media (max-width: 700px) {
 	.moment-image {
@@ -338,8 +315,7 @@ import Arrow_Right from "@icons/arrow-right.svg";
 	var moments = Array.from(document.querySelectorAll('.moment'));
 	var time = Array.from(document.querySelectorAll('.moment-line'));	
 
-	// Mobile Timeline
-	var mobile_timeline = document.getElementById('timespan-years');
+	// Mobile Timeline Controls
 	var timespan_forward = document.getElementById('timespan-forward');
 	var timespan_back = document.getElementById('timespan-back');
 	
@@ -390,6 +366,10 @@ import Arrow_Right from "@icons/arrow-right.svg";
 		let index = moments.findIndex((el) => el.classList.contains('moment-active'));
 		let newIndex = direction === 'forward' ? index + 1 : index - 1;
 
+		if (newIndex < 0 || newIndex >= moments.length) return;
+		time.forEach((line) => { line.classList.remove('moment-line-active'); });
+		time.slice(0, newIndex).forEach((line) => { line.classList.add('moment-line-active'); });
+
 		if (newIndex >= 0 && newIndex < moments.length) {
 			moments[index].classList.remove('moment-active');
 			moments[newIndex].classList.add('moment-active');
@@ -399,10 +379,11 @@ import Arrow_Right from "@icons/arrow-right.svg";
 				behavior: 'smooth'
 			});
 
-			let scrollDirection = direction === 'forward' ? 1 : -1;
-			mobile_timeline.scrollTo({
-				left: mobile_timeline.scrollLeft + scrollDirection * mobile_timeline.children[newIndex].clientWidth,
-				behavior: 'smooth'
+			
+			moments[newIndex].scrollIntoView({
+				behavior: 'smooth',
+				block: 'nearest',
+				inline: 'center'
 			});
 		}
 	}
@@ -415,9 +396,10 @@ import Arrow_Right from "@icons/arrow-right.svg";
 		let index = moments.findIndex((el) => el.classList.contains('moment-active'));
 		document.querySelector('.moment-active').click();
 
-		mobile_timeline.children[index].scrollIntoView({
+		moment_container.children[index].scrollTo({
 			behavior: 'smooth',
-			block: 'center'
-		})
+			block: 'nearest',
+			inline: 'center'
+		});
 	});	
 </script>

@@ -1,10 +1,8 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components'
+
 import Logo from "@images/branding/logo.png"
-import Discord from "@images/logos/discord.svg"
-import GitHub from "@images/logos/github.svg"
-import LinkedIn from "@images/logos/linkedin.svg"
-import Twitter from "@images/logos/x.svg"
 
 const date = new Date();
 const year = date.getFullYear();
@@ -41,22 +39,22 @@ const year = date.getFullYear();
 				<h2 class="footer-section-header">My Socials</h2>
 				<div class="footer-socials">
 					<a class="footer-social" href="https://www.linkedin.com/in/nathanparker07/" target="_blank">
-						<Image src={LinkedIn} class="footer-social-logo" alt="LinkedIn's Logo" width={32} height={32} />
+						<Icon name="linkedin" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">LinkedIn</p>
 					</a>
 		
 					<a class="footer-social" href="https://discord.gg/ksW8rAcU6t" target="_blank">
-						<Image src={Discord} class="footer-social-logo" alt="Discord's Logo" width={32} height={32} />
+						<Icon name="discord" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">Discord</p>
 					</a>
 		
 					<a class="footer-social" href="https://github.com/KingPr0o7" target="_blank">
-						<Image src={GitHub} class="footer-social-logo" alt="GitHub's Logo" width={32} height={32} />
+						<Icon name="github" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">GitHub</p>
 					</a>
 		
 					<a class="footer-social" href="https://twitter.com/KingPr0o7" target="_blank">
-						<Image src={Twitter} class="footer-social-logo" alt="Twitter's (X's) Logo" width={32} height={32} />
+						<Icon name="twitter" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">Twitter</p>
 					</a>
 				</div>
@@ -135,7 +133,7 @@ footer {
 
 			.footer-social:hover > .footer-social-logo,
 			.footer-social:focus > .footer-social-logo { 
-				filter: var(--accent-filter); 
+				color: var(--accent); 
 			}
 
 			.footer-social:hover > .footer-social-name,

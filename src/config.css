@@ -6,7 +6,6 @@
 	--primary-hover: #073c79;
 	--secondary: #032348;
 	--accent: #378CE1;	
-	--accent-filter: invert(44%) sepia(95%) saturate(549%) hue-rotate(175deg) brightness(93%) contrast(88%); 
 	--font: 'Rubik', sans-serif;
 	--main-border-radius: 100px;
 	--secondary-border-radius: 10px;
@@ -19,7 +18,6 @@
 	margin: 0;
 	padding: 0;
 	font-family: var(--font);
-	color: var(--text);
 }
 
 	*:focus-visible {
@@ -32,6 +30,10 @@
 			min-width: 100%;
 			min-height: 100vh;
 		}
+
+			p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, label, span {
+				color: var(--text);
+			}
 
 .image-component {
 	position: relative;
