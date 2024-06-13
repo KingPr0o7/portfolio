@@ -23,37 +23,47 @@ import Quote from '@src/components/Quote.astro';
 		<Image src={Me} id="intro-image" alt="Picture of Nathan Parker during High School Homecoming (Crowned)" width={750} height={750} loading="eager" />
 	</section>
 	
-	<section id="projects-showcase">
-		<h2 id="projects-showcase-title">What Do I Have to Prove My Efforts?</h2>
-		<div id="projects">
-			<ShowcaseProject video_link="https://www.youtube.com/embed/Ou4IJQcHsRI?si=CbqDt75V0rENLho_&amp;start=923", video_title="Stoichify — The Stoichiometry Solver", project_title="Stoichify", project_desc="A Python-powered GUI application designed to solve stoichiometric equations, by breaking down each step as you would write them on a piece of paper. Stoichify is open-source and aimed at chemistry students and teachers to learn and better their experience with the daunting complexity of stoichiometry." github_link="https://github.com/KingPr0o7/Stoichify" />
-			<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", video_title="The Combo Menu Project", project_title="Combo Menu", project_desc="A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly." website_link="https://combo-menu.vercel.app/" github_link="https://github.com/KingPr0o7/Combo-Menu" />
-		</div>
-	</section>
-
-	<section id="insight">
-		<div id="insight-left">
-			<h2 id="insight-title">So, Who Am I?</h2>
-			<p id="insight-desc">I am Nathan Parker, <i>commonly referred to as</i> KingPr0o7 on the World Wide Web. I'm the type of person that absolutely <b>loves</b> to tinker with the modern world of technology, and constantly trying to make the <b>next big thing</b>. </p>
-			<Button link="/about" text="Read The Whole Story" size={50}>
-		</div>
-		<div id="insight-right">
-			<Image src={Windy_Hug} class="insight-image" id="shades-image" alt="Nathan Parker hugging Windy (Nathan's Cat)" width={250} height={400} />
-			<Image src={Sunset_Cruise} class="insight-image" id="sunset-image" alt="Nathan Parker in the middle of the Bahamas during a sunset." width={250} height={400} />
-			<Image src={Amber_Cove} class="insight-image" id="amber-image" alt="Nathan Parker with the backdrop of Amber Cove." width={250} height={400} />
-		</div>
-	</section>
-
-	<section id="testimonials">
-		<h2 id="testimonials-header">How Are My Efforts Perceived?</h2>
-		<div id="quotes">
-			<Quote portrait={Ryan} name="S. Ryan Russell" top_credientials="Master of Information Technology" quote="Nathan is one of the hardest working and creative software development students that I have seen. His computing logic, database, website and software development projects were always a magnitude higher than required for the courses, but still worked and looked professional to boot. I look forward to his eventual successful software startup someday." />
-			<Quote portrait={Talon} name="Talon Nicholson" top_credientials="Former Colleague" quote="As a former colleague, and a long-standing personal acquaintance, I can confidently say that Nathan doesn't just code applications, but crafts experiences. If you're seeking a developer who can combine technical expertise with visionary thinking, you've found your guy!" />
-			<Quote portrait={Null} name="Zane White" top_credientials="Former Computer Science Teacher" quote="Nathan came into our Principles of Computers class where we introduce basic coding and web design and made an immediate impression on me. It was very obvious from the beginning that Nathan had a passion, and talent for anything that dealt with coding and design. He produced multi-page websites as well as going above and beyond each lesson that dealt with JavaScript work. Nathan was leader in class. Students were drawn to him for help and he was happy to do so. Nathan Parker is one of the more talented students I have had in my career." />
-		</div>
-	</section>
+	<div id="all-sections">
+		<section id="projects-showcase">
+			<h2 id="projects-showcase-title">What Do I Have to Prove My Efforts?</h2>
+			<div id="projects">
+				<ShowcaseProject video_link="https://www.youtube.com/embed/Ou4IJQcHsRI?si=CbqDt75V0rENLho_&amp;start=923", video_title="Stoichify — The Stoichiometry Solver", project_title="Stoichify", project_desc="A Python-powered GUI application designed to solve stoichiometric equations, by breaking down each step as you would write them on a piece of paper. Stoichify is open-source and aimed at chemistry students and teachers to learn and better their experience with the daunting complexity of stoichiometry." github_link="https://github.com/KingPr0o7/Stoichify" />
+				<ShowcaseProject video_link="https://www.youtube-nocookie.com/embed/ugOqfEaemrY?si=kJdhY4JdOxubeQPX&amp;start=746", video_title="The Combo Menu Project", project_title="Combo Menu", project_desc="A chat-styled web application that allows users to make orders to a virtual restaurant. Built with Flask as it was a requirement for the computer science final upon this project was built. Also, incorporating defensive programming to make sure the user's orders will be fulfilled correctly." website_link="https://combo-menu.vercel.app/" github_link="https://github.com/KingPr0o7/Combo-Menu" />
+			</div>
+		</section>
+	
+		<section id="insight">
+			<div id="insight-left">
+				<h2 id="insight-title">So, Who Am I?</h2>
+				<p id="insight-desc">I am Nathan Parker, <i>commonly referred to as</i> KingPr0o7 on the World Wide Web. I'm the type of person that absolutely <b>loves</b> to tinker with the modern world of technology, and constantly trying to make the <b>next big thing</b>. </p>
+				<Button link="/about" text="Read The Whole Story" size={50}>
+			</div>
+			<div id="insight-right">
+				<Image src={Windy_Hug} class="insight-image" id="shades-image" alt="Nathan Parker hugging Windy (Nathan's Cat)" width={250} height={400} />
+				<Image src={Sunset_Cruise} class="insight-image" id="sunset-image" alt="Nathan Parker in the middle of the Bahamas during a sunset." width={250} height={400} />
+				<Image src={Amber_Cove} class="insight-image" id="amber-image" alt="Nathan Parker with the backdrop of Amber Cove." width={250} height={400} />
+			</div>
+		</section>
+	
+		<section id="testimonials">
+			<h2 id="testimonials-header">How Are My Efforts Perceived?</h2>
+			<div id="quotes">
+				<Quote portrait={Ryan} name="S. Ryan Russell" top_credientials="Master of Information Technology" quote="Nathan is one of the hardest working and creative software development students that I have seen. His computing logic, database, website and software development projects were always a magnitude higher than required for the courses, but still worked and looked professional to boot. I look forward to his eventual successful software startup someday." />
+				<Quote portrait={Talon} name="Talon Nicholson" top_credientials="Former Colleague" quote="As a former colleague, and a long-standing personal acquaintance, I can confidently say that Nathan doesn't just code applications, but crafts experiences. If you're seeking a developer who can combine technical expertise with visionary thinking, you've found your guy!" />
+				<Quote portrait={Null} name="Zane White" top_credientials="Former Computer Science Teacher" quote="Nathan came into our Principles of Computers class where we introduce basic coding and web design and made an immediate impression on me. It was very obvious from the beginning that Nathan had a passion, and talent for anything that dealt with coding and design. He produced multi-page websites as well as going above and beyond each lesson that dealt with JavaScript work. Nathan was leader in class. Students were drawn to him for help and he was happy to do so. Nathan Parker is one of the more talented students I have had in my career." />
+			</div>
+		</section>	
+	</div>	
 </Layout>
 <style>
+#all-sections {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	gap: 100px;
+	height: fit-content;
+}
+
 #intro {
 	height: 100vh;
 	max-height: calc(1080px - 70px);
@@ -119,7 +129,6 @@ import Quote from '@src/components/Quote.astro';
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	padding: 50px 0;
 }
 
 	#insight-left {
@@ -161,7 +170,7 @@ import Quote from '@src/components/Quote.astro';
 		font-size: clamp(1.4rem, 3vw, 2.8rem);
 		font-weight: bold;
 		text-align: center;
-		padding: 50px 0;
+		padding: 0 0 50px 0;
 	}
 
 @media (max-width: 1300px) {
@@ -182,7 +191,7 @@ import Quote from '@src/components/Quote.astro';
 }
 
 @media (max-width: 1000px) {
-	#projects-showcase, #insight, #testimonials {
+	:global(footer), #projects-showcase, #insight, #testimonials {
 		position: relative;
 		top: -100px;	
 	}
