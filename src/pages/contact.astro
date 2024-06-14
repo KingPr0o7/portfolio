@@ -78,6 +78,10 @@ import EmailForm from '@src/components/Email-form';
 				width: 300px;
 				text-decoration: none;
 			}
+
+				.contact-social:hover > *:not(.contact-social-logo), .contact-social:focus > *:not(.contact-social-logo) {
+					color: var(--accent);
+				}
 		
 				.contact-social-logo {
 					background-color: var(--secondary);
@@ -161,6 +165,10 @@ import EmailForm from '@src/components/Email-form';
 						outline: 2px solid red;
 					}
 				
+				.form-textfield:hover, .form-textarea:hover, .form-textfield:focus, .form-textarea:focus {
+					outline: 2px solid var(--primary);
+				}
+
 				.form-submit { width: 100%; }	
 
 /* Sizes down socials because of huge size */

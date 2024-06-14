@@ -115,9 +115,10 @@ import Logo from "@images/branding/ncp_icon_white.png"
 				.navbar-link:nth-child(1) { display: none; } /* Navlist Home Link */
 				.navbar-link:nth-child(5) { display: none; } /* Hamburger Menu */
 
-				.navbar-link:hover > .navbar-link-text:not(#mobile-hamburger-parent > .navbar-link-text):not(.navbar-link[href='./'] > .navbar-link-text), 
-				.navbar-link:focus > .navbar-link-text:not(#mobile-hamburger-parent > .navbar-link-text):not(.navbar-link[href='./'] > .navbar-link-text) { 
-					color: var(--accent); 
+
+				.navbar-link:not(#mobile-hamburger-parent):not([data-toggled="true"]):hover > *,
+				.navbar-link:not(#mobile-hamburger-parent):not([data-toggled="true"]):focus > *  {
+					color: var(--primary);
 				}
 				
 					.navbar-link-text { font-size: clamp(1rem, 2vw, 1.5rem); width: fit-content; }
@@ -192,7 +193,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 			right: 0;
 			height: 1px;
 			transform: scaleX(var(--_width, 0)) translateX(var(--_left, 0px));
-			transform-origin: left;
+			transform-origin: var(--_transform-origin, left);
 			background: var(--accent);
 		}
 
@@ -210,9 +211,6 @@ import Logo from "@images/branding/ncp_icon_white.png"
 				0% { transform: scaleX(0.15) translateX(1100%); }
 				100% { transform: scaleX(0.15) translateX(-100%); }	
 			}
-
-			/* Disables Navbar Line when Navlist is Open */
-			.navbar[data-navlist="true"] .navbar-container::after { height: 0px; }
 
   	/* Navbar Line */
 	nav::after {
@@ -407,12 +405,14 @@ import Logo from "@images/branding/ncp_icon_white.png"
 	//
 
 	function scrollProgress() {
+		navbar_container.style.setProperty('--_transform-origin', 'center');
+
 		const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 		const height = document.documentElement.scrollHeight - document.documentElement.clientHeight - document.querySelector("footer").clientHeight;
 		const scrolled = (winScroll / height) * 100;
-		let halfScrolled = scrolled / 2;
-		navbar_container.style.setProperty("--_left", (50 - halfScrolled) * (window.innerWidth / document.documentElement.clientWidth) + "%");
-		navbar_container.style.setProperty("--_width", scrolled * (window.innerWidth / document.documentElement.clientWidth) + "%");
+		
+		navbar_container.style.setProperty("--_left", "0%");
+		navbar_container.style.setProperty("--_width", scrolled + "%");
 	}
 
 	window.onscroll = function() { 
@@ -441,10 +441,9 @@ import Logo from "@images/branding/ncp_icon_white.png"
 
 	function show() {
 		loading_trigger_threshold = setTimeout(() => {
+			navbar_container.style.setProperty('--_transform-origin', 'left');
 			let direction = sessionStorage.getItem('direction');
 			animation_set_direction = `loading-${direction}`
-			// console.log(direction);
-			// console.log('Loading!');
 
 			if (direction === "forward") {
 				navbar_middle.style.setProperty("--_left", 200 + "%");
@@ -463,7 +462,6 @@ import Logo from "@images/branding/ncp_icon_white.png"
 		if (animation_set_direction !== '') {
 			navbar_container.classList.remove(animation_set_direction);
 		}
-		// console.log('Loaded');
 	}
 
 	//
@@ -483,6 +481,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 
 	document.addEventListener('astro:page-load', () => {
 		let pathname = location.pathname;
+		navbar_container.style.setProperty('--_transform-origin', 'left');
 		set_navbar_middle(navbar_middle_left, navbar_middle_width);
 		let paths = ["/about", "/projects", "/blogs"];
 		!paths.includes(pathname) ? document.querySelectorAll('.navbar-link').forEach(el => el.removeAttribute('data-toggled')) : null;
@@ -499,7 +498,6 @@ import Logo from "@images/branding/ncp_icon_white.png"
 		} else if (paths.includes(pathname)) {
 			let tab = getTab(pathname)
 			switchTab({ target: tab });
-			console.log(pathname);
 		}
 	
 		navbar.setAttribute('data-navlist', "false");

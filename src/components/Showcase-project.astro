@@ -15,14 +15,14 @@ const { video_link, video_title, project_title, project_desc, github_link, websi
 
 <div class="project">
 	<div class="embed-container">
-		<iframe class="project-image" width="700" height="400" src={video_link} title={video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+		<iframe class="project-image" width="700" height="400" src={video_link} title={video_title} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen tabindex="-1" />
 	</div>
 	<div class="project-info">
 		<h2 class="project-name">{project_title}</h2>
 		<p class="project-desc">{project_desc}</p>
 		<div id="project-redirects">
 			{website_link && (
-				<a class="project-redirect" tabindex="2" href={website_link} target="_blank">
+				<a class="project-redirect" tabindex="1" href={website_link} target="_blank">
 					<Icon name="redirect" class="project-redirect-image" />
 					<p class="project-redirect-text">Live Preview</p>
 				</a>

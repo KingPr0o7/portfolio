@@ -31,7 +31,7 @@
 			min-height: 100vh;
 		}
 
-			p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, label, span {
+			p, h1, h2, h3, h4, h5, h6, a, button, input, textarea, label, span, th, td, li {
 				color: var(--text);
 			}
 

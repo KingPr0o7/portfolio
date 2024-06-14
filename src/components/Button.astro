@@ -9,7 +9,7 @@ const { link, text, size } = Astro.props;
 const padding_size = `${size}px`
 ---
 
-<a href={link}>
+<a href={link} tabindex="-1">
 	<button class="button">{text}</button>
 </a>
 
