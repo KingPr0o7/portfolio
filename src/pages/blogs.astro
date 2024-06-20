@@ -11,10 +11,14 @@ const blogs = await getCollection('blog');
 <Layout title="Blogs" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class='blogs-section'>
 	<div id="blogs-section">
 		<div id="blogs">
-			<BlogBanner link='/test' thumbnail={Test.src} thumbnail_alt='...' title='YYoo it is king here today' tone="Test" date="December 10, 2023"/>
-			{blogs.map(blog => (
-				<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
-			))}
+			<BlogBanner link='/blog/test' thumbnail={Test.src} thumbnail_alt='...' title='Test' tone="Test" date="December 10, 2023"/>
+			{blogs.map(blog => {
+				if (blog.data.title !== 'Test') {
+					return (
+						<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} transition:name={blog.data.title} />
+					)
+				}
+			})}
 		</div>
 	</div>
 </Layout>

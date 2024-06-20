@@ -53,7 +53,7 @@ const { Content } = await blog.render();
 					width: 100%;
 					height: 2px;
 					border-radius: var(--main-border-radius);
-					background-color: var(--gray);
+					background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
 					margin: 10px 0;
 				}
 
@@ -61,6 +61,15 @@ const { Content } = await blog.render();
 		width: 100%;
 		font-size: clamp(1rem, 1.5vw, 1.5rem);
 		line-height: clamp(1rem, 9vw, 2.2rem);
+	}
+
+	.blog-content a {
+		text-decoration-line: underline;
+		-webkit-text-decoration-line: underline;
+		text-decoration-color: var(--accent);
+		text-decoration-thickness: 0.12em;
+		color: var(--accent);
+		-webkit-text-decoration-color: var(--accent);		
 	}
 
 	/* Used for images */
