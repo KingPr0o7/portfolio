@@ -9,44 +9,44 @@ interface Props {
 
 const slideRight = {
   old: {
-    name: 'slideOutToLeft',
-    duration: '0.65s',
-    easing: 'ease',
-    fillMode: 'backwards',
+	name: 'slideOutToLeft',
+	duration: '0.65s',
+	easing: 'ease',
+	fillMode: 'backwards',
   },
   new: {
-    name: 'slideInFromRight',
-    duration: '0.65s',
-    easing: 'ease',
-    fillMode: 'forwards',
+	name: 'slideInFromRight',
+	duration: '0.65s',
+	easing: 'ease',
+	fillMode: 'forwards',
   }
 };
 
 const slideLeft = {
   old: {
-    name: 'slideOutToRight',
-    duration: '0.65s',
-    easing: 'ease',
-    fillMode: 'backwards',
+	name: 'slideOutToRight',
+	duration: '0.65s',
+	easing: 'ease',
+	fillMode: 'backwards',
   },
   new: {
-    name: 'slideInFromLeft',
-    duration: '0.65s',
-    easing: 'ease',
-    fillMode: 'forwards',
+	name: 'slideInFromLeft',
+	duration: '0.65s',
+	easing: 'ease',
+	fillMode: 'forwards',
   }
 };
 
 const fading = {
   old: {
-    name: 'fadeOut',
-    duration: '0.4s',
-    easing: 'ease',
+	name: 'fadeOut',
+	duration: '0.4s',
+	easing: 'ease',
   },
   new: {
-    name: 'fadeIn',
-    duration: '0.4s',
-    easing: 'ease',
+	name: 'fadeIn',
+	duration: '0.4s',
+	easing: 'ease',
   }
 };
 
@@ -231,47 +231,47 @@ main {
 }
 
 @keyframes slideInFromRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+	0% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 @keyframes slideOutToLeft {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
 }
 
 @keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
+	0% {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
 
 @keyframes slideOutToRight {
-    0% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
+	0% {
+		transform: translateX(0);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(100%);
+		opacity: 0;
+	}
 }
 
 @keyframes fadeIn {

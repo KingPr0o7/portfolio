@@ -15,7 +15,7 @@ const blogs = await getCollection('blog');
 			{blogs.map(blog => {
 				if (blog.data.title !== 'Test') {
 					return (
-						<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} transition:name={blog.data.title} />
+						<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
 					)
 				}
 			})}
@@ -36,3 +36,12 @@ const blogs = await getCollection('blog');
 	#blogs { padding: 0; }
 }
 </style>
+<script is:inline>
+	// document.addEventListener('astro:before-preparation', (e) => {
+	// 	var blog = document.querySelectorAll('.blog');
+
+	// 	blog.forEach(blog => {
+	// 		blog.children[1].style.viewTransitionName = blog.children[1].textContent.replaceAll(' ', '_20');
+	// 	});
+	// });
+</script>
