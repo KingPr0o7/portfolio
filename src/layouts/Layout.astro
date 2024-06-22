@@ -176,6 +176,84 @@ const handle = '@KingPr0o7';
 		currentPageIndex === -1 || previousPageIndex === -1 ? e.direction = 'fade' : 'forward';
 	});
 </script>
+
+<script>
+	//
+	// Script written and provided by Martin
+	//   Gathers elements and applies view transition names, based
+	//   on the current and previous page paths. As inline-defined 
+	//   transition names aren't overriden and disobey parent
+	//   transition names.
+	//
+
+	const BANNER_IMAGE = ".blog-image-wrapper .blog-image";
+	const BANNER_TITLE = ".blog-image-wrapper .blog-title";
+	const POST_IMAGE = '.blog-link[href="${pathname}"] .blog-thumbnail';
+	const POST_TITLE = '.blog-link[href="${pathname}"] .blog-embed-title';
+
+	// Apply view transition names based on the current and previous page paths
+	document.addEventListener("astro:before-preparation", (e) => {
+		const originalLoader = e.loader;
+		e.loader = async () => {
+			await originalLoader();
+			if (fromTo(e.from, "/blogs", e.to, "/blog/")) {
+				addBlogBannerViewTransitionNames(e.newDocument);
+				addBlogPostViewTransitionNames(document, e.to.pathname);
+			}
+
+			if (fromTo(e.from, "/blog/", e.to, "/blogs")) {
+				addBlogBannerViewTransitionNames(document);
+				addBlogPostViewTransitionNames(e.newDocument, e.from.pathname);
+			}
+		};
+	});
+	
+	function fromTo(from: URL, fromValue: string, to: URL, toValue: string) {
+		return (
+			from.pathname.startsWith(fromValue) && to.pathname.startsWith(toValue)
+		);
+	}
+
+	// Remove the transition if pathname isn't a blog/blogs pages
+	document.addEventListener("astro:before-swap", (e) =>
+		e.viewTransition.ready.finally(() =>
+			removeBlogViewTransitionNames(document, e.from.pathname)
+		)
+	);
+
+	function addBlogBannerViewTransitionNames(doc: Document) {
+		setName(doc, BANNER_IMAGE, "blog-image");
+		setName(doc, BANNER_TITLE, "blog-title");
+	}
+
+	function addBlogPostViewTransitionNames(doc: Document, pathname: string) {
+		setName(doc, withPathname(pathname, POST_IMAGE), "blog-image");
+		setName(doc, withPathname(pathname, POST_TITLE), "blog-title");
+	}
+
+	function removeBlogViewTransitionNames(doc: Document, pathname: string) {
+		setName(doc, BANNER_IMAGE, "");
+		setName(doc, BANNER_TITLE, "");
+		setName(doc, withPathname(pathname, POST_IMAGE), "");
+		setName(doc, withPathname(pathname, POST_TITLE), "");
+	}
+
+	function withPathname(pathname: string, selector: string) {
+		return selector.replace("${pathname}", pathname);
+	}
+
+	// Apply said view transition names
+	function setName(doc: Document, selector: string, name: string) {
+		const element = doc.querySelector<HTMLElement>(selector);
+		if (element) {
+			// @ts-ignore
+			element.style.viewTransitionName = name;
+		} else {
+			name && console.warn(`Element not found: ${selector}`);
+		}
+	}
+</script>
+
 <style is:inline>
 /* Sorry Martin! */
 #vtbot-loading-indicator {
