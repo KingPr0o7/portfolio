@@ -12,8 +12,8 @@ const { link, thumbnail, thumbnail_alt, title } = Astro.props;
 
 <a href={link} class="blog-link">
 	<article class="blog">
-		<Image src={thumbnail} class="blog-thumbnail" alt={thumbnail_alt} width={400} height={200} transition:name=`${title}_thumbnail`/>
-		<h2 class="blog-embed-title" transition:name={title}>{title}</h2>
+		<Image src={thumbnail} class="blog-thumbnail" alt={thumbnail_alt} width={400} height={200} />
+		<h2 class="blog-embed-title">{title}</h2>
 	</article>
 </a>
 
