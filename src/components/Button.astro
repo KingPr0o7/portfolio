@@ -3,13 +3,14 @@ interface Props {
 	link: string;
 	text: string;
 	size: number;
+	id?: string;
 }
 
-const { link, text, size } = Astro.props;
+const { link, text, size, id } = Astro.props;
 const padding_size = `${size}px`
 ---
 
-<a href={link} tabindex="-1">
+<a href={link} id={id} tabindex="-1">
 	<button class="button">{text}</button>
 </a>
 

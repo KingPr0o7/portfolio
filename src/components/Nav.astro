@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
 import Button from "./Button.astro";
 
-import Logo from "@images/branding/ncp_icon_white.png"
+import Logo from "@images/branding/icon.png"
 ---
 
 <nav class="navbar" data-navlist="semi" transition:persist="navbar">
@@ -14,19 +14,23 @@ import Logo from "@images/branding/ncp_icon_white.png"
 			</a>
 		</div>
 		<div class="navbar-middle">
-			<a class="navbar-link" href="./">
+			<a class="navbar-link" id="back-link" href="/blogs">
+				<Icon name="arrow-left" class="navbar-image" width={32} height={32} />
+				<p class="navbar-link-text">Back</p>
+			</a>
+			<a class="navbar-link" id="home-link" href="./">
 				<Image src={Logo} class="navbar-image" alt="Nathan Parker's N Logo" width={32} height={32} />
 				<p class="navbar-link-text">Home</p>
 			</a>
-			<a class="navbar-link" href="/about">
+			<a class="navbar-link" id="about-link" href="/about">
 				<Icon name="about" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">About</p>
 			</a>
-			<a class="navbar-link" href="/projects">
+			<a class="navbar-link" id="projects-link" href="/projects">
 				<Icon name="project" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">Projects</p>
 			</a>
-			<a class="navbar-link" href="/blogs">
+			<a class="navbar-link" id="blogs-link" href="/blogs">
 				<p class="navbar-link-text">Blogs</p>
 			</a>
 
@@ -40,7 +44,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 			</div>
 		</div>
 		<div class="navbar-right">
-			<Button link="/contact" text="Contact" size={20} />
+			<Button link="/contact" id="contact-link" text="Contact" size={20} />
 		</div> 
 	</div>
 </nav>
@@ -109,13 +113,18 @@ import Logo from "@images/branding/ncp_icon_white.png"
 				cursor: pointer;
 			}
 
+				/* Toggle Selector Color */
 				.navbar-link[data-toggled="true"] > .navbar-link-text { color: var(--accent); }
 				.navbar-link[data-toggled="true"] > .navbar-image { color: var(--accent); }
 
-				.navbar-link:nth-child(1) { display: none; } /* Navlist Home Link */
-				.navbar-link:nth-child(5) { display: none; } /* Hamburger Menu */
+				/* Link Ensurement */
+				#home-link { display: none; }
+				#mobile-hamburger-parent { display: none; }
+				body:not([data-pathname="blog"]) #back-link { display: none; }
+				body[data-pathname="blog"] #back-link { order: 4; }
+				body[data-pathname="blog"] #blogs-link { display: none; }
 
-
+				/* Hover/Focus Colorization */
 				.navbar-link:not(#mobile-hamburger-parent):not([data-toggled="true"]):hover > *,
 				.navbar-link:not(#mobile-hamburger-parent):not([data-toggled="true"]):focus > *  {
 					color: var(--primary);
@@ -185,6 +194,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 							transition: opacity 0.9s;
 						}
 
+		/* Navbar Line for Other Tasks (e.g. Loading Animations or Blog Progress Bar) */
 		.navbar-container::after {
 			position: absolute;
 			content: "";
@@ -198,7 +208,6 @@ import Logo from "@images/branding/ncp_icon_white.png"
 		}
 
 			/* Navbar Loading Animations */
-
 			.navbar-container.loading-forward::after { animation: load-forward 2.5s linear infinite; }
 			.navbar-container.loading-backward::after { animation: load-backward 2.5s linear infinite; }
 
@@ -212,7 +221,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 				100% { transform: scaleX(0.15) translateX(-100%); }	
 			}
 
-  	/* Navbar Line */
+  	/* Navbar Line Background (Gray Color) */
 	nav::after {
 		background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%, var(--background) 100%); /* Change from transparent to var(--background) to change loading indicator disappearing behavior*/
 		bottom: 0;
@@ -278,9 +287,12 @@ import Logo from "@images/branding/ncp_icon_white.png"
 					gap: 5px;
 				}
 
-				.navbar-link:nth-child(1) {display: flex;} /* Displays Home Link */
-				.navbar-link:nth-child(4) {display: none;} /* Hides Contact Button Link */
-				.navbar-link:nth-child(5) {display: flex;} /* Displays Hamburger Menu */
+				/* Navbar Link Ensurance */
+				body[data-pathname="blog"] #back-link { display: flex; order: 0; } /* Displays Back Link */
+				body:not([data-pathname="blog"]) #home-link { display: flex; } /* Displays Home Link */
+				#contact-link { display: none; } /* Hides Contact Button Link */
+				#blogs-link { display: none; } /* Hides Blogs Link */
+				#mobile-hamburger-parent { display: flex; } /* Displays Hamburger Menu */
 
 					.navbar-image {
 						width: 24px;
@@ -303,9 +315,6 @@ import Logo from "@images/branding/ncp_icon_white.png"
 					}
 
 			.navbar-right { display: none; }		
-
-	/* Removes blur when navlist is open */
-	.navbar[data-navlist="true"] { animation: remove-navbar-bg-blur 0.4s ease; }
 
 	/* Enables + Animates the navlist */
 	.navbar[data-navlist="true"] ~ .mobile-navlist {
@@ -343,7 +352,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 }
 
 @media (max-width: 380px) {
-	.navbar-middle > .navbar-link:nth-child(3) {display: none;} /* Hides Projects Link */
+	#projects-link {display: none;} /* Hides Projects Link */
 	.mobile-navlist > .navbar-link:last-child { display: flex; }
 }
 
@@ -355,33 +364,36 @@ import Logo from "@images/branding/ncp_icon_white.png"
 <script>
 	import { loading } from 'astro-vtbot/components/loading-indicator';
 
+	// Element Gathering
 	const navbar: HTMLElement = document.querySelector(".navbar")!;
 	const navbar_container: HTMLElement = document.querySelector(".navbar-container")!;
 	const hamburger_parent: HTMLElement = document.getElementById('mobile-hamburger-parent')!;
 	const hamburger: HTMLElement = document.querySelector('.mobile-hamburger')!;
 	const navbar_middle: HTMLElement = document.querySelector(".navbar-middle")!;
+
+	// Numerical Constants
 	const navbar_middle_left: number = -475;
 	const navbar_middle_right: number = 1000;
 	const navbar_middle_width: number = 0;
 
-	hamburger_parent.addEventListener('click', () => {
-		let state = hamburger.getAttribute('data-state');
-		state === "closed" ? changeNav("true") : changeNav("false");
-	});
-	
-	function changeNav(state: string) {
-		let is_open = state === "true";
-		
-		hamburger.setAttribute('data-state', is_open ? "open" : "closed");
-		navbar.setAttribute('data-navlist', is_open ? "true" : "false");
-	}
-	
+	// Loading Variables
+	var loading_trigger_threshold = null;
+	var animation_set_direction = '';
+
+	//
+	// Navbar Functionality
+	//   Various functions handling tabs, navlist, 
+	//   dynamic navbar underline, and loading animations.
+	//
+
+	// Dynamically sets middle navbar underline
 	function set_navbar_middle(left: number, width: number) {
 		navbar_middle.style.setProperty("--_left", left + "px");
 		navbar_middle.style.setProperty("--_width", width.toString());
 	}
-	
-	function switchTab(event: { target: HTMLElement }) {
+
+	// Activate currently selected tab
+	function switch_tab(event: { target: HTMLElement }) {
 		let newTab = event.target;
 		newTab.tagName != "A" ? newTab = newTab.parentElement : null;
 		document.querySelectorAll(".navbar-link").forEach((tab) => tab.removeAttribute("data-toggled"));
@@ -400,11 +412,29 @@ import Logo from "@images/branding/ncp_icon_white.png"
 		}
 	}
 
-	//
-	// Blog Scroll Progress
-	//
+	// Return visible tabs
+	function get_tab(href: string) {
+		let elements = document.querySelectorAll(`.navbar-link[href='${href}']`);
 
-	function scrollProgress() {
+		// Only get visible elements
+		let visible_tabs = Array.from(elements).filter(element => {
+			let style = window.getComputedStyle(element);
+			return style.display !== "none";
+		});
+
+		return visible_tabs[0] as HTMLElement;
+	} 
+
+	// Handle navbar state with navlist
+	function change_nav(state: string) {
+		let is_open = state === "true";
+		
+		hamburger.setAttribute('data-state', is_open ? "open" : "closed");
+		navbar.setAttribute('data-navlist', is_open ? "true" : "false");
+	}
+
+	// Progress bar for blog pages
+	function scroll_progress() {
 		navbar_container.style.setProperty('--_transform-origin', 'center');
 
 		const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -415,30 +445,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 		navbar_container.style.setProperty("--_width", scrolled + "%");
 	}
 
-	window.onscroll = function() { 
-		let pathname = window.location.pathname;
-		pathname.startsWith("/blog/") ? scrollProgress() : null;
-	};
-
-	//
-	// Ensure Underline is Set Correctly when Resizing
-	// 
-
-	window.addEventListener('resize', () => {
-		if (document.querySelector(".navbar-link[data-toggled='true']")) {
-			let tab = getTab(location.pathname);
-			switchTab({target: tab})
-		}
-	});
-
-	//
-	// Loading Animation
-	//
-
-	loading(show, hide);
-	var loading_trigger_threshold = null;
-	var animation_set_direction = ''
-
+	// A loading animation displayed when a page isn't being loaded
 	function show() {
 		loading_trigger_threshold = setTimeout(() => {
 			navbar_container.style.setProperty('--_transform-origin', 'left');
@@ -457,6 +464,7 @@ import Logo from "@images/branding/ncp_icon_white.png"
 		}, 1900);
 	}
 
+	// Hides said loading animation
 	function hide() {
 		clearTimeout(loading_trigger_threshold);
 		if (animation_set_direction !== '') {
@@ -465,47 +473,64 @@ import Logo from "@images/branding/ncp_icon_white.png"
 	}
 
 	//
-	// Page Loading Underline Switch + Ensurement
+	// Page Initialization
+	//   Sets up various event listeners and page states
+	//   to ensure cohesive navbar line behavior, tab selection,
+	//   loading animations, and event listeners. 
 	//
 
-	function getTab(href: string) {
-		let element = document.querySelector(`.navbar-link[href='${href}']`);
-		let style = window.getComputedStyle(element);
-
-		if (style.display === "none" === true) {
-			return document.querySelectorAll(`.navbar-link[href='${href}']`)[1] as HTMLElement;
-		} else {
-			return document.querySelector(`.navbar-link[href='${href}']`) as HTMLElement;
-		}		
-	} 
-
 	document.addEventListener('astro:page-load', () => {
+		// Maintain and update the current pathname
 		let pathname = location.pathname;
-		navbar_container.style.setProperty('--_transform-origin', 'left');
-		set_navbar_middle(navbar_middle_left, navbar_middle_width);
 		let paths = ["/about", "/projects", "/blogs"];
 		!paths.includes(pathname) ? document.querySelectorAll('.navbar-link').forEach(el => el.removeAttribute('data-toggled')) : null;
-		let toggled_tab = document.querySelector(".navbar-link[data-toggled='true']");
+		document.body.setAttribute('data-pathname', pathname.split("/")[1]);
 
-		if ((pathname === "/" || pathname === "/contact")) {
-			toggled_tab ? toggled_tab.removeAttribute("data-toggled") : null;
-			if (pathname === "/contact") {
-				set_navbar_middle(navbar_middle_right, navbar_middle_width);
-				switchTab({ target: document.querySelector(".navbar-link[href='/contact']")});
-			} else {
-				set_navbar_middle(navbar_middle_left, navbar_middle_width);
-			}
-		} else if (paths.includes(pathname)) {
-			let tab = getTab(pathname)
-			switchTab({ target: tab });
+		// Ensure navbar line is set back to default from blog progress state
+		navbar_container.style.setProperty('--_transform-origin', 'left');
+		set_navbar_middle(navbar_middle_left, navbar_middle_width);
+
+		// Remove scroll event listener if not on blog page
+		document.removeEventListener('scroll', scroll_progress);
+
+		// Via the pathname, ensure the correct tab is selected and navbar line position is set
+		if (paths.includes(pathname)) {
+			let toggled_tab = get_tab(pathname)
+			switch_tab({ target: toggled_tab });	
+		} else if (pathname === "/contact") {
+			set_navbar_middle(navbar_middle_right, navbar_middle_width);
+			switch_tab({ target: document.querySelector(".navbar-link[href='/contact']")});
+		} else if (pathname === "/") {
+			set_navbar_middle(navbar_middle_left, navbar_middle_width);
+		} else if (pathname.startsWith("/blog/")) {
+			document.addEventListener('scroll', scroll_progress);
 		}
-	
+
+		//
+		// Various Event Listeners 
+		//
+
 		navbar.setAttribute('data-navlist', "false");
+
+		loading(show, hide);
+		navbar_container.style.setProperty("--_left", 0 + "%");
+		navbar_container.style.setProperty("--_width", 0 + "%");
+
+		hamburger_parent.addEventListener('click', () => {
+			let state = hamburger.getAttribute('data-state');
+			state === "closed" ? change_nav("true") : change_nav("false");
+		});
+
 		hamburger_parent.setAttribute('data-state', "closed");
 		hamburger.setAttribute('data-state', "closed");
 
-		navbar_container.style.setProperty("--_left", 0 + "%");
-		navbar_container.style.setProperty("--_width", 0 + "%");
+		// When resizing in DevTools, ensure the dynamic navbar line is set correctly
+		window.addEventListener('resize', () => {
+			if (document.querySelector(".navbar-link[data-toggled='true']")) {
+				let toggled_tab = get_tab(location.pathname);
+				switch_tab({target: toggled_tab})
+			}
+		});
 
 	}, { once: false });	
 </script>

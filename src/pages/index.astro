@@ -48,14 +48,14 @@ import Quote from '@src/components/Quote.astro';
 		<section id="testimonials">
 			<h2 id="testimonials-header">How Are My Efforts Perceived?</h2>
 			<div id="quotes">
-				<Quote portrait={Ryan} name="S. Ryan Russell" top_credientials="Master of Information Technology" quote="Nathan is one of the hardest working and creative software development students that I have seen. His computing logic, database, website and software development projects were always a magnitude higher than required for the courses, but still worked and looked professional to boot. I look forward to his eventual successful software startup someday." />
+				<Quote portrait={Ryan} name="S. Ryan Russell" top_credientials="Former SDEV Teacher" quote="Nathan is one of the hardest working and creative software development students that I have seen. His computing logic, database, website and software development projects were always a magnitude higher than required for the courses, but still worked and looked professional to boot. I look forward to his eventual successful software startup someday." />
 				<Quote portrait={Talon} name="Talon Nicholson" top_credientials="Former Colleague" quote="As a former colleague, and a long-standing personal acquaintance, I can confidently say that Nathan doesn't just code applications, but crafts experiences. If you're seeking a developer who can combine technical expertise with visionary thinking, you've found your guy!" />
 				<Quote portrait={Null} name="Zane White" top_credientials="Former Computer Science Teacher" quote="Nathan came into our Principles of Computers class where we introduce basic coding and web design and made an immediate impression on me. It was very obvious from the beginning that Nathan had a passion, and talent for anything that dealt with coding and design. He produced multi-page websites as well as going above and beyond each lesson that dealt with JavaScript work. Nathan was leader in class. Students were drawn to him for help and he was happy to do so. Nathan Parker is one of the more talented students I have had in my career." />
 			</div>
 		</section>	
 	</div>	
 </Layout>
-<style>
+<style is:inline>
 #all-sections {
 	display: flex;
 	justify-content: flex-start;
@@ -118,6 +118,8 @@ import Quote from '@src/components/Quote.astro';
 	gap: 50px;
 }
 
+	#projects > .project:last-of-type::after { display: none; }
+
 	#projects-showcase-title {
 		font-size: clamp(1.4rem, 3vw, 2.8rem);
 		font-weight: bold;
@@ -138,8 +140,8 @@ import Quote from '@src/components/Quote.astro';
 		width: 45%;
 	}
 
-		#insight-title { font-size: clamp(1.4rem, 3vw, 3.5rem) }
-		#insight-desc { font-size: clamp(1rem, 1.8vw, 1.8rem) }
+		#insight-title { font-size: clamp(1.4rem, 3vw, 3.5rem); }
+		#insight-desc { font-size: clamp(1rem, 1.8vw, 1.8rem); line-height: 2.25rem; }
 
 	#insight-right {
 		display: flex;
@@ -238,6 +240,17 @@ import Quote from '@src/components/Quote.astro';
 
 	#testimonials-header {
 		padding: 25px 0
+	}
+}
+
+@media (max-width: 700px) {
+	#intro {
+		min-height: 100vh;
+		padding-top: 0;
+		flex-direction: column-reverse;
+		justify-content: center;
+		gap: 25px;
+		height: fit-content;
 	}
 }
 

@@ -66,7 +66,7 @@ import Link from "./Link.astro";
 		<div class="moment-in-time" id="moment-2012">
 			<div class="moment-wrapper">
 				<h2 class="moment-title">The Super Mario Effect</h2>
-				<p class="moment-desc">The start of my love for technology started when my father introduced me to his <i>first-ever console</i>, the <b>Nintendo Entertainment System</b> (NES). In which I experienced what Mark Rober coined, “<Link href="https://youtu.be/9vJRopau0g0?si=xLdkqZC8wTyGMRA-&t=218" text="The Super Mario Effect" />” starting a <b>chain reaction</b> for the <b>love of gaming</b> <i>and</i> the <b>growth of technology</b>. Going from the NES, GameCube, Wii, and then the Xbox 360. <i>Always</i> fine-tuning my mistakes to beat my brothers in Mario Kart Double Dash or save the Princess Peach from Bowser (<i>again</i>).</p>
+				<p class="moment-desc">The start of my love for technology started when my father introduced me to his <i>first-ever console</i>, the <b>Nintendo Entertainment System</b> (NES). In which I experienced what Mark Rober coined, “<Link href="https://youtu.be/9vJRopau0g0?si=xLdkqZC8wTyGMRA-&t=218" text="The Super Mario Effect" />” starting a <b>chain reaction</b> for the love of gaming and the <b>growth of technology</b>. Going from the NES, GameCube, Wii, and then the Xbox 360. <i>Always</i> fine-tuning my mistakes to beat my brothers in Mario Kart Double Dash or save the Princess Peach from Bowser (<i>again</i>).</p>
 			</div>
 			<Image class="moment-image" src={NES} alt="Me (Nathan) in the middle playing Super Mario Bros, with my brothers on the left (Gavin) and right (Kai)" width="300" height="300" />
 		</div>
@@ -82,7 +82,7 @@ import Link from "./Link.astro";
 		<div class="moment-in-time" id="moment-2018">
 			<div class="moment-wrapper">
 				<h2 class="moment-title">The Spark for Programming</h2>
-				<p class="moment-desc">In the spring months of 2018, I joined a local programming club at my library that taught an online programming language called <Link href="https://scratch.mit.edu/" text="Scratch" />. The day it started, sometime in early March, when I first connected the event block to the sprite's say block — <b>something clicked</b>. The sight of seeing something <i>come to life</i> from joining two blocks together left me in <b><i>awe</i></b> and <b>permanently stained</b> a desire to keep creating things, <b>especially for others</b>. <i>From that day onwards</i>, I've <b>dedicated</b> my passion towards the <i>creation and maintenance</i> of computer software.</p>
+				<p class="moment-desc">In the spring months of 2018, I joined a local programming club at my library that taught an online programming language called <Link href="https://scratch.mit.edu/" text="Scratch" />. The day it started, sometime in early March, when I first connected the event block to the sprite's say block — <b>something clicked</b>. The sight of seeing something <i>come to life</i> from joining two blocks together left me in <b><i>awe</i></b> and <b>permanently stained</b> a desire to keep creating things, <b>especially for others</b>. <i>From that day onwards</i>, I've <b>dedicated</b> my passion towards the creation and maintenance of computer software.</p>
 			</div>
 			<Image class="moment-image" src={Space_Invaders} alt="My first ever coding game, Space 'Exvaders' (I couldn't spell lol)" width="300" height="300" />
 		</div>
@@ -90,7 +90,7 @@ import Link from "./Link.astro";
 		<div class="moment-in-time" id="moment-2021">
 			<div class="moment-wrapper">
 				<h2 class="moment-title">Acceleration of Passions</h2>
-				<p class="moment-desc">To <b>enhance</b> on the <b><i>monumental interest</i></b> arising from Scratch, my friend, <Link href="https://twitter.com/NotNinjaTalon?s=20" text="@NotNinjaTalon" />, introduced me to the world of Minehut's server platform. <i>I and Talon</i>, decided to pull the trigger and dedicate our summers making <b>two semi-successful servers</b> called <Link href="https://youtu.be/7FG3c8ZeEzY?si=zQTSGYcg2AdQek0Q&t=185" text="IslandNSky" /> and <Link href="https://www.youtube.com/watch?v=semPmIRgXFU" text="Premiums" />; gaining each around <b>75</b> <i>concurrent players</i> <b>daily</b> at their peaks. Once school started back up, I made the <b>pivotal leap</b> towards my education by accepting the <i>“Software Development”</i> pathway at my high school. Learning high-level programming from HTML, CSS, JS, and Python; <i>creating and maintaining</i> projects to present to my class for <b>all</b> to enjoy.</p>
+				<p class="moment-desc">To enhance on the monumental interest arising from Scratch, my friend, <Link href="https://twitter.com/NotNinjaTalon?s=20" text="@NotNinjaTalon" />, introduced me to the world of Minehut's server platform. <i>I and Talon</i>, decided to pull the trigger and dedicate our summers making <b>two semi-successful servers</b> called <Link href="https://youtu.be/7FG3c8ZeEzY?si=zQTSGYcg2AdQek0Q&t=185" text="IslandNSky" /> and <Link href="https://www.youtube.com/watch?v=semPmIRgXFU" text="Premiums" />; gaining each around <b>75</b> <i>concurrent players</i> <b>daily</b> at their peaks. Once school started back up, I made the <b>pivotal leap</b> towards my education by accepting the <i>“Software Development”</i> pathway at my high school. Learning high-level programming from HTML, CSS, JS, and Python; <i>creating and maintaining</i> projects to present to my class for <b>all</b> to enjoy.</p>
 			</div>
 			<Image class="moment-image" id="moment-images-2021" src={Ninja_and_King} alt="A series of images showing, Minecraft server development (Premiums), my first HTML document, my first website, and my first game (Not stolen haha)" width="300" height="300" />
 		</div>
@@ -379,7 +379,6 @@ import Link from "./Link.astro";
 				left: moment_in_time[0].clientWidth * newIndex + 25 * newIndex,
 				behavior: 'smooth'
 			});
-
 			
 			moments[newIndex].scrollIntoView({
 				behavior: 'smooth',
@@ -394,13 +393,15 @@ import Link from "./Link.astro";
 
 	// In the rare case someone resizes the window, ensure the active moment is still in view
 	window.addEventListener('resize', () => {
-		let index = moments.findIndex((el) => el.classList.contains('moment-active'));
-		document.querySelector('.moment-active').click();
+		if (window.location.pathname == "/about") {
+			let index = moments.findIndex((el) => el.classList.contains('moment-active'));
+			document.querySelector('.moment-active').click();
 
-		moment_container.children[index].scrollTo({
-			behavior: 'smooth',
-			block: 'nearest',
-			inline: 'center'
-		});
+			moment_container.children[index].scrollTo({
+				behavior: 'smooth',
+				block: 'nearest',
+				inline: 'center'
+			});
+		}
 	});	
 </script>
