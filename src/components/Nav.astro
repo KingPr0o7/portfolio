@@ -207,6 +207,12 @@ import Logo from "@images/branding/icon.png"
 			background: var(--accent);
 		}
 
+			.navbar-container.error::after { 
+				transform-origin: center;
+				animation: error-expand 1.5s ease-in forwards; 
+				background: var(--error);
+			}
+
 			/* Navbar Loading Animations */
 			.navbar-container.loading-forward::after { animation: load-forward 2.5s linear infinite; }
 			.navbar-container.loading-backward::after { animation: load-backward 2.5s linear infinite; }
@@ -219,6 +225,11 @@ import Logo from "@images/branding/icon.png"
 			@keyframes load-backward {
 				0% { transform: scaleX(0.15) translateX(1100%); }
 				100% { transform: scaleX(0.15) translateX(-100%); }	
+			}
+
+			@keyframes error-expand {
+    			0% { transform: scaleX(0); }
+    			100% { transform: scaleX(1); }
 			}
 
   	/* Navbar Line Background (Gray Color) */
@@ -479,7 +490,7 @@ import Logo from "@images/branding/icon.png"
 	//   loading animations, and event listeners. 
 	//
 
-	document.addEventListener('astro:page-load', () => {
+	document.addEventListener('astro:after-swap', () => {
 		// Maintain and update the current pathname
 		let pathname = location.pathname;
 		let paths = ["/about", "/projects", "/blogs"];
@@ -489,6 +500,7 @@ import Logo from "@images/branding/icon.png"
 		// Ensure navbar line is set back to default from blog progress state
 		navbar_container.style.setProperty('--_transform-origin', 'left');
 		set_navbar_middle(navbar_middle_left, navbar_middle_width);
+		navbar_container.classList.remove('error');
 
 		// Remove scroll event listener if not on blog page
 		document.removeEventListener('scroll', scroll_progress);

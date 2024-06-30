@@ -164,6 +164,7 @@ const handle = '@KingPr0o7';
 </html>
 
 <script define:vars={{slideRight, slideLeft}}> 
+	// Directionally Ordered View Transition Pagination (DOVTP)
 	const pageOrder = ['/', '/about', '/projects', '/blogs', '/contact'];
 
 	document.addEventListener('astro:before-preparation', (e) => {
@@ -172,8 +173,9 @@ const handle = '@KingPr0o7';
 
 		currentPageIndex < previousPageIndex ? e.direction = 'backward' : e.direction = 'forward';
 		sessionStorage.setItem('direction', e.direction);
-		currentPageIndex === -1 || previousPageIndex === -1 ? e.direction = 'fade' : 'forward';
-		currentPageIndex == previousPageIndex ? e.direction = 'fade' : e.direction;
+		sessionStorage.setItem('referrer', e.from.pathname);
+		currentPageIndex === -1 || previousPageIndex === -1 ? e.direction = 'fade' : 'forward'; // If it's not in the array, don't slide
+		currentPageIndex == previousPageIndex ? e.direction = 'fade' : e.direction; // If it's the same page, don't redo slide animation
 	});
 </script>
 
