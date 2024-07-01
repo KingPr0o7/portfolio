@@ -1,0 +1,256 @@
+---
+import Layout from "@src/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Link from "@src/components/Link.astro";
+
+import Martin from "@people/martin_trapp.png";
+import Coding from "@people/coding_in_public.png";
+import Rishi from "@people/rishi_raj_jain.jpg";
+import Kevin from "@people/kevin_powell.jpg";
+import Talon from "@people/talon_nicholson.png";
+import Null from "@people/person_null.png";
+---
+
+<Layout title="Credits" description="..." image="test.webp">
+	<div id="credits-section">
+		<h1 id="credits-header">Credits</h1>
+		<div id="credits-grid">
+			<div class="credits-section">
+				<h2 class="section-header">Infrastructure Providers</h2>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="vercel" width={48} height={48} />
+					<p class="contributor-name"><Link text="Vercel" href="https://www.vercel.com/home" /> • Hosting & Deployment</p>
+				</div>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="spaceship" width={48} height={48} />
+					<p class="contributor-name"><Link text="Spaceship" href="https://www.spaceship.com/"/> • Domain & DNS Services</p>
+				</div>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="github" width={48} height={48} />
+					<p class="contributor-name"><Link text="GitHub" href="https://github.com/features" /> • Version Control & Deployment</p>
+				</div>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="resend" width={48} height={48} />
+					<p class="contributor-name"><Link text="Resend" href="https://www.resend.com/" /> • E-mail Communications</p>
+				</div>
+			</div>
+			<div class="credits-section">
+				<h2 class="section-header">Astro</h2>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="astro" width={48} height={48} />
+					<p class="contributor-name"><Link text="Astro" href="https://www.astro.build/" /> • Web Framework</p>
+				</div>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="bot" width={48} height={48} />
+					<p class="contributor-name"><Link text="astro-vtbot" href="https://www.github.com/martrapp/astro-vtbot" /> • View Transitions</p>
+				</div>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="astro" width={48} height={48} />
+					<p class="contributor-name"><Link text="astro-icon" href="https://www.github.com/natemoo-re/astro-icon" /> • SVG Iconized Component</p>
+				</div>
+				<div class="contributor">
+					<Icon class="contributor-logo" name="astro" width={48} height={48} />
+					<p class="contributor-name"><Link text="astro-font" href="https://www.github.com/rishi-raj-jain/astro-font" /> • Font Handler</p>
+				</div>
+			</div>
+			<div class="credits-section">
+				<h2 class="section-header">Notable Contributors</h2>
+				<div class="contributor">
+					<Image class="contributor-person" src={Martin} alt="Martin Trapp" width={48} height={48} />
+					<p class="contributor-name"><Link text="Martin Trapp" href="https://www.github.com/martrapp" /> • View Transition God</p>
+				</div>
+				<div class="contributor">
+					<Image class="contributor-person" src={Coding} alt="Coding in Public" width={48} height={48} />
+					<p class="contributor-name"><Link text="Coding in Public" href="https://www.youtube.com/@CodinginPublic" /> • Resend Teacher</p>
+				</div>
+				<div class="contributor">
+					<Image class="contributor-person" src={Kevin} alt="Kevin Powell" width={48} height={48} />
+					<p class="contributor-name"><Link text="Kevin Powell" href="https://www.youtube.com/kevinpowell" /> • Grid Teacher</p>
+				</div>
+				<div class="contributor">
+					<Image class="contributor-person" src={Rishi} alt="Rishi Raj Jain" width={48} height={48} />
+					<p class="contributor-name"><Link text="Rishi Raj Jain" href="https://www.github.com/rishi-raj-jain" /> • Layout Shift Debugger</p>
+				</div>
+				<div class="contributor">
+					<Image class="contributor-person" src={Talon} alt="Talon Nicholson" width={48} height={48} />
+					<p class="contributor-name"><Link text="Talon Nicholson" href="https://www.talon.fyi" /> • Quailty Assurance</p>
+				</div>
+			</div>
+			<div class="credits-section">
+				<h2 class="section-header">GitHub Sponsors</h2>
+				<div class="contributor">
+					<Image class="contributor-person" src={Null} alt="Null Person" width={48} height={48} />
+					<p class="contributor-name">None • <Link text="Become the first!" href="https://github.com/sponsors/KingPr0o7?frequency=recurring&sponsor=KingPr0o7" /></p>
+				</div>			
+			</div>
+			<p id="personal-pledge">I want to thank you for just visiting my site, and especially this page! Each person and provider above are a key part in the existence of ncp.dev, and without these people this site would cease to exist in the form it is in now. I'm just a kid, chasing his dreams of becoming a software developer, and visiting, sharing, and experiencing my creation is something I cherish the most. I also want to thank my loving parents, teachers, mentors, Astro community members, and the various amounts of YouTubers and Twitch streamers that build and expand the technology communities. All GitHub Sponsor donations go directly to funding said dream to aid the stress of college funding for me and my parents. Again, thank you anonymous viewer for visiting my creation, and I'll do my best to make more creations like this for all.</p>
+			<svg id="signature" width="1006" height="215" viewBox="0 0 1006 215" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path class="line" d="M5.01249 190.167C3.04241 190.167 2.75687 192.062 3.15454 193.573C3.87992 196.329 6.18718 198.297 8.79722 199.457C14.1765 201.847 20.0036 202.863 25.9317 202.863C28.1933 202.863 29.8497 202.571 32.0905 202.106C34.6536 201.574 37.7741 200.969 40.2104 199.938C47.6797 196.778 55.3918 194.349 62.4199 190.184C70.1957 185.576 76.5316 179.468 82.737 172.981C89.2095 166.214 95.0897 159.476 99.5962 151.184C106.302 138.846 110.925 125.102 114.322 111.513" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M94.4053 117.463C94.4793 115.835 94.9653 112.517 97.0827 112.405C102.355 112.128 103.905 119.014 104.817 123.049C105.455 125.869 105.566 128.723 105.859 131.593C106.197 134.906 106.793 138.184 107.131 141.493C107.386 143.989 107.994 146.366 108.106 148.88C108.245 152.008 108.337 155.178 108.833 158.268C109.662 163.422 109.759 169.277 111.494 174.167C113.158 178.855 114.516 183.814 116.783 188.265C118.33 191.301 120.83 193.412 123.857 194.809C127.864 196.659 130.622 193.511 132.781 190.512C138.436 182.658 141.613 172.533 143.491 163.143C145.424 153.478 147.052 143.739 149.143 134.122C150.848 126.28 152.038 118.238 153.374 110.389C154.515 103.687 156.06 97.0632 157.175 90.3746C158.516 82.3292 159.854 73.817 162.811 66.179C163.976 63.1686 164.792 59.9091 165.654 56.8081C166.483 53.8213 166.975 50.5256 168.182 47.6852C169.349 44.9395 170.217 41.7588 170.926 38.8597C171.337 37.1762 172.4 35.5101 173.058 33.9016C173.615 32.5389 173.967 31.0787 174.578 29.7202C176.873 24.6198 179.974 20.5211 183.189 15.9532C184.783 13.688 187.121 11.9215 189.006 9.93731C190.855 7.99101 192.908 6.95642 195.072 5.45847C196.775 4.27949 200.027 3.53931 202.096 3.24384C203.608 3.02774 206.945 2.71628 208.277 3.5248C210.303 4.75506 212.694 5.44131 214.59 6.86327C216.904 8.59867 219.498 11.6056 220.689 14.2509C222.294 17.8177 223.325 20.9775 224.242 24.7786C224.909 27.5437 225.002 31.0287 225.002 33.8685" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M194.29 126.501C195.649 126.652 194.841 136.297 194.841 136.979C194.841 139.85 193.839 142.568 193.74 145.439C193.652 147.986 192.59 150.545 192.348 153.087C192.22 154.423 191.594 155.995 191.262 157.324C190.732 159.443 189.628 161.981 188.569 163.886C187.498 165.814 187.139 167.971 185.755 169.791C184.027 172.062 183.09 174.942 181.365 177.271C178.397 181.277 174.393 183.928 169.938 185.974C167.666 187.018 164.674 186.715 162.611 185.684C162.037 185.397 161.723 184.063 161.403 183.481C160.926 182.614 160.818 181.631 160.424 180.743C159.304 178.223 159.818 174.341 160.041 171.733C160.64 164.748 163.307 156.849 166.971 150.853C170.532 145.025 173.922 139.131 179.284 134.761C180.961 133.396 181.918 131.559 183.812 130.494C185.047 129.799 186.383 129.312 187.682 128.765C188.9 128.252 190.322 128.457 191.598 128.092C193.165 127.645 193.908 132.491 194.015 133.538C194.716 140.371 194.616 147.919 192.577 154.525C190.761 160.41 188.688 166.291 187.024 172.208C185.602 177.266 184.506 182.375 183.491 187.565C182.894 190.615 182.175 193.596 182.175 196.713" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M255.048 89.2013C248.979 99.2459 245.042 110.639 242.173 121.974C240.364 129.126 238.724 136.259 236.604 143.327C234.52 150.275 232.517 157.297 231.183 164.433C230.093 170.261 229.834 176.212 228.737 182.017C227.987 185.988 227.021 189.931 226.357 193.917C225.383 199.76 224.109 205.82 224.109 211.766" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M199.716 176.96C199.627 173.85 199.484 170.471 198.543 167.49C198.142 166.221 197.931 165.229 197.931 163.904C197.931 163.236 197.662 162.459 198.443 162.367C201.813 161.97 205.23 160.288 208.31 158.962C217.024 155.21 226.139 152.452 234.753 148.401C242.32 144.843 249.24 140.078 256.239 135.543C267.501 128.245 277.917 118.961 286.566 108.72C288.317 106.646 290.065 104.554 291.573 102.291C292.819 100.423 294.534 99.0156 295.871 97.2337C296.596 96.2667 297.35 95.4307 298.184 94.5563C298.68 94.0371 299.076 92.8903 299.672 92.54C300.722 91.9224 300.214 93.5452 300.085 94.1597C299.663 96.1734 298.982 98.1458 298.333 100.093C297.651 102.14 297.027 104.353 296.565 106.456C296.022 108.923 296.184 111.514 295.49 113.943C294.732 116.598 294.611 119.499 294.086 122.223C293.325 126.167 287.799 148.123 286.898 152.037C284.935 160.561 282.309 168.74 279.527 177.026C278.455 180.22 277.58 183.481 276.337 186.612C275.448 188.851 274.17 191.27 273.825 193.686C273.784 193.977 274.499 192.041 274.602 191.835C275.647 189.744 276.909 187.732 278.122 185.736C280.329 182.108 282.818 178.461 285.609 175.258C292.58 167.259 300.214 159.924 307.243 151.988C308.261 150.839 309.336 149.345 310.548 148.401C311.846 147.392 311.587 150.434 311.573 150.847C311.461 154.265 310.317 157.475 309.078 160.631C307.492 164.669 306.224 168.632 305.276 172.861C304.791 175.026 304.201 177.345 304.152 179.571C304.118 181.134 306.355 180.192 307.307 179.791L307.359 179.77C312.3 177.692 317.233 175.151 321.853 172.448C324.905 170.663 327.751 168.402 330.563 166.267C330.941 165.98 331.34 165.703 331.749 165.431M331.749 165.431C333.666 164.156 335.82 162.989 337.306 161.326C337.959 160.594 339.125 158.908 337.041 159.805C334.664 160.828 332.963 163.026 331.749 165.431ZM331.749 165.431C331.012 166.89 330.455 168.425 330.034 169.82C329.747 170.771 329.077 172.133 329.191 173.159C329.26 173.78 330.771 173.532 331.158 173.523C334.266 173.446 337.159 171.825 339.851 170.415C342.294 169.136 344.424 167.1 346.66 165.49C346.718 165.449 346.775 165.407 346.832 165.365M346.832 165.365C349.814 163.153 351.841 159.954 352.924 156.434C353.457 154.702 354.571 151.531 353.668 149.724C352.762 147.911 349.743 150.478 349.09 151.376C347.305 153.831 347.163 156.758 346.925 159.673C346.783 161.397 346.334 163.619 346.832 165.365ZM346.832 165.365C346.851 165.429 346.87 165.493 346.891 165.556C347.704 167.993 349.771 167.461 351.585 166.184C354.843 163.892 358.334 162.138 361.634 159.904C363.026 158.962 364.671 158.195 365.898 157.028C367.362 155.636 368.613 154.026 370.096 152.632C371.207 151.588 372.056 149.771 373.17 148.881C373.583 148.55 372.247 151.463 372.211 151.542C371.072 153.982 369.963 156.458 369.054 158.995C367.734 162.682 367.815 166.131 367.815 170.019C367.815 174.726 368.069 178.18 373.037 180.233C377.171 181.94 381.846 181.896 386.24 181.855L386.523 181.852C393.024 181.793 403.863 174.887 410.178 173.523" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M478.784 64.932C469.13 109.985 455.962 156.129 434.933 197.272C433.023 201.008 431.494 205.381 428.095 207.842C426.578 208.94 427.503 204 428.095 202.223C431.089 193.243 434.838 184.519 438.744 175.896C459.149 130.857 483.213 86.3739 513.126 46.857C520.497 37.1202 528.605 27.8934 537.37 19.391C542.637 14.2823 547.945 8.19818 555.013 6.22768C557.855 5.43547 560.978 9.87993 560.907 12.829C560.691 21.8292 557.547 30.63 554.227 38.9983C543.384 66.3304 522.076 104.907 504.325 127.801C495.368 139.352 485.109 150.023 473.794 159.275C457.509 172.591 447.589 175.78 428.567 177.39" stroke="white" stroke-width="4.03034" stroke-linecap="round"/>
+				<path class="line" d="M543.206 136.123C531.822 136.123 520.023 134.866 513.572 146.476C510.836 151.403 508.191 156.307 505.519 161.115C502.769 166.065 499.474 172.433 498.26 177.895C496.73 184.781 508.296 179.244 511.073 177.855C518.4 174.192 524.672 166.67 529.639 160.242C534.569 153.862 537.693 146.253 541.46 139.257C542.101 138.068 545.188 131.585 541.936 132.711C540.096 133.348 538.389 135.948 537.493 137.551C535.036 141.949 532.641 145.609 531.226 150.562C528.909 158.671 528.211 166.429 528.211 174.84C528.211 178.954 529.812 178.669 533.923 178.212C538.025 177.757 543.694 173.097 546.776 170.358C553.907 164.019 558.477 155.167 562.644 146.833C563.48 145.162 565.098 140.745 566.413 139.693C566.795 139.387 568.199 136.813 568.555 136.956C569.938 137.509 566.745 142.781 566.452 143.66C562.898 154.325 557.233 164.262 553.917 175.039C553.629 175.973 552.92 178.07 552.33 178.807C550.835 180.676 556.248 177.803 556.773 177.379C561.254 173.76 565.471 169.899 569.071 165.399C577.358 155.04 583.634 143.312 591.405 132.552C595.204 127.292 600.179 123.041 605.329 119.144C607.585 117.437 612.64 112.559 615.326 112.559" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M640.26 106.915C640.26 112.832 635.404 120.911 632.762 126.195C629.085 133.549 624.789 140.4 620.98 147.616C619.034 151.305 616.144 154.952 613.681 158.327C610.728 162.374 608.201 167.381 604.557 170.823C598.47 176.572 594.063 184.655 588.848 191.174" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+				<path class="line" d="M680.246 110.485C675.525 111.01 672.485 117.494 668.504 119.768C662.776 123.041 657.911 128.541 652.438 132.304C650.399 133.705 648.404 135.806 646.686 137.62C644.684 139.732 642.33 141.152 640.259 143.332C638.294 145.4 636.265 147.326 634.229 149.362C632.494 151.097 629.76 153.475 628.477 155.471C627.742 156.615 607.895 173.817 613.522 175.425C617.467 176.552 626.735 176.32 630.262 174.909C633.254 173.713 637.393 173.907 640.616 172.926C643.216 172.135 645.887 170.916 648.55 170.506C660.28 168.701 672.4 164.557 683.777 161.144C690.252 159.201 698.149 157.577 703.969 154.043C706.515 152.497 709.672 151.543 712.339 150.076C715.901 148.117 718.394 145.234 721.622 143.015C727.669 138.857 733.099 133.714 737.371 127.781C738.024 126.875 740.849 125.668 738.759 124.449C737.112 123.488 734.237 124.052 732.373 124.052C724.794 124.052 718.702 128.95 712.379 132.462C707.21 135.334 704.895 142.125 701.311 146.506C698.522 149.915 696.728 153.843 695.242 157.931C694.692 159.442 692.893 161.043 694.686 162.215C697.616 164.131 701.232 164.754 704.683 164.754C711.308 164.754 718.322 165.739 724.478 162.969C731.864 159.645 737.678 154.38 744.353 149.759C748.473 146.906 751.144 142.025 754.865 139.048C755.899 138.221 756.114 137.244 756.809 136.35C758.102 134.688 753.207 138.538 751.493 139.762C744.455 144.789 740.139 153.737 734.911 160.39C733.981 161.574 733.706 162.715 732.928 163.881C731.318 166.297 738.376 161.828 740.941 160.469C756.785 152.082 771.687 141.579 787.038 132.066C791.803 129.112 796.705 126.441 801.359 123.338C807.458 119.272 814.739 117.272 820.916 113.342C826.486 109.797 834.69 108.293 840.909 106.201C850.311 103.038 859.409 99.0403 868.758 95.8075C894.441 86.9264 919.09 74.7841 946.034 69.7841C953.007 68.4902 959.971 67.1475 966.941 65.8568C973.667 64.6112 980.486 64.7095 987.252 63.7146C992.489 62.9444 997.728 61.9294 1003 61.9294" stroke="white" stroke-width="4.70182" stroke-linecap="round"/>
+			</svg>
+		</div>
+	</div>
+</Layout>
+<style is:inline>
+	#credits-section {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 75px;
+	}
+	
+		#credits-header {
+			font-size: clamp(3rem, 5vw, 7rem);
+			text-transform: uppercase;
+			padding: 50px;
+			text-align: center;
+			width: 100%;
+		}
+
+			#credits-header::after {
+				content: " ";
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: radial-gradient(50% 100% at 50% 100%, var(--gray) 0%, var(--background) 100%);
+				margin-top: 12.5px;
+			}
+
+		#credits-grid {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			margin: 0 auto;
+			text-align: center;
+			gap: 12.5px;
+			place-items: center;
+		}
+
+			.credits-section {
+				display: flex;
+				flex-direction: column;
+				text-align: left;
+				gap: 25px;
+				margin-bottom: 75px;
+				max-width: 600px; /* Maximum width */
+				width: 100%; /* Make width responsive */
+			}
+
+				.credits-section:nth-child(4) { height: 417px; }
+
+				.section-header {
+					font-size: clamp(1.2rem, 1.9vw, 2rem);
+				}
+
+					.section-header::after {
+						content: " ";
+						display: block;
+						width: 100%;
+						height: 2px;
+						background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
+						margin-top: 12.5px;
+					}
+
+				.contributor {
+					display: flex;
+					align-items: center;
+					gap: 12.5px;
+				}
+
+					.contributor-logo, .contributor-person {
+						width: 48px;
+						height: 48px;
+					}
+
+						.contributor-person { border-radius: 50%; }
+					
+					.contributor-name { font-size: clamp(1rem, 1.8vw, 1.5rem); }
+
+	#personal-pledge {
+		font-size: clamp(1rem, 1.8vw, 1.5rem);
+		max-width: 1400px;
+		grid-column: 1 / 3;
+		text-align: left;
+		width: 100%;
+		padding: 25px;
+		line-height: 2rem;
+	}
+
+	#signature {
+		grid-column: 1 / 3;
+		width: 100%;
+	}
+
+		.line {
+			animation-timing-function: linear;
+			animation-fill-mode: forwards;
+			animation-name: line;
+		}
+
+
+		@keyframes line {
+			to {
+				stroke-dashoffset: 0;
+			}
+		}
+
+
+@media (max-width: 1300px) {
+	#credits-grid {width: 100%; }
+	.credits-section { max-width: fit-content; }
+}
+
+@media (max-width: 1000px) {
+	#credits-header { padding: 12.5px; }
+
+		#credits-grid {
+			display: flex;
+			flex-direction: column;
+		}
+
+			#credits-section { gap: 25px; }
+
+				.credits-section:nth-child(4) {
+					width: auto;
+					height: auto;
+				}
+
+				#personal-pledge { padding: 12.5px; }
+}
+
+</style>
+<script is:inline>
+	const signature = document.getElementById("signature");
+	const paths = signature.querySelectorAll("path");
+	var total_length = 0;
+	var delay = 0;
+	const total_duration = 7;
+
+	// Get Total Length
+	paths.forEach((path) => {
+		total_length += path.getTotalLength();
+	});
+	
+	// Apply Animation with Delay
+	paths.forEach((path) => {
+		let length = path.getTotalLength();
+		let duration = length / total_length * total_duration;
+
+		path.style.animationDuration = `${duration}s`;
+		path.style.animationDelay = `${delay}s`;
+		path.setAttribute("stroke-dasharray", length);
+		path.setAttribute("stroke-dashoffset", length);
+
+		delay += duration + 0.1;
+	});
+</script>

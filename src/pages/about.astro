@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { Image } from "astro:assets";
 import Layout from '@layouts/Layout.astro';
 import FAQ from "@components/FAQ.astro";
@@ -22,11 +23,6 @@ import Amber_Cove from "@personal/amber-cove.png";
 import Ropes_Course from "@personal/ropes-course.png";
 import Parker_VTOL from "@personal/parker-vtol.png";
 import Homecoming_Car from "@personal/homecoming-car.png";
-
-import School from "@logos/tigers.svg";
-import Vincennes from "@logos/vincennes.svg";
-import IvyTech from "@logos/ivytech.svg";
-import IU from "@logos/iu.svg";
 ---
 
 <Layout title="About" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="test.webp" section_class='about-section' data_state="padded">
@@ -81,7 +77,7 @@ import IU from "@logos/iu.svg";
 
 	<div id="schools">
 		<div class="school">
-			<Image src={School} alt="School Icon" width={124} height={124} />
+			<Icon class="school-logo" name="tigers" width={124} height={124} />
 			<div class="school-rundown">
 				<h2 class="school-name">Public High School</h2>
 				<p class="school-desc">As a <b>passionate</b> high school student, I've wanted to get the <i>most out of my experience</i> via the Software Development pathway. As such, in <b>2025</b> I'll graduate with an <Link href="https://www.in.gov/doe/files/core-40-and-honors-diploma-summary-class-2016-updated-june-2018.pdf" text="Indiana College Core 40 with Academic Honors" />, a <b><i>~</i>4.15 GPA</b>, placing around <b>top 15 in my class</b> of 179 (<i>top 8%</i>).</p>
@@ -89,7 +85,7 @@ import IU from "@logos/iu.svg";
 		</div>
 		
 		<div class="school">
-			<Image src={Vincennes} alt="School Icon" width={124} height={124} />
+			<Icon class="school-logo" name="vincennes" width={124} height={124} />
 			<div class="school-rundown">
 				<h2 class="school-name">Vincennes University</h2>
 				<p class="school-desc">To power the <Link href="https://www.in.gov/doe/files/core-40-and-honors-diploma-summary-class-2016-updated-june-2018.pdf" text="Indiana College Core 40 with Academic Honors" />, I took advanced classes like English 101-2, Speech 143, Art 110, Spanish I-III, and Biology 101L. With the main goal of <b>strengthening</b> the <i>foundational concepts</i> for my future and preparing myself for other four-year colleges across Indiana when I graduate.</p>
@@ -97,7 +93,7 @@ import IU from "@logos/iu.svg";
 		</div>
 
 		<div class="school">
-			<Image src={IvyTech} alt="Ivy Tech" width={124} height={124} />
+			<Icon class="school-logo" name="ivytech" width={124} height={124} />
 			<div class="school-rundown">
 				<h2 class="school-name">Ivy Tech Community College</h2>
 				<p class="school-desc">Regarding the <b><i>continuation</i></b> of the Software Development pathway, Ivy Tech powers my junior and senior years with <i>college experience and knowledge</i>. Letting me take classes like SDEV 153 ➔ SDEV 255, DBMS 110, and SDEV 148 ➔ SDEV 248. Ivy Tech provides <i>so much</i> for me, and <i>as such</i>, I've <b>committed</b> to getting an <Link href="https://catalog.ivytech.edu/preview_program.php?7&poid=5876#" text="AS in Software Development" /> by <b>2025</b>.</p>
@@ -105,7 +101,7 @@ import IU from "@logos/iu.svg";
 		</div>
 		
 		<div class="school">
-			<Image src={IU} alt="School Icon" width={124} height={124} />
+			<Icon class="school-logo" name="iu" width={124} height={124} />
 			<div class="school-rundown">
 				<h2 class="school-name">Indiana University Bloomington</h2>
 				<p class="school-desc">For my <b>dream</b> university, the Department of Computer Science within Indiana University's <Link href="https://luddy.indiana.edu/index.html?_gl=1*h0p486*_ga*MTc1ODkzMzQyNC4xNzA4NTc0MDQ5*_ga_61CH0D2DQW*MTcwODY0OTU5MC41LjEuMTcwODY0OTU5NS41NS4wLjA." text="Luddy School of Informatics, Computing, and Engineering" /> piqued my interest for the next place of advancement in my education. Especially with their scope of their <Link href="https://cs.indiana.edu/programs/phd-computer-science.html" text="Ph.D. in Computer Science" /> with <i>specializations</i> in Software Engineering; <b>perfect</b> for expanding my scope in the realm of software development for <i>decades to come</i>.</p>
@@ -215,6 +211,12 @@ import IU from "@logos/iu.svg";
 		align-items: center;
 		gap: 50px;
 	}
+
+		.school-logo {
+			width: 124px;
+			height: 124px;
+			overflow: visible;
+		}
 
 		.school-rundown {
 			display: flex;

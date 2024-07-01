@@ -8,7 +8,6 @@ interface Props {
 	website_link?: string;
 }
 
-import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
 const { video_link, video_title, project_title, project_desc, github_link, website_link } = Astro.props;
 ---
@@ -28,7 +27,7 @@ const { video_link, video_title, project_title, project_desc, github_link, websi
 				</a>
 			)}
 			<a class="project-redirect" tabindex="1" href={github_link} target="_blank">
-				<Icon name="github" class="project-redirect-image" />
+				<Icon name="github-fitted" class="project-redirect-image" />
 				<p class="project-redirect-text">View Code</p>
 			</a>
 		</div>					
