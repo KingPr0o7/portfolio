@@ -162,7 +162,6 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 			content: "";
 		}		
 	
-		/* Email Form */
 		#error-right { 
 			display: flex;
 			flex-direction: column;
@@ -172,7 +171,7 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 	
 			#page-url, #dependencies-header {
 				font-size: clamp(1rem, 1.5vw, 2.5rem);
-				text-align: center;
+				text-align: left;
 				font-weight: bold;
 				width: 100%;
 			}
@@ -191,13 +190,13 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 				grid-template-columns: repeat(2, 1fr);
 				margin: 0 auto;
 				font-size: clamp(0.8rem, 1.5vw, 1.5rem);
-				text-align: center;
+				text-align: left;
 				gap: 12.5px;
 			}
 	
 				#page-details > p:last-child {
 					grid-column: span 2;
-					text-align: center;
+					text-align: left;
 				}
 				
 				#dependencies-header { text-align: left; }

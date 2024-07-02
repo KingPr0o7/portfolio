@@ -4,17 +4,6 @@ import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components';
 import Link from "@src/components/Link.astro";
 import Logo from "@images/branding/icon.png"
-
-import PACKAGE from "package.json";
-
-const URL = Astro.url;
-const CODE = 404;
-const ENV = import.meta.env.MODE === 'development' ? 'DEV' : 'PROD'; 
-const VERSION = PACKAGE.version;
-const ASTRO_VERSION = PACKAGE.dependencies['astro'];
-const VERCEL_VERSION = PACKAGE.dependencies['@astrojs/vercel'];
-const REACT_VERSION = PACKAGE.dependencies['react'];
-const RESEND_VERSION = PACKAGE.dependencies['resend'];
 ---
 
 <Layout title="404 - Page Not Found" description="Page not found" image="/images/404.jpg" section_class="error-page" data_state="error">
@@ -46,37 +35,8 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 		</div>
 		<div id="error-divider"></div>
 		<div id="error-right">
-			<div id="page">
-				<p id="page-url">{URL}</p>
-				<div id="page-details">
-					<p>Reponse: <b>{CODE}</b></p>
-					<p>Chromium: <b><span id="chromium"></span></b></p>
-					<p>Version: <b>{VERSION}</b></p>
-					<p>Environment: <b>{ENV}</b></p>
-					<p>Referrer: <b><span id="referrer">404</span></b></p>
-				</div>
-			</div>
-			<div id="page-dependencies">
-				<p id="dependencies-header">Major Dependencies</p>
-				<div id="major-dependencies">
-					<div class="dependency">
-						<Icon name="astro" width={48} height={48} />
-						<p>Astro: <b>{ASTRO_VERSION}</b></p>
-					</div>
-					<div class="dependency">
-						<Icon name="vercel" width={48} height={48} />
-						<p>Vercel: <b>{VERCEL_VERSION}</b></p>
-					</div>
-					<div class="dependency">
-						<Icon name="react" width={48} height={48} />
-						<p>React: <b>{REACT_VERSION}</b></p>
-					</div>
-					<div class="dependency">
-						<Icon name="resend" width={48} height={48} />
-						<p>Resend: <b>{RESEND_VERSION}</b></p>
-					</div>
-				</div>
-			</div>
+			<h2 id="story-header">Looks like your lost there replicant!</h2>
+			<p id="story">It's okay, not all of us can be a main character of the story either. From the missed opportunities, bad grades, fumbling multiple women and now being scared to talk to them are all just the stepping stones into your life. You might not be controlled by the LAPD or the Wallace Corporation, but there is something <b>always bigger than you</b>. You can try escaping reality with your AI-girlfriend, equip your Oasis VR/AR headset, reach 88 MPH and travel to another date ... <i>you get the point</i>, none of those options actually escape you from reality, instead introducing more problems than you actually wanted to solve. You will always end up at a dead end at some point, at some time. And this happens to be another added to that list. I'm sorry, <Link text="ncp.dev" href="https://www.ncp.dev/" /> couldn't provide your requested page, but sometimes you gotta learn from dead ends and move forwards, and accept your reality because it stops for <b>no one</b>.</p>
 		</div>
 </Layout>
 <style is:inline>
@@ -162,65 +122,31 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 			content: "";
 		}		
 	
-		/* Email Form */
 		#error-right { 
 			display: flex;
 			flex-direction: column;
-			gap: 75px;
 			width: clamp(300px, 40vw, 650px); 
 		}
-	
-			#page-url, #dependencies-header {
-				font-size: clamp(1rem, 1.5vw, 2.5rem);
-				text-align: center;
-				font-weight: bold;
-				width: 100%;
+
+			#story-header {
+				font-size: clamp(1.2rem, 2vw, 2rem);
+				line-height: 2.5rem;
 			}
 
-				#page-url::after {
+				#story-header::after {
 					content: " ";
 					display: block;
 					width: 100%;
 					height: 2px;
-					background-color: var(--gray);
+					background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
 					margin: 12.5px 0 25px 0;
 				}
 
-			#page-details, #major-dependencies {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				margin: 0 auto;
-				font-size: clamp(0.8rem, 1.5vw, 1.5rem);
-				text-align: center;
-				gap: 12.5px;
+			#story {
+				font-size: clamp(1rem, 1vw, 1.2rem);
+				line-height: 2rem;
+			
 			}
-	
-				#page-details > p:last-child {
-					grid-column: span 2;
-					text-align: center;
-				}
-				
-				#dependencies-header { text-align: left; }
-
-				#major-dependencies {
-					gap: 25px;
-				}
-
-					#dependencies-header::after {
-						content: " ";
-						display: block;
-						width: 100%;
-						height: 2px;
-						background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
-						margin: 12.5px 0 25px 0;
-					}
-
-					.dependency {
-						display: flex;
-						align-items: center;
-						gap: 10px;
-						font-size: clamp(0.8rem, 1.5vw, 1.5rem);
-					}
 
 	/* Sizes down socials because of huge size */
 	@media (max-width: 1300px) {
@@ -245,11 +171,11 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 	
 	@media (max-width: 1000px) {
 		#error-section {
-			padding-bottom: 50px;
+			padding: 50px 0;
 			justify-content: center;
 			flex-direction: column;
 			min-height: 100vh;
-			gap: 50px;
+			gap: 75px;
 		}
 	
 			#error-attention { font-size: clamp(1.3rem, 10vw, 5rem); }
@@ -304,8 +230,6 @@ const RESEND_VERSION = PACKAGE.dependencies['resend'];
 			width: 32px;
 			height: 32px;
 		}
-
-		#major-dependencies .dependency { justify-content: center; }
 	}
 	
 	@media (max-width: 350px) {
@@ -326,8 +250,6 @@ type('error-name', 'Not Found', 200, 0, true);
 // Set Page Details
 //
 
-document.getElementById('referrer').textContent = sessionStorage.getItem('referrer') || 'None';
-document.getElementById('chromium').textContent = /Chrome/.test(navigator.userAgent) ? 'True' : 'False';
 document.querySelector('.navbar-container').classList.add('error');
 
 //
