@@ -9,6 +9,7 @@ const EmailForm = () => {
 		const contact_name = document.getElementById("contact-name") as HTMLInputElement;
 		const contact_email = document.getElementById("contact-email") as HTMLInputElement;
 		const contact_message = document.getElementById("contact-message") as HTMLInputElement;
+		const contact_popup = document.getElementById("contact-popup") as HTMLDialogElement;
 
 		const html = render(<Email name={name as string} input={input as string} />, {
 			pretty: true,
@@ -44,12 +45,17 @@ const EmailForm = () => {
 			contact_name.value = "";
 			contact_email.value = "";
 			contact_message.value = "";
+			contact_popup.showModal();
 		} catch (error) {
 			console.error(
 				'%cInternal Server Error (500 - Resend):',
 				`background: #c22408; color: #fff; padding: 4px; border-radius: 2px;`,
 				error
 			);	
+
+			document.getElementById("contact-popup-title").innerHTML = "Internal Server Error (500)";
+			document.getElementById("contact-popup-description").innerHTML = "The E-mail Service Provider, Resend, has failed (500) to send your email. You can write to me at: <b>nathan@ncp.dev</b>.";
+			contact_popup.showModal();
 		}
 	};
 
@@ -85,17 +91,17 @@ const EmailForm = () => {
 	return (
 		<form id="contact-form" onSubmit={handleSubmit}>
 			<div className="contact-input">
-				<label className="form-label">What's your name? <span className="form-star">*</span></label>
+				<label className="form-label" htmlFor="name">What's your name? <span className="form-star">*</span></label>
 				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder='Officer K, "Joe"' name="name" required />
 			</div>
 
 			<div className="contact-input">
-				<label className="form-label">Your current email? <span className="form-star">*</span></label>
+				<label className="form-label" htmlFor="email">Your current email? <span className="form-star">*</span></label>
 				<input className="form-textfield" onInput={handleEmail} id="contact-email" type="text" placeholder="KD6-3.7@lapd.gov" name="email" required />
 			</div>
 
 			<div className="contact-input">
-				<label className="form-label">Tell me your thoughts! <span className="form-star">*</span></label>
+				<label className="form-label" htmlFor="message">Tell me your thoughts! <span className="form-star">*</span></label>
 				<textarea className="form-textarea" id="contact-message" name="input" placeholder='"And blood-black nothingness began to spin -- a system of cells interlinked within, cells interlinked within cells interlinked, within one stem. -- And dreadfully distinct, against the dark, a tall white fountain played." - Vladimir Nabokov, Pale Fire qtd. in Blade Runner 2049' required></textarea>
 			</div>
 

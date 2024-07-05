@@ -13,7 +13,7 @@ import { Image } from "astro:assets";
 
 <div class="quote">
 	<div class="quote-person-wrapper">
-		<Image src={portrait} class="quote-person" alt={name} width={256} height={256} />	
+		<Image src={portrait} class="quote-person" alt={name} width={256} height={256} loading="eager" />	
 		<span class="quoation-mark">❞</span>
 		<span class="quote-author-alt"><b>{name}</b>, {top_credientials}</span>
 	</div>

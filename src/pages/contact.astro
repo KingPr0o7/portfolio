@@ -3,9 +3,11 @@ import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import EmailForm from '@src/components/Email-form';
+import Button from '@src/components/Button.astro';
+import Link from '@src/components/Link.astro';
 ---
 
-<Layout title="Contact" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="contact.png">
+<Layout title="Contact" description="A gateway to contact Nathan Parker (KingPr0o7) via social media links and an integrated electronic mailing form." image="contact.png">
 	<div id="contact-section">
 		<div id="contact-left">
 			<h1 id="contact-attention">LET'S TALK</h1>
@@ -37,6 +39,13 @@ import EmailForm from '@src/components/Email-form';
 			<EmailForm client:load>
 		</div>
 	</div>
+	<dialog id="contact-popup">
+		<div id="contact-popup-inner">
+			<h1 id="contact-popup-title">Message Sent!</h1>
+			<p id="contact-popup-description">Thank you for reaching out to me. I'll get back to you as soon as possible via the email of: <b>nathan@ncp.dev</b>.</p>
+		</div>
+		<Button id="close" text="Close" size={50} />
+	</dialog>
 </Layout>
 <style is:inline>
 #contact-section {
@@ -171,6 +180,33 @@ import EmailForm from '@src/components/Email-form';
 
 				.form-submit { width: 100%; }	
 
+	#contact-popup[open] {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		text-align: center;
+		gap: 25px;
+		max-width: 400px;
+		height: 300px;
+		border: none;
+		background-color: #1e1e1d;
+		border-radius: var(--secondary-border-radius);
+		padding: 25px;
+	}
+
+		#contact-popup::backdrop { background-color: rgba(0, 0, 0, 0.8); }
+
+		#contact-popup-inner {
+			display: flex;
+			flex-direction: column;
+			gap: 25px;
+		}
+
 /* Sizes down socials because of huge size */
 @media (max-width: 1300px) {
 	#contact-socials { gap: 25px; }
@@ -234,6 +270,12 @@ import EmailForm from '@src/components/Email-form';
 			}
 
 			.contact-social-name { display: none; }	
+
+	#contact-popup[open] {
+		max-width: 100%;
+		width: 80%;
+		height: fit-content;
+	}
 }
 
 /* Other sizing adjustments */
@@ -262,3 +304,11 @@ import EmailForm from '@src/components/Email-form';
 	}
 }
 </style>
+<script is:inline>
+	const popup = document.getElementById('contact-popup');
+	const close = document.getElementById('close');
+
+	close.addEventListener('click', () => {
+		popup.close();
+	});
+</script>

@@ -8,7 +8,7 @@ import { getCollection } from 'astro:content';
 const blogs = await getCollection('blog');
 ---
 
-<Layout title="Blogs" description="Discover Nathan Parker (KingPr0o7)'s passion in his portfolio—cutting-edge projects, blogs, and the story of a developer's creative journey." image="blogs.png" section_class='blogs-section'>
+<Layout title="Blogs" description="A centralized platform of Nathan Parker's (KingPr0o7) thoughts across a spectrum of subjects within the technology space." image="blogs.png" section_class='blogs-section'>
 	<div id="blogs-section">
 		<div id="blogs">
 			<BlogBanner link='/blog/test' thumbnail={Test.src} thumbnail_alt='...' title='Test' tone="Test" date="December 10, 2023"/>
