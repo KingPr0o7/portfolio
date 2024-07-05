@@ -1,0 +1,161 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const legal = await getCollection('legal');
+	return legal.map(legal => ({
+		params: { slug: legal.slug }, props: { legal }
+	}))
+}
+
+const { legal } = Astro.props;
+const { Content } = await legal.render();
+---
+<Layout title={legal.data.title} description={legal.data.description} image={legal.data.thumbnail} data_state='padded' section_class='legal-viewer'>
+	<div class="legal-content">
+		<Content />
+	</div>
+</Layout>
+<style is:inline>
+.legal-viewer {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	gap: 50px;
+}
+
+	.legal-content {
+		width: 60vw;
+		display: flex;
+		gap: 25px;
+		flex-direction: column;
+	}
+
+		.legal-content > h1 { font-size: clamp(1.5rem, 3vw, 3rem); text-align: center; }
+		.legal-content > h2 { font-size: clamp(1.3rem, 2.8vw, 2.5rem); }
+
+			/* Gray line that appears under the subheading (Looks dope) */
+			.legal-content > h1::after, .legal-content > h2::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 2px;
+				border-radius: var(--main-border-radius);
+				background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
+				margin: 10px 0;
+			}
+
+	.legal-content > p {
+		width: 100%;
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
+		line-height: clamp(1rem, 9vw, 2.2rem);
+	}
+
+	.legal-content a {
+		text-decoration-line: underline;
+		-webkit-text-decoration-line: underline;
+		text-decoration-color: var(--accent);
+		text-decoration-thickness: 0.12em;
+		color: var(--accent);
+		-webkit-text-decoration-color: var(--accent);		
+	}
+
+	/* Used for images */
+	.legal-figure {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 25px;
+	}
+
+		.legal-figure-caption {
+			font-size: clamp(1rem, 1.5vw, 1.3rem);
+			text-align: center;
+			font-style: italic;
+		}
+
+	ol, ul {
+		margin-left: 50px;
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
+		line-height: clamp(1rem, 9vw, 2.2rem);
+	}
+
+		li { margin-bottom: 10px; }
+
+	.legal-note {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 25px;
+		gap: 25px;
+		width: 100%;
+		background-color: var(--gray);
+		border-radius: var(--secondary-border-radius);
+	}
+
+		.legal-note-content {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+
+			.legal-note-title {
+				font-size: clamp(1rem, 1.5vw, 2rem);
+				font-weight: bold;	
+			}
+
+			.legal-note-text {
+				font-size: clamp(1rem, 1.5vw, 1.3rem);
+				line-height: clamp(1rem, 1.5vw, 2rem);
+			}	
+
+@media (max-width: 1000px) {
+	.legal-image-wrapper { padding: 0;}
+
+		.legal-image { 
+			border-radius: 0 0 var(--secondary-border-radius) var(--secondary-border-radius); 
+			-webkit-mask: linear-gradient(0deg, var(--background), 20%, transparent);
+			mask: linear-gradient(0deg, var(--background), 20%, transparent);
+		}
+
+		.legal-info-wrapper {
+			width: 100%;
+			padding: 0;
+			align-items: center;
+			text-align: center;
+		}
+
+		.legal-title { width: 80%; }
+
+	#legals { padding: 50px 0 0 0; }
+
+		.legal { width: 100%; }
+
+		.legal-embed-title { text-align: center; }
+
+		.legal-thumbnail {
+			width: 500px;
+			height: 250px;
+		}
+	
+	/* legal Viewer */
+
+	.legal-viewer {
+		padding: 0;
+		grid-column: full;
+	}
+
+		.legal-content {
+			width: 100%;
+			padding: 0 25px;
+		}
+
+	.legal-image-wrapper { width: 100%; }
+	.legal-list { margin-left: 25px; }
+		
+}
+</style>
