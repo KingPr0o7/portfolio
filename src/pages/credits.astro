@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Link from "@src/components/Link.astro";
 
+import Embed from "@icons/astro-embed.svg";
+
 import Martin from "@people/martin_trapp.png";
 import Coding from "@people/coding_in_public.png";
 import Rishi from "@people/rishi_raj_jain.jpg";
@@ -53,6 +55,10 @@ import Null from "@people/person_null.png";
 					<Icon class="contributor-logo" name="astro" width={48} height={48} />
 					<p class="contributor-name"><Link text="astro-font" href="https://www.github.com/rishi-raj-jain/astro-font" /> • Font Handler</p>
 				</div>
+				<div class="contributor">
+					<Image class="contributor-logo" src={Embed} alt="Embed Logo" width={48} height={48} />
+					<p class="contributor-name"><Link text="astro-embed" href="https://github.com/delucis/astro-embed" /> • Embed Optimizer</p>
+				</div>				
 			</div>
 			<div class="credits-section">
 				<h2 class="section-header">Notable Contributors</h2>
@@ -146,7 +152,7 @@ import Null from "@people/person_null.png";
 			grid-template-columns: repeat(2, 1fr);
 			margin: 0 auto;
 			text-align: center;
-			gap: 12.5px;
+			grid-gap: 75px 12.5px;
 			place-items: center;
 		}
 
@@ -155,12 +161,11 @@ import Null from "@people/person_null.png";
 				flex-direction: column;
 				text-align: left;
 				gap: 25px;
-				margin-bottom: 75px;
+				height: 100%;
+				/* margin-bottom: 75px; */
 				max-width: 600px; /* Maximum width */
 				width: 100%; /* Make width responsive */
 			}
-
-				.credits-section:nth-child(4) { height: 417px; }
 
 				.section-header {
 					font-size: clamp(1.2rem, 1.9vw, 2rem);
@@ -231,11 +236,6 @@ import Null from "@people/person_null.png";
 
 			#credits-section { gap: 25px; }
 
-				.credits-section:nth-child(4) {
-					width: auto;
-					height: auto;
-				}
-
 				#personal-pledge { padding: 12.5px; }
 }
 
@@ -276,7 +276,6 @@ import Null from "@people/person_null.png";
 	const observer = new IntersectionObserver((entries) => {
 		const entry = entries[0];
 		if (entry.isIntersecting) {
-			console.log(entry);
 			animatePath();
 		}
 	}, { threshold: 0.5 });

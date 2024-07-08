@@ -1,0 +1,77 @@
+---
+title: Apple's Impact on Messaging
+description: Bringing to light the shear influence of Apple's impact on instant messaging and building their walled garden.
+tone: Critical
+date: July 6, 2024
+thumbnail: apples-impact-on-messaging.png
+thumbnail_alt: Two bubbles (people) communicating with each other via RCS.
+---
+
+import Embed from '@components/Embed.astro'
+import Note from '@components/Note.astro'
+import { YouTube } from '@astro-community/astro-embed-youtube';
+
+Apple is a key player in the smartphone world. Having [55%+ share in the United States](https://gs.statcounter.com/os-market-share/mobile/united-states-of-america/#yearly-2009-2023) and [~27% globally](https://gs.statcounter.com/os-market-share/mobile/worldwide#yearly-2009-2023). This dominance means that many people, particularly in the U.S., rely on Apple's default messaging app, Messages (with iMessage as the underlying protocol), for their daily communication needs. From using it to communicate with family members, close friends, customers, and others. Thus, it has integrated as a key service of communication, in which Apple recently announced they're supporting RCS; signaling a standardizing modern communication adoption.
+
+## What is RCS?
+Rich Communication Services (RCS), is the communications protocol standard for handling messages *between* mobile carriers. Its purpose is to enhance, secure, and incorporate all people (except for iMessage users, pre-WWDC 24'), **regardless** of what phone or carrier you have. Such features include:
+
+- Sending over Wi-Fi and mobile data
+- Read Recipes
+- Typing Indicators
+- High-quality media
+- Seamless group chats
+- Voice Recordings
+- Branding / Verified Senders
+- … and more
+
+The only notable thing not mentioned above is **End-to-End Encryption** (E-2EE), which the Global System for Mobile Communications (GSMA; developers and definers of RCS) left up to each messaging client to incorporate themselves (so that GMSA operates under ***decentralization*** practices). 
+
+Regardless, RCS is like riding in a Rolls-Royce, everything is high quality and just — works. It's so great, that one wouldn't even notice how well it works, it becomes a *habit, routine, a standard…*
+
+## Apple *finally* supporting RCS
+Apple, *for the longest time*, had avoided and refused to give all iMessage users a seamless messaging experience to anyone ***outside*** the Apple Ecosystem. Until their 2024 World-Wide Developers Conference (WWDC), in which they said it with only three words, “RCS messaging support.”
+
+<Embed>
+	<YouTube 
+		id="RXeOiIDNNek" 
+		title="Apple: WWDC 2024 — iOS Recap" 
+		params="start=1818&end=1824&cc_load_policy=1" 
+		posterQuality="max"
+	/>
+</Embed>
+
+You'd think Apple, back around 2016/7 would jump on the bandwagon for this RCS support, right? It would've improved the messaging experience for **all**. 
+
+But no, they hesitated beyond **no other**. They stated again, and again, that it wouldn't happen. Personally, I think this was a business decision, rather than actually improving people's, messaging experience with non-iMessage users. They ignored many people (__including their customers__), and didn't want to budge. For example, Tim Cook, Apple's current CEO, was faced with the insight of an **iPhone** user wanting to simply send high-quality images to his mom: 
+
+<Embed>
+	<YouTube 
+		id="sdvzYtgmIjs" 
+		title="Code 2022: Tim Cook's Thoughts on RCS" 
+		params="start=3615&end=3710&cc_load_policy=1" 
+		poster={import.meta.env.SITE + "/youtube/rcs_interview.png"}
+		posterQuality="max"
+	/>
+</Embed>
+
+*But guess what?* His question was addressed with, “I don't hear our users asking that we put a lot of energy in on that (RCS) at this point.” and referenced into switching to Apple, of both him (even though he already was an iPhone user) and his mother. They **laughed**, labeled it as “*phone wars*” rather than improvement for ***all***. First off, the demand for RCS was apparent for many years at that point (2022) and if Apple did **any** studies on how to improve iMessage, RCS would've been top three. 
+
+As of 2024, RCS is finally being adopted into Apple's iMessage in [iOS 18](https://www.apple.com/ios/ios-18-preview/). Not because of *public demand*, but by a **whole country**, China. You would've thought the EU, due to their recent developments of their [Digital Market's Act](https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age/digital-markets-act-ensuring-fair-and-open-digital-markets_en), but it's most likely [China's drafted proposal](https://www.miit.gov.cn/gzcy/yjzj/art/2023/art_2d5a7969581b4b12a78cd2c455649a8c.html) of the advancement/development of “5G messaging” and “End-to-Network Collaboration.” Nonetheless, Apple didn't change due to the *public's opinions, demands, or pleas* — they saw an **interference** with their ever fighting dominance for shares in China versus Huawei. Apple just seems to change major things, only when bigger entities than themselves push them harder than the public does. RCS is only a fraction of that.
+
+## The Blue vs. Green Bubble Debate
+
+Another thing with RCS, is that it stirs the Blue vs. Green bubble debate. Primarily, people in the **United States**, especially teens and young adults, get disgusted when their messages change to a green color. To add onto that, it's an **American problem**, not a *global* problem. People outside the USA just use a different messaging client like Messenger, WeChat, WhatsApp, and Telegram or even when they use iMessage they *don't seem to care all that much*. This is most likely from the correlation of Apple's share in the USA market, as Android dominates globally with [~72%](https://gs.statcounter.com/os-market-share/mobile/worldwide#yearly-2009-2023). Marquess Brownlee, a major technology YouTuber also points this out:
+
+<Embed>
+	<YouTube 
+		id="BuaKzm7Kq9Q" 
+		title="Marques Brownlee: Global Prespectives of Blue vs. Green Bubble Debate" 
+		params="start=10&end=28&cc_load_policy=1" 
+		posterQuality="max"
+	/>
+</Embed>
+
+Young adults and teens (in the USA) seem to care about the colors of the bubbles more than the features they lose out on and the fact that they're communicating under a highly unsecured/unencrypted communication protocols (SMS or MMS). Furthermore, Apple as a company states that they value *your privacy* like **no other**… Yet, they force your messages (when communicating with non-iPhone users) through Short Message Service (SMS) or Multimedia Messaging Service (MMS) that are *decades old* at this point?
+
+All in all, Apple's impact on messaging is *quite apparent*; they've been trying to build the walled gardens higher and higher, as iMessage is a major key to locking it up. It seems Apple knew **all along** that implementing RCS would have people jumping over the walls of the garden. Which is probably why Tim Cook, Craig Federighi, and other Apple employees voted against adapting into RCS, and solving the Green vs. Blue debate. Then again, Apple likes to “[Think Different](https://www.youtube.com/watch?v=cpzvwkR1RYU)”  but instead, they're building all these features to distract their customers from the walls closing in on them, in which — can one be “*thinking differently*” when all around them is, ***Apple***?

@@ -490,7 +490,7 @@ import Logo from "@images/branding/icon.png"
 	//   loading animations, and event listeners. 
 	//
 
-	document.addEventListener('astro:after-swap', () => {
+	document.addEventListener('astro:page-load', () => {
 		// Maintain and update the current pathname
 		let pathname = location.pathname;
 		let paths = ["/about", "/projects", "/blogs"];
@@ -500,7 +500,9 @@ import Logo from "@images/branding/icon.png"
 		// Ensure navbar line is set back to default from blog progress state
 		navbar_container.style.setProperty('--_transform-origin', 'left');
 		set_navbar_middle(navbar_middle_left, navbar_middle_width);
-		navbar_container.classList.remove('error');
+		if (!document.getElementById('error-code')) {
+			document.querySelector('.navbar-container').classList.remove('error');
+		}
 
 		// Remove scroll event listener if not on blog page
 		document.removeEventListener('scroll', scroll_progress);
@@ -544,5 +546,5 @@ import Logo from "@images/branding/icon.png"
 			}
 		});
 
-	}, { once: false });	
+	}, { once: false });
 </script>

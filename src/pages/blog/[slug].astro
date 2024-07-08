@@ -95,32 +95,9 @@ const { Content } = await blog.render();
 
 		li { margin-bottom: 10px; }
 
-	.blog-note {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 25px;
-		gap: 25px;
-		width: 100%;
-		background-color: var(--gray);
-		border-radius: var(--secondary-border-radius);
-	}
-
-		.blog-note-content {
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-		}
-
-			.blog-note-title {
-				font-size: clamp(1rem, 1.5vw, 2rem);
-				font-weight: bold;	
-			}
-
-			.blog-note-text {
-				font-size: clamp(1rem, 1.5vw, 1.3rem);
-				line-height: clamp(1rem, 1.5vw, 2rem);
-			}	
+@media (max-width: 1440px) {
+	.blog-content { width: 80vw; }
+}
 
 @media (max-width: 1000px) {
 	.blog-image-wrapper { padding: 0;}

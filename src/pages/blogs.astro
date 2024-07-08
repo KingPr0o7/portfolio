@@ -11,13 +11,12 @@ const blogs = await getCollection('blog');
 <Layout title="Blogs" description="A centralized platform of Nathan Parker's (KingPr0o7) thoughts across a spectrum of subjects within the technology space." image="blogs.png" section_class='blogs-section'>
 	<div id="blogs-section">
 		<div id="blogs">
-			<BlogBanner link='/blog/test' thumbnail={Test.src} thumbnail_alt='...' title='Test' tone="Test" date="December 10, 2023"/>
-			{blogs.map(blog => {
-				if (blog.data.title !== 'Test') {
-					return (
-						<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
-					)
-				}
+			{blogs.map((blog, index) => {
+				return index === 0 ? (
+					<BlogBanner link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} tone={blog.data.tone || "Default tone"}  date={blog.data.date} />
+				) : (
+					<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
+				);
 			})}
 		</div>
 	</div>
@@ -36,12 +35,3 @@ const blogs = await getCollection('blog');
 	#blogs { padding: 0; }
 }
 </style>
-<script is:inline>
-	// document.addEventListener('astro:before-preparation', (e) => {
-	// 	var blog = document.querySelectorAll('.blog');
-
-	// 	blog.forEach(blog => {
-	// 		blog.children[1].style.viewTransitionName = blog.children[1].textContent.replaceAll(' ', '_20');
-	// 	});
-	// });
-</script>
