@@ -1,0 +1,39 @@
+---	
+interface Props {
+	quote: string;
+	by: string;
+	href?: string;
+}
+
+const { quote, by, href } = Astro.props;
+import Link from './Link.astro';
+---
+
+<div class="quote">
+	<blockquote class="quote-text">"{quote}"</blockquote>
+	<p class="quote-by">— {href ? <Link text={by} href={href} /> : by}</p>
+</div>
+
+<style>
+.quote {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 10px;
+	border-left: 5px solid var(--gray);
+	padding-left: 25px;
+}
+
+	.quote-text {
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
+		line-height: clamp(1rem, 9vw, 2.2rem);
+		font-style: italic;
+		color: var(--text);
+	}
+
+	.quote-by {
+		font-size: clamp(1rem, 1.5vw, 1.5rem);
+		line-height: clamp(1rem, 9vw, 2.2rem);
+		color: var(--text-secondary);
+	}
+</style>

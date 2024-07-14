@@ -1,16 +1,13 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components'
 import Button from "./Button.astro";
-
-import Logo from "@images/branding/icon.png"
 ---
 
 <nav class="navbar" data-navlist="semi" transition:persist="navbar">
 	<div class="navbar-container">
 		<div class="navbar-left">
 			<a href="/">
-				<Image src={Logo} alt="Nathan Parker's (N) Logo" width={48} height={48} loading="eager" />
+				<Icon name="icon" width={48} height={48} />
 			</a>
 		</div>
 		<div class="navbar-middle">
@@ -19,7 +16,7 @@ import Logo from "@images/branding/icon.png"
 				<p class="navbar-link-text">Back</p>
 			</a>
 			<a class="navbar-link" id="home-link" href="./">
-				<Image src={Logo} class="navbar-image" alt="Nathan Parker's N Logo" width={32} height={32} />
+				<Icon name="icon" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">Home</p>
 			</a>
 			<a class="navbar-link" id="about-link" href="/about">

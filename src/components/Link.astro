@@ -5,9 +5,17 @@ interface Props {
 }
 
 const { href, text } = Astro.props;
----
 
-<a class="link" href={href}>{text}</a>
+let html = "";
+if (Astro.slots.has("default")) {
+  html = await Astro.slots.render("default");
+  html = html.trim();
+}
+
+---
+<Fragment set:html={html}>
+	<a class="link" href={href} target="_blank">{text}</a>
+</Fragment>
 
 <style>
 .link, .blog-content a {
