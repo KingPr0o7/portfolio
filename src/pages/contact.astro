@@ -1,10 +1,8 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import EmailForm from '@src/components/Email-form';
 import Button from '@src/components/Button.astro';
-import Link from '@src/components/Link.astro';
 ---
 
 <Layout title="Contact" description="A gateway to contact Nathan Parker (KingPr0o7) via social media links and an integrated electronic mailing form." image="contact.png">
@@ -250,7 +248,6 @@ import Link from '@src/components/Link.astro';
 	#contact-divider { display: none; }
 
 	#contact-right { width: 80%; }
-		/* #contact-form { gap: 30px; } */
 
 		#contact-socials {
 			display: flex;
@@ -305,8 +302,8 @@ import Link from '@src/components/Link.astro';
 }
 </style>
 <script is:inline>
-	const popup = document.getElementById('contact-popup');
-	const close = document.getElementById('close');
+	var popup = document.getElementById('contact-popup');
+	var close = document.getElementById('close');
 
 	close.addEventListener('click', () => {
 		popup.close();

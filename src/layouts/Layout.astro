@@ -117,26 +117,27 @@ const handle = '@KingPr0o7';
 		<meta name="theme-color" content="#084c9a">
 
 		<!-- Font -->
+		<link rel="preconnect" href="https://cdn.fonts.net">
 		<AstroFont
 			config={[
 				{
-					name: "rubik",
+					name: "gilroy",
 					src: [
 						{
 							style: 'normal',
 							weight: '400',
-							path: join(process.cwd(), 'public', 'fonts', 'rubik.ttf')
+							path: 'https://cdn.fonts.net/kit/6465539a-5ca6-4b6b-b884-383dd737fa00/Gilroy/GilroyRegular_normal_normal.woff2'
 						},
 						{
-							style: 'medium',
-							weight: '600',
-							path: join(process.cwd(), 'public', 'fonts', 'rubik-600.ttf')
-						},
+							style: 'bold',
+							weight: '700',
+							path: 'https://cdn.fonts.net/kit/6465539a-5ca6-4b6b-b884-383dd737fa00/Gilroy/GilroyBold_normal_normal.woff2'
+						}
 					],
 						preload: true,
 						display: "swap",
 						selector: "*",
-						fallback: "sans-serif",
+						fallback: "sans-serif"
 				},
 			]}
 		/>
@@ -190,9 +191,12 @@ const handle = '@KingPr0o7';
 	//   transition names aren't overriden and disobey parent
 	//   transition names for the blogs page.
 	//
+	//   Further functionality and editing by Nathan Parker 
+	//
 
 	const BANNER_IMAGE = ".blog-image-wrapper .blog-image";
 	const BANNER_TITLE = ".blog-image-wrapper .blog-title";
+	const BANNER_INFO = ".blog-image-wrapper .blog-info";
 	const POST_IMAGE = '.blog-link[href="${pathname}"] .blog-thumbnail';
 	const POST_TITLE = '.blog-link[href="${pathname}"] .blog-embed-title';
 
@@ -229,6 +233,7 @@ const handle = '@KingPr0o7';
 	function addBlogBannerViewTransitionNames(doc: Document) {
 		setName(doc, BANNER_IMAGE, "blog-image");
 		setName(doc, BANNER_TITLE, "blog-title");
+		setName(doc, BANNER_INFO, "info");
 	}
 
 	function addBlogPostViewTransitionNames(doc: Document, pathname: string) {
@@ -239,6 +244,7 @@ const handle = '@KingPr0o7';
 	function removeBlogViewTransitionNames(doc: Document, pathname: string) {
 		setName(doc, BANNER_IMAGE, "");
 		setName(doc, BANNER_TITLE, "");
+		setName(doc, BANNER_INFO, "");
 		setName(doc, withPathname(pathname, POST_IMAGE), "");
 		setName(doc, withPathname(pathname, POST_TITLE), "");
 	}
@@ -254,7 +260,22 @@ const handle = '@KingPr0o7';
 			// @ts-ignore
 			element.style.viewTransitionName = name;
 		} else {
-			name && console.warn(`Element not found: ${selector}`);
+			/* If the target blog is in the banner, apply specialized transitions */
+			let title = doc.querySelector<HTMLElement>(BANNER_TITLE);
+			if (title) {
+				// @ts-ignore
+				title.style.viewTransitionName = name;
+			}
+			/* Add the info transition if the target blog is in the banner */
+			if (doc.querySelector<HTMLElement>(BANNER_INFO)) {
+				if (name !== "") {
+					// @ts-ignore
+					doc.querySelector<HTMLElement>(BANNER_INFO).style.viewTransitionName = "info";
+				} else {
+					// @ts-ignore
+					doc.querySelector<HTMLElement>(BANNER_INFO).style.viewTransitionName = "";
+				}
+			}
 		}
 	}
 </script>
@@ -265,9 +286,10 @@ const handle = '@KingPr0o7';
 	display: none;
 }
 
+/* Credit to: Kevin Powell (Credits Page) */
 main {
 	display: grid;
-	grid-template-columns: /* Credit to: Kevin Powell (Credits Page) */
+	grid-template-columns:
 		[full-start] minmax(25px, 1fr) [content-start] minmax(0, var(--max-width)) [content-end] minmax(25px, 1fr) [full-end];
 	padding-top: 70px;
 	min-height: 100vh;
@@ -275,6 +297,7 @@ main {
 	place-content: center;
 }
 
+	/* Handle different Layouts */
 	main > * { grid-column: content; }
 
 	main[data-state="padded"] { padding-top: 95px; }
@@ -313,6 +336,7 @@ main {
 	main { place-content: start; }
 }
 
+/* Directional View Transition Animations (DVTA) */
 @keyframes slideInFromRight {
 	0% {
 		transform: translateX(100%);
