@@ -4,7 +4,7 @@ import react from "@astrojs/react";
 import metaTags from "astro-meta-tags";
 import mdx from "@astrojs/mdx";
 import vtbot from "astro-vtbot";
-
+import lottie from "astro-integration-lottie";
 import icon from "astro-icon";
 
 // https://astro.build/config
@@ -23,7 +23,7 @@ export default defineConfig({
     },
     imageService: true
   }),
-  integrations: [metaTags(), mdx(), vtbot(), react(), icon({
+  integrations: [metaTags(), mdx(), vtbot(), lottie(), react(), icon({
 	iconDir: "src/images/icons",
   })],
   build: {
