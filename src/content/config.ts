@@ -11,7 +11,7 @@ const blog = defineCollection({
 	}),
 })
 
-const legal = defineCollection({
+const text = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		description: z.string(),
@@ -20,7 +20,8 @@ const legal = defineCollection({
 	}),
 })
 
+
 export const collections = {
 	'blog': blog,
-	'legal': legal
+	'text': text
 };

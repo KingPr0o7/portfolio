@@ -1,0 +1,63 @@
+<div id="implications">
+	<div class="implication-side">
+		<h2 class="implication-header">Da Wae</h2>
+		<slot name="good" />
+	</div>
+	<div id="divider"></div>
+	<div class="implication-side">
+		<h2 class="implication-header">Not Da Wae</h2>
+		<slot name="bad" />
+	</div>
+</div>
+<style>
+	#implications {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 25px;
+		padding: 25px 0;
+	}
+
+		.implication-side {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: flex-start;
+			gap: 6.25px;
+			width: 50%;
+			height: 100%;
+		}
+
+			.implication-header {
+				width: 100%;
+				text-align: center;
+			}
+
+			.implication-header::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: radial-gradient(100% 100% at 50% 50%, var(--gray) 0%, var(--background) 50%);
+				margin: 10px 0;
+			}
+
+		#divider {
+			background: radial-gradient(50% 100% at 50% 50%, var(--gray) 0%, var(--background) 50%);
+			content: "";
+			height: 100%;
+			width: 4px;  
+		}
+
+@media (max-width: 1000px) {
+	#implications {
+		flex-direction: column;
+		gap: 25px;
+	}
+		.implication-side {
+			width: 100%;
+		}
+		
+		#divider { display: none; }
+}
+</style>

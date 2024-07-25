@@ -1,0 +1,47 @@
+---
+interface Props {
+	id: string;
+	loop: boolean;
+}
+
+const { id, loop } = Astro.props
+
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+---
+
+<div id="flex-container" data-id={id}>
+	<div id="animation-container" data-id={id}>
+		<LottieAnimation src=`/${id}.json` player="light" autoplay="visible" loop={loop} />
+	</div>
+</div>
+
+<style>
+	#flex-container {
+		width: 100%;
+		height: fit-content;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+		#animation-container {
+			width: 100%;
+			height: 100%;
+		}
+
+			#animation-container[data-id="pictogram"] { 
+				width: 300px;
+				height: 250px; 
+			}
+
+			#animation-container[data-id="wordmark"] { 
+				width: 1000px;
+				height: 125px; 
+			}
+
+			#flex-container[data-id="wordmark"] { 
+				padding: 25px 0;
+			}
+
+
+</style>

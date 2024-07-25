@@ -1,0 +1,45 @@
+---
+interface Props {
+	slot: string,
+	icon: string,
+	text: string;
+}
+
+import { Icon } from 'astro-icon/components';
+const { icon, text } = Astro.props;
+---
+<div class="implication">
+	<div class="implication-wrapper">
+		<Icon name={icon} class="implication-icon" width={32} height={32} />
+		<p class="implication-text">{text}</p>
+	</div>
+</div>
+
+<style>
+	.implication {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 10px;
+		border-radius: 10px;
+	}
+
+		.implication-wrapper {
+			display: flex;
+			align-items: center;
+			gap: 12.5px;
+		}
+
+			.implication-icon {
+				min-width: 32px;
+				min-height: 32px;
+			}
+
+			.implication-text {
+				font-size: clamp(0.8rem, 1.3vw, 1.2rem);
+				line-height: clamp(1.8rem, 9vw, 2rem);
+			}
+</style>
+

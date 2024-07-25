@@ -1,0 +1,170 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	image: string;
+}
+
+const { title, description, image } = Astro.props;
+
+import Layout from './Layout.astro';
+---
+
+<Layout title={title} description={description} image={image} data_state='padded' section_class='text-viewer'>
+	<slot name="full" />
+	<div class='text-content'>
+		<slot name="text" />
+	</div>
+</Layout>
+<style is:inline>
+	.text-viewer {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		gap: 50px;
+	}
+	
+		.text-content {
+			width: 60vw;
+			display: flex;
+			gap: 25px;
+			flex-direction: column;
+		}
+	
+			.text-content > h1 { 
+				font-size: clamp(1.5rem, 3vw, 3rem); 
+				text-align: center; 
+			}
+			
+			.text-content > h2 { font-size: clamp(1.3rem, 2.8vw, 2.5rem); }
+
+			.text-content > h1, .text-content > h2 { margin-bottom: -25px; }
+
+			.text-content > h3, .text-content > h4, .text-content > h5, .text-content >h6 {
+				margin-bottom: -12.5px;
+			}
+	
+				/* Gray line that appears under the subheading (Looks dope) */
+				.text-content > h1::after, .text-content > h2::after {
+					content: "";
+					display: block;
+					width: 100%;
+					height: 2px;
+					border-radius: var(--main-border-radius);
+					background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
+					margin: 10px 0;
+				}
+	
+		.text-content > p {
+			width: 100%;
+			font-size: clamp(1rem, 1.5vw, 1.5rem);
+			line-height: clamp(1rem, 9vw, 2.2rem);
+		}
+	
+		.text-content a {
+			text-decoration-line: underline;
+			-webkit-text-decoration-line: underline;
+			text-decoration-color: var(--accent);
+			text-decoration-thickness: 0.12em;
+			color: var(--accent);
+			-webkit-text-decoration-color: var(--accent);		
+		}
+	
+		/* Used for images */
+		.text-figure {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			gap: 25px;
+		}
+	
+			.text-figure-caption {
+				font-size: clamp(1rem, 1.5vw, 1.3rem);
+				text-align: center;
+				font-style: italic;
+			}
+	
+		ol, ul {
+			margin-left: 50px;
+			font-size: clamp(1rem, 1.5vw, 1.5rem);
+			line-height: clamp(1rem, 9vw, 2.2rem);
+		}
+	
+			li { margin-bottom: 10px; }
+	
+		.text-note {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 25px;
+			gap: 25px;
+			width: 100%;
+			background-color: var(--gray);
+			border-radius: var(--secondary-border-radius);
+		}
+	
+			.text-note-content {
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+			}
+	
+				.text-note-title {
+					font-size: clamp(1rem, 1.5vw, 2rem);
+					font-weight: bold;	
+				}
+	
+				.text-note-text {
+					font-size: clamp(1rem, 1.5vw, 1.3rem);
+					line-height: clamp(1rem, 1.5vw, 2rem);
+				}
+				
+	@media (max-width: 1000px) {
+		.text-image-wrapper { padding: 0;}
+	
+			.text-image { 
+				border-radius: 0 0 var(--secondary-border-radius) var(--secondary-border-radius); 
+				-webkit-mask: linear-gradient(0deg, var(--background), 20%, transparent);
+				mask: linear-gradient(0deg, var(--background), 20%, transparent);
+			}
+	
+			.text-info-wrapper {
+				width: 100%;
+				padding: 0;
+				align-items: center;
+				text-align: center;
+			}
+	
+			.text-title { width: 80%; }
+	
+		#texts { padding: 50px 0 0 0; }
+	
+			.text { width: 100%; }
+	
+			.text-embed-title { text-align: center; }
+	
+			.text-thumbnail {
+				width: 500px;
+				height: 250px;
+			}
+		
+		/* text Viewer */
+	
+		.text-viewer {
+			padding: 0;
+			grid-column: full;
+		}
+	
+			.text-content {
+				width: 100%;
+				padding: 0 25px;
+			}
+	
+		.text-image-wrapper { width: 100%; }
+		.text-list { margin-left: 25px; }
+			
+	}
+</style>

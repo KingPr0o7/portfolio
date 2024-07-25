@@ -1,0 +1,16 @@
+<div id="double-ul">
+	<slot />
+</div>
+<style>
+	#double-ul {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	@media (max-width: 400px) {
+		#double-ul {
+			flex-direction: column;
+			align-items: left;
+		}
+	}
+</style>

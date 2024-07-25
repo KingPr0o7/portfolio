@@ -1,0 +1,29 @@
+---
+interface Props {
+	src: string;
+	alt: string;
+	width?: number;
+	height?: number;
+}
+
+import { Image } from 'astro:assets'
+
+const { src, alt, width, height } = Astro.props
+---
+
+<div class="image-wrapper">
+	<Image src={src} alt={alt} width={width} height={height} />
+</div>
+
+<style is:inline>
+	.image-wrapper {
+		display: flex;
+		justify-content: center;
+		max-width: 100%;
+	}
+
+		.image-wrapper img {
+			max-width: 100%;
+			height: auto;
+		}
+</style>

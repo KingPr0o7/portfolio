@@ -1,0 +1,25 @@
+<div id="colors">
+	<slot />
+</div>
+
+<style>
+	#colors {
+		width: 100%;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 25px;
+		padding: 25px 0;
+		margin: 0 auto;
+		place-items: center;
+	}
+
+	@media (max-width: 400px) {
+		#colors {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 330px) {
+		#colors { place-items: start;}
+	}
+</style>

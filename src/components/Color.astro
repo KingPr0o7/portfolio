@@ -1,0 +1,72 @@
+---
+interface Props {
+	name: string,
+	HEX: string,
+	RGB: string,
+}
+
+const { name, HEX, RGB } = Astro.props
+---
+
+<div class="color">
+	<div class="colored-showcase" style=`background-color: ${HEX}`></div>
+	<div class="color-info">
+		<h2 class="color-name">{name}</h2>
+		<p class="color-HEX">{HEX}</p>
+		<p class="color-RGB">{RGB}</p>
+	</div>
+</div>
+
+<style>
+	.color {
+		display: flex;
+		align-items: center;
+		gap: 25px;
+	}
+
+		.colored-showcase {
+			width: 100px;
+			height: 100px;
+			border-radius: var(--secondary-border-radius);
+		}
+
+		.color-info {
+			display: flex;
+			flex-direction: column;
+			gap: 5px;
+			width: 200px;
+		}
+	
+	@media (max-width: 750px) {
+		.color {
+			flex-direction: column;
+			justify-content: center;
+		}
+
+		.color-info {
+			width: fit-content;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 400px) {
+		.color {
+			flex-direction: row;
+			justify-content: flex-start;
+		}
+
+			.colored-showcase {
+				width: 50px;
+				height: 50px;
+			}
+
+				.color-info { 
+					text-align: left; 
+					width: 200px;
+				}
+	}
+
+	@media (max-width: 330px) {
+		.color-info { width: fit-content; }
+	} 
+</style>
