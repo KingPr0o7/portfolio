@@ -27,8 +27,8 @@ const EmailForm = () => {
 				},
 
 				body: JSON.stringify({
-					from: 'nathan@ncp.dev',
-					to: [email, 'nathan@ncp.dev'],
+					from: 'confirmation@ncp.dev',
+					to: [email, 'confirmation@ncp.dev'],
 					subject: `I'll be in touch, ${name}!`,
 					html: html,
 					text: text,
@@ -73,6 +73,7 @@ const EmailForm = () => {
 	const handleEmail = (e: React.FormEvent<HTMLInputElement>) => {
 		let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		let domainEmail = /^nathan(\+[a-zA-Z0-9]+)?@ncp\.dev$/;
+		let legalEmail = /^legal(\+[a-zA-Z0-9]+)?@ncp\.dev$/
 		let input = e.currentTarget;
 		if (regex.test(input.value)) {
 			input.setCustomValidity('');
@@ -84,7 +85,11 @@ const EmailForm = () => {
 			if (domainEmail.test(input.value)) {
 				input.setCustomValidity('Don\'t use my email address, silly!');
 			}
+			if (legalEmail.test(input.value)) {
+				input.setCustomValidity('Don\'t use my legal email address. If you need legal help, send it through your email client.');
+			}
 		}
+		
 		input.reportValidity();		
 	}
 

@@ -1,20 +1,19 @@
 ---
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import NES from "@public/personal/super-mario-bros.png";
 import PC_Mirroring from "@public/personal/city-car-driving.png";
 import Space_Invaders from "@public/personal/space-invaders.png";
 import Ninja_and_King from "@public/personal/ninja-and-king.png";
-import First_Site from "@public/personal/first-site.png";
+import Nathan_Parker from "@public/personal/nathan-parker.png";
 
-import Arrow_Left from "@icons/arrow-left.svg";
-import Arrow_Right from "@icons/arrow-right.svg";
 import Link from "./Link.astro";
 ---
 
 
 <div id="timeline">
 	<div id="timespan-wrapper">
-		<button class="timespan-control" id="timespan-back"><Image src={Arrow_Left} alt="Arrow Left" width={32} height={32} /></button>
+		<button class="timespan-control" id="timespan-back"><Icon name="symbols/arrow-left" width={32} height={32} /></button>
 		<div id="timespan">
 			<button class="moment">
 				<div class="moment-year">
@@ -59,7 +58,7 @@ import Link from "./Link.astro";
 				</div>
 			</button>
 		</div>
-		<button class="timespan-control" id="timespan-forward"><Image src={Arrow_Right} alt="Arrow Right" width={32} height={32} /></button>
+		<button class="timespan-control" id="timespan-forward"><Icon name="symbols/arrow-right" width={32} height={32} /></button>
 	</div>
 
 	<div id="moment-container">
@@ -90,7 +89,7 @@ import Link from "./Link.astro";
 		<div class="moment-in-time" id="moment-2021">
 			<div class="moment-wrapper">
 				<h2 class="moment-title">Acceleration of Passions</h2>
-				<p class="moment-desc">To enhance on the monumental interest arising from Scratch, my friend, <Link href="https://twitter.com/NotNinjaTalon?s=20" text="@NotNinjaTalon" />, introduced me to the world of Minehut's server platform. <i>I and Talon</i>, decided to pull the trigger and dedicate our summers making <b>two semi-successful servers</b> called <Link href="https://youtu.be/7FG3c8ZeEzY?si=zQTSGYcg2AdQek0Q&t=185" text="IslandNSky" /> and <Link href="https://www.youtube.com/watch?v=semPmIRgXFU" text="Premiums" />; gaining each around <b>75</b> <i>concurrent players</i> <b>daily</b> at their peaks. Once school started back up, I made the <b>pivotal leap</b> towards my education by accepting the <i>“Software Development”</i> pathway at my high school. Learning high-level programming from HTML, CSS, JS, and Python; <i>creating and maintaining</i> projects to present to my class for <b>all</b> to enjoy.</p>
+				<p class="moment-desc">To enhance on the monumental interest arising from Scratch, my friend, <Link href="https://talon.fyi" text="NotNinjaTalon" />, introduced me to the world of Minehut's server platform. <i>I and Talon</i>, decided to pull the trigger and dedicate our summers making <b>two semi-successful servers</b> called <Link href="https://youtu.be/7FG3c8ZeEzY?si=zQTSGYcg2AdQek0Q&t=185" text="IslandNSky" /> and <Link href="https://www.youtube.com/watch?v=semPmIRgXFU" text="Premiums" />; gaining each around <b>75</b> <i>concurrent players</i> <b>daily</b> at their peaks. Once school started back up, I made the <b>pivotal leap</b> towards my education by accepting the <i>“Software Development”</i> pathway at my high school. Learning high-level programming from HTML, CSS, JS, and Python; <i>creating and maintaining</i> projects to present to my class for <b>all</b> to enjoy.</p>
 			</div>
 			<Image class="moment-image" id="moment-images-2021" src={Ninja_and_King} alt="A series of images showing, Minecraft server development (Premiums), my first HTML document, my first website, and my first game (Not stolen haha)" width="300" height="300" />
 		</div>
@@ -100,7 +99,7 @@ import Link from "./Link.astro";
 				<h2 class="moment-title">Building Knowledge</h2>
 				<p class="moment-desc">After completing most of <b>Computer Science II</b> in high school, I decided I wanted to go back and tune my web development skills from <i>2021 and 2022</i>. And as thus such, I started development on <b>this site</b> (with a lot of prototyping) throughout the whole year. <i>However, and thankfully</i>, my high school had nothing beyond <b>Computer Science II</b>, which to continue the pathway led to <Link href="https://www.ivytech.edu/" text="Ivy Tech" /> being the next place for my studies. They're a community college in Indiana, and happened to start with <b>Website Development</b> — which was perfect for my situation and lead me to the <b>advancement</b> of my website making skills! </p>
 			</div>
-			<Image class="moment-image" id="moment-images-2023" src={First_Site} alt="A series of images showing, my revisting web dev, a vex robot I programmed, my first portfolio site, a computer science project (Combo Menu), and YouTube Plus, a work in progress extension. " width="300" height="300" />
+			<Image class="moment-image" id="moment-images-2023" src={Nathan_Parker} alt="A series of images showing, my revisting web dev, a vex robot I programmed, my first portfolio site, a computer science project (Combo Menu), and YouTube Plus, a work in progress extension. " width="300" height="300" />
 		</div>
 	</div>
 </div>
@@ -303,7 +302,7 @@ import Link from "./Link.astro";
 }
 
 @keyframes twenty-three-images {
-	20% { content: url('/personal/first-site.png'); }
+	20% { content: url('/personal/nathan-parker.png'); }
 	40% { content: url('/personal/vex-robot.png'); }
 	60% { content: url('/personal/first-portfolio.png'); }
 	80% { content: url('/personal/combo-menu-site.png'); }

@@ -6,25 +6,25 @@ import Button from "./Button.astro";
 <nav class="navbar" data-navlist="semi" transition:persist="navbar">
 	<div class="navbar-container">
 		<div class="navbar-left">
-			<a href="/">
-				<Icon name="icon" width={48} height={48} />
+			<a href="/" aria-label="Home Page">
+				<Icon name="logos/n" width={48} height={48} />
 			</a>
 		</div>
 		<div class="navbar-middle">
 			<a class="navbar-link" id="back-link" href="/blogs">
-				<Icon name="arrow-left" class="navbar-image" width={32} height={32} />
+				<Icon name="symbols/arrow-left" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">Back</p>
 			</a>
 			<a class="navbar-link" id="home-link" href="./">
-				<Icon name="icon" class="navbar-image" width={32} height={32} />
+				<Icon name="logos/n" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">Home</p>
 			</a>
 			<a class="navbar-link" id="about-link" href="/about">
-				<Icon name="about" class="navbar-image" width={32} height={32} />
+				<Icon name="symbols/about" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">About</p>
 			</a>
 			<a class="navbar-link" id="projects-link" href="/projects">
-				<Icon name="project" class="navbar-image" width={32} height={32} />
+				<Icon name="symbols/project" class="navbar-image" width={32} height={32} />
 				<p class="navbar-link-text">Projects</p>
 			</a>
 			<a class="navbar-link" id="blogs-link" href="/blogs">
@@ -48,17 +48,17 @@ import Button from "./Button.astro";
 
 <nav class="mobile-navlist" transition:persist="navlist">
 	<a class="navbar-link" href="/contact">
-		<Icon name="contact" class="navbar-image" width={32} height={32} />
+		<Icon name="symbols/contact" class="navbar-image" width={32} height={32} />
 		<p class="navbar-link-text">Contact</p>
 	</a>
 
 	<a class="navbar-link" href="/blogs">
-		<Icon name="blog" class="navbar-image" width={32} height={32} />
+		<Icon name="symbols/blog" class="navbar-image" width={32} height={32} />
 		<p class="navbar-link-text">Blogs</p>
 	</a>	
 
 	<a class="navbar-link" href="/projects">
-		<Icon name="project" class="navbar-image" width={32} height={32} />
+		<Icon name="symbols/project" class="navbar-image" width={32} height={32} />
 		<p class="navbar-link-text">Projects</p>
 	</a>
 </nav>

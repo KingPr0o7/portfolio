@@ -9,11 +9,14 @@
 			"@branding/*": [ "src/images/branding/*" ],
 			"@personal/*": [ "src/images/personal/*" ],
 			"@people/*": [ "src/images/people/*" ],
+
 			"@icons/*": [ "src/images/icons/*" ],
-			"@logos/*": [ "src/images/logos/*" ],
-			"@components/*": [ "src/components/*" ],
+			"@logos/*": [ "src/images/icons/logos/*" ],
+			"@symbols/*": [ "src/images/icons/symbols/*" ],
+
 			"@layouts/*": [ "src/layouts/*" ],
-			"@pages/*": [ "src/pages/*" ]
+			"@pages/*": [ "src/pages/*" ],
+			"@components/*": [ "src/components/*" ],
 		},
 	"jsx": "react-jsx",
 	"jsxImportSource": "react"

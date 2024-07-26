@@ -18,7 +18,7 @@ const { link, thumbnail, thumbnail_alt, title, tone, date, centered } = Astro.pr
 	<div class="blog-info-wrapper" data-centered={centered}>
 		<span class="blog-info">{tone} • {date}</span>
 		<h1 class="blog-title">{title}</h1>
-		{!centered && <a class="button" href={link}>Read More</a>}
+		{!centered && <a class="button" href={link} aria-label="Read Blog">Read More</a>}
 	</div>
 </article>
 

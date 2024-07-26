@@ -10,7 +10,7 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
-  site: 'https://portfolio-ncp.vercel.app',
+  site: 'https://www.ncp.dev/',
   prefetch: {
     prefetchAll: true
   },
