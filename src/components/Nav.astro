@@ -527,8 +527,10 @@ import Button from "./Button.astro";
 		navbar_container.style.setProperty("--_left", 0 + "%");
 		navbar_container.style.setProperty("--_width", 0 + "%");
 
-		hamburger_parent.addEventListener('click', () => {
+		hamburger_parent.addEventListener('click', (e) => {
+			e.stopImmediatePropagation();
 			let state = hamburger.getAttribute('data-state');
+			console.log(state);
 			state === "closed" ? change_nav("true") : change_nav("false");
 		});
 

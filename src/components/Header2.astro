@@ -1,0 +1,29 @@
+---
+import Anchor from "@components/Anchor.astro";
+---
+
+
+<h2>
+	<Anchor >
+		<slot />
+	</Anchor>
+</h2>
+
+<style>
+	h2 { 
+		font-size: clamp(1.3rem, 2.8vw, 2.5rem); 
+		width: 100%;
+		margin-bottom: -25px;
+	}
+
+	h2::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 2px;
+		border-radius: var(--main-border-radius);
+		background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
+		margin: 10px 0;
+	}
+
+</style>

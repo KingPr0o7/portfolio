@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content'
 import Text from '@layouts/Text.astro';
 import BlogBanner from '@components/Blog-banner.astro'
+import Header1 from '@components/Header1.astro';
+import Header2 from '@components/Header2.astro';
+import Header3 from '@components/Header3.astro';
 
 export async function getStaticPaths() {
 	const blogs = await getCollection('blog');
@@ -15,5 +18,5 @@ const { Content } = await blog.render();
 ---
 <Text title={blog.data.title} description={blog.data.description} image={blog.data.thumbnail}>
 	<BlogBanner slot="full" thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} tone={blog.data.tone} date={blog.data.date} centered='true' />
-	<Content slot="text" />
+	<Content slot="text" components={{ h1: Header1, h2: Header2, h3: Header3 }} />
 </Text>

@@ -12,7 +12,7 @@ const { link, text, image } = Astro.props
 	<div id="download">
 		<img id="download-image" src={image} alt={text} width={950} height={400} />
 		<div id="download-content">
-			<a id="download-link" href={link} data-astro-reload>Download</a>
+			<a id="download-link" href={link} download>Download</a>
 		</div>
 	</div>
 </div>
@@ -29,7 +29,10 @@ const { link, text, image } = Astro.props
 			border-radius: var(--secondary-border-radius);
 		}
 
-			#download-image { max-width: 100%; }
+			#download-image { 
+				max-width: 100%; 
+				height: auto;
+			}
 
 			#download-content {
 				width: 100%;

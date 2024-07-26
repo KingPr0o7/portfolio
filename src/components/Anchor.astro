@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<button class="anchor">
+	<div class="text-wrapper">
+		<slot class="header" />
+	</div>
+	<Icon name="symbols/anchor" class="link-icon" />
+</button>
+<style>
+	.anchor {
+		all: unset;
+		width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		gap: 12.5px;
+		scroll-margin: 75px;
+	}
+
+		.text-wrapper {
+			height: fit-content;
+		}
+
+	.anchor:hover, .anchor:focus { cursor: pointer; }
+
+	.anchor:hover .link-icon, .anchor:focus .link-icon { opacity: 1; }
+
+	.link-icon {
+		opacity: 0;
+		transition: opacity 500ms;
+		height: 100%;
+		width: auto;
+	}
+
+@media (max-width: 1000px) {
+	.anchor {
+		scroll-margin: 25px;
+	}
+}
+</style>
+<script is:inline data-astro-rerun>
+	var anchor = document.querySelectorAll('.anchor');
+
+	anchor.forEach(a => {
+		var header_text = a.querySelector('.text-wrapper').textContent.trim().toLowerCase().replace(/[\/,?.\s]+/g, '-');
+		a.id = header_text;
+
+		a.addEventListener('click', (e) => {
+			e.stopImmediatePropagation();
+			const link = `${window.location.origin}${window.location.pathname}#${header_text}`;
+			navigator.clipboard.writeText(link).then(() => {
+				console.log('Link copied to clipboard: ', link);
+			}).catch(err => {
+				console.error('Failed to copy link: ', err);
+			});
+		});
+	});
+</script>

@@ -33,30 +33,6 @@ import Layout from './Layout.astro';
 			flex-direction: column;
 		}
 	
-			.text-content > h1 { 
-				font-size: clamp(1.5rem, 3vw, 3rem); 
-				text-align: center; 
-			}
-			
-			.text-content > h2 { font-size: clamp(1.3rem, 2.8vw, 2.5rem); }
-
-			.text-content > h1, .text-content > h2 { margin-bottom: -25px; }
-
-			.text-content > h3, .text-content > h4, .text-content > h5, .text-content >h6 {
-				margin-bottom: -12.5px;
-			}
-	
-				/* Gray line that appears under the subheading (Looks dope) */
-				.text-content > h1::after, .text-content > h2::after {
-					content: "";
-					display: block;
-					width: 100%;
-					height: 2px;
-					border-radius: var(--main-border-radius);
-					background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
-					margin: 10px 0;
-				}
-	
 		.text-content > p {
 			width: 100%;
 			font-size: clamp(1rem, 1.5vw, 1.5rem);

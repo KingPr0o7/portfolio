@@ -1,0 +1,22 @@
+<h1>
+	<slot />
+</h1>
+
+<style>
+	h1 { 
+		font-size: clamp(1.5rem, 3vw, 3rem); 
+		text-align: center;
+		margin-bottom: -25px; 
+		padding-top: 25px;
+	}
+
+	h1::after {
+		content: "";
+		display: block;
+		width: 100%;
+		height: 2px;
+		border-radius: var(--main-border-radius);
+		background: radial-gradient(100% 100% at 50% 100%, var(--gray) 0%, var(--background) 50%);
+		margin: 10px 0;
+	}
+</style>

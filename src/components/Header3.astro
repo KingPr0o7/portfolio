@@ -1,0 +1,16 @@
+---
+import Anchor from "@components/Anchor.astro";
+---
+
+<h3>
+	<Anchor >
+		<slot />
+	</Anchor>
+</h3>
+
+<style>
+	h3 { 
+		font-size: clamp(1rem, 1vw, 1.5rem); 
+		margin-bottom: -12.5px; 
+	}
+</style>

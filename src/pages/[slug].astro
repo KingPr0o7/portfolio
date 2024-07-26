@@ -1,6 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
 import Text from '@layouts/Text.astro';
+import Header1 from '@components/Header1.astro';
+import Header2 from '@components/Header2.astro';
+import Header3 from '@components/Header3.astro';
 
 export async function getStaticPaths() {
 	const text = await getCollection('text');
@@ -13,5 +16,5 @@ const { text } = Astro.props;
 const { Content } = await text.render();
 ---
 <Text title={text.data.title} description={text.data.description} image={text.data.thumbnail}>
-	<Content slot="text" />
+	<Content slot="text" components={{ h1: Header1, h2: Header2, h3: Header3 }} />
 </Text>

@@ -42,7 +42,15 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 
 			#flex-container[data-id="wordmark"] { 
 				padding: 25px 0;
+				height: 150px;
 			}
 
+@media (max-width: 1300px) {
+	#animation-container[data-id="wordmark"] { height: 100px; }
+}
+
+@media (max-width: 700px) {
+	#animation-container[data-id="wordmark"] { height: 50px; }
+}
 
 </style>
