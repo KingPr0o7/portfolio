@@ -265,7 +265,10 @@ import Button from "./Button.astro";
 
 @media (max-width: 1000px) {
 	/* Navbar */
-	.navbar { top: calc(100dvh - 70px); } /* Moves navbar to bottom of dvh (Dynamic Viewport Height - Safari Toolbar) */
+	.navbar { 
+		top: calc(100dvh - 70px);  /* Moves navbar to bottom of dvh (Dynamic Viewport Height - Safari Toolbar) */
+		position: fixed;
+	}
 
 		.navbar::after { top: 0; }
 

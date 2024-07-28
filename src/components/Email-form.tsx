@@ -96,18 +96,18 @@ const EmailForm = () => {
 	return (
 		<form id="contact-form" onSubmit={handleSubmit}>
 			<div className="contact-input">
-				<label className="form-label" htmlFor="name">What's your name? <span className="form-star">*</span></label>
-				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder='Officer K, "Joe"' name="name" required />
+				<label className="form-label" htmlFor="contact-name">What's your name? <span className="form-star">*</span></label>
+				<input className="form-textfield" onInput={handleName} id="contact-name" type="text" placeholder='Officer K, "Joe"' name="name" required autoComplete="name" />
 			</div>
 
 			<div className="contact-input">
-				<label className="form-label" htmlFor="email">Your current email? <span className="form-star">*</span></label>
-				<input className="form-textfield" onInput={handleEmail} id="contact-email" type="text" placeholder="KD6-3.7@lapd.gov" name="email" required />
+				<label className="form-label" htmlFor="contact-email">Your current email? <span className="form-star">*</span></label>
+				<input className="form-textfield" onInput={handleEmail} id="contact-email" type="text" placeholder="KD6-3.7@lapd.gov" name="email" required autoComplete="email" />
 			</div>
 
 			<div className="contact-input">
-				<label className="form-label" htmlFor="message">Tell me your thoughts! <span className="form-star">*</span></label>
-				<textarea className="form-textarea" id="contact-message" name="input" placeholder='"And blood-black nothingness began to spin -- a system of cells interlinked within, cells interlinked within cells interlinked, within one stem. -- And dreadfully distinct, against the dark, a tall white fountain played." - Vladimir Nabokov, Pale Fire qtd. in Blade Runner 2049' required></textarea>
+				<label className="form-label" htmlFor="contact-message">Tell me your thoughts! <span className="form-star">*</span></label>
+				<textarea className="form-textarea" id="contact-message" name="message" placeholder='"And blood-black nothingness began to spin -- a system of cells interlinked within, cells interlinked within cells interlinked, within one stem. -- And dreadfully distinct, against the dark, a tall white fountain played." - Vladimir Nabokov, Pale Fire qtd. in Blade Runner 2049' required></textarea>
 			</div>
 
 			<button className="button form-submit" id="contact-submit">Submit</button>
