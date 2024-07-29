@@ -73,6 +73,7 @@ import Button from "./Button.astro";
 	width: 100%;
 	height: 70px;
 	background-color: var(--background);
+	transition: all 500ms ease;
 }
 
 	.navbar-container {
@@ -266,8 +267,9 @@ import Button from "./Button.astro";
 @media (max-width: 1000px) {
 	/* Navbar */
 	.navbar { 
-		top: calc(100svh - 70px);
+		top: calc(100dvh - 70px);
 		position: fixed;
+		transition: top 500ms ease;
 	}
 
 		.navbar::after { top: 0; }
