@@ -1,0 +1,56 @@
+---
+interface Props {
+	video_id: string;
+	video_title: string;
+	start_time?: number;
+}
+
+import { YouTube } from '@astro-community/astro-embed-youtube';
+const { video_id, video_title, start_time } = Astro.props;
+---
+
+<div class="video-wrapper">
+	<YouTube 
+		id={video_id} 
+		class="project-image"
+		title={video_title}
+		params=`start=${start_time}&cc_load_policy=1`
+		posterQuality="max"
+	/>
+</div>
+<style>
+.video-wrapper {
+	width: 700px;
+	height: 400px;
+	background-color: var(--gray);
+	border-radius: var(--secondary-border-radius);
+}
+
+	lite-youtube {
+		min-height: 100%;
+		width: 100%;
+		max-width: 100% !important;
+		border-radius: var(--secondary-border-radius);
+	}
+
+@media (max-width: 1200px) {
+	.video-wrapper {
+		width: 623px;
+		height: 356px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.video-wrapper {
+		width: 575px;
+		height: 328px;
+	}
+}	
+
+@media (max-width: 1000px) {
+	.video-wrapper {
+		width: 100%;
+		height: auto;
+	}
+}
+</style>

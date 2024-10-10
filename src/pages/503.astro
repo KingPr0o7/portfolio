@@ -1,0 +1,301 @@
+---
+import Layout from "@src/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import Link from "@src/components/Link.astro";
+import Logo from "@images/branding/icon.png"
+---
+
+<Layout title="503 - Page Under Construction" description="Page being currently developed." image="404.png" section_class="error-page" data_state="error">
+	<div id="error-section">
+		<div id="error-left">
+			<h1 id="error-attention"><span id="error-code">503</span> - <span id="error-name"><span id="cursor"></span></span></h1>
+			<p id="error-description">Requested resource is currently being further developed, and is not ready for public use. Come back at a later date and use these pathnames to escape: </p>	
+			<div id="error-redirects">
+				<a class="error-redirect" href="/">
+					<Icon name="logos/n" class="error-redirect-icon" width={48} height={48} />
+					<p class="error-redirect-name">/</p>
+				</a>
+	
+				<a class="error-redirect" href="/about">
+					<Icon name="symbols/about" class="error-redirect-icon" width={48} height={48} />
+					<p class="error-redirect-name">/about</p>
+				</a>
+	
+				<a class="error-redirect" href="/projects">
+					<Icon name="symbols/project" class="error-redirect-icon" width={48} height={48} />
+					<p class="error-redirect-name">/projects</p>
+				</a>
+	
+				<a class="error-redirect" href="/blogs">
+					<Icon name="symbols/blog" class="error-redirect-icon" width={48} height={48} />
+					<p class="error-redirect-name">/blogs</p>
+				</a>
+			</div>		
+		</div>
+		<div id="error-divider"></div>
+		<div id="error-right">
+			<h2 id="story-header">Slow down! You don't have a DeLorean!</h2>
+			<p id="story">I know that some things are just too good to resist not seeing. Like, if I ever get a girlfriend, or if holograms will ever exist. However, such things require delicate and precise planning, tweaking, and execution to pull off. This page is a key example of this, and as such, it is restricted to the public's viewing until an undefined date of release. To get notified when such a feature or page will be released, join my <Link href="https://discord.gg/ksW8rAcU6t" text="Discord">! I'll make sure to notify all members of substantial features or important life updates before posting them to my website. Just another way to stay connected and learn more about myself and about my (future) community. So, you can ease off the pedal at 88 mph, as neither of us have a fully functioning plutonium or a Dr. Fusion-powered DeLorean.</p>
+		</div>
+</Layout>
+<style is:inline>
+	#error-section {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: row;
+		gap: 25px;
+	}
+	
+		/* Attention Getter + Socials */
+		#error-left {
+			width: clamp(300px, 40vw, 650px);
+			display: flex;
+			flex-direction: column;
+			gap: 25px;
+		}
+	
+			#error-attention { font-size: clamp(1.3rem, 4.2vw, 7rem); }
+				#error-code { font-variant-numeric: tabular-nums; }
+				#cursor {
+					display: inline-block;
+  					position: relative;
+  					z-index: 1;
+  					top: 5px;
+  					background-color: #FFFFFF;
+  					height: clamp(1.3rem, 4.2vw, 7rem);
+  					width: 3px;
+					animation: blinking 1500ms infinite
+				}
+
+				@keyframes blinking {
+					0% { opacity: 100%; }
+					50% { opacity: 20%; }
+					100% { opacity: 100%; }
+				}
+
+
+			#error-description {
+				font-size: clamp(1rem, 1.5vw, 1.5rem);
+				line-height: clamp(1rem, 2vw, 2.3rem);
+			}
+	
+			#error-redirects {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr); 
+				gap: 25px
+			}
+			
+				.error-redirect {
+					cursor: pointer;
+					display: flex;
+					align-items: center;
+					justify-self: center;
+					gap: 25px;
+					width: 300px;
+					text-decoration: none;
+				}
+	
+					.error-redirect:hover > *:not(.error-redirect-icon), .error-redirect:focus > *:not(.error-redirect-icon) {
+						color: var(--accent);
+					}
+			
+					.error-redirect-icon {
+						background-color: var(--secondary);
+						border-radius: var(--secondary-border-radius);
+						outline: 5px solid var(--secondary);
+						width: 48px;
+						height: 48px;
+						color: var(--text);
+					}
+			
+					.error-redirect-name { font-size: clamp(0.8rem, 1.7vw, 1.5rem); }
+	
+		/* Line only visible on desktop to divide socials from form */
+		#error-divider {
+			min-width: 2px;
+			height: 600px;
+			border-radius: var(--main-border-radius);
+			background-color: var(--gray);
+			content: "";
+		}		
+	
+		#error-right { 
+			display: flex;
+			flex-direction: column;
+			width: clamp(300px, 40vw, 650px); 
+		}
+
+			#story-header {
+				font-size: clamp(1.2rem, 2vw, 2rem);
+				line-height: 2.5rem;
+			}
+
+				#story-header::after {
+					content: " ";
+					display: block;
+					width: 100%;
+					height: 2px;
+					background: radial-gradient(100% 100% at 0% 100%, var(--gray) 0%, var(--background) 100%);
+					margin: 12.5px 0 25px 0;
+				}
+
+			#story {
+				font-size: clamp(1rem, 1vw, 1.2rem);
+				line-height: 2rem;
+			
+			}
+
+	/* Sizes down socials because of huge size */
+	@media (max-width: 1300px) {
+		#error-redirects { gap: 25px; }
+			.error-redirect { width: 275px; }
+	
+			.error-redirect-icon {
+				width: 32px;
+				height: 32px;
+			}
+	}
+	
+	@media (max-width: 1200px) {
+		#error-redirects { gap: 30px; }
+			.error-redirect { width: 200px; }
+	
+			.error-redirect-icon {
+				width: 32px;
+				height: 32px;
+			}
+	}
+	
+	@media (max-width: 1000px) {
+		#error-section {
+			padding: 50px 0;
+			justify-content: center;
+			flex-direction: column;
+			min-height: 100vh;
+			gap: 75px;
+		}
+	
+			#error-attention { font-size: clamp(1.3rem, 10vw, 5rem); }
+			#cursor { height: clamp(1.3rem, 10vw, 5rem); }
+	
+		#error-left {
+			width: 100%;
+			gap: 50px; 
+			align-items: center;
+			text-align: center;
+		}
+	
+			#error-description { width: 50%; }
+	
+		#error-divider { display: none; }
+	
+		#error-right { width: 80%; }
+	
+			#error-redirects {
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
+				width: 100%;
+			}
+	
+				.error-redirect {
+					width: 48px;
+					justify-content: center;
+				}
+	
+				.error-redirect-icon {
+					width: 48px;
+					height: 48px;
+				}
+	
+				.error-redirect-name { display: none; }	
+	}
+	
+	/* Other sizing adjustments */
+	@media (max-height: 800px) {
+		#error-section { padding-top: 25px; }
+	}
+	
+	@media (max-width: 600px) {
+		#error-description { width: 100%; }
+	}
+	
+	@media (max-width: 500px) {
+		#error-right { width: 100%; }
+		.error-redirect { width: 32px; }
+		.error-redirect-icon {
+			width: 32px;
+			height: 32px;
+		}
+	}
+	
+	@media (max-width: 350px) {
+		.error-redirect { width: 28px; }
+		.error-redirect-icon {
+			width: 28px;
+			height: 28px;
+		}
+	}
+</style>
+<script is:inline>
+var cursor = document.getElementById("cursor");
+var numbers = '0123456789';
+var original_code = document.getElementById('error-code');
+type('error-name', 'Incomplete', 200, 0, true);
+
+//
+// Set Page Details
+//
+
+document.querySelector('.navbar-container').classList.add('warning');
+
+//
+// "Real" Typing Characters
+//
+
+function type(targetElement, textToType, speed, index, cursorMode) {
+	let element = document.getElementById(`${targetElement}`);
+	let text = `${textToType}`;
+	if (index < text.length) {
+		if (cursorMode == true) {
+			element.removeChild(cursor);
+			element.innerHTML += text.charAt(index);  
+			index++;
+			element.appendChild(cursor);		  
+		} else {
+			element.innerHTML += text.charAt(index);  
+			index++;			
+		}
+		setTimeout(type, speed, `${targetElement}`, text, speed, index, cursorMode);
+	} else {
+		element.removeChild(cursor);
+		element.innerHTML += text.charAt(index);
+	}
+}
+
+//
+// Error Animation
+//
+
+var loop_count = 0
+var loop = setInterval(function() {
+	var new_code = original_code.textContent;
+	if (loop_count <= 75) {
+		new_code = `${numbers[Math.floor(Math.random() * 10)]}${numbers[Math.floor(Math.random() * 10)]}${numbers[Math.floor(Math.random() * 10)]}`
+	} else if (loop_count <= 150) {
+		new_code = `5${numbers[Math.floor(Math.random() * 10)]}${numbers[Math.floor(Math.random() * 10)]}`
+	} else if (loop_count <= 225) {
+		new_code = `50${numbers[Math.floor(Math.random() * 10)]}`
+	} else if (loop_count <= 300) {
+		new_code = `503`;
+	}
+	original_code.textContent = new_code;
+
+	if (loop_count >= 300) clearInterval(loop);
+	loop_count += 1;
+}, 1);
+
+</script>

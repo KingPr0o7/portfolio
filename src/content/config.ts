@@ -20,8 +20,15 @@ const text = defineCollection({
 	}),
 })
 
+const projects = defineCollection({
+	schema: z.object({
+		name: z.string(),
+		thumbnail: z.string()
+	})
+})
 
 export const collections = {
 	'blog': blog,
-	'text': text
+	'text': text,
+	'projects': projects
 };

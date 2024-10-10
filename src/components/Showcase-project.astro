@@ -1,42 +1,32 @@
 ---
 interface Props {
+	href: string;
 	video_id: string;
 	video_title: string;
 	start_time: number;
 	project_title: string;
 	project_desc: string;
 	github_link: string;
-	website_link?: string;
 }
 
 import { Icon } from 'astro-icon/components'
-import { YouTube } from '@astro-community/astro-embed-youtube';
-const { video_id, video_title, start_time, project_title, project_desc, github_link, website_link } = Astro.props;
+import Video from '@components/Video.astro';
+const { video_id, video_title, start_time, project_title, project_desc, github_link, href } = Astro.props;
 ---
 
 <div class="project">
-	<div class="project-image-wrapper">
-		<YouTube 
-			id={video_id} 
-			class="project-image"
-			title={video_title}
-			params=`start=${start_time}&cc_load_policy=1`
-			posterQuality="max"
-		/>
-	</div>
+	<Video video_id={video_id} video_title={video_title} start_time={start_time} />
 	<div class="project-info">
 		<h2 class="project-name">{project_title}</h2>
 		<p class="project-desc">{project_desc}</p>
 		<div id="project-redirects">
-			{website_link && (
-				<a class="project-redirect" href={website_link} target="_blank">
-					<Icon name="symbols/redirect" class="project-redirect-image" />
-					<p class="project-redirect-text">Live Preview</p>
-				</a>
-			)}
 			<a class="project-redirect" href={github_link} target="_blank">
 				<Icon name="logos/github-fitted" class="project-redirect-image" />
 				<p class="project-redirect-text">View Code</p>
+			</a>
+			<a class="project-redirect" href=`/503`>
+				<Icon name="symbols/story" class="project-redirect-image" />
+				<p class="project-redirect-text">View Study</p>
 			</a>
 		</div>					
 	</div>
@@ -52,60 +42,45 @@ const { video_id, video_title, start_time, project_title, project_desc, github_l
 
 	.project:nth-child(even) { flex-direction: row-reverse; }
 
-	.project-image-wrapper {
-		width: 700px;
-		height: 400px;
-		background-color: var(--gray);
+	#project-redirects {
 		border-radius: var(--secondary-border-radius);
+		height: fit-content;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 25px;
 	}
 
-		lite-youtube {
-			min-height: 100%;
-			width: 100%;
-			max-width: 100% !important;
-			border-radius: var(--secondary-border-radius);
-		}
-
-
-		#project-redirects {
-			border-radius: var(--secondary-border-radius);
-			height: fit-content;
+		.project-redirect {
+			cursor: pointer;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			gap: 25px;
+			gap: 12.5px;
+			text-decoration: none;
 		}
 
-			.project-redirect {
-				cursor: pointer;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				gap: 12.5px;
-				text-decoration: none;
+			.project-redirect:hover > .project-redirect-image,
+			.project-redirect:focus > .project-redirect-image { 
+				color: var(--accent); 
 			}
-
-				.project-redirect:hover > .project-redirect-image,
-				.project-redirect:focus > .project-redirect-image { 
-					color: var(--accent); 
-				}
 				
-				.project-redirect:hover > .project-redirect-text,
-				.project-redirect:focus > .project-redirect-text {
-					color: var(--accent);
-				}
-
-				.project-redirect-image {
-					width: 48px;
-					height: 48px;
-				}
-
-			.project-seperator {
-				width: 3px;
-				height: 50px;
-				background-color: var(--gray);
-				border-radius: var(--secondary-border-radius);
+			.project-redirect:hover > .project-redirect-text,
+			.project-redirect:focus > .project-redirect-text {
+				color: var(--accent);
 			}
+
+			.project-redirect-image {
+				width: 48px;
+				height: 48px;
+			}
+
+		.project-seperator {
+			width: 3px;
+			height: 50px;
+			background-color: var(--gray);
+			border-radius: var(--secondary-border-radius);
+		}
 
 	.project-info {
 		display: flex;
@@ -147,20 +122,6 @@ const { video_id, video_title, start_time, project_title, project_desc, github_l
 			line-height: 2rem;
 		}
 
-@media (max-width: 1200px) {
-	.project-image-wrapper {
-		width: 623px;
-		height: 356px;
-	}
-}
-
-@media (max-width: 1100px) {
-	.project-image-wrapper {
-		width: 575px;
-		height: 328px;
-	}
-}	
-
 @media (max-width: 1000px) {
 	.project {
 		flex-direction: column !important;
@@ -175,11 +136,6 @@ const { video_id, video_title, start_time, project_title, project_desc, github_l
 			height: 3px;
 			background-color: var(--gray);
 			border-radius: var(--secondary-border-radius);
-		}
-
-		.project-image-wrapper {
-			width: 100%;
-			height: auto;
 		}
 
 		.project-button { width: 50%; }

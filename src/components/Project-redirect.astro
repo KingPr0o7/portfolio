@@ -1,0 +1,42 @@
+---
+interface Props {
+	logo: string;
+	name: string;
+	desc: string;
+}
+
+import { Image } from 'astro:assets';
+const { logo, name, desc } = Astro.props;
+---
+
+<a class="project">
+	<div class="project-wrapper">
+		<Image src={logo} alt={name} width={100} height={100}/>
+		<div class="information-wrapper">
+			<h2>{name}</h2>
+			<p>{desc}</p>
+		</div>
+	</div>
+</a>
+
+<style>
+
+.project {
+	display: flex;
+	justify-content: center;
+}
+
+	.project-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 25px;
+		width: 75%;
+	}
+	
+		.information-wrapper {
+			display: flex;
+			flex-direction: column;
+			gap: 6.25px;
+		}
+</style>

@@ -11,7 +11,7 @@ import Layout from './Layout.astro';
 ---
 
 <Layout title={title} description={description} image={image} data_state='padded' section_class='text-viewer'>
-	<slot name="full" />
+	<slot />
 	<div class='text-content'>
 		<slot name="text" />
 	</div>

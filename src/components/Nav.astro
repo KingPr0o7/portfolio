@@ -211,6 +211,12 @@ import Button from "./Button.astro";
 				background: var(--error);
 			}
 
+			.navbar-container.warning::after { 
+				transform-origin: center;
+				animation: error-expand 1.5s ease-in forwards; 
+				background: var(--warning);
+			}
+
 			/* Navbar Loading Animations */
 			.navbar-container.loading-forward::after { animation: load-forward 2.5s linear infinite; }
 			.navbar-container.loading-backward::after { animation: load-backward 2.5s linear infinite; }
@@ -504,6 +510,7 @@ import Button from "./Button.astro";
 		set_navbar_middle(navbar_middle_left, navbar_middle_width);
 		if (!document.getElementById('error-code')) {
 			document.querySelector('.navbar-container').classList.remove('error');
+			document.querySelector('.navbar-container').classList.remove('warning');
 		}
 
 		// Remove scroll event listener if not on blog page
