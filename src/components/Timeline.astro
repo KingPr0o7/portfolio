@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import NES from "@public/personal/super-mario-bros.png";
 import PC_Mirroring from "@public/personal/city-car-driving.png";
-import Space_Invaders from "@public/personal/space-invaders.png";
+import Scratch_Club from "@public/personal/scratch-club.png";
 import Ninja_and_King from "@public/personal/ninja-and-king.png";
 import Nathan_Parker from "@public/personal/nathan-parker.png";
 
@@ -83,7 +83,7 @@ import Link from "./Link.astro";
 				<h2 class="moment-title">The Spark for Programming</h2>
 				<p class="moment-desc">In the spring months of 2018, I joined a local programming club at my library that taught an online programming language called <Link href="https://scratch.mit.edu/" text="Scratch" />. The day it started, sometime in early March, when I first connected the event block to the sprite's say block — <b>something clicked</b>. The sight of seeing something <i>come to life</i> from joining two blocks together left me in <b><i>awe</i></b> and <b>permanently stained</b> a desire to keep creating things, <b>especially for others</b>. <i>From that day onwards</i>, I've <b>dedicated</b> my passion towards the creation and maintenance of computer software.</p>
 			</div>
-			<Image class="moment-image" src={Space_Invaders} alt="My first ever coding game, Space 'Exvaders' (I couldn't spell lol)" width="300" height="300" />
+			<Image class="moment-image" src={Scratch_Club} alt="The life-changing image of me attending my first Scratch Club meeting!" width="300" height="300" />
 		</div>
 
 		<div class="moment-in-time" id="moment-2021">
@@ -232,6 +232,7 @@ import Link from "./Link.astro";
 				.moment-image { border-radius: var(--secondary-border-radius); }
 
 					#moment-images-2015 { animation: twenty-fifteen-images 25s infinite; }
+					#moment-images-2018 { animation: twenty-eighteen-images 25s infinite; }
 					#moment-images-2021 { animation: twenty-one-images 25s infinite; }
 					#moment-images-2023 { animation: twenty-three-images 25s infinite; }
 
@@ -287,8 +288,13 @@ import Link from "./Link.astro";
 }
 
 @keyframes twenty-fifteen-images {
-	50% { content: url('/personal/me-mirroring-pc.png');}
+	50% { content: url('/personal/me-mirroring-pc.png'); }
 	100% { content: url('/personal/city-car-driving.png'); }
+}
+
+@keyframes twenty-eighteen-images {
+	50% { content: url('/personal/space-invaders.png'); }
+	100% { content: url('/personal/scratch-club.png'); }
 }
 
 @keyframes twenty-one-images {
