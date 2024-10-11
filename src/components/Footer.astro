@@ -17,7 +17,10 @@ const year = date.getFullYear();
 				</a>
 				<p class="footer-desc">A software developer working towards his dreams — to make big things happen.</p>
 			</div>
-			<p class="footer-copyright">&#169; {year} Nathan Parker. All rights reserved.</p>
+			<div class="footer-legal">
+				<p class="footer-legal-text">&#169; {year} Nathan Parker. All rights reserved.</p>
+				<p class="footer-legal-text">‘N’ is a pending trademark of Nathan Parker.</p>
+			</div>
 		</div>
 
 		<div class="footer-sections">
@@ -39,22 +42,27 @@ const year = date.getFullYear();
 			<div class="footer-section">
 				<h2 class="footer-section-header">My Socials</h2>
 				<div class="footer-socials">
+					<a class="footer-social" href="https://www.instagram.com/nathan.parker07/" target="_blank">
+						<Icon name="logos/instagram" class="footer-social-logo" width={32} height={32} />
+						<p class="footer-social-name">Instagram</p>
+					</a>
+
 					<a class="footer-social" href="https://www.linkedin.com/in/nathanparker07/" target="_blank">
 						<Icon name="logos/linkedin" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">LinkedIn</p>
 					</a>
 		
-					<a class="footer-social" href="https://discord.gg/ksW8rAcU6t" target="_blank">
+					<a class="footer-social" href="https://www.discord.gg/ksW8rAcU6t" target="_blank">
 						<Icon name="logos/discord" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">Discord</p>
 					</a>
-		
-					<a class="footer-social" href="https://github.com/KingPr0o7" target="_blank">
+
+					<a class="footer-social" href="https://www.github.com/KingPr0o7" target="_blank">
 						<Icon name="logos/github-fitted" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">GitHub</p>
 					</a>
 		
-					<a class="footer-social" href="https://twitter.com/KingPr0o7" target="_blank">
+					<a class="footer-social" href="https://www.twitter.com/KingPr0o7" target="_blank">
 						<Icon name="logos/twitter" class="footer-social-logo" width={32} height={32} />
 						<p class="footer-social-name">Twitter</p>
 					</a>
@@ -111,7 +119,7 @@ footer {
 			height: 100px;	
 		}
 
-		.footer-desc, .footer-copyright {
+		.footer-desc, .footer-legal-text {
 			font-size: clamp(1.2rem, 1.5vw, 1.3rem);
 			line-height: 1.8rem;
 		}
@@ -205,7 +213,7 @@ footer {
 			}
 
 			.footer-desc { text-align: center; }
-			.footer-copyright { text-align: center;}
+			.footer-legal-text { text-align: center;}
 		
 		.footer-sections { 
 			align-items: baseline;
@@ -229,7 +237,7 @@ footer {
 			.footer-social-name { display: none; }	
 }
 
-@media (max-width: 350px) {
+@media (max-width: 450px) {
 	.footer-sections { 
 		flex-direction: column; 
 		align-items: center;
