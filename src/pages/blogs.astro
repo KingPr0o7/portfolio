@@ -10,12 +10,14 @@ const blogs = await getCollection('blog');
 <Layout title="Blogs" description="A centralized platform of Nathan Parker's (KingPr0o7) thoughts across a spectrum of subjects within the technology space." image="blogs.png" section_class='blogs-section'>
 	<div id="blogs-section">
 		<div id="blogs">
-			{blogs.map((blog, index) => {
-				return index === 0 ? (
-					<BlogBanner link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} tone={blog.data.tone || "Default tone"}  date={blog.data.date} />
-				) : (
-					<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
-				);
+		  {blogs
+			.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+			.map((blog, index) => {
+			  return index === 0 ? (
+				<BlogBanner link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} tone={blog.data.tone || "Default tone"} date={blog.data.date} />
+			  ) : (
+				<BlogPost link={`/blog/${blog.slug}`} thumbnail={`/covers/${blog.data.thumbnail}`} thumbnail_alt={blog.data.thumbnail_alt} title={blog.data.title} />
+			  );
 			})}
 		</div>
 	</div>

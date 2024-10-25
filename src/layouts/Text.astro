@@ -32,7 +32,15 @@ import Layout from './Layout.astro';
 			gap: 25px;
 			flex-direction: column;
 		}
-	
+
+		/* Emphasizes the first letter of the blog */ 
+		.text-content > p:nth-child(1)::first-letter { 
+			float: left;
+			color: var(--accent);
+			padding: 25px;
+			font-size: clamp(1.4rem, 25vw, 6rem); 
+		}
+
 		.text-content > p {
 			width: 100%;
 			font-size: clamp(1rem, 1.5vw, 1.5rem);

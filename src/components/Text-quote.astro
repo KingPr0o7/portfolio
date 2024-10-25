@@ -1,7 +1,7 @@
 ---	
 interface Props {
 	quote: string;
-	by: string;
+	by?: string;
 	href?: string;
 }
 
@@ -11,7 +11,7 @@ import Link from './Link.astro';
 
 <div class="quote">
 	<blockquote class="quote-text">"{quote}"</blockquote>
-	<p class="quote-by">— {href ? <Link text={by} href={href} /> : by}</p>
+	{by && <p class="quote-by">— {href ? <Link text={by} href={href} /> : by}</p>}
 </div>
 
 <style>
