@@ -33,7 +33,7 @@ const { link, thumbnail, thumbnail_alt, title, tone, date, centered } = Astro.pr
 		width: 100%;
 		background-position: center;
 		border-radius: var(--secondary-border-radius);
-		opacity: 0.2;
+		opacity: 0.4;
 		object-fit: cover;
 	}
 	
@@ -67,7 +67,14 @@ const { link, thumbnail, thumbnail_alt, title, tone, date, centered } = Astro.pr
 	
 	.blog-title { font-size: clamp(1.3rem, 2.8vw, 3rem); width: fit-content; }
 
-@media (max-height: 1300px) {
+@media (min-width: 1300px) {
+	.blog-image-wrapper { padding: 0; }
+	
+	.blog-image { height: 800px; }
+}
+
+@media (max-width: 1200px) {
+	.blog-image-wrapper { padding: 0 50px; }
 	.blog-image { height: 800px; }
 }
 
