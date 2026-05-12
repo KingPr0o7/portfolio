@@ -63,7 +63,7 @@ export const Email = ({ name, input }: EmailProps) => {
 					<Section style={footer}>
 						<Row>
 							<Column style={socials}>
-								<Link href="https://twitter.com/Azuronate" style={social_link}>
+								<Link href="https://x.com/Azuronate" style={social_link}>
 									<Img width={32} height={32} src={`${baseUrl}/email/x.png`} />
 								</Link>
 								<Link  href="https://github.com/Azuronate" style={social_link}>
